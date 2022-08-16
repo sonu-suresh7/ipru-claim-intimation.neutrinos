@@ -8,8 +8,6 @@ import {
   Input,
   Output,
   EventEmitter,
-  SimpleChanges,
-  OnChanges,
 } from '@angular/core'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
@@ -136,6 +134,20 @@ export class investigation_requestComponent {
     }
   }
 
+  claimType(event: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { event: event };
+      bh.local = {};
+      bh = this.sd_XeOPxTcLUb4HD0nL(bh);
+      //appendnew_next_claimType
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_nWzOU2LY0lx5SPdq');
+    }
+  }
+
   //appendnew_flow_investigation_requestComponent_start
 
   sd_0Cr4hbWvC1SCE1eW(bh) {
@@ -144,6 +156,8 @@ export class investigation_requestComponent {
       this.page.selected_sub_type = {};
       this.page.selected_checklist = {};
       this.page.investigator = undefined;
+      this.page.claimtype = ['Medical', 'Natural', 'Accidental', 'Suicidal'];
+      this.page.documentList = undefined;
       bh = this.sd_Zr7vZ52qE3Bj625J(bh);
       //appendnew_next_sd_0Cr4hbWvC1SCE1eW
       return bh;
@@ -160,10 +174,71 @@ export class investigation_requestComponent {
       let outputVariables = await investigationInstance.getInvestigators();
       this.page.investigators = outputVariables.local.result;
 
+      bh = this.sd_IvESlKkJxLqsR2Wg(bh);
       //appendnew_next_sd_Zr7vZ52qE3Bj625J
       return bh;
     } catch (e) {
       return await this.errorHandler(bh, e, 'sd_Zr7vZ52qE3Bj625J');
+    }
+  }
+
+  sd_IvESlKkJxLqsR2Wg(bh) {
+    try {
+      const page = this.page;
+      page.documenttype = [
+        {
+          claimtype: 'Medical',
+          docList: [
+            'Claim Intimation Form',
+            'Policy Document',
+            'Death Certificate',
+            'ID Proof',
+            'Discharge Summary',
+            'Doctor’s certificate',
+            'Claimants Photo',
+          ],
+        },
+        {
+          claimtype: 'Natural',
+          docList: [
+            'Claim Intimation Form',
+            'Policy Document',
+            'Death Certificate',
+            'ID Proof',
+            'Discharge Summary',
+            'Doctor’s certificate',
+            'Claimants Photo',
+          ],
+        },
+        {
+          claimtype: 'Accidental',
+          docList: [
+            'Claim Intimation Form',
+            'Policy Document',
+            'Death Certificate',
+            'ID Proof',
+            'FIR',
+            'Post mortem Report ',
+            'Claimants Photo',
+          ],
+        },
+        {
+          claimtype: 'Suicidal',
+          docList: [
+            'Claim Intimation Form',
+            'Policy Document',
+            'Death Certificate',
+            'ID Proof',
+            'FIR',
+            'Post mortem Report ',
+            'Claimants Photo',
+          ],
+        },
+      ];
+      //appendnew_next_sd_IvESlKkJxLqsR2Wg
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_IvESlKkJxLqsR2Wg');
     }
   }
 
@@ -241,6 +316,25 @@ export class investigation_requestComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_Za8bdmOk9IHavRYk');
+    }
+  }
+
+  sd_XeOPxTcLUb4HD0nL(bh) {
+    try {
+      const page = this.page;
+      console.log(bh.input.event.value);
+      page.documentList = [];
+      if (bh.input.event.value) {
+        let list = page.documenttype.find(
+          (ele) => ele.claimtype == bh.input.event.value
+        );
+        page.documentList = list.docList;
+      }
+
+      //appendnew_next_sd_XeOPxTcLUb4HD0nL
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_XeOPxTcLUb4HD0nL');
     }
   }
 
