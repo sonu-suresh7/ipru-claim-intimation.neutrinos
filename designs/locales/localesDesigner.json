@@ -161,9 +161,9 @@
             "traffic_light_status_in_progress": "In Progress",
             "traffic_light_status_incomplete": "Incomplete",
             "comments_save_button": "Save comment",
-            "traffic_lights_add_placeholder": "Enter rule here",
+            "traffic_lights_add_placeholder": "Enter Document",
             "traffic_lights_add_button": "Add",
-            "traffic_lights_validation_rules_header": "Validation Rules",
+            "traffic_lights_validation_rules_header": "Documents",
             "comments_placeholder": "Comments",
             "applicationDate": "Application Date",
             "userName": "User Name",
@@ -201,9 +201,9 @@
             "ticketNumber": "Ticket No",
             "policyOwner": "Policy owner",
             "investigationDetails": "Investigation Details",
-            "positive": "Positive",
-            "negative": "Negative",
-            "inconclusive": "Inconclusive"
+            "positive": "Verified",
+            "negative": "Not Received",
+            "inconclusive": "Discrepancy"
         }
     },
     "vi": {

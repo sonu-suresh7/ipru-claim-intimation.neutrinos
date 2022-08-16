@@ -810,7 +810,7 @@
             "description": "Neutrinos IDP Viewer Toolkit",
             "devid": "2073e1e5-04c0-dac6-d391-8c6234599ba5",
             "displayName": "Neutrinos IDP Viewer Toolkit",
-            "lastUpdated": "2022-06-28T11:03:31.772Z",
+            "lastUpdated": "2022-08-03T07:34:46.500Z",
             "numberOfDownloads": 0,
             "packageType": [
                 "studio-package",
@@ -820,7 +820,7 @@
             "publisher": "Paul Thomas",
             "uploadedDate": "2022-03-30T09:49:43.170Z",
             "username": "paul.thomas@neutrinos.co",
-            "version": "1.0.27",
+            "version": "1.0.28",
             "versions": {
                 "0.0.1": {
                     "packages": [
@@ -1598,25 +1598,61 @@
                         }
                     },
                     "version": "1.0.27"
+                },
+                "1.0.28": {
+                    "packages": [
+                        {
+                            "name": "neutrinosidpviewer",
+                            "version": "1.0.28",
+                            "packageType": "studio-package",
+                            "displayName": "IDP Viewer",
+                            "nModule": {
+                                "importStatement": "import { IdpDvModule } from 'idp-dv';",
+                                "imports": [
+                                    "IdpDvModule"
+                                ]
+                            }
+                        },
+                        {
+                            "name": "idp-dv",
+                            "version": "1.0.28",
+                            "packageType": "angular-package"
+                        }
+                    ],
+                    "platformSupportVersion": {
+                        "min": "8.0.0"
+                    },
+                    "metadata": {
+                        "devid": "2073e1e5-04c0-dac6-d391-8c6234599ba5",
+                        "name": "neutrinos-idp-viewer-toolkit",
+                        "displayName": "Neutrinos IDP Viewer Toolkit",
+                        "description": "Neutrinos IDP Viewer Toolkit",
+                        "version": "1.0.28",
+                        "username": "paul.thomas@neutrinos.co",
+                        "publisher": "Paul Thomas",
+                        "platformSupportVersion": {
+                            "min": "8.0.0"
+                        }
+                    },
+                    "version": "1.0.28"
                 }
             },
             "archiveFile": "api/zips/undefined",
-            "guide": "62bae005c1a5d6001aa95513",
-            "icon": "api/resource/icons/62bae004c1a5d6001aa95509",
+            "guide": "62ea25171903af001abfc38e",
+            "icon": "api/resource/icons/62ea25161903af001abfc386",
             "screenshots": [
-                "api/resource/screenshots/62bae004c1a5d6001aa9550b",
-                "api/resource/screenshots/62bae004c1a5d6001aa9550d",
-                "api/resource/screenshots/62bae004c1a5d6001aa9550f",
-                "api/resource/screenshots/62bae004c1a5d6001aa95511"
+                "api/resource/screenshots/62ea25161903af001abfc388",
+                "api/resource/screenshots/62ea25171903af001abfc38a",
+                "api/resource/screenshots/62ea25171903af001abfc38c"
             ],
             "no_of_downloads_by_packages": {
-                "neutrinosidpviewer": 69,
-                "idp-dv": 182
+                "neutrinosidpviewer": 82,
+                "idp-dv": 338
             },
             "dependencies": [
                 {
                     "name": "neutrinosidpviewer",
-                    "version": "1.0.27",
+                    "version": "1.0.28",
                     "packageType": "studio-package",
                     "displayName": "IDP Viewer",
                     "nModule": {
@@ -1628,7 +1664,7 @@
                 },
                 {
                     "name": "idp-dv",
-                    "version": "1.0.27",
+                    "version": "1.0.28",
                     "packageType": "angular-package"
                 }
             ]
