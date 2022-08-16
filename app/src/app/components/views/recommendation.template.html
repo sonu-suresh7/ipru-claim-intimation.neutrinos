@@ -1,0 +1,16 @@
+<div fxLayout="column " style="height:100%;  " fxLayoutGap="20px" fxLayoutAlign="none stretch" [fxShow]="true">
+  <mat-accordion hideToggle="true" class="expansion-panel-styles">
+    <mat-expansion-panel hideToggle="false" [expanded]="true" [disabled]="true">
+      <mat-expansion-panel-header>
+
+        <mat-panel-title>
+
+          <div fxLayout="row " fxLayoutGap="1rem" fxLayoutAlign="start center" [fxShow]="true"><img imgSrc="/Web/CaseDetails/mydecision.svg" alt="mydecision"><label>
+              {{page.locales.keys.myDecision}}</label></div>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <bh-uw1Decision [selectedRecommendation]="page?.selectedRecommendation" (decision)="prepareDecision($event)"></bh-uw1Decision>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <div fxLayout="row " style="padding-bottom: 10px;" fxLayoutGap="20px" fxLayoutAlign="end stretch" [fxShow]="true"><button mat-raised-button class="primary-light" (click)="submit(&apos;save&amp;Exit&apos;)">{{page.locales.keys.saveExit}}</button><button mat-raised-button class="primary-light" (click)="submit(&apos;submit&apos;)" [disableRipple]="true">{{page.locales.keys.submit}}</button></div>
+</div>

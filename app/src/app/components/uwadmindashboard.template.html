@@ -1,0 +1,200 @@
+<div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" fxFill>
+  <div fxLayout="column wrap" style="background: rgba(244, 244, 244, 0.8); padding: 1em" fxFlex="100" fxLayoutAlign="start stretch" [fxShow]="true">
+    <div fxLayout="row wrap" style="padding: 1em; padding-left: 0em !important; padding-bottom: 0 !important;" fxLayoutAlign="start stretch" [fxShow]="true">
+      <div class="db-title">
+        Dashboard</div>
+    </div>
+    <div fxLayout="row wrap" fxLayoutAlign="space-between center" [fxShow]="true">
+      <div fxLayout="column wrap" style="background: white; border-radius: 6px;" fxFlex="49" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100">
+        <div fxLayout="row wrap" style="padding: 1em;" fxLayoutAlign="start stretch" [fxShow]="true">
+          <div style="font-family: &apos;Poppins&apos;; font-style: normal; font-weight: 500; font-size: 16px; line-height: 24px; letter-spacing: 0.4px; color: #183446;">
+            Underwriting Performance</div>
+        </div>
+        <div fxLayout="row wrap" style="background: #E4E7EA; padding-left: 1em; margin-bottom: 0.7em;" fxLayoutAlign="start center" [fxShow]="true">
+          <div fxLayout="column wrap" fxFlex="50" fxLayoutAlign="start stretch" [fxShow]="true">
+            <div style="font-family: &apos;Poppins&apos;; font-style: normal; font-weight: 400; font-size: 12.5px; line-height: 19px; /* identical to box height */  display: flex; align-items: center;  color: #000000;">
+              Underwriting Performance</div>
+          </div>
+          <div fxLayout="column wrap" fxFlex="50" fxLayoutAlign="start stretch" [fxShow]="true">
+            <div style="font-family: &apos;Poppins&apos;; font-style: normal; font-weight: 400; font-size: 12.5px; line-height: 19px; /* identical to box height */  display: flex; align-items: center;  color: #000000;" class="graph-header">
+              NOPS</div>
+          </div>
+        </div>
+        <div fxLayout="row wrap" style="padding-left: 1em; max-height: 30px ; min-height: 30px; height: 30px;" fxLayoutAlign="start start" [fxShow]="true" *ngFor="let data of page.performanceData">
+          <div fxLayout="column wrap" style="max-height: 30px ; min-height: 30px;" fxFlex="50" fxLayoutAlign="center start" [fxShow]="true">
+            <div style="font-family: &apos;Poppins&apos;; font-style: normal; font-weight: 400; font-size: 12.5px; line-height: 19px; /* identical to box height */  display: flex; align-items: center;  color: #000000;" class="graph-header">
+              {{data.key}}
+            </div>
+          </div>
+          <div fxLayout="column wrap" style="max-height: 30px ; min-height: 30px;" fxFlex="50" fxLayoutAlign="center start" [fxShow]="true">
+            <div style="font-family: &apos;Poppins&apos;; font-style: normal; font-weight: 400; font-size: 12.5px; line-height: 19px; /* identical to box height */  display: flex; align-items: center;  color: #000000;">
+              {{data.value}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div fxLayout="column wrap" fxFlex="49" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100">
+        <div fxLayout="row wrap" style="background: white;border-radius: 6px;padding: 1em;margin-bottom:1em;" fxLayoutAlign="start stretch" [fxShow]="true">
+          <div>
+            <p style="font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 24px;
+letter-spacing: 0.4px;
+color: #183446;"> Annualized Premium Underwritten Today </p>
+            <p style="font-style: normal;
+padding-top:1em;
+font-weight: 300;
+font-size: 40px;
+line-height: 35px;
+color: #3B3B3A;"> &#x20AB; {{page.annPremium}}. VND </p>
+          </div>
+        </div>
+        <div fxLayout="row wrap" style="background: white;     border-radius: 6px;     padding: 1em;" fxLayoutAlign="start stretch" [fxShow]="true">
+          <div>
+            <p style="font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 24px;
+letter-spacing: 0.4px;
+color: #183446;"> Cases In Process </p>
+            <p style="font-style: normal;
+padding-top:1em;
+font-weight: 300;
+font-size: 40px;
+line-height: 35px;
+color: #3B3B3A;"> {{page.totalPendingCases}} </p>
+          </div>
+        </div>
+        <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true"></div>
+      </div>
+    </div>
+    <div fxLayout="row wrap" style="margin-bottom:1.5em" fxLayoutAlign="space-between start" [fxShow]="true">
+      <div fxLayout="column wrap" style="background: white;" fxFlex="49" fxLayoutAlign="start stretch" [fxShow]="true" fxFill>
+        <div fxLayout="row wrap" style="padding: 1em;" fxLayoutAlign="start stretch" [fxShow]="true">
+          <div style="font-family: &apos;Poppins&apos;; font-style: normal; font-weight: 500; font-size: 16px; line-height: 24px; letter-spacing: 0.4px; color: #183446;">
+            Underwriting Performance</div>
+        </div>
+        <div fxLayout="row wrap" style="background: #E4E7EA; padding-left: 1em;    padding-top: 0.7em;     padding-bottom: 0.7em; margin-bottom: 1em;" fxLayoutAlign="start center" [fxShow]="true">
+          <div fxLayout="column wrap" fxFlex="33" fxLayoutAlign="start stretch" [fxShow]="true">
+            <div style="font-family: &apos;Poppins&apos;; font-style: normal; font-weight: 400; font-size: 12.5px; line-height: 19px; /* identical to box height */  display: flex; align-items: center;  color: #000000;">
+              Underwriting</div>
+          </div>
+          <div fxLayout="column wrap" fxFlex="33" fxLayoutAlign="start stretch" [fxShow]="true">
+            <div style="font-family: &apos;Poppins&apos;; font-style: normal; font-weight: 400; font-size: 12.5px; line-height: 19px; /* identical to box height */  display: flex; align-items: center;  color: #000000;" class="graph-header">
+              In Process</div>
+          </div>
+          <div fxLayout="column wrap" fxFlex="33" fxLayoutAlign="start stretch" [fxShow]="true">
+            <div style="font-family: &apos;Poppins&apos;; font-style: normal; font-weight: 400; font-size: 12.5px; line-height: 19px; /* identical to box height */  display: flex; align-items: center;  color: #000000;" class="graph-header">
+              Completed</div>
+          </div>
+        </div>
+        <div fxLayout="row wrap" style=" padding-left: 1em; max-height: 30px; min-height: 30px;" fxLayoutAlign="start start" [fxShow]="true" *ngFor="let data of page.leaderBoardData">
+          <div fxLayout="column wrap" style="max-height: 30px; min-height: 30px;" fxFlex="33" fxLayoutAlign="center start" [fxShow]="true">
+            <div style="font-family: &apos;Poppins&apos;; font-style: normal; font-weight: 400; font-size: 12.5px; line-height: 19px; /* identical to box height */  display: flex; align-items: center;  color: #000000;">
+              {{data[&apos;message&apos;][&apos;payload&apos;][&apos;user&apos;] | uppercase}}
+            </div>
+          </div>
+          <div fxLayout="column wrap" style="max-height: 30px; min-height: 30px;" fxFlex="33" fxLayoutAlign="center start" [fxShow]="true">
+            <div fxLayout="row wrap" style="width:100%" fxLayoutAlign="start stretch" [fxShow]="true">
+              <div fxLayout="column wrap" style="background: #FF9F00" fxLayoutAlign="center center" [fxShow]="true" [fxFlex]="data.counter.flexPending">
+                <div style="font-family: &apos;Poppins&apos;; font-style: normal; font-weight: 400; font-size: 12.5px; line-height: 19px; /* identical to box height */  display: flex; align-items: center;  color: white;">
+                  {{data.counter.pending }}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div fxLayout="column wrap" style="max-height: 30px; min-height: 30px;" fxFlex="33" fxLayoutAlign="center start" [fxShow]="true">
+            <div fxLayout="row wrap" style="width:100%" fxLayoutAlign="start stretch" [fxShow]="true">
+              <div fxLayout="column wrap" style="background: #56BB6F" fxLayoutAlign="center center" [fxShow]="true" [fxFlex]="data.counter.flexCompleted">
+                <div style="font-family: &apos;Poppins&apos;; font-style: normal; font-weight: 400; font-size: 12.5px; line-height: 19px; /* identical to box height */  display: flex; align-items: center;  color: white;">
+                  {{data.counter.completed}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true"></div>
+      </div>
+      <div fxLayout="column wrap" style="background: white;     border-radius: 6px;" fxFlex="49" fxLayoutAlign="start stretch" [fxShow]="true">
+        <div fxFlex="100">
+          <canvas baseChart [datasets]="page.pieChartData" [labels]="page.pieChartLabels" [options]="page.pieChartOptions" [colors]="page.pieChartColors" [legend]="true" chartType="pie"></canvas>
+        </div>
+      </div>
+    </div>
+    <div fxLayout="row wrap" style="margin-bottom: 1.5em" fxLayoutAlign="space-between center" [fxShow]="true">
+      <div fxLayout="column wrap" style="background: white; border-radius: 6px;" fxFlex="49" fxLayoutAlign="start stretch" [fxShow]="true">
+        <div fxLayout="row wrap" style="padding: 1em;" fxLayoutAlign="start stretch" [fxShow]="true">
+          <div style="font-family: &apos;Poppins&apos;; font-style: normal; font-weight: 500; font-size: 16px; line-height: 24px; letter-spacing: 0.4px; color: #183446;">
+            Further Info Pending Age</div>
+        </div>
+        <div fxLayout="row wrap" style="background: #E4E7EA; padding-left: 1em" fxLayoutAlign="start center" [fxShow]="true">
+          <div fxLayout="column wrap" fxFlex="50" fxLayoutAlign="start stretch" [fxShow]="true">
+            <div style="font-family: &apos;Poppins&apos;; font-style: normal; font-weight: 400; font-size: 12.5px; line-height: 19px; /* identical to box height */  display: flex; align-items: center;  color: #000000;">
+              Ageing in days</div>
+          </div>
+          <div fxLayout="column wrap" fxFlex="50" fxLayoutAlign="start stretch" [fxShow]="true">
+            <div style="font-family: &apos;Poppins&apos;; font-style: normal; font-weight: 400; font-size: 12.5px; line-height: 19px; /* identical to box height */  display: flex; align-items: center;  color: #000000;" class="graph-header">
+              NOPS</div>
+          </div>
+        </div>
+        <div fxLayout="row wrap" style="padding-left: 1em;" fxLayoutAlign="start stretch" [fxShow]="true" *ngFor="let data of page.ageData">
+          <div fxLayout="column wrap" fxFlex="50" fxLayoutAlign="center start" [fxShow]="true">
+            <div style="font-family: &apos;Poppins&apos;; font-style: normal; font-weight: 400; font-size: 12.5px; line-height: 19px; /* identical to box height */  display: flex; align-items: center;  color: #000000;" class="graph-header">
+              {{data.key}}
+            </div>
+          </div>
+          <div fxLayout="column wrap" fxFlex="50" fxLayoutAlign="center start" [fxShow]="true">
+            <div style="font-family: &apos;Poppins&apos;; font-style: normal; font-weight: 400; font-size: 12.5px; line-height: 19px; /* identical to box height */  display: flex; align-items: center;  color: #000000;">
+              {{data.value}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div fxLayout="column wrap" style="background: white;     border-radius: 6px;" fxFlex="49" fxLayoutAlign="start stretch" [fxShow]="true">
+        <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+          <div fxFlex="100">
+            <canvas baseChart [datasets]="page.barChartData" [labels]="page.barChartLabels" [colors]="page.chartColors" [legend]="false" chartType="bar"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div fxLayout="row wrap" fxLayoutAlign="space-between center" [fxShow]="true">
+      <div fxLayout="column wrap" style="background: white; border-radius: 6px;" fxFlex="49" fxLayoutAlign="start stretch" [fxShow]="true" fxFill>
+        <div fxLayout="row wrap" style="padding: 1em;" fxLayoutAlign="start stretch" [fxShow]="true">
+          <div style="font-family: &apos;Poppins&apos;; font-style: normal; font-weight: 500; font-size: 16px; line-height: 24px; letter-spacing: 0.4px; color: #183446;">
+            Pending Cases Reason</div>
+        </div>
+        <div fxLayout="row wrap" style="background: #E4E7EA; padding-left: 1em; padding-top:0.7em; padding-bottom:0.7em;" fxLayoutAlign="start center" [fxShow]="true">
+          <div fxLayout="column wrap" fxFlex="50" fxLayoutAlign="start stretch" [fxShow]="true">
+            <div style="font-family: &apos;Poppins&apos;; font-style: normal; font-weight: 400; font-size: 12.5px; line-height: 19px; /* identical to box height */  display: flex; align-items: center;  color: #000000;">
+              Reason</div>
+          </div>
+          <div fxLayout="column wrap" fxFlex="50" fxLayoutAlign="start stretch" [fxShow]="true">
+            <div style="font-family: &apos;Poppins&apos;; font-style: normal; font-weight: 400; font-size: 12.5px; line-height: 19px; /* identical to box height */  display: flex; align-items: center;  color: #000000;" class="graph-header">
+              NOPS</div>
+          </div>
+        </div>
+        <div fxLayout="row wrap" style="padding-left: 1em;" fxLayoutAlign="start stretch" [fxShow]="true" *ngFor="let data of page.pcaseReason">
+          <div fxLayout="column wrap" fxFlex="50" fxLayoutAlign="center start" [fxShow]="true">
+            <div style="font-family: &apos;Poppins&apos;; font-style: normal; font-weight: 400; font-size: 12.5px; line-height: 19px; /* identical to box height */  display: flex; align-items: center;  color: #000000;" class="graph-header">
+              {{data.key}}
+            </div>
+          </div>
+          <div fxLayout="column wrap" fxFlex="50" fxLayoutAlign="center start" [fxShow]="true">
+            <div style="font-family: &apos;Poppins&apos;; font-style: normal; font-weight: 400; font-size: 12.5px; line-height: 19px; /* identical to box height */  display: flex; align-items: center;  color: #000000;">
+              {{data.value}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div fxLayout="column wrap" style="background: white;     border-radius: 6px;" fxFlex="49" fxLayoutAlign="start stretch" [fxShow]="true">
+        <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+          <div fxFlex="100">
+            <canvas baseChart [datasets]="page.barChartData1" [labels]="page.barChartLabels1" [colors]="page.chartColors" [legend]="false" chartType="bar"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

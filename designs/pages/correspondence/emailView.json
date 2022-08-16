@@ -1,0 +1,292 @@
+[
+    {
+        "id": "sd_ZSerAE8yo3xOMTFi",
+        "type": "tab",
+        "createdDate": "2022-03-28T13:13:45.532Z",
+        "label": "emailView",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "emailViewComponent"
+    },
+    {
+        "id": "sd_6gTADwU0f3ICexqN",
+        "type": "OnInit",
+        "z": "sd_ZSerAE8yo3xOMTFi",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "inputVariables": [
+            {
+                "key": "email",
+                "defaultValue": {
+                    "type": "any",
+                    "value": "{}"
+                }
+            }
+        ],
+        "localVariables": [],
+        "outputVariables": [],
+        "functionName": "sd_6gTADwU0f3ICexqN",
+        "category": "Lifecycle Events",
+        "x": 30,
+        "y": 30,
+        "wires": [
+            [
+                "sd_pcR7UyL3FKQbrVW2"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "emailViewComponent"
+    },
+    {
+        "id": "sd_pcR7UyL3FKQbrVW2",
+        "type": "PageVariables",
+        "z": "sd_ZSerAE8yo3xOMTFi",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "iframeContainerHeight",
+                "typedIpValue": {
+                    "type": "str",
+                    "value": "100%"
+                }
+            }
+        ],
+        "functionName": "sd_pcR7UyL3FKQbrVW2",
+        "category": "Function",
+        "x": 180,
+        "y": 30,
+        "wires": [
+            [
+                "sd_phW25x3v8hn0KG4f"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "emailViewComponent"
+    },
+    {
+        "id": "sd_phW25x3v8hn0KG4f",
+        "type": "UseDependency",
+        "z": "sd_ZSerAE8yo3xOMTFi",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "get injected sanitizer",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "",
+        "propertyType": "bh",
+        "propertyGv": "bh.",
+        "alias": "",
+        "modules": [
+            {
+                "textIp": "DomSanitizer",
+                "typedIpValue": {
+                    "type": "bh",
+                    "value": "sanitizer"
+                },
+                "injectable": true
+            }
+        ],
+        "import_all": false,
+        "library": "@angular/platform-browser",
+        "serviceDesignerType": "pages",
+        "functionName": "getInjectedSanitizer",
+        "category": "Function",
+        "x": 285,
+        "y": 60,
+        "wires": [
+            [
+                "sd_YythX1l9uWNpacjJ"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_cN8olbWWqDnQ9nSK",
+        "type": "Script",
+        "z": "sd_ZSerAE8yo3xOMTFi",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "get menu and url",
+        "script": "page.menu = bh.routeConfig.find(c => c.id === bh.menuId);\npage.unsafeUrl = bh.sanitizer.bypassSecurityTrustResourceUrl(page.menu.url)",
+        "functionName": "getMenuAndUrl",
+        "category": "Function",
+        "x": 545,
+        "y": 280,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
+    },
+    {
+        "id": "sd_VP1nsqGZcd6hUF69",
+        "type": "AfterViewInit",
+        "z": "sd_ZSerAE8yo3xOMTFi",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "After View Init",
+        "functionName": "ngAfterViewInit",
+        "category": "Lifecycle Events",
+        "x": 65,
+        "y": 400,
+        "wires": [
+            [
+                "sd_apYH2Ufr34A9OF3K"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "emailViewComponent"
+    },
+    {
+        "id": "sd_apYH2Ufr34A9OF3K",
+        "type": "ViewPicker",
+        "z": "sd_ZSerAE8yo3xOMTFi",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "childViewVariables": [
+            {
+                "key": {
+                    "type": "str",
+                    "value": "iframe"
+                },
+                "defaultValue": "",
+                "isViewChildren": false
+            }
+        ],
+        "functionName": "sd_apYH2Ufr34A9OF3K",
+        "category": "Function",
+        "x": 225,
+        "y": 400,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_JxJE2VS2IWjzhqJN",
+        "type": "Script",
+        "z": "sd_ZSerAE8yo3xOMTFi",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "const ifelm = bh.pageViews.iframe.nativeElement\nconst ibody = ifelm.contentWindow.frames.document.body\nifelm.setAttribute('srcdoc', this.email.body);\nsetTimeout(() => {\n    page.iframeContainerHeight = (ibody.getBoundingClientRect()?.height + 30) + 'px';\n})",
+        "functionName": "sd_JxJE2VS2IWjzhqJN",
+        "category": "Function",
+        "x": 425,
+        "y": 400,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
+    },
+    {
+        "id": "sd_YythX1l9uWNpacjJ",
+        "type": "Script",
+        "z": "sd_ZSerAE8yo3xOMTFi",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.labels = {\n    from: {\n        get label() {\n            return page.locales.keys.from\n        }\n    },\n    sender: {\n        get label() {\n            return page.locales.keys.sender\n        }\n    },\n    to: {\n        get label() {\n            return page.locales.keys.emailKeys.to\n        }\n    },\n    cc: {\n        get label() {\n            return page.locales.keys.emailKeys.cc\n        }\n    }\n}\npage.html = bh.sanitizer.bypassSecurityTrustHtml(this.email.body)\n",
+        "functionName": "sd_YythX1l9uWNpacjJ",
+        "category": "Function",
+        "x": 465,
+        "y": 100,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_2gvWTlzUOJ8347RH",
+        "type": "Script",
+        "z": "sd_ZSerAE8yo3xOMTFi",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "if (bh.pageViews.iframe) {\n    const ifelm = bh.pageViews.iframe.nativeElement\n    const ibody = ifelm.contentWindow.frames.document.body\n    page.iframeContainerHeight = (ibody.getBoundingClientRect()?.height + 50) + 'px';\n}",
+        "functionName": "sd_2gvWTlzUOJ8347RH",
+        "category": "Function",
+        "x": 365,
+        "y": 580,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_UYoQLexsK1ypr8sa",
+        "type": "PageStart",
+        "z": "sd_ZSerAE8yo3xOMTFi",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "",
+        "outputs": 1,
+        "flow_type": "sync",
+        "functionName": "sd_UYoQLexsK1ypr8sa",
+        "category": "General",
+        "x": 80,
+        "y": 600,
+        "wires": [
+            [
+                "sd_lfF05WFlM5cuiqhM"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "emailViewComponent"
+    },
+    {
+        "id": "sd_lfF05WFlM5cuiqhM",
+        "type": "ViewPicker",
+        "z": "sd_ZSerAE8yo3xOMTFi",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "childViewVariables": [
+            {
+                "key": {
+                    "type": "str",
+                    "value": "iframe"
+                },
+                "defaultValue": "",
+                "isViewChildren": false
+            }
+        ],
+        "functionName": "sd_lfF05WFlM5cuiqhM",
+        "category": "Function",
+        "x": 225,
+        "y": 580,
+        "wires": [
+            [
+                "sd_2gvWTlzUOJ8347RH"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

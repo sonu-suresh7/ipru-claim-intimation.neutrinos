@@ -1,0 +1,18 @@
+<div fxLayout="column wrap" class="padding-1" fxLayoutGap="1rem" fxLayoutAlign="start stretch" [fxShow]="true">
+  <div fxLayout="row wrap" class="width-100" fxLayoutAlign="start stretch" [fxShow]="true">
+    <mat-form-field class="width-100" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+      <input matInput placeholder="{{page.locales.keys.selectUser}}" [required]="false" [matAutocomplete]="auto" (input)="acFilter($event.target.value)">
+      <mat-label>{{page.locales.keys.selectUser}}</mat-label>
+    </mat-form-field>
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="page.displayOpt" (optionSelected)="selectUser($event)">
+      <mat-option class="width-100" *ngFor="let user of page.fds" [value]="user">
+        {{user.username}}
+      </mat-option>
+    </mat-autocomplete>
+  </div>
+  <div fxLayout="row " class="margin-bottom-1" fxLayoutGap="0.5rem" fxLayoutAlign="start center" [fxShow]="true"><span class="label-text">
+    {{page.locales.keys.selectedUser}}:</span><span *ngIf="page.selectedUser" class="dark-regular-text">
+                <b>{{page.displayOpt(page.selectedUser || {})}}</b></span><span *ngIf="!page.selectedUser" class="label-text dark-regular-text">
+    {{page.locales.keys.noSelectedUser}}</span></div>
+  <div fxLayout="row " class="margin-top-05 width-100" fxLayoutGap="1rem" fxLayoutAlign="end center"><button mat-raised-button [mat-dialog-close]="false">{{page.locales.keys.cancel}}</button><button mat-raised-button [mat-dialog-close]="page.selectedUser" color="primary">{{page.locales.keys.confirm}}</button></div>
+</div>

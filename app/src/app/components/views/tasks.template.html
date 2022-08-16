@@ -1,0 +1,16 @@
+<div fxLayout="column " class="padding-1" fxFlex="100" fxLayoutGap="1rem" fxLayoutAlign="start stretch" [fxHide]="false">
+  <div fxLayout="row " fxLayoutAlign="space-between center"><span style="display:block;" class="header-title font-weight-semi-bold">
+    {{page.locales.workqueueTitle}}</span>
+    <div fxLayout="row " fxLayoutGap="1rem" fxLayoutAlign="start center">
+      <mat-icon class="cursor-pointer" (click)="openRightSideBar()">filter_list</mat-icon><button mat-raised-button *ngIf="page.USER_ROLE === &apos;ADMIN&apos;" color="primary" (click)="reassignTasks()">{{page.locales.keys.reassign}}</button>
+    </div>
+  </div>
+  <mat-tab-group mat-align-tabs="start" [(selectedIndex)]="page.selectedIndex" animationDuration="0" (selectedIndexChange)="onTabIndexChange($event)">
+    <ng-template ngFor let-tab [ngForOf]="page.queues || []" let-i="index">
+      <mat-tab label="{{tab.conf.label}}" [label]>
+
+        <bh-workQueueTable [wq]="tab" [selfIndex]="i" (taskClicked)="checkout($event)"></bh-workQueueTable>
+      </mat-tab>
+    </ng-template>
+  </mat-tab-group>
+</div>

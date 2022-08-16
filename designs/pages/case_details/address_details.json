@@ -1,0 +1,115 @@
+[
+    {
+        "id": "sd_RSh20aoQXo99GJTA",
+        "type": "tab",
+        "createdDate": "2022-03-22T12:30:16.203Z",
+        "label": "address_details",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "address_detailsComponent"
+    },
+    {
+        "id": "sd_kDxqXoPN77xMtFjl",
+        "type": "OnInit",
+        "z": "sd_RSh20aoQXo99GJTA",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "inputVariables": [
+            {
+                "key": "data",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                }
+            }
+        ],
+        "localVariables": [],
+        "outputVariables": [],
+        "functionName": "sd_kDxqXoPN77xMtFjl",
+        "category": "Lifecycle Events",
+        "x": 105,
+        "y": 60,
+        "wires": [
+            [
+                "sd_h8TqwcxdVJEtz4JW"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "address_detailsComponent"
+    },
+    {
+        "id": "sd_Lr1sYSkVcAoFllWC",
+        "type": "PageStart",
+        "z": "sd_RSh20aoQXo99GJTA",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "getAddressKeys",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [
+            {
+                "key": "detailKeys",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": true
+            }
+        ],
+        "flow_type": "sync",
+        "functionName": "getAddressKeys",
+        "category": "General",
+        "x": 125,
+        "y": 200,
+        "wires": [
+            [
+                "sd_1vNEIQDcEu382e0I"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "address_detailsComponent"
+    },
+    {
+        "id": "sd_1vNEIQDcEu382e0I",
+        "type": "Script",
+        "z": "sd_RSh20aoQXo99GJTA",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.detailKeys = Object.keys(this.data.details);",
+        "functionName": "sd_1vNEIQDcEu382e0I",
+        "category": "Function",
+        "x": 265,
+        "y": 200,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_h8TqwcxdVJEtz4JW",
+        "type": "Script",
+        "z": "sd_RSh20aoQXo99GJTA",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "labels mapper",
+        "script": "page.labels = {\n    address: {\n        get label() {\n            return page.locales.keys.address;\n        }\n    },\n    ward: {\n        get label() {\n            return page.locales.keys.ward;\n        }\n    },\n    district: {\n        get label() {\n            return page.locales.keys.district;\n        }\n    },\n    city: {\n        get label() {\n            return page.locales.keys.city;\n        }\n    },\n    email: {\n        get label() {\n            return page.locales.keys.email;\n        }\n    },\n    telephone: {\n        get label() {\n            return page.locales.keys.telephone;\n        }\n    },\n    mobile: {\n        get label() {\n            return page.locales.keys.mobile;\n        }\n    },\n    bankAccount: {\n        get label() {\n            return page.locales.keys.bankAccount;\n        }\n    },\n    bankAccountName: {\n        get label() {\n            return page.locales.keys.bankAccountName;\n        }\n    },\n    bankName: {\n        get label() {\n            return page.locales.keys.bankName;\n        }\n    },\n    bankBranch: {\n        get label() {\n            return page.locales.keys.bankBranch;\n        }\n    },\n    bankAddress: {\n        get label() {\n            return page.locales.keys.bankAddress;\n        }\n    },\n    residentialAdd: {\n        get label() {\n            return page.locales.keys.residentialAdd;\n        }\n    },\n}\n",
+        "functionName": "labelsMapper",
+        "category": "Function",
+        "x": 245,
+        "y": 60,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

@@ -1,0 +1,134 @@
+[
+    {
+        "id": "sd_4jJUuIyXrJWudMij",
+        "type": "tab",
+        "createdDate": "2022-07-18T21:30:22.909Z",
+        "label": "lifeAssured_proposer",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "lifeAssured_proposerComponent"
+    },
+    {
+        "id": "sd_gYd51c2KSAeXjGpM",
+        "type": "OnInit",
+        "z": "sd_4jJUuIyXrJWudMij",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "inputVariables": [
+            {
+                "key": "policy_details",
+                "defaultValue": {
+                    "type": "any",
+                    "value": "{}"
+                }
+            },
+            {
+                "key": "section",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                }
+            }
+        ],
+        "localVariables": [],
+        "outputVariables": [],
+        "functionName": "sd_gYd51c2KSAeXjGpM",
+        "category": "Lifecycle Events",
+        "x": 30,
+        "y": 30,
+        "wires": [
+            [
+                "sd_Y70nS2vz5uO3VrtF"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "lifeAssured_proposerComponent"
+    },
+    {
+        "id": "sd_Y70nS2vz5uO3VrtF",
+        "type": "PageVariables",
+        "z": "sd_4jJUuIyXrJWudMij",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [],
+        "functionName": "sd_Y70nS2vz5uO3VrtF",
+        "category": "Function",
+        "x": 180,
+        "y": 30,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_BfNbsenranIrKvaj",
+        "type": "PageStart",
+        "z": "sd_4jJUuIyXrJWudMij",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "title case",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "text",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [
+            {
+                "key": "title_case",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": true
+            }
+        ],
+        "flow_type": "sync",
+        "functionName": "titleCase",
+        "category": "General",
+        "x": 112,
+        "y": 253.8000030517578,
+        "wires": [
+            [
+                "sd_DB97L2AX0mtqneUv"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "lifeAssured_proposerComponent"
+    },
+    {
+        "id": "sd_DB97L2AX0mtqneUv",
+        "type": "Script",
+        "z": "sd_4jJUuIyXrJWudMij",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "\nconst result = bh.input.text.replace(/([A-Z])/g, \" $1\");\nbh.local.title_case = result.charAt(0).toUpperCase() + result.slice(1);",
+        "functionName": "sd_DB97L2AX0mtqneUv",
+        "category": "Function",
+        "x": 252,
+        "y": 253.8000030517578,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

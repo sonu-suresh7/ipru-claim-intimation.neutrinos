@@ -1,0 +1,8 @@
+<mat-table [dataSource]="page.sortedTasks" matSort (matSortChange)="sortChange($event)" [trackBy]="page.trackTask">
+  <ng-container *ngFor="let col of wq.conf.selectedColumns" matColumnDef="{{col}}">
+    <mat-header-cell mat-sort-header *matHeaderCellDef> {{page.colConf[col]?.label}} </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row[col]}} </mat-cell>
+  </ng-container>
+  <mat-header-row *matHeaderRowDef="page.displayColumns"></mat-header-row>
+  <mat-row class="cursor-pointer" *matRowDef="let row; columns: page.displayColumns" (click)="checkout(row)"></mat-row>
+</mat-table>

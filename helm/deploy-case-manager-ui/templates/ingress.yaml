@@ -1,0 +1,96 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ .Values.ingressNameBase }}
+  namespace: {{ .Values.deploymentNamespace }}
+  annotations:
+    kubernetes.io/ingress.class: {{ .Values.nginxClass }}
+    # nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    # nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    # nginx.ingress.kubernetes.io/rewrite-target: /web$2
+    # nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    # nginx.ingress.kubernetes.io/proxy-body-size: "0"
+    # nginx.ingress.kubernetes.io/proxy-connect-timeout: "600"
+    # nginx.ingress.kubernetes.io/proxy-read-timeout: "600"
+    # nginx.ingress.kubernetes.io/proxy-send-timeout: "600"
+spec:
+  # tls:
+  # - hosts:
+  #   - {{ .Values.ingressHost }}
+  #   secretName: idp-cert
+  rules:
+  - http:
+      paths:
+      - path: /(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ .Values.ingressService }}
+            port: 
+              number: 80
+
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ .Values.ingressNameWeb }}
+  namespace: {{ .Values.deploymentNamespace }}
+  annotations:
+    kubernetes.io/ingress.class: {{ .Values.nginxClass }}
+    # nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    # nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    # nginx.ingress.kubernetes.io/rewrite-target: /$1$2
+    # nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    # nginx.ingress.kubernetes.io/proxy-body-size: "0"
+    # nginx.ingress.kubernetes.io/proxy-connect-timeout: "600"
+    # nginx.ingress.kubernetes.io/proxy-read-timeout: "600"
+    # nginx.ingress.kubernetes.io/proxy-send-timeout: "600"
+spec:
+  # tls:
+  # - hosts:
+  #   - {{ .Values.ingressHost }}
+  #   secretName: idp-cert
+  rules:
+  - http:
+      paths:
+      - path: /web/(.*)(\.js|\.html|\.md|\.ejs|\.jpg|\.png|\.jpeg|\.svg|\.txt|\.css|\.woff|\.woff2|\.ttf|\.eot|\.ijmap|\.json|\.ico)$
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ .Values.ingressService }}
+            port: 
+              number: 80
+          
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ .Values.ingressNameRefresh }}
+  namespace: {{ .Values.deploymentNamespace }}
+  annotations:
+    kubernetes.io/ingress.class: {{ .Values.nginxClass }}
+    # nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    # nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    # nginx.ingress.kubernetes.io/rewrite-target: /web/$2
+    # nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    # nginx.ingress.kubernetes.io/proxy-body-size: "0"
+    # nginx.ingress.kubernetes.io/proxy-connect-timeout: "600"
+    # nginx.ingress.kubernetes.io/proxy-read-timeout: "600"
+    # nginx.ingress.kubernetes.io/proxy-send-timeout: "600"
+spec:
+  # tls:
+  # - hosts:
+  #   - {{ .Values.ingressHost }}
+  #   secretName: idp-cert
+  rules:
+  - http:
+      paths:
+      - path: /web(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ .Values.ingressService }}
+            port: 
+              number: 80

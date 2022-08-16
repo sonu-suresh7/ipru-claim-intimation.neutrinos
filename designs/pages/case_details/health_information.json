@@ -1,0 +1,457 @@
+[
+    {
+        "id": "sd_Kvt48wQ33yafYMRY",
+        "type": "tab",
+        "createdDate": "2022-03-24T04:06:15.439Z",
+        "label": "health_information",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "health_informationComponent"
+    },
+    {
+        "id": "sd_kX7NOfuBLYBFw58z",
+        "type": "OnInit",
+        "z": "sd_Kvt48wQ33yafYMRY",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "inputVariables": [
+            {
+                "key": "healthInfo",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                }
+            },
+            {
+                "key": "personalDetails",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                }
+            }
+        ],
+        "localVariables": [],
+        "outputVariables": [],
+        "functionName": "sd_kX7NOfuBLYBFw58z",
+        "category": "Lifecycle Events",
+        "x": 85,
+        "y": 140,
+        "wires": [
+            [
+                "sd_Y0m69LezCmXd3HHr"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "health_informationComponent"
+    },
+    {
+        "id": "sd_Y0m69LezCmXd3HHr",
+        "type": "PageVariables",
+        "z": "sd_Kvt48wQ33yafYMRY",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "highLighted",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "true"
+                }
+            },
+            {
+                "textIp": "highLightedDetails",
+                "typedIpValue": {
+                    "type": "bh",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "info",
+                "typedIpValue": {
+                    "type": "bh",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "healthInfoData",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "[]"
+                }
+            }
+        ],
+        "functionName": "sd_Y0m69LezCmXd3HHr",
+        "category": "Function",
+        "x": 245,
+        "y": 140,
+        "wires": [
+            [
+                "sd_unmUrgXfkugNZJX2"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "health_informationComponent"
+    },
+    {
+        "id": "sd_fQx6ujXY6rjB9aXh",
+        "type": "Script",
+        "z": "sd_Kvt48wQ33yafYMRY",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.healthInfoData = this.healthInfo;\n\nthis.healthInfo.forEach((obj, index) => {\n    if (obj.highlight === false) {\n        page.healthInfoData[index]['color'] = 'green';\n    } else {\n        page.healthInfoData[index]['color'] = 'red';\n    }\n});\npage.highLightedDetails = page.healthInfoData.filter(obj => obj.highlight === true);\n\npage.info = {\n    height: this.personalDetails.height || '-',\n    weight: this.personalDetails.weight || '-',\n    bmi: this.personalDetails.bmi || '-',\n    weightAtBirth: this.personalDetails.weightAtBirth || '-',\n};\n\npage.healthInfo = [\n    {\n        fieldName: this.personalDetails.height || '-',\n        label: page.labels.height.label,\n        showLabel: true\n    },\n    {\n        fieldName: this.personalDetails.weight || '-',\n        label: page.labels.weight.label,\n        showLabel: true\n    },\n];\n\npage.otherHealthInfo = [\n    {\n        fieldName: this.personalDetails.bmi || '-',\n        label: page.labels.bmi.label,\n    },\n    {\n        fieldName: this.personalDetails.weightAtBirth || '-',\n        label: page.labels.weightAtBirth.label,\n    },\n];",
+        "functionName": "sd_fQx6ujXY6rjB9aXh",
+        "category": "Function",
+        "x": 765,
+        "y": 140,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "health_informationComponent"
+    },
+    {
+        "id": "sd_eM3uTQJhYCmkUjzv",
+        "type": "Script",
+        "z": "sd_Kvt48wQ33yafYMRY",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "labels mapper",
+        "script": "page.labels = {\n    answer: {\n        get label() {\n            return page.locales.keys.answer;\n        }\n    },\n    height: {\n        get label() {\n            return page.locales.keys.height;\n        }\n    },\n    weight: {\n        get label() {\n            return page.locales.keys.weight;\n        }\n    },\n    bmi: {\n        get label() {\n            return page.locales.keys.bmi;\n        }\n    },\n    weightAtBirth: {\n        get label() {\n            return page.locales.keys.weightAtBirth;\n        }\n    }\n}\n",
+        "functionName": "labelsMapper",
+        "category": "Function",
+        "x": 585,
+        "y": 140,
+        "wires": [
+            [
+                "sd_fQx6ujXY6rjB9aXh"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_fwx4CwjRCnj9lV52",
+        "type": "PageStart",
+        "z": "sd_Kvt48wQ33yafYMRY",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "getHealthInfo",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [
+            {
+                "key": "res",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": true
+            }
+        ],
+        "flow_type": "sync",
+        "functionName": "getHealthInfo",
+        "category": "General",
+        "x": 85,
+        "y": 280,
+        "wires": [
+            [
+                "sd_ciArwEhnLPFm9JXk"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "health_informationComponent"
+    },
+    {
+        "id": "sd_ciArwEhnLPFm9JXk",
+        "type": "Script",
+        "z": "sd_Kvt48wQ33yafYMRY",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "if (page.highLighted) {\n    bh.local.res = page.highLightedDetails;\n} else {\n    bh.local.res = this.healthInfo;\n}",
+        "functionName": "sd_ciArwEhnLPFm9JXk",
+        "category": "Function",
+        "x": 245,
+        "y": 280,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_HK9O8kX61oXBI7eq",
+        "type": "PageStart",
+        "z": "sd_Kvt48wQ33yafYMRY",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "getKeys",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [
+            {
+                "key": "keys",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": true
+            }
+        ],
+        "flow_type": "sync",
+        "functionName": "getKeys",
+        "category": "General",
+        "x": 85,
+        "y": 420,
+        "wires": [
+            [
+                "sd_bSxrIJYgYJwPHALC"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "health_informationComponent"
+    },
+    {
+        "id": "sd_bSxrIJYgYJwPHALC",
+        "type": "Script",
+        "z": "sd_Kvt48wQ33yafYMRY",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.keys = Object.keys(page.info);",
+        "functionName": "sd_bSxrIJYgYJwPHALC",
+        "category": "Function",
+        "x": 245,
+        "y": 420,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_TEcEZO33Tw5IBb3n",
+        "type": "PageStart",
+        "z": "sd_Kvt48wQ33yafYMRY",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "editValue",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "item",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "index",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "event",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "editValue",
+        "category": "General",
+        "x": 85,
+        "y": 560,
+        "wires": [
+            [
+                "sd_SqtcdjIiAAYsPysA"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "health_informationComponent"
+    },
+    {
+        "id": "sd_SqtcdjIiAAYsPysA",
+        "type": "Script",
+        "z": "sd_Kvt48wQ33yafYMRY",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.healthInfo[bh.input.index].showLabel = !page.healthInfo[bh.input.index].showLabel;\n\nbh.local.isChangeDetected = false;\n\n// console.log('checkedOut', page.checkedOut);\nconsole.log('bh.input.item', bh.input.item);\nconsole.log('bh.input.event', bh.input.event);\n\nif (bh.input.event?.type == \"blur\") {\n    if (bh.input.item?.label == \"Weight\" && page.checkedOut.case?.caseDetails?.primaryLife?.PersonalDetails?.weight) {\n        page.checkedOut.case.caseDetails.primaryLife.PersonalDetails.weight = bh.input.item?.fieldName;\n        bh.local.isChangeDetected = true;\n    } else if (bh.input.item?.label == \"Height\" && page.checkedOut.case?.caseDetails?.primaryLife?.PersonalDetails?.height) {\n        page.checkedOut.case.caseDetails.primaryLife.PersonalDetails.height = bh.input.item?.fieldName;\n        bh.local.isChangeDetected = true;\n    }\n}\n\nif (bh.local.isChangeDetected) {\n    let weight = page.checkedOut.case.caseDetails.primaryLife.PersonalDetails.weight;\n    let height = page.checkedOut.case.caseDetails.primaryLife.PersonalDetails.height;\n    let bmi = (weight / Math.pow((height), 2)).toFixed(1);\n    page.checkedOut.case.caseDetails.primaryLife.PersonalDetails.bmi = bmi;\n    if(page.otherHealthInfo.length){\n        page.otherHealthInfo[0].fieldName = bmi;\n    }\n}",
+        "functionName": "sd_SqtcdjIiAAYsPysA",
+        "category": "Function",
+        "x": 245,
+        "y": 560,
+        "wires": [
+            [
+                "sd_fSVexUw2kIiGxSwo"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_unmUrgXfkugNZJX2",
+        "type": "PageServiceVariables",
+        "z": "sd_Kvt48wQ33yafYMRY",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "get",
+        "globalVariables": [
+            {
+                "textIp": "checkedOut",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "checkedOut"
+                }
+            }
+        ],
+        "functionName": "sd_unmUrgXfkugNZJX2",
+        "service": {
+            "id": "sd_RbD2RZwzan9VSOEL",
+            "type": "tab",
+            "createdDate": "2022-03-10T07:40:30.532Z",
+            "label": "cache",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "generateNext": true,
+            "serviceName": "cache",
+            "relativeParentPath": "",
+            "_def": {
+                "defaults": {
+                    "label": {
+                        "value": ""
+                    },
+                    "disabled": {
+                        "value": false
+                    },
+                    "info": {
+                        "value": ""
+                    }
+                }
+            }
+        },
+        "serviceImportPath": "app/sd-services/cache",
+        "category": "Function",
+        "x": 405,
+        "y": 140,
+        "wires": [
+            [
+                "sd_eM3uTQJhYCmkUjzv"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_17j3JVYN406SG9H9",
+        "type": "PageServiceVariables",
+        "z": "sd_Kvt48wQ33yafYMRY",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [],
+        "functionName": "sd_17j3JVYN406SG9H9",
+        "service": {
+            "id": "sd_RbD2RZwzan9VSOEL",
+            "type": "tab",
+            "createdDate": "2022-03-10T07:40:30.532Z",
+            "label": "cache",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "generateNext": true,
+            "serviceName": "cache",
+            "relativeParentPath": "",
+            "_def": {
+                "defaults": {
+                    "label": {
+                        "value": ""
+                    },
+                    "disabled": {
+                        "value": false
+                    },
+                    "info": {
+                        "value": ""
+                    }
+                }
+            }
+        },
+        "serviceImportPath": "app/sd-services/cache",
+        "category": "Function",
+        "x": 585,
+        "y": 560,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_fSVexUw2kIiGxSwo",
+        "type": "PageSwitch",
+        "z": "sd_Kvt48wQ33yafYMRY",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "property": "isChangeDetected",
+        "propertyType": "bh.local",
+        "propertyGv": "bh.local.isChangeDetected",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 1,
+        "functionName": "sd_fSVexUw2kIiGxSwo",
+        "category": "Function",
+        "x": 405,
+        "y": 560,
+        "wires": [
+            [
+                "sd_17j3JVYN406SG9H9"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

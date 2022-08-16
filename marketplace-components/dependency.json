@@ -1,0 +1,1733 @@
+{
+    "packages": [
+        {
+            "name": "neutrinos-all-default-nodes-plugin",
+            "default": true,
+            "visible": false,
+            "dependencies": [
+                {
+                    "name": "ndefault-all-nodes",
+                    "packageType": "studio-nodes",
+                    "nodes": {
+                        "server": [
+                            "ChildProcess",
+                            "CORS",
+                            "DBConfig",
+                            "GlobalMiddlewareEnd",
+                            "GlobalMiddlewareStart",
+                            "GlobalNext",
+                            "HttpIn",
+                            "HttpOut",
+                            "HttpProxyConfig",
+                            "ServerHttpRequest",
+                            "MiddlewareEnd",
+                            "MiddlewareStart",
+                            "Next",
+                            "RouteMiddlewareEnd",
+                            "RouteMiddlewareStart",
+                            "ServerLog",
+                            "TLSConfig"
+                        ],
+                        "common": [
+                            "Catch",
+                            "Comments",
+                            "Script",
+                            "Unknown"
+                        ],
+                        "pages": [
+                            "PageCallService",
+                            "PageStart",
+                            "PageSwitch",
+                            "ViewPicker",
+                            "PageVariables",
+                            "PageServiceVariables",
+                            "PageAsync"
+                        ],
+                        "client-server": [
+                            "ServiceVariables",
+                            "CallService",
+                            "Start",
+                            "Switch",
+                            "Async"
+                        ],
+                        "client-pages": [
+                            "Environment",
+                            "HttpRequest",
+                            "Log",
+                            "Navigation",
+                            "SnackBar",
+                            "Storage",
+                            "CallSSDApi",
+                            "UseDependency",
+                            "neutrinos-ngzone"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "devid": "165010b2-9099-5b62-6926-9a6962e22ba6",
+            "name": "neutrinos-internet",
+            "displayName": "Internet",
+            "version": "1.0.0",
+            "default": true,
+            "username": "avinash.gupta@neutrinos.co",
+            "publisher": "Neutrinos",
+            "platformSupportVersion": {
+                "min": "7.7.0"
+            },
+            "description": "Client Side Designer node to check internet connectivity.",
+            "pluginImage": "",
+            "dependencies": [
+                {
+                    "name": "neutrinos-internet",
+                    "displayName": "Internet",
+                    "packageType": "studio-nodes",
+                    "version": "1.0.0",
+                    "nodes": {
+                        "client-pages": [
+                            {
+                                "name": "09116728-8c4c-739f-c7da-625634afe918",
+                                "displayName": "On Online"
+                            },
+                            {
+                                "name": "c6ef8916-35f2-a758-e8d5-8b61fdac762d",
+                                "displayName": "On Offline"
+                            },
+                            {
+                                "name": "9f050d9a-4bf7-fc9b-6e14-cf39e33ead30",
+                                "displayName": "isOnline"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "devid": "68bc9eec-a2fc-bccd-1630-883e4552c3eb",
+            "name": "neutrinos-lifecycle-events",
+            "displayName": "Lifecycle Events",
+            "version": "1.0.0",
+            "username": "avinash.gupta@neutrinos.co",
+            "publisher": "Neutrinos",
+            "default": true,
+            "visible": false,
+            "platformSupportVersion": {
+                "min": "7.8.0"
+            },
+            "dependencies": [
+                {
+                    "name": "neutrinos-lifecycle-events",
+                    "displayName": "Lifecycle Events",
+                    "packageType": "studio-nodes",
+                    "version": "1.0.0",
+                    "nodes": {
+                        "pages": [
+                            {
+                                "name": "OnChanges",
+                                "displayName": "On Changes"
+                            },
+                            {
+                                "name": "OnInit",
+                                "displayName": "On Init"
+                            },
+                            {
+                                "name": "DoCheck",
+                                "displayName": "Do Check"
+                            },
+                            {
+                                "name": "AfterContentInit",
+                                "displayName": "After Content Init"
+                            },
+                            {
+                                "name": "AfterContentChecked",
+                                "displayName": "After Content Checked"
+                            },
+                            {
+                                "name": "AfterViewInit",
+                                "displayName": "After View Init"
+                            },
+                            {
+                                "name": "AfterViewChecked",
+                                "displayName": "After View Checked"
+                            },
+                            {
+                                "name": "OnDestroy",
+                                "displayName": "On Destroy"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "devid": "1dd8ed79-2f61-798f-0570-c8b153987b2c",
+            "name": "neutrinos-dialog",
+            "displayName": "Dialog",
+            "version": "1.0.0",
+            "username": "avinash.gupta@neutrinos.co",
+            "publisher": "Neutrinos",
+            "platformSupportVersion": {
+                "min": "7.8.0"
+            },
+            "default": true,
+            "visible": false,
+            "dependencies": [
+                {
+                    "name": "neutrinos-dialog",
+                    "displayName": "Dialog",
+                    "packageType": "studio-nodes",
+                    "version": "1.0.0",
+                    "nodes": {
+                        "pages": [
+                            {
+                                "name": "OpenDialog",
+                                "displayName": "Open Dialog"
+                            },
+                            {
+                                "name": "GetDialogData",
+                                "displayName": "Get Dialog Data"
+                            },
+                            {
+                                "name": "CloseDialog",
+                                "displayName": "Close Dialog"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "neutrinos-listener",
+            "displayName": "HostListener",
+            "version": "1.0.0",
+            "username": "avinash.gupta@neutrinos.co",
+            "publisher": "Neutrinos",
+            "platformSupportVersion": {
+                "min": "7.8.0"
+            },
+            "default": true,
+            "visible": false,
+            "dependencies": [
+                {
+                    "name": "neutrinos-listener",
+                    "displayName": "HostListener",
+                    "packageType": "studio-nodes",
+                    "version": "1.0.0",
+                    "nodes": {
+                        "pages": [
+                            {
+                                "name": "HostListener",
+                                "displayName": "Host Listener"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "neutrinos-output",
+            "displayName": "Output",
+            "version": "1.0.0",
+            "username": "avinash.gupta@neutrinos.co",
+            "publisher": "Neutrinos",
+            "default": true,
+            "visible": true,
+            "platformSupportVersion": {
+                "min": "7.8.0"
+            },
+            "dependencies": [
+                {
+                    "name": "neutrinos-output",
+                    "displayName": "Output",
+                    "packageType": "studio-nodes",
+                    "version": "1.0.0",
+                    "nodes": {
+                        "pages": [
+                            {
+                                "name": "Output",
+                                "displayName": "Output"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "neutrinos-route",
+            "displayName": "Route",
+            "version": "1.0.0",
+            "username": "avinash.gupta@neutrinos.co",
+            "publisher": "Neutrinos",
+            "default": true,
+            "visible": true,
+            "platformSupportVersion": {
+                "min": "8.1.0"
+            },
+            "dependencies": [
+                {
+                    "name": "neutrinos-route",
+                    "displayName": "Route",
+                    "packageType": "studio-nodes",
+                    "version": "1.0.0",
+                    "nodes": {
+                        "pages": [
+                            {
+                                "name": "NavigationListener",
+                                "displayName": "Navigation Listener"
+                            },
+                            {
+                                "name": "NavigationData",
+                                "displayName": "Navigation Data"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "_id": "60ae195f891d1aa657de4fa1",
+            "name": "neutrinos-select-plus",
+            "averageRating": 0,
+            "description": "Material select component with additional capabilities like hint, label etc",
+            "displayName": "Select Plus Component",
+            "lastUpdated": "2021-05-26T09:48:15.293Z",
+            "numberOfDownloads": 0,
+            "packageType": [
+                "studio-package"
+            ],
+            "platformSupportVersion": "7.5.0",
+            "pluginImage": "ng-select-plus.png",
+            "publisher": "Neutrinos",
+            "type": "Components",
+            "uploadedDate": "2021-05-26T09:48:15.293Z",
+            "username": "sankarshan.joshi@neutrinos.co",
+            "version": "1.0.0",
+            "versions": {
+                "1.0.0": {
+                    "packages": [
+                        {
+                            "name": "neutrinos-select-plus",
+                            "version": "1.0.0",
+                            "packageType": "studio-package",
+                            "displayName": "Select Plus Plugin"
+                        }
+                    ],
+                    "platformSupportVersion": {
+                        "min": "7.5.0"
+                    },
+                    "metadata": {
+                        "name": "neutrinos-select-plus",
+                        "displayName": "Select Plus Component",
+                        "version": "1.0.0",
+                        "username": "sankarshan.joshi@neutrinos.co",
+                        "publisher": "Neutrinos",
+                        "platformSupportVersion": {
+                            "min": "7.5.0"
+                        },
+                        "type": "Components",
+                        "description": "Material select component with additional capabilities like hint, label etc",
+                        "pluginImage": "ng-select-plus.png"
+                    },
+                    "version": "1.0.0"
+                }
+            },
+            "archiveFile": "api/zips/undefined",
+            "guide": "60ae19619142820019b0ebf7",
+            "icon": "api/resource/icons/60ae195f9142820019b0ebeb",
+            "screenshots": [
+                "api/resource/screenshots/60ae195f9142820019b0ebed",
+                "api/resource/screenshots/60ae195f9142820019b0ebef",
+                "api/resource/screenshots/60ae19609142820019b0ebf2",
+                "api/resource/screenshots/60ae19609142820019b0ebf5"
+            ],
+            "no_of_downloads_by_packages": {
+                "neutrinos-select-plus": 65
+            },
+            "dependencies": [
+                {
+                    "name": "neutrinos-select-plus",
+                    "version": "1.0.0",
+                    "packageType": "studio-package",
+                    "displayName": "Select Plus Plugin"
+                }
+            ]
+        },
+        {
+            "_id": "60895a801f635aad386b5038",
+            "name": "material-table-paginator",
+            "averageRating": 0,
+            "description": "Pagination provides navigation for paged information",
+            "displayName": "Pagination",
+            "lastUpdated": "2022-03-02T16:25:56.196Z",
+            "numberOfDownloads": 0,
+            "packageType": [
+                "studio-package"
+            ],
+            "platformSupportVersion": "7.2.2",
+            "pluginImage": "Pagination.png",
+            "publisher": "Neutrinos",
+            "type": "Components",
+            "uploadedDate": "2021-04-28T12:52:16.744Z",
+            "version": "2.0.2",
+            "versions": {
+                "2.0.1": {
+                    "packages": [
+                        {
+                            "name": "material-table-paginator",
+                            "version": "2.0.1",
+                            "packageType": "studio-package",
+                            "displayName": "Pagination",
+                            "nModule": {
+                                "packageType": "angular-package",
+                                "importStatement": "import {MatPaginatorModule} from '@angular/material';",
+                                "imports": [
+                                    "MatPaginatorModule"
+                                ]
+                            }
+                        }
+                    ],
+                    "platformSupportVersion": {
+                        "min": "7.2.2"
+                    },
+                    "metadata": {
+                        "name": "material-table-paginator",
+                        "version": "2.0.1",
+                        "displayName": "Pagination",
+                        "description": "Pagination provides navigation for paged information",
+                        "type": "Components",
+                        "publisher": "Neutrinos",
+                        "platformSupportVersion": {
+                            "min": "7.2.2"
+                        },
+                        "pluginImage": "Pagination.png"
+                    },
+                    "version": "2.0.1"
+                },
+                "2.0.2": {
+                    "packages": [
+                        {
+                            "name": "material-table-paginator",
+                            "version": "2.0.2",
+                            "packageType": "studio-package",
+                            "displayName": "Pagination",
+                            "nModule": {
+                                "packageType": "angular-package",
+                                "importStatement": "import { MatPaginatorModule } from '@angular/material/paginator';",
+                                "imports": [
+                                    "MatPaginatorModule"
+                                ]
+                            }
+                        }
+                    ],
+                    "platformSupportVersion": {
+                        "min": "7.2.2"
+                    },
+                    "metadata": {
+                        "name": "material-table-paginator",
+                        "version": "2.0.2",
+                        "displayName": "Pagination",
+                        "description": "Pagination provides navigation for paged information",
+                        "type": "Components",
+                        "publisher": "Neutrinos",
+                        "platformSupportVersion": {
+                            "min": "7.2.2"
+                        },
+                        "pluginImage": "Pagination.png"
+                    },
+                    "version": "2.0.2"
+                }
+            },
+            "archiveFile": "api/zips/undefined",
+            "guide": "621f9a95aa1af9001c660ef7",
+            "icon": "api/resource/icons/621f9a94aa1af9001c660eed",
+            "screenshots": [
+                "api/resource/screenshots/621f9a94aa1af9001c660eef",
+                "api/resource/screenshots/621f9a94aa1af9001c660ef1",
+                "api/resource/screenshots/621f9a95aa1af9001c660ef3",
+                "api/resource/screenshots/621f9a95aa1af9001c660ef5"
+            ],
+            "no_of_downloads_by_packages": {
+                "material-table-paginator": 24
+            },
+            "dependencies": [
+                {
+                    "name": "material-table-paginator",
+                    "version": "2.0.2",
+                    "packageType": "studio-package",
+                    "displayName": "Pagination",
+                    "nModule": {
+                        "packageType": "angular-package",
+                        "importStatement": "import { MatPaginatorModule } from '@angular/material/paginator';",
+                        "imports": [
+                            "MatPaginatorModule"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "_id": "5dae9cb30bd86577d3d854f1",
+            "name": "n-richtexteditor",
+            "averageRating": 5,
+            "dependencies": [
+                {
+                    "name": "n-richtexteditor",
+                    "version": "1.2.1",
+                    "packageType": "studio-package",
+                    "displayName": "Rich Text Editor",
+                    "nModule": {
+                        "name": "@ckeditor/ckeditor5-angular",
+                        "version": "1.2.3",
+                        "packageType": "angular-package",
+                        "importStatement": "import { CKEditorModule } from '@ckeditor/ckeditor5-angular';",
+                        "imports": [
+                            "CKEditorModule"
+                        ]
+                    }
+                }
+            ],
+            "description": "Rich Text Editor provides ready-to-use rich text editors created with a powerful framework. Made with real-time collaborative editing in mind. Its is build using the primary open-source project named CKEditor.",
+            "displayName": "Rich Text Editor",
+            "lastUpdated": "2020-11-19T17:46:11.247Z",
+            "numberOfDownloads": 113,
+            "packageType": "studio-package",
+            "platformSupportVersion": "7.2.2",
+            "publisher": "Ekta Patel",
+            "type": "Components",
+            "uploadedDate": "2019-10-22T06:07:47.031Z",
+            "version": "1.2.1",
+            "archiveFile": "api/zips/undefined",
+            "guide": "5fb6af63536eed00198d3b93",
+            "icon": "api/resource/icons/5fb6af63536eed00198d3b8f",
+            "screenshots": [
+                "api/resource/screenshots/5fb6af63536eed00198d3b91"
+            ],
+            "no_of_downloads_by_packages": {
+                "n-richtexteditor": 102
+            },
+            "versions": {
+                "1.2.1": {
+                    "packages": [
+                        {
+                            "name": "n-richtexteditor",
+                            "version": "1.2.1",
+                            "packageType": "studio-package",
+                            "displayName": "Rich Text Editor",
+                            "nModule": {
+                                "name": "@ckeditor/ckeditor5-angular",
+                                "version": "1.2.3",
+                                "packageType": "angular-package",
+                                "importStatement": "import { CKEditorModule } from '@ckeditor/ckeditor5-angular';",
+                                "imports": [
+                                    "CKEditorModule"
+                                ]
+                            }
+                        }
+                    ],
+                    "platformSupportVersion": {
+                        "min": "7.2.2"
+                    },
+                    "metadata": {
+                        "name": "n-richtexteditor",
+                        "version": "1.2.1",
+                        "displayName": "Rich Text Editor",
+                        "description": "Rich Text Editor provides ready-to-use rich text editors created with a powerful framework. Made with real-time collaborative editing in mind. Its is build using the primary open-source project named CKEditor.",
+                        "type": "Components",
+                        "publisher": "Ekta Patel",
+                        "platformSupportVersion": {
+                            "min": "7.2.2"
+                        }
+                    },
+                    "version": "1.2.1"
+                }
+            }
+        },
+        {
+            "_id": "6038feeda779d92befa05aa2",
+            "name": "neutrinos-pubsub-client",
+            "averageRating": 0,
+            "description": "PubSub for client",
+            "displayName": "Pubsub Client",
+            "lastUpdated": "2022-03-18T04:29:32.629Z",
+            "numberOfDownloads": 0,
+            "packageType": [
+                "studio-nodes"
+            ],
+            "platformSupportVersion": "8.0.0",
+            "pluginImage": "neutrinos-pubsub-client-1614332059572.png",
+            "publisher": "neutrinos",
+            "uploadedDate": "2021-02-26T14:00:13.614Z",
+            "username": "mufassal.saad@neutrinos.co",
+            "version": "1.0.5",
+            "versions": {
+                "1.0.0": {
+                    "packages": [
+                        {
+                            "name": "neutrinos-pubsub-client",
+                            "displayName": "Pubsub Client",
+                            "packageType": "studio-nodes",
+                            "version": "1.0.0",
+                            "packageDependencies": {
+                                "neutrinos-seed-services": "0.0.75"
+                            },
+                            "nodes": {
+                                "client": [
+                                    {
+                                        "name": "0a527e77-2b6b-855b-557e-9f716099c2ed",
+                                        "displayName": "Listen"
+                                    },
+                                    {
+                                        "name": "4a14d245-3eca-40a4-550c-2885e99a00e9",
+                                        "displayName": "Emit"
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "platformSupportVersion": {
+                        "min": "7.5.0"
+                    },
+                    "metadata": {
+                        "name": "neutrinos-pubsub-client",
+                        "displayName": "Pubsub Client",
+                        "version": "1.0.0",
+                        "username": "mufassal.saad@neutrinos.co",
+                        "publisher": "Neutrinos",
+                        "platformSupportVersion": {
+                            "min": "7.5.0"
+                        },
+                        "description": "PubSub for client",
+                        "pluginImage": "neutrinos-pubsub-client-1614332059572.png"
+                    },
+                    "version": "1.0.0"
+                },
+                "1.0.2": {
+                    "packages": [
+                        {
+                            "name": "neutrinos-pubsub-client",
+                            "displayName": "Pubsub Client",
+                            "packageType": "studio-nodes",
+                            "version": "1.0.2",
+                            "packageDependencies": {
+                                "neutrinos-seed-services": "0.0.75"
+                            },
+                            "nodes": {
+                                "client-pages": [
+                                    {
+                                        "name": "0a527e77-2b6b-855b-557e-9f716099c2ed",
+                                        "displayName": "Listen"
+                                    },
+                                    {
+                                        "name": "4a14d245-3eca-40a4-550c-2885e99a00e9",
+                                        "displayName": "Emit"
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "platformSupportVersion": {
+                        "min": "7.5.0"
+                    },
+                    "metadata": {
+                        "name": "neutrinos-pubsub-client",
+                        "displayName": "Pubsub Client",
+                        "version": "1.0.2",
+                        "username": "mufassal.saad@neutrinos.co",
+                        "publisher": "neutrinos",
+                        "platformSupportVersion": {
+                            "min": "7.5.0"
+                        },
+                        "description": "PubSub for client",
+                        "pluginImage": "neutrinos-pubsub-client-1614332059572.png"
+                    },
+                    "version": "1.0.2"
+                },
+                "1.0.3": {
+                    "packages": [
+                        {
+                            "name": "neutrinos-pubsub-client",
+                            "displayName": "Pubsub Client",
+                            "packageType": "studio-nodes",
+                            "version": "1.0.3",
+                            "packageDependencies": {
+                                "neutrinos-seed-services": "0.0.75"
+                            },
+                            "nodes": {
+                                "client": [
+                                    {
+                                        "name": "0a527e77-2b6b-855b-557e-9f716099c2ed",
+                                        "displayName": "Listen"
+                                    },
+                                    {
+                                        "name": "4a14d245-3eca-40a4-550c-2885e99a00e9",
+                                        "displayName": "Emit"
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "platformSupportVersion": {
+                        "min": "7.5.0"
+                    },
+                    "metadata": {
+                        "name": "neutrinos-pubsub-client",
+                        "displayName": "Pubsub Client",
+                        "version": "1.0.3",
+                        "username": "mufassal.saad@neutrinos.co",
+                        "publisher": "neutrinos",
+                        "platformSupportVersion": {
+                            "min": "7.5.0"
+                        },
+                        "description": "PubSub for client",
+                        "pluginImage": "neutrinos-pubsub-client-1614332059572.png"
+                    },
+                    "version": "1.0.3"
+                },
+                "1.0.4": {
+                    "packages": [
+                        {
+                            "name": "neutrinos-pubsub-client",
+                            "displayName": "Pubsub Client",
+                            "packageType": "studio-nodes",
+                            "version": "1.0.4",
+                            "packageDependencies": {
+                                "neutrinos-seed-services": "0.0.75"
+                            },
+                            "nodes": {
+                                "client-pages": [
+                                    {
+                                        "name": "0a527e77-2b6b-855b-557e-9f716099c2ed",
+                                        "displayName": "Listen"
+                                    },
+                                    {
+                                        "name": "4a14d245-3eca-40a4-550c-2885e99a00e9",
+                                        "displayName": "Emit"
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "platformSupportVersion": {
+                        "min": "8.0.0"
+                    },
+                    "metadata": {
+                        "name": "neutrinos-pubsub-client",
+                        "displayName": "Pubsub Client",
+                        "version": "1.0.4",
+                        "username": "mufassal.saad@neutrinos.co",
+                        "publisher": "neutrinos",
+                        "platformSupportVersion": {
+                            "min": "8.0.0"
+                        },
+                        "description": "PubSub for client",
+                        "pluginImage": "neutrinos-pubsub-client-1614332059572.png"
+                    },
+                    "version": "1.0.4"
+                },
+                "1.0.5": {
+                    "packages": [
+                        {
+                            "name": "neutrinos-pubsub-client",
+                            "displayName": "Pubsub Client",
+                            "packageType": "studio-nodes",
+                            "version": "1.0.5",
+                            "packageDependencies": {
+                                "neutrinos-seed-services": "0.0.75"
+                            },
+                            "nodes": {
+                                "client-pages": [
+                                    {
+                                        "name": "0a527e77-2b6b-855b-557e-9f716099c2ed",
+                                        "displayName": "Listen"
+                                    },
+                                    {
+                                        "name": "4a14d245-3eca-40a4-550c-2885e99a00e9",
+                                        "displayName": "Emit"
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "platformSupportVersion": {
+                        "min": "8.0.0"
+                    },
+                    "metadata": {
+                        "name": "neutrinos-pubsub-client",
+                        "displayName": "Pubsub Client",
+                        "version": "1.0.5",
+                        "username": "mufassal.saad@neutrinos.co",
+                        "publisher": "neutrinos",
+                        "platformSupportVersion": {
+                            "min": "8.0.0"
+                        },
+                        "description": "PubSub for client",
+                        "pluginImage": "neutrinos-pubsub-client-1614332059572.png"
+                    },
+                    "version": "1.0.5"
+                }
+            },
+            "archiveFile": "api/zips/undefined",
+            "guide": "62340aae83ffea001ac0742b",
+            "icon": "api/resource/icons/62340aac83ffea001ac07421",
+            "screenshots": [
+                "api/resource/screenshots/62340aac83ffea001ac07423",
+                "api/resource/screenshots/62340aad83ffea001ac07425",
+                "api/resource/screenshots/62340aad83ffea001ac07427",
+                "api/resource/screenshots/62340aad83ffea001ac07429"
+            ],
+            "no_of_downloads_by_packages": {
+                "neutrinos-pubsub-client": 79
+            },
+            "dependencies": [
+                {
+                    "name": "neutrinos-pubsub-client",
+                    "displayName": "Pubsub Client",
+                    "packageType": "studio-nodes",
+                    "version": "1.0.5",
+                    "packageDependencies": {
+                        "neutrinos-seed-services": "0.0.75"
+                    },
+                    "nodes": {
+                        "client-pages": [
+                            {
+                                "name": "0a527e77-2b6b-855b-557e-9f716099c2ed",
+                                "displayName": "Listen"
+                            },
+                            {
+                                "name": "4a14d245-3eca-40a4-550c-2885e99a00e9",
+                                "displayName": "Emit"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "_id": "624427b7121d3ae0ca9de503",
+            "name": "neutrinos-idp-viewer-toolkit",
+            "averageRating": 5,
+            "description": "Neutrinos IDP Viewer Toolkit",
+            "devid": "2073e1e5-04c0-dac6-d391-8c6234599ba5",
+            "displayName": "Neutrinos IDP Viewer Toolkit",
+            "lastUpdated": "2022-06-28T11:03:31.772Z",
+            "numberOfDownloads": 0,
+            "packageType": [
+                "studio-package",
+                "angular-package"
+            ],
+            "platformSupportVersion": "8.0.0",
+            "publisher": "Paul Thomas",
+            "uploadedDate": "2022-03-30T09:49:43.170Z",
+            "username": "paul.thomas@neutrinos.co",
+            "version": "1.0.27",
+            "versions": {
+                "0.0.1": {
+                    "packages": [
+                        {
+                            "name": "neutrinosidpviewer",
+                            "version": "0.0.1",
+                            "packageType": "studio-package",
+                            "displayName": "IDP Viewer",
+                            "nModule": {
+                                "importStatement": "import { IdpDvModule } from 'idp-dv';",
+                                "imports": [
+                                    "IdpDvModule"
+                                ]
+                            }
+                        },
+                        {
+                            "name": "idp-dv",
+                            "version": "0.0.1",
+                            "packageType": "angular-package"
+                        }
+                    ],
+                    "platformSupportVersion": {
+                        "min": "8.0.0"
+                    },
+                    "metadata": {
+                        "devid": "2073e1e5-04c0-dac6-d391-8c6234599ba5",
+                        "name": "neutrinos-idp-viewer-toolkit",
+                        "displayName": "Neutrinos IDP Viewer Toolkit",
+                        "description": "Neutrinos IDP Viewer Toolkit",
+                        "version": "0.0.1",
+                        "username": "paul.thomas@neutrinos.co",
+                        "publisher": "Product",
+                        "platformSupportVersion": {
+                            "min": "8.0.0"
+                        }
+                    },
+                    "version": "0.0.1"
+                },
+                "0.0.2": {
+                    "packages": [
+                        {
+                            "name": "neutrinosidpviewer",
+                            "version": "0.0.2",
+                            "packageType": "studio-package",
+                            "displayName": "IDP Viewer",
+                            "nModule": {
+                                "importStatement": "import { IdpDvModule } from 'idp-dv';",
+                                "imports": [
+                                    "IdpDvModule"
+                                ]
+                            }
+                        },
+                        {
+                            "name": "idp-dv",
+                            "version": "0.0.2",
+                            "packageType": "angular-package"
+                        }
+                    ],
+                    "platformSupportVersion": {
+                        "min": "8.0.0"
+                    },
+                    "metadata": {
+                        "devid": "2073e1e5-04c0-dac6-d391-8c6234599ba5",
+                        "name": "neutrinos-idp-viewer-toolkit",
+                        "displayName": "Neutrinos IDP Viewer Toolkit",
+                        "description": "Neutrinos IDP Viewer Toolkit",
+                        "version": "0.0.2",
+                        "username": "paul.thomas@neutrinos.co",
+                        "publisher": "Paul Thomas",
+                        "platformSupportVersion": {
+                            "min": "8.0.0"
+                        }
+                    },
+                    "version": "0.0.2"
+                },
+                "0.0.3": {
+                    "packages": [
+                        {
+                            "name": "neutrinosidpviewer",
+                            "version": "0.0.3",
+                            "packageType": "studio-package",
+                            "displayName": "IDP Viewer",
+                            "nModule": {
+                                "importStatement": "import { IdpDvModule } from 'idp-dv';",
+                                "imports": [
+                                    "IdpDvModule"
+                                ]
+                            }
+                        },
+                        {
+                            "name": "idp-dv",
+                            "version": "0.0.3",
+                            "packageType": "angular-package"
+                        }
+                    ],
+                    "platformSupportVersion": {
+                        "min": "8.0.0"
+                    },
+                    "metadata": {
+                        "devid": "2073e1e5-04c0-dac6-d391-8c6234599ba5",
+                        "name": "neutrinos-idp-viewer-toolkit",
+                        "displayName": "Neutrinos IDP Viewer Toolkit",
+                        "description": "Neutrinos IDP Viewer Toolkit",
+                        "version": "0.0.3",
+                        "username": "paul.thomas@neutrinos.co",
+                        "publisher": "Paul Thomas",
+                        "platformSupportVersion": {
+                            "min": "8.0.0"
+                        }
+                    },
+                    "version": "0.0.3"
+                },
+                "0.0.4": {
+                    "packages": [
+                        {
+                            "name": "neutrinosidpviewer",
+                            "version": "0.0.4",
+                            "packageType": "studio-package",
+                            "displayName": "IDP Viewer",
+                            "nModule": {
+                                "importStatement": "import { IdpDvModule } from 'idp-dv';",
+                                "imports": [
+                                    "IdpDvModule"
+                                ]
+                            }
+                        },
+                        {
+                            "name": "idp-dv",
+                            "version": "0.0.4",
+                            "packageType": "angular-package"
+                        }
+                    ],
+                    "platformSupportVersion": {
+                        "min": "8.0.0"
+                    },
+                    "metadata": {
+                        "devid": "2073e1e5-04c0-dac6-d391-8c6234599ba5",
+                        "name": "neutrinos-idp-viewer-toolkit",
+                        "displayName": "Neutrinos IDP Viewer Toolkit",
+                        "description": "Neutrinos IDP Viewer Toolkit",
+                        "version": "0.0.4",
+                        "username": "paul.thomas@neutrinos.co",
+                        "publisher": "Paul Thomas",
+                        "platformSupportVersion": {
+                            "min": "8.0.0"
+                        }
+                    },
+                    "version": "0.0.4"
+                },
+                "0.0.5": {
+                    "packages": [
+                        {
+                            "name": "neutrinosidpviewer",
+                            "version": "0.0.5",
+                            "packageType": "studio-package",
+                            "displayName": "IDP Viewer",
+                            "nModule": {
+                                "importStatement": "import { IdpDvModule } from 'idp-dv';",
+                                "imports": [
+                                    "IdpDvModule"
+                                ]
+                            }
+                        },
+                        {
+                            "name": "idp-dv",
+                            "version": "0.0.5",
+                            "packageType": "angular-package"
+                        }
+                    ],
+                    "platformSupportVersion": {
+                        "min": "8.0.0"
+                    },
+                    "metadata": {
+                        "devid": "2073e1e5-04c0-dac6-d391-8c6234599ba5",
+                        "name": "neutrinos-idp-viewer-toolkit",
+                        "displayName": "Neutrinos IDP Viewer Toolkit",
+                        "description": "Neutrinos IDP Viewer Toolkit",
+                        "version": "0.0.5",
+                        "username": "paul.thomas@neutrinos.co",
+                        "publisher": "Paul Thomas",
+                        "platformSupportVersion": {
+                            "min": "8.0.0"
+                        }
+                    },
+                    "version": "0.0.5"
+                },
+                "0.0.6": {
+                    "packages": [
+                        {
+                            "name": "neutrinosidpviewer",
+                            "version": "0.0.6",
+                            "packageType": "studio-package",
+                            "displayName": "IDP Viewer",
+                            "nModule": {
+                                "importStatement": "import { IdpDvModule } from 'idp-dv';",
+                                "imports": [
+                                    "IdpDvModule"
+                                ]
+                            }
+                        },
+                        {
+                            "name": "idp-dv",
+                            "version": "0.0.6",
+                            "packageType": "angular-package"
+                        }
+                    ],
+                    "platformSupportVersion": {
+                        "min": "8.0.0"
+                    },
+                    "metadata": {
+                        "devid": "2073e1e5-04c0-dac6-d391-8c6234599ba5",
+                        "name": "neutrinos-idp-viewer-toolkit",
+                        "displayName": "Neutrinos IDP Viewer Toolkit",
+                        "description": "Neutrinos IDP Viewer Toolkit",
+                        "version": "0.0.6",
+                        "username": "paul.thomas@neutrinos.co",
+                        "publisher": "Paul Thomas",
+                        "platformSupportVersion": {
+                            "min": "8.0.0"
+                        }
+                    },
+                    "version": "0.0.6"
+                },
+                "0.0.7": {
+                    "packages": [
+                        {
+                            "name": "neutrinosidpviewer",
+                            "version": "0.0.7",
+                            "packageType": "studio-package",
+                            "displayName": "IDP Viewer",
+                            "nModule": {
+                                "importStatement": "import { IdpDvModule } from 'idp-dv';",
+                                "imports": [
+                                    "IdpDvModule"
+                                ]
+                            }
+                        },
+                        {
+                            "name": "idp-dv",
+                            "version": "0.0.7",
+                            "packageType": "angular-package"
+                        }
+                    ],
+                    "platformSupportVersion": {
+                        "min": "8.0.0"
+                    },
+                    "metadata": {
+                        "devid": "2073e1e5-04c0-dac6-d391-8c6234599ba5",
+                        "name": "neutrinos-idp-viewer-toolkit",
+                        "displayName": "Neutrinos IDP Viewer Toolkit",
+                        "description": "Neutrinos IDP Viewer Toolkit",
+                        "version": "0.0.7",
+                        "username": "paul.thomas@neutrinos.co",
+                        "publisher": "Paul Thomas",
+                        "platformSupportVersion": {
+                            "min": "8.0.0"
+                        }
+                    },
+                    "version": "0.0.7"
+                },
+                "0.0.8": {
+                    "packages": [
+                        {
+                            "name": "neutrinosidpviewer",
+                            "version": "0.0.8",
+                            "packageType": "studio-package",
+                            "displayName": "IDP Viewer",
+                            "nModule": {
+                                "importStatement": "import { IdpDvModule } from 'idp-dv';",
+                                "imports": [
+                                    "IdpDvModule"
+                                ]
+                            }
+                        },
+                        {
+                            "name": "idp-dv",
+                            "version": "0.0.8",
+                            "packageType": "angular-package"
+                        }
+                    ],
+                    "platformSupportVersion": {
+                        "min": "8.0.0"
+                    },
+                    "metadata": {
+                        "devid": "2073e1e5-04c0-dac6-d391-8c6234599ba5",
+                        "name": "neutrinos-idp-viewer-toolkit",
+                        "displayName": "Neutrinos IDP Viewer Toolkit",
+                        "description": "Neutrinos IDP Viewer Toolkit",
+                        "version": "0.0.8",
+                        "username": "paul.thomas@neutrinos.co",
+                        "publisher": "Paul Thomas",
+                        "platformSupportVersion": {
+                            "min": "8.0.0"
+                        }
+                    },
+                    "version": "0.0.8"
+                },
+                "1.0.3": {
+                    "packages": [
+                        {
+                            "name": "neutrinosidpviewer",
+                            "version": "1.0.3",
+                            "packageType": "studio-package",
+                            "displayName": "IDP Viewer",
+                            "nModule": {
+                                "importStatement": "import { IdpDvModule } from 'idp-dv';",
+                                "imports": [
+                                    "IdpDvModule"
+                                ]
+                            }
+                        },
+                        {
+                            "name": "idp-dv",
+                            "version": "1.0.3",
+                            "packageType": "angular-package"
+                        }
+                    ],
+                    "platformSupportVersion": {
+                        "min": "8.0.0"
+                    },
+                    "metadata": {
+                        "devid": "2073e1e5-04c0-dac6-d391-8c6234599ba5",
+                        "name": "neutrinos-idp-viewer-toolkit",
+                        "displayName": "Neutrinos IDP Viewer Toolkit",
+                        "description": "Neutrinos IDP Viewer Toolkit",
+                        "version": "1.0.3",
+                        "username": "paul.thomas@neutrinos.co",
+                        "publisher": "Paul Thomas",
+                        "platformSupportVersion": {
+                            "min": "8.0.0"
+                        }
+                    },
+                    "version": "1.0.3"
+                },
+                "1.0.4": {
+                    "packages": [
+                        {
+                            "name": "neutrinosidpviewer",
+                            "version": "1.0.4",
+                            "packageType": "studio-package",
+                            "displayName": "IDP Viewer",
+                            "nModule": {
+                                "importStatement": "import { IdpDvModule } from 'idp-dv';",
+                                "imports": [
+                                    "IdpDvModule"
+                                ]
+                            }
+                        },
+                        {
+                            "name": "idp-dv",
+                            "version": "1.0.4",
+                            "packageType": "angular-package"
+                        }
+                    ],
+                    "platformSupportVersion": {
+                        "min": "8.0.0"
+                    },
+                    "metadata": {
+                        "devid": "2073e1e5-04c0-dac6-d391-8c6234599ba5",
+                        "name": "neutrinos-idp-viewer-toolkit",
+                        "displayName": "Neutrinos IDP Viewer Toolkit",
+                        "description": "Neutrinos IDP Viewer Toolkit",
+                        "version": "1.0.4",
+                        "username": "paul.thomas@neutrinos.co",
+                        "publisher": "Paul Thomas",
+                        "platformSupportVersion": {
+                            "min": "8.0.0"
+                        }
+                    },
+                    "version": "1.0.4"
+                },
+                "1.0.6": {
+                    "packages": [
+                        {
+                            "name": "neutrinosidpviewer",
+                            "version": "1.0.6",
+                            "packageType": "studio-package",
+                            "displayName": "IDP Viewer",
+                            "nModule": {
+                                "importStatement": "import { IdpDvModule } from 'idp-dv';",
+                                "imports": [
+                                    "IdpDvModule"
+                                ]
+                            }
+                        },
+                        {
+                            "name": "idp-dv",
+                            "version": "1.0.6",
+                            "packageType": "angular-package"
+                        }
+                    ],
+                    "platformSupportVersion": {
+                        "min": "8.0.0"
+                    },
+                    "metadata": {
+                        "devid": "2073e1e5-04c0-dac6-d391-8c6234599ba5",
+                        "name": "neutrinos-idp-viewer-toolkit",
+                        "displayName": "Neutrinos IDP Viewer Toolkit",
+                        "description": "Neutrinos IDP Viewer Toolkit",
+                        "version": "1.0.6",
+                        "username": "paul.thomas@neutrinos.co",
+                        "publisher": "Paul Thomas",
+                        "platformSupportVersion": {
+                            "min": "8.0.0"
+                        }
+                    },
+                    "version": "1.0.6"
+                },
+                "1.0.7": {
+                    "packages": [
+                        {
+                            "name": "neutrinosidpviewer",
+                            "version": "1.0.7",
+                            "packageType": "studio-package",
+                            "displayName": "IDP Viewer",
+                            "nModule": {
+                                "importStatement": "import { IdpDvModule } from 'idp-dv';",
+                                "imports": [
+                                    "IdpDvModule"
+                                ]
+                            }
+                        },
+                        {
+                            "name": "idp-dv",
+                            "version": "1.0.7",
+                            "packageType": "angular-package"
+                        }
+                    ],
+                    "platformSupportVersion": {
+                        "min": "8.0.0"
+                    },
+                    "metadata": {
+                        "devid": "2073e1e5-04c0-dac6-d391-8c6234599ba5",
+                        "name": "neutrinos-idp-viewer-toolkit",
+                        "displayName": "Neutrinos IDP Viewer Toolkit",
+                        "description": "Neutrinos IDP Viewer Toolkit",
+                        "version": "1.0.7",
+                        "username": "paul.thomas@neutrinos.co",
+                        "publisher": "Paul Thomas",
+                        "platformSupportVersion": {
+                            "min": "8.0.0"
+                        }
+                    },
+                    "version": "1.0.7"
+                },
+                "1.0.8": {
+                    "packages": [
+                        {
+                            "name": "neutrinosidpviewer",
+                            "version": "1.0.8",
+                            "packageType": "studio-package",
+                            "displayName": "IDP Viewer",
+                            "nModule": {
+                                "importStatement": "import { IdpDvModule } from 'idp-dv';",
+                                "imports": [
+                                    "IdpDvModule"
+                                ]
+                            }
+                        },
+                        {
+                            "name": "idp-dv",
+                            "version": "1.0.8",
+                            "packageType": "angular-package"
+                        }
+                    ],
+                    "platformSupportVersion": {
+                        "min": "8.0.0"
+                    },
+                    "metadata": {
+                        "devid": "2073e1e5-04c0-dac6-d391-8c6234599ba5",
+                        "name": "neutrinos-idp-viewer-toolkit",
+                        "displayName": "Neutrinos IDP Viewer Toolkit",
+                        "description": "Neutrinos IDP Viewer Toolkit",
+                        "version": "1.0.8",
+                        "username": "paul.thomas@neutrinos.co",
+                        "publisher": "Paul Thomas",
+                        "platformSupportVersion": {
+                            "min": "8.0.0"
+                        }
+                    },
+                    "version": "1.0.8"
+                },
+                "1.0.9": {
+                    "packages": [
+                        {
+                            "name": "neutrinosidpviewer",
+                            "version": "1.0.9",
+                            "packageType": "studio-package",
+                            "displayName": "IDP Viewer",
+                            "nModule": {
+                                "importStatement": "import { IdpDvModule } from 'idp-dv';",
+                                "imports": [
+                                    "IdpDvModule"
+                                ]
+                            }
+                        },
+                        {
+                            "name": "idp-dv",
+                            "version": "1.0.9",
+                            "packageType": "angular-package"
+                        }
+                    ],
+                    "platformSupportVersion": {
+                        "min": "8.0.0"
+                    },
+                    "metadata": {
+                        "devid": "2073e1e5-04c0-dac6-d391-8c6234599ba5",
+                        "name": "neutrinos-idp-viewer-toolkit",
+                        "displayName": "Neutrinos IDP Viewer Toolkit",
+                        "description": "Neutrinos IDP Viewer Toolkit",
+                        "version": "1.0.9",
+                        "username": "paul.thomas@neutrinos.co",
+                        "publisher": "Paul Thomas",
+                        "platformSupportVersion": {
+                            "min": "8.0.0"
+                        }
+                    },
+                    "version": "1.0.9"
+                },
+                "1.0.20": {
+                    "packages": [
+                        {
+                            "name": "neutrinosidpviewer",
+                            "version": "1.0.20",
+                            "packageType": "studio-package",
+                            "displayName": "IDP Viewer",
+                            "nModule": {
+                                "importStatement": "import { IdpDvModule } from 'idp-dv';",
+                                "imports": [
+                                    "IdpDvModule"
+                                ]
+                            }
+                        },
+                        {
+                            "name": "idp-dv",
+                            "version": "1.0.20",
+                            "packageType": "angular-package"
+                        }
+                    ],
+                    "platformSupportVersion": {
+                        "min": "8.0.0"
+                    },
+                    "metadata": {
+                        "devid": "2073e1e5-04c0-dac6-d391-8c6234599ba5",
+                        "name": "neutrinos-idp-viewer-toolkit",
+                        "displayName": "Neutrinos IDP Viewer Toolkit",
+                        "description": "Neutrinos IDP Viewer Toolkit",
+                        "version": "1.0.20",
+                        "username": "paul.thomas@neutrinos.co",
+                        "publisher": "Paul Thomas",
+                        "platformSupportVersion": {
+                            "min": "8.0.0"
+                        }
+                    },
+                    "version": "1.0.20"
+                },
+                "1.0.21": {
+                    "packages": [
+                        {
+                            "name": "neutrinosidpviewer",
+                            "version": "1.0.21",
+                            "packageType": "studio-package",
+                            "displayName": "IDP Viewer",
+                            "nModule": {
+                                "importStatement": "import { IdpDvModule } from 'idp-dv';",
+                                "imports": [
+                                    "IdpDvModule"
+                                ]
+                            }
+                        },
+                        {
+                            "name": "idp-dv",
+                            "version": "1.0.21",
+                            "packageType": "angular-package"
+                        }
+                    ],
+                    "platformSupportVersion": {
+                        "min": "8.0.0"
+                    },
+                    "metadata": {
+                        "devid": "2073e1e5-04c0-dac6-d391-8c6234599ba5",
+                        "name": "neutrinos-idp-viewer-toolkit",
+                        "displayName": "Neutrinos IDP Viewer Toolkit",
+                        "description": "Neutrinos IDP Viewer Toolkit",
+                        "version": "1.0.21",
+                        "username": "paul.thomas@neutrinos.co",
+                        "publisher": "Paul Thomas",
+                        "platformSupportVersion": {
+                            "min": "8.0.0"
+                        }
+                    },
+                    "version": "1.0.21"
+                },
+                "1.0.22": {
+                    "packages": [
+                        {
+                            "name": "neutrinosidpviewer",
+                            "version": "1.0.22",
+                            "packageType": "studio-package",
+                            "displayName": "IDP Viewer",
+                            "nModule": {
+                                "importStatement": "import { IdpDvModule } from 'idp-dv';",
+                                "imports": [
+                                    "IdpDvModule"
+                                ]
+                            }
+                        },
+                        {
+                            "name": "idp-dv",
+                            "version": "1.0.22",
+                            "packageType": "angular-package"
+                        }
+                    ],
+                    "platformSupportVersion": {
+                        "min": "8.0.0"
+                    },
+                    "metadata": {
+                        "devid": "2073e1e5-04c0-dac6-d391-8c6234599ba5",
+                        "name": "neutrinos-idp-viewer-toolkit",
+                        "displayName": "Neutrinos IDP Viewer Toolkit",
+                        "description": "Neutrinos IDP Viewer Toolkit",
+                        "version": "1.0.22",
+                        "username": "paul.thomas@neutrinos.co",
+                        "publisher": "Paul Thomas",
+                        "platformSupportVersion": {
+                            "min": "8.0.0"
+                        }
+                    },
+                    "version": "1.0.22"
+                },
+                "1.0.23": {
+                    "packages": [
+                        {
+                            "name": "neutrinosidpviewer",
+                            "version": "1.0.23",
+                            "packageType": "studio-package",
+                            "displayName": "IDP Viewer",
+                            "nModule": {
+                                "importStatement": "import { IdpDvModule } from 'idp-dv';",
+                                "imports": [
+                                    "IdpDvModule"
+                                ]
+                            }
+                        },
+                        {
+                            "name": "idp-dv",
+                            "version": "1.0.23",
+                            "packageType": "angular-package"
+                        }
+                    ],
+                    "platformSupportVersion": {
+                        "min": "8.0.0"
+                    },
+                    "metadata": {
+                        "devid": "2073e1e5-04c0-dac6-d391-8c6234599ba5",
+                        "name": "neutrinos-idp-viewer-toolkit",
+                        "displayName": "Neutrinos IDP Viewer Toolkit",
+                        "description": "Neutrinos IDP Viewer Toolkit",
+                        "version": "1.0.23",
+                        "username": "paul.thomas@neutrinos.co",
+                        "publisher": "Paul Thomas",
+                        "platformSupportVersion": {
+                            "min": "8.0.0"
+                        }
+                    },
+                    "version": "1.0.23"
+                },
+                "1.0.25": {
+                    "packages": [
+                        {
+                            "name": "neutrinosidpviewer",
+                            "version": "1.0.25",
+                            "packageType": "studio-package",
+                            "displayName": "IDP Viewer",
+                            "nModule": {
+                                "importStatement": "import { IdpDvModule } from 'idp-dv';",
+                                "imports": [
+                                    "IdpDvModule"
+                                ]
+                            }
+                        },
+                        {
+                            "name": "idp-dv",
+                            "version": "1.0.25",
+                            "packageType": "angular-package"
+                        }
+                    ],
+                    "platformSupportVersion": {
+                        "min": "8.0.0"
+                    },
+                    "metadata": {
+                        "devid": "2073e1e5-04c0-dac6-d391-8c6234599ba5",
+                        "name": "neutrinos-idp-viewer-toolkit",
+                        "displayName": "Neutrinos IDP Viewer Toolkit",
+                        "description": "Neutrinos IDP Viewer Toolkit",
+                        "version": "1.0.25",
+                        "username": "paul.thomas@neutrinos.co",
+                        "publisher": "Paul Thomas",
+                        "platformSupportVersion": {
+                            "min": "8.0.0"
+                        }
+                    },
+                    "version": "1.0.25"
+                },
+                "1.0.26": {
+                    "packages": [
+                        {
+                            "name": "neutrinosidpviewer",
+                            "version": "1.0.26",
+                            "packageType": "studio-package",
+                            "displayName": "IDP Viewer",
+                            "nModule": {
+                                "importStatement": "import { IdpDvModule } from 'idp-dv';",
+                                "imports": [
+                                    "IdpDvModule"
+                                ]
+                            }
+                        },
+                        {
+                            "name": "idp-dv",
+                            "version": "1.0.26",
+                            "packageType": "angular-package"
+                        }
+                    ],
+                    "platformSupportVersion": {
+                        "min": "8.0.0"
+                    },
+                    "metadata": {
+                        "devid": "2073e1e5-04c0-dac6-d391-8c6234599ba5",
+                        "name": "neutrinos-idp-viewer-toolkit",
+                        "displayName": "Neutrinos IDP Viewer Toolkit",
+                        "description": "Neutrinos IDP Viewer Toolkit",
+                        "version": "1.0.26",
+                        "username": "paul.thomas@neutrinos.co",
+                        "publisher": "Paul Thomas",
+                        "platformSupportVersion": {
+                            "min": "8.0.0"
+                        }
+                    },
+                    "version": "1.0.26"
+                },
+                "1.0.27": {
+                    "packages": [
+                        {
+                            "name": "neutrinosidpviewer",
+                            "version": "1.0.27",
+                            "packageType": "studio-package",
+                            "displayName": "IDP Viewer",
+                            "nModule": {
+                                "importStatement": "import { IdpDvModule } from 'idp-dv';",
+                                "imports": [
+                                    "IdpDvModule"
+                                ]
+                            }
+                        },
+                        {
+                            "name": "idp-dv",
+                            "version": "1.0.27",
+                            "packageType": "angular-package"
+                        }
+                    ],
+                    "platformSupportVersion": {
+                        "min": "8.0.0"
+                    },
+                    "metadata": {
+                        "devid": "2073e1e5-04c0-dac6-d391-8c6234599ba5",
+                        "name": "neutrinos-idp-viewer-toolkit",
+                        "displayName": "Neutrinos IDP Viewer Toolkit",
+                        "description": "Neutrinos IDP Viewer Toolkit",
+                        "version": "1.0.27",
+                        "username": "paul.thomas@neutrinos.co",
+                        "publisher": "Paul Thomas",
+                        "platformSupportVersion": {
+                            "min": "8.0.0"
+                        }
+                    },
+                    "version": "1.0.27"
+                }
+            },
+            "archiveFile": "api/zips/undefined",
+            "guide": "62bae005c1a5d6001aa95513",
+            "icon": "api/resource/icons/62bae004c1a5d6001aa95509",
+            "screenshots": [
+                "api/resource/screenshots/62bae004c1a5d6001aa9550b",
+                "api/resource/screenshots/62bae004c1a5d6001aa9550d",
+                "api/resource/screenshots/62bae004c1a5d6001aa9550f",
+                "api/resource/screenshots/62bae004c1a5d6001aa95511"
+            ],
+            "no_of_downloads_by_packages": {
+                "neutrinosidpviewer": 69,
+                "idp-dv": 182
+            },
+            "dependencies": [
+                {
+                    "name": "neutrinosidpviewer",
+                    "version": "1.0.27",
+                    "packageType": "studio-package",
+                    "displayName": "IDP Viewer",
+                    "nModule": {
+                        "importStatement": "import { IdpDvModule } from 'idp-dv';",
+                        "imports": [
+                            "IdpDvModule"
+                        ]
+                    }
+                },
+                {
+                    "name": "idp-dv",
+                    "version": "1.0.27",
+                    "packageType": "angular-package"
+                }
+            ]
+        },
+        {
+            "_id": "6230bf8a121d3ae0ca21cb91",
+            "name": "neutrinos-file-upload",
+            "averageRating": 4,
+            "description": "plugin to upload files",
+            "displayName": "File Upload",
+            "lastUpdated": "2022-03-15T16:32:10.087Z",
+            "numberOfDownloads": 0,
+            "packageType": [
+                "angular-package",
+                "studio-package"
+            ],
+            "platformSupportVersion": "8.1.0",
+            "pluginImage": "packageicon.png",
+            "publisher": "Neutrinos",
+            "uploadedDate": "2022-03-15T16:32:10.087Z",
+            "username": "avinash.gupta@neutrinos.co",
+            "version": "1.0.0",
+            "versions": {
+                "1.0.0": {
+                    "packages": [
+                        {
+                            "name": "neutrinos-file-upload",
+                            "version": "1.0.0",
+                            "packageType": "angular-package",
+                            "displayName": "File Upload"
+                        },
+                        {
+                            "name": "neutrinos-fileupload-component",
+                            "version": "1.0.0",
+                            "packageType": "studio-package",
+                            "displayName": "File Upload",
+                            "nModule": {
+                                "name": "neutrinos-file-upload",
+                                "version": "1.0.0",
+                                "packageType": "angular-package",
+                                "importStatement": "import { NeutrinosFileUploadModule } from 'neutrinos-file-upload';",
+                                "imports": [
+                                    "NeutrinosFileUploadModule"
+                                ]
+                            }
+                        }
+                    ],
+                    "platformSupportVersion": {
+                        "min": "8.1.0"
+                    },
+                    "metadata": {
+                        "name": "neutrinos-file-upload",
+                        "displayName": "File Upload",
+                        "version": "1.0.0",
+                        "username": "avinash.gupta@neutrinos.co",
+                        "publisher": "Neutrinos",
+                        "platformSupportVersion": {
+                            "min": "8.1.0"
+                        },
+                        "description": "plugin to upload files",
+                        "pluginImage": "packageicon.png"
+                    },
+                    "version": "1.0.0"
+                }
+            },
+            "archiveFile": "api/zips/undefined",
+            "guide": "6230bf8bd4548e001c7353f2",
+            "icon": "api/resource/icons/6230bf8ad4548e001c7353ec",
+            "screenshots": [
+                "api/resource/screenshots/6230bf8ad4548e001c7353ee",
+                "api/resource/screenshots/6230bf8ad4548e001c7353f0"
+            ],
+            "no_of_downloads_by_packages": {
+                "neutrinos-fileupload-component": 44,
+                "neutrinos-file-upload": 47
+            },
+            "dependencies": [
+                {
+                    "name": "neutrinos-file-upload",
+                    "version": "1.0.0",
+                    "packageType": "angular-package",
+                    "displayName": "File Upload"
+                },
+                {
+                    "name": "neutrinos-fileupload-component",
+                    "version": "1.0.0",
+                    "packageType": "studio-package",
+                    "displayName": "File Upload",
+                    "nModule": {
+                        "name": "neutrinos-file-upload",
+                        "version": "1.0.0",
+                        "packageType": "angular-package",
+                        "importStatement": "import { NeutrinosFileUploadModule } from 'neutrinos-file-upload';",
+                        "imports": [
+                            "NeutrinosFileUploadModule"
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

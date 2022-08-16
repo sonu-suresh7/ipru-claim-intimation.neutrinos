@@ -1,0 +1,14 @@
+<div fxLayout="row " style="height: 6rem" class="padding-bottom-1 padding-top-1" fxLayoutAlign="space-between stretch" [fxShow]="true" *ngIf="email">
+  <div fxLayout="column " fxLayoutAlign="space-between start" [fxShow]="true"><span class="header-title-18">
+    {{email.subject}}</span>
+    <div fxLayout="row wrap" fxLayoutGap="0.5rem" fxLayoutAlign="start center" [fxShow]="true">
+      <ng-container>
+        <span class="label-text">{{page.labels.sender.label}}: </span><span class="regular-text">{{email.sender}}</span>
+      </ng-container>
+    </div>
+  </div>
+  <div fxLayout="row wrap" fxLayoutGap="1rem" fxLayoutAlign="end start" [fxShow]="true">
+    <div fxLayout="column wrap" fxLayoutAlign="center start" [fxShow]="true"><span class="label-text">
+      {{email.headers.date | date: &apos;dd/MM/yyyy, h:mm:ss a&apos; }}</span></div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div fxLayout="column " class="padding-1 height-100 width-100" fxLayoutGap="2rem" fxLayoutAlign="space-between stretch">
+  <div fxLayout="column " fxLayoutGap="1rem" fxLayoutAlign="start stretch">
+    <div class="header-title-18">
+      {{page.data?.title}}
+    </div>
+    <div>
+      {{page.data?.description}}
+    </div>
+  </div>
+  <div fxLayout="row " class="width-100" fxLayoutAlign="end center"><button mat-button [mat-dialog-close]="false">Cancel</button><button mat-button [mat-dialog-close]="true">Confirm</button></div>
+</div>

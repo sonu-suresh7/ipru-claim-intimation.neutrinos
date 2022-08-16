@@ -1,0 +1,82 @@
+<div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="!page.uwLevel || page.uwLevel === page.loggedInRole">
+  <mat-card>
+    <mat-card-content>
+      <div fxLayout="column wrap" fxLayoutGap="20px" fxLayoutAlign="start stretch" [fxShow]="true"><label class="mat-expansion-panel-header-title">
+          {{page.locales.keys.lifeInsured}} - {{page.checkedOut.case.caseDetails.primaryLife.PersonalDetails.fullName}}</label>
+        <div fxLayout="column " fxLayoutGap="1rem" fxLayoutAlign="start stretch" [fxShow]="true" *ngFor="let item of page.benefits;let i=index;"><label class="mat-expansion-panel-header-title">
+            <!-- {{item.type === 'LIFE' ? page.locales.keys.life : item.type }} -->
+            Investigation Recommendation
+          </label>
+          <div fxLayout="row wrap" fxLayoutGap="1rem" fxLayoutAlign="start stretch" [fxShow]="true">
+            <mat-button-toggle-group [name]="item.decision_i" [multiple]="false" [appearance]="&apos;standard&apos;" [(ngModel)]="item.decision">
+
+              <mat-button-toggle value="accept"> {{page.locales.keys.positive}}
+              </mat-button-toggle>
+
+              <mat-button-toggle value="reject"> {{page.locales.keys.negative}}
+              </mat-button-toggle>
+
+              <mat-button-toggle value="postpone"> {{page.locales.keys.inconclusive}}
+              </mat-button-toggle>
+            </mat-button-toggle-group>
+          </div>
+          <div fxLayout="row wrap" fxLayoutAlign="space-between stretch" [fxShow]="true">
+            <div fxLayout="row " fxFlex="48" fxLayoutAlign="start stretch" [fxShow]="false" *ngIf="item.decision === &apos;reject&apos; || item.decision === &apos;postpone&apos;">
+              <mat-form-field class="width-100" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+                <input matInput [(ngModel)]="item.clause" name="basePlanclause" [required]="false">
+                <mat-label>Clause</mat-label>
+              </mat-form-field>
+            </div>
+            <div fxLayout="row " fxFlex="48" fxLayoutAlign="start stretch" [fxShow]="false" *ngIf="item.decision === &apos;postpone&apos;">
+              <mat-form-field class="width-100" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+                <input matInput [(ngModel)]="item.duration" name="basePlanduration" [required]="false">
+                <mat-label>Duration</mat-label>
+              </mat-form-field>
+            </div>
+          </div>
+          <div fxLayout="row " fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="item.decision === &apos;drop&apos; || item.decision === &apos;closed&apos;">
+            <div fxLayout="row " fxFlex="48" fxLayoutAlign="start stretch" [fxShow]="true">
+              <mat-form-field class="width-100" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+                <input matInput [(ngModel)]="item.remarks" name="basePlanRemarks" [required]="false">
+                <mat-label>Remarks</mat-label>
+              </mat-form-field>
+            </div>
+          </div>
+          <div fxLayout="column " fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="item.decision === &apos;counter offer&apos;">
+            <div fxLayout="row wrap" fxLayoutAlign="space-between stretch" [fxShow]="true">
+              <div fxLayout="row " fxFlex="48" fxLayoutAlign="start stretch" [fxShow]="true">
+                <mat-form-field class="width-100" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+                  <input matInput [(ngModel)]="item.em" name="basePlanEm" type="number" [required]="false">
+                  <mat-label>EM</mat-label>
+                </mat-form-field>
+              </div>
+              <div fxLayout="row " fxFlex="48" fxLayoutAlign="start stretch" [fxShow]="true">
+                <mat-form-field class="width-100" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+                  <input matInput [(ngModel)]="item.flatRate" name="basePlanFlatRate" [required]="false">
+                  <mat-label>Flat Rate</mat-label>
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxLayout="row wrap" fxLayoutAlign="space-between stretch" [fxShow]="true">
+              <div fxLayout="row " fxFlex="48" fxLayoutAlign="start stretch" [fxShow]="true">
+                <mat-form-field class="width-100" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+                  <input matInput [(ngModel)]="item.exclusion" name="basePlan.exclusion" [required]="false">
+                  <mat-label>Exclusion</mat-label>
+                </mat-form-field>
+              </div>
+              <div fxLayout="row " fxFlex="48" fxLayoutAlign="start stretch" [fxShow]="true">
+                <mat-form-field class="width-100" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+                  <input matInput [(ngModel)]="item.clause" name="basePlanClause" [required]="false">
+                  <mat-label>Clause</mat-label>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </div>
+        <mat-form-field [appearance]="&apos;outline&apos;">
+          <textarea matInput [(ngModel)]="page.comment" placeholder="Comment" [required]="false"></textarea>
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

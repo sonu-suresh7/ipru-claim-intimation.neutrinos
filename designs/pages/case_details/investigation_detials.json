@@ -1,0 +1,131 @@
+[
+    {
+        "id": "sd_S9KP7NpB84cUrDLP",
+        "type": "tab",
+        "createdDate": "2022-07-20T13:59:59.724Z",
+        "label": "investigation_detials",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "investigation_detialsComponent"
+    },
+    {
+        "id": "sd_zkqCclTlykd5F2D5",
+        "type": "OnInit",
+        "z": "sd_S9KP7NpB84cUrDLP",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "inputVariables": [
+            {
+                "key": "investigation",
+                "defaultValue": {
+                    "type": "any",
+                    "value": "{}"
+                }
+            },
+            {
+                "key": "typeOfInvestigation",
+                "defaultValue": {
+                    "type": "any",
+                    "value": "\"\""
+                }
+            }
+        ],
+        "localVariables": [],
+        "outputVariables": [],
+        "functionName": "sd_zkqCclTlykd5F2D5",
+        "category": "Lifecycle Events",
+        "x": 45,
+        "y": 100,
+        "wires": [
+            [
+                "sd_d8FQlex2QKSG6DpM"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "investigation_detialsComponent"
+    },
+    {
+        "id": "sd_d8FQlex2QKSG6DpM",
+        "type": "Script",
+        "z": "sd_S9KP7NpB84cUrDLP",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "",
+        "functionName": "sd_d8FQlex2QKSG6DpM",
+        "category": "Function",
+        "x": 200,
+        "y": 100,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_5uus65ZsLjA0AFiL",
+        "type": "PageStart",
+        "z": "sd_S9KP7NpB84cUrDLP",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "title case",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "text",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [
+            {
+                "key": "title_case",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": true
+            }
+        ],
+        "flow_type": "sync",
+        "functionName": "titleCase",
+        "category": "General",
+        "x": 123,
+        "y": 209.8000030517578,
+        "wires": [
+            [
+                "sd_VIDY3b15lZokvIvs"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "investigation_detialsComponent"
+    },
+    {
+        "id": "sd_VIDY3b15lZokvIvs",
+        "type": "Script",
+        "z": "sd_S9KP7NpB84cUrDLP",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "\nconst result = bh.input.text.replace(/([A-Z])/g, \" $1\");\nbh.local.title_case = result.charAt(0).toUpperCase() + result.slice(1);",
+        "functionName": "sd_VIDY3b15lZokvIvs",
+        "category": "Function",
+        "x": 263,
+        "y": 209.8000030517578,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

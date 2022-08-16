@@ -1,0 +1,110 @@
+[
+    {
+        "id": "sd_fXbTOniTjHkdpp2L",
+        "type": "tab",
+        "createdDate": "2022-03-22T08:25:56.314Z",
+        "label": "case_view",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "case_viewComponent"
+    },
+    {
+        "id": "sd_1Vmo1tedhXBt6PCE",
+        "type": "OnInit",
+        "z": "sd_fXbTOniTjHkdpp2L",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "sd_1Vmo1tedhXBt6PCE",
+        "category": "Lifecycle Events",
+        "x": 65,
+        "y": 60,
+        "wires": [
+            [
+                "sd_YmSkLEbpz4zeDwuz"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "case_viewComponent"
+    },
+    {
+        "id": "sd_0l4oD3Q4SXp8FEQ6",
+        "type": "Script",
+        "z": "sd_fXbTOniTjHkdpp2L",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.caseDetails = bh.co.case.caseDetails;\npage.task = bh.co.task;\npage.caseDetails.primaryLife.coverageDetails.forEach((ele, index) => {\n    page.caseDetails.primaryLife.coverageDetails[index]['current_premium'] = page.caseDetails.metadata.current_premium;\n});",
+        "functionName": "sd_0l4oD3Q4SXp8FEQ6",
+        "category": "Function",
+        "x": 445,
+        "y": 60,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_YmSkLEbpz4zeDwuz",
+        "type": "PageServiceVariables",
+        "z": "sd_fXbTOniTjHkdpp2L",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "get",
+        "globalVariables": [
+            {
+                "textIp": "checkedOut",
+                "typedIpValue": {
+                    "type": "bh",
+                    "value": "co"
+                }
+            }
+        ],
+        "functionName": "sd_YmSkLEbpz4zeDwuz",
+        "service": {
+            "id": "sd_RbD2RZwzan9VSOEL",
+            "type": "tab",
+            "createdDate": "2022-03-10T07:40:30.532Z",
+            "label": "cache",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "generateNext": true,
+            "serviceName": "cache",
+            "relativeParentPath": "",
+            "_def": {
+                "defaults": {
+                    "label": {
+                        "value": ""
+                    },
+                    "disabled": {
+                        "value": false
+                    },
+                    "info": {
+                        "value": ""
+                    }
+                }
+            }
+        },
+        "serviceImportPath": "app/sd-services/cache",
+        "category": "Function",
+        "x": 245,
+        "y": 60,
+        "wires": [
+            [
+                "sd_0l4oD3Q4SXp8FEQ6"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

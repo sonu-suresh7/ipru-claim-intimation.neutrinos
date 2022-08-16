@@ -1,0 +1,846 @@
+[
+    {
+        "id": "sd_0lkUbP8ZPcaGYMw0",
+        "type": "tab",
+        "createdDate": "2022-03-28T10:55:33.053Z",
+        "label": "case_documents",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 2,
+        "generateNext": true,
+        "serviceName": "case_documentsComponent"
+    },
+    {
+        "id": "sd_WONPgeRxs7j3SQoU",
+        "type": "OnInit",
+        "z": "sd_0lkUbP8ZPcaGYMw0",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "sd_WONPgeRxs7j3SQoU",
+        "category": "Lifecycle Events",
+        "x": 65,
+        "y": 140,
+        "wires": [
+            [
+                "sd_uDihmWtQQtzuNEdQ"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "case_documentsComponent"
+    },
+    {
+        "id": "sd_qC7ofiCaLMIV0t97",
+        "type": "Script",
+        "z": "sd_0lkUbP8ZPcaGYMw0",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "let caseId = page.checkedOut.case['_id'];\nbh.local.getCaseDocURL = `${page.system.environment.properties.ssdBaseUrl}/case/docs/${caseId}`;\n\npage.documentsTable = new MatTableDataSource([]);\n\n",
+        "functionName": "sd_qC7ofiCaLMIV0t97",
+        "category": "Function",
+        "x": 365,
+        "y": 140,
+        "wires": [
+            [
+                "sd_ExB3TxUPnPsCTNWD"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "case_documentsComponent"
+    },
+    {
+        "id": "sd_Q7S4BcktI2ADlJFL",
+        "type": "AfterViewInit",
+        "z": "sd_0lkUbP8ZPcaGYMw0",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "ngAfterViewInit",
+        "category": "Lifecycle Events",
+        "x": 65,
+        "y": 360,
+        "wires": [
+            [
+                "sd_2DPNeFEHk8ChET52"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "case_documentsComponent"
+    },
+    {
+        "id": "sd_2DPNeFEHk8ChET52",
+        "type": "ViewPicker",
+        "z": "sd_0lkUbP8ZPcaGYMw0",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "childViewVariables": [
+            {
+                "key": {
+                    "type": "literal",
+                    "value": "MatSort"
+                },
+                "defaultValue": "",
+                "isViewChildren": false
+            },
+            {
+                "key": {
+                    "type": "literal",
+                    "value": "MatPaginator"
+                },
+                "defaultValue": "",
+                "isViewChildren": false
+            }
+        ],
+        "functionName": "sd_xKCCTWKzvgDN0rx7_1",
+        "category": "Function",
+        "x": 205,
+        "y": 360,
+        "wires": [
+            [
+                "sd_6IdzgYmTD0asRoKq"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_6IdzgYmTD0asRoKq",
+        "type": "Script",
+        "z": "sd_0lkUbP8ZPcaGYMw0",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "this.page.documentsTable.sort = this.MatSort;\nsetTimeout(() => this.MatSort.sort(({id: 'uploadDate', start: 'desc'})))\nthis.page.documentsTable.paginator = this.MatPaginator;",
+        "functionName": "sd_2VNGqvcKee34lvOz_1",
+        "category": "Function",
+        "x": 345,
+        "y": 360,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_ExB3TxUPnPsCTNWD",
+        "type": "HttpRequest",
+        "z": "sd_0lkUbP8ZPcaGYMw0",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "get",
+        "methodMapping": "",
+        "methodMappingObj": {},
+        "urlMapping": "bh.local.getCaseDocURL",
+        "urlMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "getCaseDocURL"
+        },
+        "ret": "json",
+        "retMapping": "",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMapping": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "",
+        "reqBodyObj": {
+            "mapVarType": "bh",
+            "mapVarValue": ""
+        },
+        "resultMapping": "bh.local.caseDocuments",
+        "resultMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "caseDocuments"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMapping": "",
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMapping": "",
+        "paramMappingObj": {},
+        "functionName": "sd_ExB3TxUPnPsCTNWD",
+        "category": "HTTP",
+        "x": 525,
+        "y": 140,
+        "wires": [
+            [
+                "sd_A8VLRaeGLWW6NLPY"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_uDihmWtQQtzuNEdQ",
+        "type": "PageServiceVariables",
+        "z": "sd_0lkUbP8ZPcaGYMw0",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "get",
+        "globalVariables": [
+            {
+                "textIp": "checkedOut",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "checkedOut"
+                }
+            }
+        ],
+        "functionName": "sd_uDihmWtQQtzuNEdQ",
+        "service": {
+            "id": "sd_RbD2RZwzan9VSOEL",
+            "type": "tab",
+            "createdDate": "2022-03-10T07:40:30.532Z",
+            "label": "cache",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "generateNext": true,
+            "serviceName": "cache",
+            "relativeParentPath": "",
+            "_def": {
+                "defaults": {
+                    "label": {
+                        "value": ""
+                    },
+                    "disabled": {
+                        "value": false
+                    },
+                    "info": {
+                        "value": ""
+                    }
+                }
+            }
+        },
+        "serviceImportPath": "app/sd-services/cache",
+        "category": "Function",
+        "x": 205,
+        "y": 140,
+        "wires": [
+            [
+                "sd_qC7ofiCaLMIV0t97"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_A8VLRaeGLWW6NLPY",
+        "type": "Script",
+        "z": "sd_0lkUbP8ZPcaGYMw0",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "asd",
+        "script": "bh.local.caseDocuments = bh.local.caseDocuments.documents || [];\n\n// for (let i = 0; i < bh.local.caseDocuments.length; i++) {\n//     bh.local.caseDocuments[i]['redact'] = false;\n// }\n\npage.documentsTable.data = bh.local.caseDocuments;\n",
+        "functionName": "asd",
+        "category": "Function",
+        "x": 705,
+        "y": 140,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_C8kJhrQtoKbZ1jX6",
+        "type": "PageStart",
+        "z": "sd_0lkUbP8ZPcaGYMw0",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "openDocument",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "doc",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "openDocument",
+        "category": "General",
+        "x": 65,
+        "y": 580,
+        "wires": [
+            [
+                "sd_Qywx19nhl4wVjsGY"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "case_documentsComponent"
+    },
+    {
+        "id": "sd_t4q6JG6v6mHLCP9j",
+        "type": "OpenDialog",
+        "z": "sd_0lkUbP8ZPcaGYMw0",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 4,
+        "flow": {
+            "flowId": "sd_COgZ9EOOy3T3VeiY",
+            "label": "document_viewer"
+        },
+        "relativePath": "./document_viewer",
+        "data": "bh.local.dialogData",
+        "ariaDescribedBy": "this.page",
+        "ariaLabel": "this.page",
+        "ariaLabelledBy": "this.page",
+        "autoFocus": "this.page",
+        "backdropClass": "this.page",
+        "closeOnNavigation": "this.page",
+        "direction": "this.page",
+        "disableClose": "this.page",
+        "hasBackdrop": "this.page",
+        "height": "\"90vh\"",
+        "maxHeight": "this.page",
+        "minHeight": "\"90vh\"",
+        "width": "\"90vw\"",
+        "maxWidth": "this.page",
+        "minWidth": "\"90vw\"",
+        "panelClass": "this.page",
+        "position": "this.page",
+        "restoreFocus": "this.page",
+        "role": "this.page",
+        "resultMapping": "this.page",
+        "functionName": "sd_t4q6JG6v6mHLCP9j",
+        "category": "Dialog",
+        "x": 825,
+        "y": 640,
+        "wires": [
+            [],
+            [],
+            [],
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "data": {
+                "type": "bh.local",
+                "value": "dialogData",
+                "constant": false
+            },
+            "ariaDescribedBy": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "ariaLabel": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "ariaLabelledBy": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "autoFocus": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "backdropClass": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "closeOnNavigation": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "direction": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "disableClose": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "hasBackdrop": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "height": {
+                "type": "str",
+                "value": "90vh",
+                "constant": false
+            },
+            "maxHeight": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "minHeight": {
+                "type": "str",
+                "value": "90vh",
+                "constant": false
+            },
+            "width": {
+                "type": "str",
+                "value": "90vw",
+                "constant": false
+            },
+            "maxWidth": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "minWidth": {
+                "type": "str",
+                "value": "90vw",
+                "constant": false
+            },
+            "panelClass": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "position": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "restoreFocus": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "role": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "resultMapping": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_Qywx19nhl4wVjsGY",
+        "type": "PageSwitch",
+        "z": "sd_0lkUbP8ZPcaGYMw0",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "property": "doc.metadata.idpStatus",
+        "propertyType": "bh.input",
+        "propertyGv": "bh.input.doc.metadata.idpStatus",
+        "rules": [
+            {
+                "t": "se",
+                "v": "PENDING",
+                "vt": "str",
+                "gv": "\"PENDING\""
+            },
+            {
+                "t": "eq",
+                "v": "IGNORED",
+                "vt": "str",
+                "gv": "\"IGNORED\""
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 3,
+        "functionName": "sd_Qywx19nhl4wVjsGY",
+        "category": "Function",
+        "x": 205,
+        "y": 580,
+        "wires": [
+            [
+                "sd_II4hVYLUle7sJcpE"
+            ],
+            [
+                "sd_II4hVYLUle7sJcpE"
+            ],
+            [
+                "sd_kvTkBlnSOP2vkS6f"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_9QuOyGlw9Wku6fbp",
+        "type": "SnackBar",
+        "z": "sd_0lkUbP8ZPcaGYMw0",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "message": {
+            "type": "bh.local",
+            "value": "msg"
+        },
+        "action": {
+            "type": "str",
+            "value": ""
+        },
+        "duration": {
+            "type": "num",
+            "value": ""
+        },
+        "horizontalPosition": "center",
+        "verticalPosition": "bottom",
+        "panelClass": {
+            "type": "str",
+            "value": ""
+        },
+        "direction": "ltr",
+        "functionName": "sd_9QuOyGlw9Wku6fbp",
+        "category": "General",
+        "x": 605,
+        "y": 460,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_II4hVYLUle7sJcpE",
+        "type": "Script",
+        "z": "sd_0lkUbP8ZPcaGYMw0",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "sb message",
+        "script": "bh.local.msg = `idp status is ${bh.input.doc.metadata.idpStatus?.toLowerCase?.() || 'incomplete'}`",
+        "functionName": "sbMessage",
+        "category": "Function",
+        "x": 385,
+        "y": 500,
+        "wires": [
+            [
+                "sd_9QuOyGlw9Wku6fbp"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_kvTkBlnSOP2vkS6f",
+        "type": "PageCallService",
+        "z": "sd_0lkUbP8ZPcaGYMw0",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "getDocumentResult",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_jkXaNKtzX8iSR5cy",
+            "type": "tab",
+            "createdDate": "2022-03-25T10:09:01.250Z",
+            "label": "caseService",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_EP66Fkz1KfGyPWrz",
+            "flowName": "getCaseDocsForResult"
+        },
+        "inputVariables": [
+            {
+                "key": "idpFileId",
+                "map": true,
+                "valueType": "bh.input",
+                "value": "doc.metadata.idpFileId"
+            }
+        ],
+        "outputMapping": [
+            {
+                "mapVarType": "local",
+                "key": "idpAnlData",
+                "valueType": "bh.local",
+                "value": "documentResult",
+                "mapVarName": "idpAnlData",
+                "localVar": "bh.local.documentResult"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/caseService",
+        "startName": "getCaseDocsForResult",
+        "inputParams": [
+            "bh.input.doc.metadata.idpFileId"
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "getDocumentResult",
+        "category": "General",
+        "x": 325,
+        "y": 640,
+        "wires": [
+            [
+                "sd_4KEdSIRFoextHU3v"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_4KEdSIRFoextHU3v",
+        "type": "PageCallService",
+        "z": "sd_0lkUbP8ZPcaGYMw0",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "getDocumentPDF",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_jkXaNKtzX8iSR5cy",
+            "type": "tab",
+            "createdDate": "2022-03-25T10:09:01.250Z",
+            "label": "caseService",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_fNkNrQ5dznJ3YiTE",
+            "flowName": "getCaseDocsFile"
+        },
+        "inputVariables": [
+            {
+                "key": "docId",
+                "map": true,
+                "valueType": "bh.input",
+                "value": "doc._id"
+            }
+        ],
+        "outputMapping": [
+            {
+                "mapVarType": "local",
+                "key": "result",
+                "valueType": "bh.local",
+                "value": "pdf",
+                "mapVarName": "result",
+                "localVar": "bh.local.pdf"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/caseService",
+        "startName": "getCaseDocsFile",
+        "inputParams": [
+            "bh.input.doc._id"
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "getDocumentPDF",
+        "category": "General",
+        "x": 445,
+        "y": 640,
+        "wires": [
+            [
+                "sd_JpTQy79ZZwYLLeeZ"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_4xpUzdCAM0WOiLRF",
+        "type": "Script",
+        "z": "sd_0lkUbP8ZPcaGYMw0",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "set dialogData",
+        "script": "page.showDocViewer = !!bh.local.pdf\nbh.local.dialogData = {\n    documentResult: bh.local.documentResult,\n    pdf: bh.local.pdf\n}",
+        "functionName": "setDialogData",
+        "category": "Function",
+        "x": 705,
+        "y": 640,
+        "wires": [
+            [
+                "sd_t4q6JG6v6mHLCP9j"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_JpTQy79ZZwYLLeeZ",
+        "type": "PageSwitch",
+        "z": "sd_0lkUbP8ZPcaGYMw0",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "property": "pdf",
+        "propertyType": "bh.local",
+        "propertyGv": "bh.local.pdf",
+        "rules": [
+            {
+                "t": "nnull"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "functionName": "sd_JpTQy79ZZwYLLeeZ",
+        "category": "Function",
+        "x": 565,
+        "y": 640,
+        "wires": [
+            [
+                "sd_4xpUzdCAM0WOiLRF"
+            ],
+            [
+                "sd_NMcyu5eOGHL4CqGR"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_NMcyu5eOGHL4CqGR",
+        "type": "Script",
+        "z": "sd_0lkUbP8ZPcaGYMw0",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "sb message 2",
+        "script": "bh.local.msg = `Could not load the document results`",
+        "functionName": "sbMessage2",
+        "category": "Function",
+        "x": 505,
+        "y": 520,
+        "wires": [
+            [
+                "sd_9QuOyGlw9Wku6fbp"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_gIrD6xb4ccP01vhM",
+        "type": "Catch",
+        "z": "sd_0lkUbP8ZPcaGYMw0",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "selectedNodes": [
+            "sd_C8kJhrQtoKbZ1jX6"
+        ],
+        "selectCatchType": "selectednodes",
+        "masternodeList": "",
+        "ignoreList": "",
+        "functionName": "sd_gIrD6xb4ccP01vhM",
+        "category": "General",
+        "x": 140,
+        "y": 860,
+        "wires": [
+            [
+                "sd_HgAEyMpPYlv9JD3D"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "case_documentsComponent"
+    },
+    {
+        "id": "sd_vBnmd0W7N8HQlJwb",
+        "type": "SnackBar",
+        "z": "sd_0lkUbP8ZPcaGYMw0",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "message": {
+            "type": "bh.local",
+            "value": "msg"
+        },
+        "action": {
+            "type": "str",
+            "value": ""
+        },
+        "duration": {
+            "type": "num",
+            "value": ""
+        },
+        "horizontalPosition": "center",
+        "horizontalPositionMap": "",
+        "verticalPosition": "bottom",
+        "verticalPositionMap": "",
+        "panelClass": {
+            "type": "str",
+            "value": ""
+        },
+        "direction": "ltr",
+        "functionName": "sd_vBnmd0W7N8HQlJwb",
+        "category": "General",
+        "x": 385,
+        "y": 860,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_HgAEyMpPYlv9JD3D",
+        "type": "Script",
+        "z": "sd_0lkUbP8ZPcaGYMw0",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "sb message 3",
+        "script": "bh.local.msg = `Could not load the document results`",
+        "functionName": "sbMessage3",
+        "category": "Function",
+        "x": 265,
+        "y": 860,
+        "wires": [
+            [
+                "sd_vBnmd0W7N8HQlJwb"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

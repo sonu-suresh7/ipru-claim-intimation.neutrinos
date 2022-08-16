@@ -1,0 +1,762 @@
+[
+    {
+        "id": "sd_TidzAJ3BJNqowHEu",
+        "type": "tab",
+        "createdDate": "2022-03-22T07:05:05.694Z",
+        "label": "recommendation",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "recommendationComponent"
+    },
+    {
+        "id": "sd_jiixVnby5XvfGFYe",
+        "type": "OnInit",
+        "z": "sd_TidzAJ3BJNqowHEu",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "inputVariables": [],
+        "localVariables": [],
+        "outputVariables": [
+            {
+                "key": "selectedRecommendation",
+                "defaultValue": {
+                    "type": "any",
+                    "value": null
+                }
+            }
+        ],
+        "functionName": "sd_jiixVnby5XvfGFYe",
+        "category": "Lifecycle Events",
+        "x": 45,
+        "y": 40,
+        "wires": [
+            [
+                "sd_PBqOvPhOeNrotaof"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "recommendationComponent"
+    },
+    {
+        "id": "sd_1SO6So9m5mlwBzoM",
+        "type": "PageVariables",
+        "z": "sd_TidzAJ3BJNqowHEu",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "recomendation",
+                "typedIpValue": {
+                    "type": "bh",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "selectedRecommendation",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "[]"
+                }
+            },
+            {
+                "textIp": "decision",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "{}"
+                }
+            },
+            {
+                "textIp": "currentDecision",
+                "typedIpValue": {
+                    "type": "bh",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "loggedInRole",
+                "typedIpValue": {
+                    "type": "bh",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "clickedDecisions",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "[]"
+                }
+            },
+            {
+                "textIp": "autoRecommendationVersion",
+                "typedIpValue": {
+                    "type": "bh",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "versionsList",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "[]"
+                }
+            }
+        ],
+        "functionName": "sd_1SO6So9m5mlwBzoM",
+        "category": "Function",
+        "x": 285,
+        "y": 40,
+        "wires": [
+            [
+                "sd_MeIcZVY3JyZnsHlx"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "recommendationComponent"
+    },
+    {
+        "id": "sd_oQRb7AMgrby0PPbt",
+        "type": "Script",
+        "z": "sd_TidzAJ3BJNqowHEu",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.recommendation = [\n    {\n        get key() {\n            return page.locales.keys.auto\n        },\n        value: 'autoRecommendation'\n    },\n    {\n        get key() {\n            return page.locales.keys.finfo\n        },\n        value: 'finfo'\n    },\n    {\n        get key() {\n            return page.locales.keys.refer\n        },\n        value: 'referrals'\n    },\n    {\n        get key() {\n            return page.locales.keys.myDecision\n        },\n        value: 'decisions'\n    }\n];\n\nlet autoRecommendation = page.checkedOut.case['autoRecommendation'] || [];\nlet finfo = page.checkedOut.case['finfo'] || [];\nlet refer = page.checkedOut.case['referrals'] || [];\nlet myDecision = page.checkedOut.case['decisions'] || [];\n\nif (autoRecommendation.length > 0) {\n    page.selectedRecommendation.push('autoRecommendation');\n}\n\nif (finfo.length > 0) {\n    page.selectedRecommendation.push('finfo');\n}\n\nif (refer.length > 0) {\n    page.selectedRecommendation.push('referrals');\n}\n\nif (myDecision.length > 0 && page.loggedInRole == myDecision[myDecision.length - 1].level) {\n    page.selectedRecommendation.push('decisions');\n}\n\npage.autoDecision = page.checkedOut.case['autoDecision'] ? ` - ${page.checkedOut.case['autoDecision']}` : ''\n\npage.caseDetails = page.checkedOut;\n\npage.autoRecommendationVersion = 1.0;\npage.versionsList.push(page.autoRecommendationVersion);\n\n// page.selectedRecommendation = [ 'decisions']",
+        "functionName": "sd_oQRb7AMgrby0PPbt",
+        "category": "Function",
+        "x": 525,
+        "y": 40,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "recommendationComponent"
+    },
+    {
+        "id": "sd_BFUIcGA9EEskhNev",
+        "type": "PageStart",
+        "z": "sd_TidzAJ3BJNqowHEu",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "create FINFO",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "createFINFO",
+        "category": "General",
+        "x": 45,
+        "y": 180,
+        "wires": [
+            [
+                "sd_Sn5v5MgFnIyFmqIH"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "recommendationComponent"
+    },
+    {
+        "id": "sd_C4JqiirwA3JTb3jm",
+        "type": "4a14d245-3eca-40a4-550c-2885e99a00e9",
+        "z": "sd_TidzAJ3BJNqowHEu",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "eventName": "\"open-rsn\"",
+        "functionName": "sd_C4JqiirwA3JTb3jm",
+        "category": "Events",
+        "x": 345,
+        "y": 180,
+        "wires": [
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "eventName": {
+                "type": "str",
+                "value": "open-rsn",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "recommendationComponent"
+    },
+    {
+        "id": "sd_Sn5v5MgFnIyFmqIH",
+        "type": "Script",
+        "z": "sd_TidzAJ3BJNqowHEu",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "compute",
+        "script": "bh.local.rsnComponent = 'CREATE_FINFO'",
+        "functionName": "compute",
+        "category": "Function",
+        "x": 200,
+        "y": 180,
+        "wires": [
+            [
+                "sd_C4JqiirwA3JTb3jm"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "recommendationComponent"
+    },
+    {
+        "id": "sd_MeIcZVY3JyZnsHlx",
+        "type": "PageServiceVariables",
+        "z": "sd_TidzAJ3BJNqowHEu",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "get",
+        "globalVariables": [
+            {
+                "textIp": "checkedOut",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "checkedOut"
+                }
+            },
+            {
+                "textIp": "loggedInRole",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "loggedInRole"
+                }
+            }
+        ],
+        "functionName": "sd_MeIcZVY3JyZnsHlx",
+        "service": {
+            "id": "sd_RbD2RZwzan9VSOEL",
+            "type": "tab",
+            "createdDate": "2022-03-10T07:40:30.532Z",
+            "label": "cache",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "generateNext": true,
+            "serviceName": "cache",
+            "relativeParentPath": "",
+            "_def": {
+                "defaults": {
+                    "label": {
+                        "value": ""
+                    },
+                    "disabled": {
+                        "value": false
+                    },
+                    "info": {
+                        "value": ""
+                    }
+                }
+            }
+        },
+        "serviceImportPath": "app/sd-services/cache",
+        "category": "Function",
+        "x": 405,
+        "y": 40,
+        "wires": [
+            [
+                "sd_oQRb7AMgrby0PPbt"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_bRQ7Dpye8GPgmWrO",
+        "type": "PageStart",
+        "z": "sd_TidzAJ3BJNqowHEu",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "Add Referral",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "addReferral",
+        "category": "General",
+        "x": 45,
+        "y": 300,
+        "wires": [
+            [
+                "sd_7lSBab8CfOLHvn7Q"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "recommendationComponent"
+    },
+    {
+        "id": "sd_hIYFkWTslSN1LrBd",
+        "type": "4a14d245-3eca-40a4-550c-2885e99a00e9",
+        "z": "sd_TidzAJ3BJNqowHEu",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "eventName": "\"open-rsn\"",
+        "functionName": "sd_hIYFkWTslSN1LrBd",
+        "category": "Events",
+        "x": 345,
+        "y": 300,
+        "wires": [
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "eventName": {
+                "type": "str",
+                "value": "open-rsn",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_7lSBab8CfOLHvn7Q",
+        "type": "Script",
+        "z": "sd_TidzAJ3BJNqowHEu",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "compute referral",
+        "script": "bh.local.rsnComponent = 'ADD_REFERRAL'",
+        "functionName": "computeReferral",
+        "category": "Function",
+        "x": 200,
+        "y": 300,
+        "wires": [
+            [
+                "sd_hIYFkWTslSN1LrBd"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_Z9Lwnng6W1Kuny9N",
+        "type": "PageStart",
+        "z": "sd_TidzAJ3BJNqowHEu",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "prepareDecision",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "event",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "prepareDecision",
+        "category": "General",
+        "x": 45,
+        "y": 420,
+        "wires": [
+            [
+                "sd_yrZcmrO4TkUmi5rr"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "recommendationComponent"
+    },
+    {
+        "id": "sd_yrZcmrO4TkUmi5rr",
+        "type": "Script",
+        "z": "sd_TidzAJ3BJNqowHEu",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "if (bh.input.event) {\n    page.decision = bh.input.event;\n}",
+        "functionName": "sd_yrZcmrO4TkUmi5rr",
+        "category": "Function",
+        "x": 180,
+        "y": 420,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_HnkfoUCfr3Xx6QRv",
+        "type": "PageStart",
+        "z": "sd_TidzAJ3BJNqowHEu",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "submit",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "submitType",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "submit",
+        "category": "General",
+        "x": 85,
+        "y": 760,
+        "wires": [
+            [
+                "sd_ZTOx6IrjxZDvQHrz"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "recommendationComponent"
+    },
+    {
+        "id": "sd_ZTOx6IrjxZDvQHrz",
+        "type": "Script",
+        "z": "sd_TidzAJ3BJNqowHEu",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.isValidReq = false;\n\nbh.local.paylaod = {\n    currentDecision: null,\n    taskId: page.checkedOut.task['task-id'],\n    containerId: page.checkedOut.task['task-container-id']\n};\n\nlet isMyDecision = true;\n\n// if (page.decision && page.decision.benefits) {\n//     for (let i = 0; i < page.decision.benefits.length; i++) {\n//         if (page.decision.benefits[i].decision) {\n//             isMyDecision = true;\n//         }\n//     }\n\n// }\nif (isMyDecision) {\n    if (!page.checkedOut.case['decisions']) {\n        page.checkedOut.case['decisions'] = [];\n    }\n    page.checkedOut.case['decisions'].push(page.decision);\n    bh.local.paylaod['currentDecision'] = 'myDecision';\n    page.checkedOut.case.draftDecision = 'myDecision';\n}\n\n// if (page.checkedOut.case['finfo'].length > 0 && !isMyDecision) {\n//     let isNewFinfo = false;\n\n//     for (let j = 0; j < page.checkedOut.case['finfo'].length; j++) {\n//         if (page.checkedOut.case['finfo'][j].finfoId) {\n//             isNewFinfo = true;\n//         }\n//     }\n\n//     if ((page.clickedDecisions.indexOf('finfo') > -1) || isNewFinfo) {\n//         bh.local.paylaod['currentDecision'] = 'finfo';\n//         page.checkedOut.case.draftDecision = 'finfo';\n//     }\n// }\n\nif (!bh.local.paylaod.currentDecision && page.checkedOut.case.draftDecision) {\n    bh.local.paylaod.currentDecision = page.checkedOut.case.draftDecision;\n}\n\n\n\npage.checkedOut.case['lastUser'] = page.system.oauthService?.currentUserInfo?.additional?.jbpm || 'krisv';\nbh.local.paylaod['decisionUser'] = page.system.oauthService.userInfo.username\nbh.local.paylaod['case'] = page.checkedOut.case;\n\nif (bh.local.paylaod.currentDecision) {\n    bh.local.isValidReq = true;\n}\n\nif (bh.input.submitType === 'save&Exit') {\n    bh.local.isValidReq = true;\n    bh.local.url = `${page.system.environment.properties.ssdBaseUrl}/case/decision/save`;\n} else if (bh.input.submitType === 'submit') {\n    bh.local.url = `${page.system.environment.properties.ssdBaseUrl}/case/decision/uw/submit`;\n}\n\n\n\n// console.log(page.selectedRecommendation.indexOf('finfo'));\n// bh.local.body = page.checkedOut;\n// if (page.currentDecision === 'finfo') {\n//     bh.local.body['currentDecision'] = 'finfo';\n// } else if (page.currentDecision === 'decisions') {\n//     bh.local.body['currentDecision'] = 'myDecision';\n// }\n// bh.local.body.case['decisions'] = decisionsArr;\n// bh.local.body.case['lastUser'] = page.system.oauthService.userInfo.username;\n// delete bh.local.body['task'];\n\n// if (bh.input.submitType === 'save&Exit') {\n//     bh.local.url = `${page.system.environment.properties.ssdBaseUrl}/case/decision/save`;\n// } else if (bh.input.submitType === 'submit') {\n//     bh.local.url = `${page.system.environment.properties.ssdBaseUrl}/case/decision/uw/submit`;\n// }\n// // page.dataToBeSubmitted = {\n// //     currentDecision: decisionsArr.length > 0 ? 'myDecision' : 'finfo',\n// //     submitType: bh.input.submitType,\n// //     decisions: decisionsArr\n// // }\n// console.log('submit data--', page.checkedOut);",
+        "functionName": "sd_ZTOx6IrjxZDvQHrz",
+        "category": "Function",
+        "x": 205,
+        "y": 760,
+        "wires": [
+            [
+                "sd_ywDX3ZJM10Naj9nM"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_OzW6GmwEPy3wYkVT",
+        "type": "HttpRequest",
+        "z": "sd_TidzAJ3BJNqowHEu",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "post",
+        "methodMapping": "",
+        "methodMappingObj": {},
+        "urlMapping": "bh.local.url",
+        "urlMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "url"
+        },
+        "ret": "text",
+        "retMapping": "",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMapping": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "bh.local.paylaod",
+        "reqBodyObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "paylaod"
+        },
+        "resultMapping": "bh.local.response",
+        "resultMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "response"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMapping": "",
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMapping": "",
+        "paramMappingObj": {},
+        "functionName": "sd_OzW6GmwEPy3wYkVT",
+        "category": "HTTP",
+        "x": 525,
+        "y": 755,
+        "wires": [
+            [
+                "sd_iJqPkWs6FAMH1auM"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_iJqPkWs6FAMH1auM",
+        "type": "Script",
+        "z": "sd_TidzAJ3BJNqowHEu",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "if (bh.local.response) {\n    page.router.navigate(['/web/nav/workqueue']);\n}",
+        "functionName": "sd_iJqPkWs6FAMH1auM",
+        "category": "Function",
+        "x": 665,
+        "y": 755,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_UAwHiSPFf2LFZoyb",
+        "type": "PageStart",
+        "z": "sd_TidzAJ3BJNqowHEu",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "changeButton",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "event",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "changeButton",
+        "category": "General",
+        "x": 85,
+        "y": 600,
+        "wires": [
+            [
+                "sd_0hx3V0i3q7h2X7ra"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "recommendationComponent"
+    },
+    {
+        "id": "sd_0hx3V0i3q7h2X7ra",
+        "type": "Script",
+        "z": "sd_TidzAJ3BJNqowHEu",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "if(page.clickedDecisions.indexOf(bh.input.event) == -1){\n    page.clickedDecisions.push(bh.input.event);\n}",
+        "functionName": "sd_0hx3V0i3q7h2X7ra",
+        "category": "Function",
+        "x": 225,
+        "y": 600,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_PBqOvPhOeNrotaof",
+        "type": "UseDependency",
+        "z": "sd_TidzAJ3BJNqowHEu",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "router",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "",
+        "propertyType": "bh",
+        "propertyGv": "bh.",
+        "alias": "",
+        "modules": [
+            {
+                "textIp": "Router",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "router"
+                },
+                "injectable": true
+            }
+        ],
+        "import_all": false,
+        "library": "@angular/router",
+        "serviceDesignerType": "pages",
+        "functionName": "router",
+        "category": "Function",
+        "x": 165,
+        "y": 40,
+        "wires": [
+            [
+                "sd_1SO6So9m5mlwBzoM"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_syMlzs0NDf79YsTI",
+        "type": "PageStart",
+        "z": "sd_TidzAJ3BJNqowHEu",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "recheck",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "recheck",
+        "category": "General",
+        "x": 365,
+        "y": 420,
+        "wires": [
+            [
+                "sd_TfMSOu4vLclw0zyG"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "recommendationComponent"
+    },
+    {
+        "id": "sd_TfMSOu4vLclw0zyG",
+        "type": "Script",
+        "z": "sd_TidzAJ3BJNqowHEu",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.autoRecommendationVersion = page.autoRecommendationVersion + 0.1;\npage.autoRecommendationVersion = Math.round(page.autoRecommendationVersion * 10) / 10;\n\npage.versionsList.unshift(page.autoRecommendationVersion);\n",
+        "functionName": "sd_TfMSOu4vLclw0zyG",
+        "category": "Function",
+        "x": 500,
+        "y": 420,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_ywDX3ZJM10Naj9nM",
+        "type": "PageSwitch",
+        "z": "sd_TidzAJ3BJNqowHEu",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "property": "isValidReq",
+        "propertyType": "bh.local",
+        "propertyGv": "bh.local.isValidReq",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "functionName": "sd_ywDX3ZJM10Naj9nM",
+        "category": "Function",
+        "x": 365,
+        "y": 760,
+        "wires": [
+            [
+                "sd_OzW6GmwEPy3wYkVT"
+            ],
+            [
+                "sd_FOTL6k2hWKe6G5qY"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_FOTL6k2hWKe6G5qY",
+        "type": "SnackBar",
+        "z": "sd_TidzAJ3BJNqowHEu",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "message": {
+            "type": "str",
+            "value": "Invalid decision"
+        },
+        "action": {
+            "type": "str",
+            "value": "Ok"
+        },
+        "duration": {
+            "type": "num",
+            "value": "10000"
+        },
+        "horizontalPosition": "center",
+        "horizontalPositionMap": "",
+        "verticalPosition": "bottom",
+        "verticalPositionMap": "",
+        "panelClass": {
+            "type": "str",
+            "value": ""
+        },
+        "direction": "ltr",
+        "functionName": "sd_FOTL6k2hWKe6G5qY",
+        "category": "General",
+        "x": 525,
+        "y": 920,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_2eTKePTX7mQ8fmqs",
+        "type": "Script",
+        "z": "sd_TidzAJ3BJNqowHEu",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.isValidReq = true;\n\nbh.local.paylaod = {\n    currentDecision: null,\n    taskId: page.checkedOut.task['task-id'],\n    containerId: page.checkedOut.task['task-container-id']\n};\n\nlet isMyDecision = false;\n\nif (page.clickedDecisions.indexOf('decisions') > -1 && page.decision && page.decision.benefits) {\n    for (let i = 0; i < page.decision.benefits.length; i++) {\n        if (page.decision.benefits[i].decision) {\n            isMyDecision = true;\n        }\n    }\n\n    if (isMyDecision) {\n        if (!page.checkedOut.case['decisions']) {\n            page.checkedOut.case['decisions'] = [];\n        }\n        page.checkedOut.case['decisions'].push(page.decision);\n        bh.local.paylaod['currentDecision'] = 'myDecision';\n        page.checkedOut.case.draftDecision = 'myDecision';\n    }\n}\n\nif (page.checkedOut.case['finfo'].length > 0 && !isMyDecision) {\n    let isNewFinfo = false;\n\n    for (let j = 0; j < page.checkedOut.case['finfo'].length; j++) {\n        if(page.checkedOut.case['finfo'][j].finfoId){\n            isNewFinfo = true;\n        }\n    }\n\n    if ((page.clickedDecisions.indexOf('finfo') > -1) || isNewFinfo) {\n        bh.local.paylaod['currentDecision'] = 'finfo';\n        page.checkedOut.case.draftDecision = 'finfo';\n    }\n}\n\nif(!bh.local.paylaod.currentDecision && page.checkedOut.case.draftDecision){\n    bh.local.paylaod.currentDecision = page.checkedOut.case.draftDecision;\n}\n\n\n\npage.checkedOut.case['lastUser'] = page.system.oauthService?.currentUserInfo?.additional?.jbpm || 'krisv';\nbh.local.paylaod['decisionUser'] = page.system.oauthService.userInfo.username\nbh.local.paylaod['case'] = page.checkedOut.case;\n\nif(bh.local.paylaod.currentDecision){\n    bh.local.isValidReq = true;\n}\n\nif (bh.input.submitType === 'save&Exit') {\n    bh.local.isValidReq = true;\n    bh.local.url = `${page.system.environment.properties.ssdBaseUrl}/case/decision/save`;\n} else if (bh.input.submitType === 'submit') {\n    bh.local.url = `${page.system.environment.properties.ssdBaseUrl}/case/decision/uw/submit`;\n}\n\n\n\n// console.log(page.selectedRecommendation.indexOf('finfo'));\n// bh.local.body = page.checkedOut;\n// if (page.currentDecision === 'finfo') {\n//     bh.local.body['currentDecision'] = 'finfo';\n// } else if (page.currentDecision === 'decisions') {\n//     bh.local.body['currentDecision'] = 'myDecision';\n// }\n// bh.local.body.case['decisions'] = decisionsArr;\n// bh.local.body.case['lastUser'] = page.system.oauthService.userInfo.username;\n// delete bh.local.body['task'];\n\n// if (bh.input.submitType === 'save&Exit') {\n//     bh.local.url = `${page.system.environment.properties.ssdBaseUrl}/case/decision/save`;\n// } else if (bh.input.submitType === 'submit') {\n//     bh.local.url = `${page.system.environment.properties.ssdBaseUrl}/case/decision/uw/submit`;\n// }\n// // page.dataToBeSubmitted = {\n// //     currentDecision: decisionsArr.length > 0 ? 'myDecision' : 'finfo',\n// //     submitType: bh.input.submitType,\n// //     decisions: decisionsArr\n// // }\n// console.log('submit data--', page.checkedOut);",
+        "functionName": "sd_2eTKePTX7mQ8fmqs",
+        "category": "Function",
+        "x": 225,
+        "y": 1000,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
+    }
+]

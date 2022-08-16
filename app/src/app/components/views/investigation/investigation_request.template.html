@@ -1,0 +1,65 @@
+<mat-card>
+  <mat-card-content>
+    <div fxLayout="column wrap" style="background: white; border-radius: 6px;" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" *ngIf="investigation_types">
+      <div fxLayout="row wrap" class="section-header" fxLayoutGap="1rem" fxLayoutAlign="start center" [fxShow]="true"><img imgSrc="/Web/CaseDetails/profile.svg">
+        <div class="section-title">
+          Investigation Request</div>
+      </div>
+      <div fxLayout="column wrap" style="padding-left: 1em; max-height: 30px ; min-height: 30px; padding-bottom:1rem" fxLayoutAlign="start stretch" [fxShow]="true">
+        <div fxLayout="row " fxLayoutAlign="start start" [fxShow]="true">
+          <div fxLayout="column wrap" style="max-height: 30px ; min-height: 30px;" fxFlex="30" fxLayoutAlign="center start" [fxShow]="true">
+            <div class="section-content">
+              Investigator :</div>
+          </div>
+          <div fxLayout="column wrap" style="padding:.5rem; min-width: 20rem;" class="section-content" fxLayoutAlign="center stretch" [fxShow]="true">
+            <mat-form-field [appearance]="&apos;legacy&apos;" [floatLabel]="&apos;auto&apos;">
+              <mat-select placeholder="Investigator" [(ngModel)]="page.investigator" [required]="false" (selectionChange)="investigatorSelectionChange($event)">
+                <ng-template ngFor let-option [ngForOf]="page.investigators" let-i="index">
+                  <mat-option [value]="i">{{option.investigator}}</mat-option>
+                </ng-template>
+              </mat-select>
+
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <div fxLayout="column wrap" style="padding-left: 1em; max-height: 30px ; min-height: 30px; padding-bottom:1rem" fxLayoutGap="1rem" fxLayoutAlign="start stretch" [fxShow]="true">
+        <div fxLayout="row " fxLayoutAlign="start start" [fxShow]="true">
+          <div fxLayout="column wrap" style="max-height: 30px ; min-height: 30px;" fxFlex="30" fxLayoutAlign="center start" [fxShow]="true">
+            <div class="section-content">
+              Type of Investigation :</div>
+          </div>
+          <div fxLayout="column wrap" class="section-content" fxLayoutAlign="center start" [fxShow]="true">
+            <mat-checkbox style="padding:.5rem" class="section-content" [(ngModel)]="obj.checked" (change)="prepareSelectedTypes(obj,$event,&apos;type&apos;)" [required]="false" *ngFor="let obj of investigation_types">{{obj.type}}</mat-checkbox>
+          </div>
+        </div>
+        <div fxLayout="row wrap" style="padding-right:1rem" fxLayoutAlign="start start" [fxShow]="shouldShowSubtype()">
+          <div fxLayout="column " fxFlex="30" fxLayoutAlign="center start" [fxShow]="true">
+            <div class="section-content">
+              Sub Type :</div>
+          </div>
+          <div fxLayout="row wrap" class="light-gray-border" fxFlex="70" fxLayoutGap="1rem" fxLayoutAlign="start center" [fxShow]="true">
+            <div fxLayout="row wrap" class="section-content" fxLayoutAlign="start center" [fxShow]="investigation_type.checked" *ngFor="let investigation_type of investigation_types">
+              <mat-checkbox style="padding:.5rem" class="section-content" [(ngModel)]="subtype.checked" (change)="prepareSelectedTypes(subtype,$event,&apos;subtype&apos;)" [required]="false" *ngFor="let subtype of investigation_type.value">{{subtype.sub_tupe}}</mat-checkbox>
+            </div>
+          </div>
+        </div>
+        <div fxLayout="row " style="padding-right:1rem" fxLayoutAlign="start start" [fxShow]="shouldShowChecklist()">
+          <div fxLayout="column wrap" style="max-height: 30px ; min-height: 30px;" fxFlex="30" fxLayoutAlign="center start" [fxShow]="true">
+            <div class="section-content">
+              Check List :</div>
+          </div>
+          <div fxLayout="row wrap" style="max-height: 30px ; min-height: 30px;" class="light-gray-border" fxFlex="70" fxLayoutGap="1rem" fxLayoutAlign="start center" [fxShow]="true">
+            <div fxLayout="row wrap" fxFlex="100" fxLayoutAlign="start center" [fxShow]="true" *ngFor="let investigation_type of investigation_types">
+              <div fxLayout="column wrap" class="section-content" fxFlex="100" fxLayoutAlign="start start" [fxShow]="true" *ngFor="let checklist of investigation_type.value">
+                <div fxLayout="row " fxLayoutAlign="start center" [fxShow]="checklist.checked" *ngFor="let obj of checklist.value">
+                  <mat-checkbox style="padding:.5rem" class="section-content" [(ngModel)]="obj.checked" (change)="prepareSelectedTypes(obj,$event,&apos;checkList&apos;)" [required]="false">{{obj.value}}</mat-checkbox>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

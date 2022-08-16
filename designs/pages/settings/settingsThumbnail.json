@@ -1,0 +1,80 @@
+[
+    {
+        "id": "sd_x5gXILckvqHzyqsa",
+        "type": "tab",
+        "createdDate": "2022-05-09T10:40:45.875Z",
+        "label": "settingsThumbnail",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "settingsThumbnailComponent"
+    },
+    {
+        "id": "sd_VvaOHWYdGfBmW63H",
+        "type": "OnInit",
+        "z": "sd_x5gXILckvqHzyqsa",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "inputVariables": [
+            {
+                "key": "label",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                }
+            },
+            {
+                "key": "icon",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                }
+            },
+            {
+                "key": "routerLink",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                }
+            }
+        ],
+        "localVariables": [],
+        "outputVariables": [],
+        "functionName": "sd_VvaOHWYdGfBmW63H",
+        "category": "Lifecycle Events",
+        "x": 45,
+        "y": 40,
+        "wires": [
+            [
+                "sd_ZOl0kJCCL4Ma6dvV"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "settingsThumbnailComponent"
+    },
+    {
+        "id": "sd_ZOl0kJCCL4Ma6dvV",
+        "type": "PageVariables",
+        "z": "sd_x5gXILckvqHzyqsa",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [],
+        "functionName": "sd_ZOl0kJCCL4Ma6dvV",
+        "category": "Function",
+        "x": 195,
+        "y": 40,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

@@ -1,0 +1,214 @@
+[
+    {
+        "id": "sd_s90q901gjYZZavao",
+        "type": "tab",
+        "createdDate": "2022-04-19T06:41:09.430Z",
+        "label": "taskDistribution",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "taskDistribution",
+        "relativeParentPath": ""
+    },
+    {
+        "id": "sd_Dx6rmm9ky4peKrlA",
+        "type": "Start",
+        "z": "sd_s90q901gjYZZavao",
+        "viewType": "client-server",
+        "nodeType": "start",
+        "name": "trigger TD",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "accept_bh": false,
+        "functionName": "triggerTD",
+        "category": "General",
+        "x": 100,
+        "y": 100,
+        "wires": [
+            [
+                "sd_LW5whVOenzN0SwrN"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "taskDistribution"
+    },
+    {
+        "id": "sd_LW5whVOenzN0SwrN",
+        "type": "Environment",
+        "z": "sd_s90q901gjYZZavao",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "get ssd base url",
+        "outputs": 1,
+        "envMaps": [
+            {
+                "flowVar": {
+                    "type": "bh.local",
+                    "value": "ssdUrl"
+                },
+                "envProperty": "ssdBaseUrl"
+            }
+        ],
+        "functionName": "getSsdBaseUrl",
+        "category": "General",
+        "x": 245,
+        "y": 100,
+        "wires": [
+            [
+                "sd_WylWxhB21yuDmgq2"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_WylWxhB21yuDmgq2",
+        "type": "Script",
+        "z": "sd_s90q901gjYZZavao",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "build request",
+        "script": "bh.local.url = `${bh.local.ssdUrl}/task-distribution/trigger`\nbh.local.body = {};",
+        "functionName": "buildRequest",
+        "category": "Function",
+        "x": 385,
+        "y": 100,
+        "wires": [
+            [
+                "sd_G7ZRYizY2ZmedTLj"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_G7ZRYizY2ZmedTLj",
+        "type": "HttpRequest",
+        "z": "sd_s90q901gjYZZavao",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "make request to trigger tD",
+        "method": "post",
+        "methodMappingObj": {},
+        "urlMapping": "bh.local.url",
+        "urlMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "bh.local.body",
+        "reqBodyObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "body"
+        },
+        "resultMapping": "bh.local.res",
+        "resultMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "res"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMappingObj": {},
+        "functionName": "makeRequestToTriggerTD",
+        "category": "HTTP",
+        "x": 525,
+        "y": 100,
+        "wires": [
+            [
+                "sd_ZJM4otDkoXCsQnPF"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_ZJM4otDkoXCsQnPF",
+        "type": "Log",
+        "z": "sd_s90q901gjYZZavao",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 0,
+        "logObject": "bh.local.res",
+        "functionName": "sd_ZJM4otDkoXCsQnPF",
+        "category": "General",
+        "x": 665,
+        "y": 100,
+        "wires": [],
+        "__ssdTypeInputs__": {
+            "logObject": {
+                "type": "bh.local",
+                "value": "res",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_RcXZR6vhGeeQdESQ",
+        "type": "Catch",
+        "z": "sd_s90q901gjYZZavao",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "catch http request",
+        "selectedNodes": [
+            "sd_G7ZRYizY2ZmedTLj"
+        ],
+        "selectCatchType": "selectednodes",
+        "masternodeList": "",
+        "ignoreList": "",
+        "functionName": "catchHttpRequest",
+        "category": "General",
+        "x": 105,
+        "y": 260,
+        "wires": [
+            [
+                "sd_sTTnRC81fvn60vED"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "taskDistribution"
+    },
+    {
+        "id": "sd_sTTnRC81fvn60vED",
+        "type": "Log",
+        "z": "sd_s90q901gjYZZavao",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 0,
+        "logObject": "bh.error",
+        "functionName": "sd_sTTnRC81fvn60vED",
+        "category": "General",
+        "x": 245,
+        "y": 260,
+        "wires": [],
+        "__ssdTypeInputs__": {
+            "logObject": {
+                "type": "bh",
+                "value": "error",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

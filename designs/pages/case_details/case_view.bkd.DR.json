@@ -1,0 +1,267 @@
+{
+    "9fee6fee-7b6e-16ae-8b50-1adac276a4b7": {
+        "paletteKey": "FlexLayoutCol",
+        "commentid": null,
+        "designerReference": [
+            {
+                "_key": "componentLabel",
+                "_value": "Column",
+                "_type": "kv",
+                "_attrDef": "p",
+                "_useAsLabel": true
+            },
+            {
+                "_key": "style",
+                "_value": "",
+                "_type": "kv",
+                "_attrDef": "p"
+            },
+            {
+                "_key": "class",
+                "_value": [
+                    "padding-top-1",
+                    "height-100"
+                ],
+                "_type": "dav",
+                "_attrDef": "p"
+            },
+            {
+                "_key": "fxFlex",
+                "_value": "",
+                "_type": "kv",
+                "_attrDef": "p"
+            },
+            {
+                "_key": "fxLayoutGap",
+                "_value": "1.5rem",
+                "_type": "kv",
+                "_attrDef": "p"
+            },
+            {
+                "_key": "wrap",
+                "_value": "",
+                "_type": "a",
+                "_attrDef": "p"
+            },
+            {
+                "_key": "layoutAlign",
+                "_value": "start",
+                "_type": "a",
+                "_attrDef": "p"
+            },
+            {
+                "_key": "pLayoutAlign",
+                "_value": "stretch",
+                "_type": "a",
+                "_attrDef": "p"
+            },
+            {
+                "_key": "[fxShow]",
+                "_value": "",
+                "_type": "kv",
+                "_attrDef": "p"
+            },
+            {
+                "_key": "*ngIf",
+                "_value": "page.caseDetails",
+                "_type": "kv",
+                "_attrDef": "c"
+            }
+        ],
+        "40d65d5b-758f-2688-13d5-cf2a825b72d4": {
+            "paletteKey": "NEUTRINOS_VIEW_investigation_detials",
+            "parentEditorKey": "9fee6fee-7b6e-16ae-8b50-1adac276a4b7",
+            "commentid": null,
+            "designerReference": [
+                {
+                    "_key": "componentLabel",
+                    "_value": "investigation_detials",
+                    "_type": "kv",
+                    "_attrDef": "p",
+                    "_useAsLabel": true
+                },
+                {
+                    "_key": "style",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "class",
+                    "_value": "",
+                    "_type": "dav",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "[investigation]",
+                    "_value": "page.caseDetails.investigation",
+                    "_type": "kv",
+                    "_attrDef": "p",
+                    "_complexity": "advanced",
+                    "displayAs": "investigation",
+                    "attrType": "INPUT",
+                    "inValid": false,
+                    "message": ""
+                },
+                {
+                    "_key": "[typeOfInvestigation]",
+                    "_value": "page.task.typeOfInvestigation",
+                    "_type": "kv",
+                    "_attrDef": "p",
+                    "_complexity": "advanced",
+                    "displayAs": "typeOfInvestigation",
+                    "attrType": "INPUT"
+                }
+            ]
+        },
+        "df91f4b5-09e1-8c8d-dd41-ca5d59f8aa58": {
+            "paletteKey": "NEUTRINOS_VIEW_primary_life",
+            "parentEditorKey": "9fee6fee-7b6e-16ae-8b50-1adac276a4b7",
+            "commentid": null,
+            "designerReference": [
+                {
+                    "_key": "componentLabel",
+                    "_value": "primary_life",
+                    "_type": "kv",
+                    "_attrDef": "p",
+                    "_useAsLabel": true
+                },
+                {
+                    "_key": "style",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "class",
+                    "_value": "",
+                    "_type": "dav",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "[primaryLifeData]",
+                    "_value": "page.caseDetails.primaryLife",
+                    "_type": "kv",
+                    "_attrDef": "p",
+                    "_complexity": "advanced",
+                    "displayAs": "primaryLifeData",
+                    "attrType": "INPUT",
+                    "inValid": false,
+                    "message": ""
+                }
+            ]
+        },
+        "a426a00c-56ae-785c-6f22-f1a481c49693": {
+            "paletteKey": "NEUTRINOS_VIEW_coverage_details",
+            "parentEditorKey": "9fee6fee-7b6e-16ae-8b50-1adac276a4b7",
+            "commentid": null,
+            "designerReference": [
+                {
+                    "_key": "componentLabel",
+                    "_value": "coverage_details",
+                    "_type": "kv",
+                    "_attrDef": "p",
+                    "_useAsLabel": true
+                },
+                {
+                    "_key": "style",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "class",
+                    "_value": "",
+                    "_type": "dav",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "[coverageDetails]",
+                    "_value": "page.caseDetails.primaryLife.coverageDetails",
+                    "_type": "kv",
+                    "_attrDef": "p",
+                    "_complexity": "advanced",
+                    "displayAs": "coverageDetails",
+                    "attrType": "INPUT",
+                    "inValid": false,
+                    "message": ""
+                }
+            ]
+        },
+        "897c0730-cdcf-d2bd-500a-015fcf6f224f": {
+            "paletteKey": "NEUTRINOS_VIEW_policy_owner_details",
+            "parentEditorKey": "9fee6fee-7b6e-16ae-8b50-1adac276a4b7",
+            "commentid": null,
+            "designerReference": [
+                {
+                    "_key": "componentLabel",
+                    "_value": "policy_owner_details",
+                    "_type": "kv",
+                    "_attrDef": "p",
+                    "_useAsLabel": true
+                },
+                {
+                    "_key": "style",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "class",
+                    "_value": "",
+                    "_type": "dav",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "[policyOwnerDetails]",
+                    "_value": "page.caseDetails.owner",
+                    "_type": "kv",
+                    "_attrDef": "p",
+                    "_complexity": "advanced",
+                    "displayAs": "policyOwnerDetails",
+                    "attrType": "INPUT",
+                    "inValid": false,
+                    "message": ""
+                }
+            ]
+        },
+        "922aa837-3427-e910-d20c-21c5268158b7": {
+            "paletteKey": "NEUTRINOS_VIEW_third_party_info",
+            "parentEditorKey": "9fee6fee-7b6e-16ae-8b50-1adac276a4b7",
+            "isCommented": "true",
+            "commentid": "1658299397672",
+            "designerReference": [
+                {
+                    "_key": "componentLabel",
+                    "_value": "third_party_info",
+                    "_type": "kv",
+                    "_attrDef": "p",
+                    "_useAsLabel": true
+                },
+                {
+                    "_key": "style",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "class",
+                    "_value": "",
+                    "_type": "dav",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "[thirdPartyDetails]",
+                    "_value": "page?.caseDetails.thirdPartyInfo",
+                    "_type": "kv",
+                    "_attrDef": "p",
+                    "_complexity": "advanced",
+                    "displayAs": "thirdPartyDetails",
+                    "attrType": "INPUT",
+                    "inValid": false,
+                    "message": ""
+                }
+            ]
+        }
+    }
+}

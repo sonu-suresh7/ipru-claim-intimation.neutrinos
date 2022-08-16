@@ -1,0 +1,597 @@
+[
+    {
+        "id": "sd_ZDse0qC8AsUmnlKl",
+        "type": "tab",
+        "createdDate": "2022-04-27T23:42:14.070Z",
+        "label": "uwadmindashboard",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "uwadmindashboardComponent"
+    },
+    {
+        "id": "sd_toIs5wO67MKaKRO4",
+        "type": "OnInit",
+        "z": "sd_ZDse0qC8AsUmnlKl",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "sd_toIs5wO67MKaKRO4",
+        "category": "Lifecycle Events",
+        "x": 65,
+        "y": 40,
+        "wires": [
+            [
+                "sd_QMIozQYtkZNEdLhb"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "uwadmindashboardComponent"
+    },
+    {
+        "id": "sd_QMIozQYtkZNEdLhb",
+        "type": "PageVariables",
+        "z": "sd_ZDse0qC8AsUmnlKl",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "results",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "[]"
+                }
+            }
+        ],
+        "functionName": "sd_QMIozQYtkZNEdLhb",
+        "category": "Function",
+        "x": 175,
+        "y": 40,
+        "wires": [
+            [
+                "sd_STYK33Hc9VIxIJjG"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "uwadmindashboardComponent"
+    },
+    {
+        "id": "sd_STYK33Hc9VIxIJjG",
+        "type": "Script",
+        "z": "sd_ZDse0qC8AsUmnlKl",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.performanceData = [\n    {\n        \"key\": \"Total Pending\",\n        \"value\": \"0\"\n    }, {\n        \"key\": \"Inflow\",\n        \"value\": \"0\"\n    }, {\n        \"key\": \"Pending Requirement\",\n        \"value\": \"0\"\n    }, {\n        \"key\": \"Complete\",\n        \"value\": \"0\"\n    }, {\n        \"key\": \"In Process\",\n        \"value\": \"0\"\n    }, {\n        \"key\": \"Pending Allocation\",\n        \"value\": \"0\"\n    }\n]\n\npage.allData = [\n    {\n        \"uwname\": \"UW1\",\n        \"inprocess\": \"20\",\n        \"completed\": \"30\",\n    },\n    {\n        \"uwname\": \"UW2\",\n        \"inprocess\": \"10\",\n        \"completed\": \"20\",\n    },\n    {\n        \"uwname\": \"UW1\",\n        \"inprocess\": \"40\",\n        \"completed\": \"10\",\n    }, {\n        \"uwname\": \"UW1\",\n        \"inprocess\": \"5\",\n        \"completed\": \"50\",\n    }\n]\n\npage.pieChartData = [{\n    data: [60, 45, 45, 30]\n}\n];\n\npage.pieChartLabels = ['Pending Requirement', 'Completed', 'In Process', 'Pending Allocation'];\n\npage.pieChartOptions = {\n    responsive: true\n}\n\npage.pieChartColors = [{\n    backgroundColor: ['#006DBA', '#F8CA4D', '#A5A5A5', '#FF9F46'],\n    borderColor: ['#006DBA', '#F8CA4D', '#A5A5A5', '#FF9F46']\n}];\n\npage.barChartData = [\n    { data: [35, 30, 20, 25], label: 'Series A' },\n];\n\npage.barChartLabels = ['<7', '>7 to 14', '>14 to 21', '>21 to 28'];\n\npage.barChartData1 = [\n    { data: [22, 20, 15,30], label: 'Series A' },\n];\n\npage.barChartLabels1 = ['Senior UW', 'Chief UW', 'Legal', 'Further Info'];\n\npage.chartColors = [\n    {\n        backgroundColor: '#006DBA',\n        borderColor: '#006DBA',\n        pointBackgroundColor: '#006DBA',\n        pointBorderColor: '#fff',\n        pointHoverBackgroundColor: '#fff',\n        pointHoverBorderColor: '#006DBA'\n    }];\n\npage.ageData = [\n    {\n        \"key\": \"<7 days\",\n        \"value\": \"25\"\n    }, {\n        \"key\": \">7 to 14 Days\",\n        \"value\": \"4\"\n    }, {\n        \"key\": \">14 to 21 Days\",\n        \"value\": \"4\"\n    }, {\n        \"key\": \">21 to 28 Days\",\n        \"value\": \"3\"\n    }\n]\n\npage.pcaseReason = [\n    {\n        \"key\": \"Senior Underwriter\",\n        \"value\": \"25\"\n    }, {\n        \"key\": \"Chief Underwriter\",\n        \"value\": \"4\"\n    }, {\n        \"key\": \"Legal\",\n        \"value\": \"3\"\n    }, {\n        \"key\": \"Further Info\",\n        \"value\": \"3\"\n    }\n]\n\npage.annPremium = 0;\n\npage.users = ['uw1a','uw1b','uw2a','uw2b'];\npage.results = [];",
+        "functionName": "sd_STYK33Hc9VIxIJjG",
+        "category": "Function",
+        "x": 300,
+        "y": 40,
+        "wires": [
+            [
+                "sd_qrziEMRjXYDH99zp"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "uwadmindashboardComponent"
+    },
+    {
+        "id": "sd_IdNV8cAvvZUz2dWp",
+        "type": "PageStart",
+        "z": "sd_ZDse0qC8AsUmnlKl",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "getTaskCPList",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "getTaskCPList",
+        "category": "General",
+        "x": 85,
+        "y": 280,
+        "wires": [
+            [
+                "sd_Zk61X0ROXbZmKhEf"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "uwadmindashboardComponent"
+    },
+    {
+        "id": "sd_JU4gUJrFutfB0b56",
+        "type": "HttpRequest",
+        "z": "sd_ZDse0qC8AsUmnlKl",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "post",
+        "methodMappingObj": {},
+        "urlMapping": "this.page.url",
+        "urlMappingObj": {
+            "mapVarType": "this.page",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "this.page.payload",
+        "reqBodyObj": {
+            "mapVarType": "this.page",
+            "mapVarValue": "payload"
+        },
+        "resultMapping": "this.page.result",
+        "resultMappingObj": {
+            "mapVarType": "this.page",
+            "mapVarValue": "result"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMappingObj": {},
+        "functionName": "sd_JU4gUJrFutfB0b56",
+        "category": "HTTP",
+        "x": 310,
+        "y": 280,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_Zk61X0ROXbZmKhEf",
+        "type": "Script",
+        "z": "sd_ZDse0qC8AsUmnlKl",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.url = `${page.system.environment.properties.ssdBaseUrl}/getTaskCPList`\npage.payload = {\n    \"user\":page.system.oauthService.userInfo.additional.jbpm\n    // \"user\":'uw1a'\n}",
+        "functionName": "sd_Zk61X0ROXbZmKhEf",
+        "category": "Function",
+        "x": 205,
+        "y": 280,
+        "wires": [
+            [
+                "sd_JU4gUJrFutfB0b56"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_QAQmVvnnDszCQyt6",
+        "type": "PageStart",
+        "z": "sd_ZDse0qC8AsUmnlKl",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "getCaseDeatails",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "getCaseDeatails",
+        "category": "General",
+        "x": 70,
+        "y": 380,
+        "wires": [
+            [
+                "sd_OJ7wSb8162h6Zy8r"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "uwadmindashboardComponent"
+    },
+    {
+        "id": "sd_fuVnm6NUZeoCpP7V",
+        "type": "HttpRequest",
+        "z": "sd_ZDse0qC8AsUmnlKl",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "get",
+        "methodMapping": "",
+        "methodMappingObj": {},
+        "urlMapping": "this.page.url",
+        "urlMappingObj": {
+            "mapVarType": "this.page",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMapping": "",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMapping": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "",
+        "reqBodyObj": {
+            "mapVarType": "this.page",
+            "mapVarValue": ""
+        },
+        "resultMapping": "this.page.result",
+        "resultMappingObj": {
+            "mapVarType": "this.page",
+            "mapVarValue": "result"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMapping": "",
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMapping": "",
+        "paramMappingObj": {},
+        "functionName": "sd_fuVnm6NUZeoCpP7V",
+        "category": "HTTP",
+        "x": 295,
+        "y": 380,
+        "wires": [
+            [
+                "sd_hEwFhiiEYFhOVD4c"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_OJ7wSb8162h6Zy8r",
+        "type": "Script",
+        "z": "sd_ZDse0qC8AsUmnlKl",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.url = `${page.system.environment.properties.ssdBaseUrl}/getCaseDeatails`",
+        "functionName": "sd_OJ7wSb8162h6Zy8r",
+        "category": "Function",
+        "x": 190,
+        "y": 380,
+        "wires": [
+            [
+                "sd_fuVnm6NUZeoCpP7V"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_qrziEMRjXYDH99zp",
+        "type": "PageCallService",
+        "z": "sd_ZDse0qC8AsUmnlKl",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_ZDse0qC8AsUmnlKl",
+            "type": "tab",
+            "createdDate": "2022-04-27T23:42:14.070Z",
+            "label": "uwadmindashboard",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_IdNV8cAvvZUz2dWp",
+            "flowName": "getTaskCPList"
+        },
+        "inputVariables": [],
+        "outputMapping": [],
+        "serviceImportPath": "./uwadmindashboard",
+        "startName": "getTaskCPList",
+        "inputParams": [],
+        "accept_bh": false,
+        "accept_csd": false,
+        "functionName": "sd_qrziEMRjXYDH99zp",
+        "category": "General",
+        "x": 405,
+        "y": 40,
+        "wires": [
+            [
+                "sd_gM08ojgGssHpd4gG"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_gM08ojgGssHpd4gG",
+        "type": "PageCallService",
+        "z": "sd_ZDse0qC8AsUmnlKl",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_ZDse0qC8AsUmnlKl",
+            "type": "tab",
+            "createdDate": "2022-04-27T23:42:14.070Z",
+            "label": "uwadmindashboard",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_QAQmVvnnDszCQyt6",
+            "flowName": "getCaseDeatails"
+        },
+        "inputVariables": [],
+        "outputMapping": [],
+        "serviceImportPath": "./uwadmindashboard",
+        "startName": "getCaseDeatails",
+        "inputParams": [],
+        "accept_bh": false,
+        "accept_csd": false,
+        "functionName": "sd_gM08ojgGssHpd4gG",
+        "category": "General",
+        "x": 505,
+        "y": 40,
+        "wires": [
+            [
+                "sd_tvziaqz6W4d84Ixn"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_hEwFhiiEYFhOVD4c",
+        "type": "Script",
+        "z": "sd_ZDse0qC8AsUmnlKl",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "\nif (page.result && page.result.message) {\n    page.result.message.filter(ele => {\n        if (ele.caseDetails && ele.caseDetails.metadata && ele.caseDetails.metadata.premium) {\n            page.annPremium += parseInt(ele.caseDetails.metadata.premium);\n        }\n    })\n}\n",
+        "functionName": "sd_hEwFhiiEYFhOVD4c",
+        "category": "Function",
+        "x": 405,
+        "y": 380,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_MuU3cTkDNcfsgblB",
+        "type": "PageStart",
+        "z": "sd_ZDse0qC8AsUmnlKl",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "getFinfoTasks",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "getFinfoTasks",
+        "category": "General",
+        "x": 80,
+        "y": 160,
+        "wires": [
+            [
+                "sd_VGtavWQJeX6ROBft"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "uwadmindashboardComponent"
+    },
+    {
+        "id": "sd_1bZYzXKbQ3gCbDrc",
+        "type": "HttpRequest",
+        "z": "sd_ZDse0qC8AsUmnlKl",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "get",
+        "methodMappingObj": {},
+        "urlMapping": "this.page.url",
+        "urlMappingObj": {
+            "mapVarType": "this.page",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "this.page.payload",
+        "reqBodyObj": {
+            "mapVarType": "this.page",
+            "mapVarValue": "payload"
+        },
+        "resultMapping": "this.page.result",
+        "resultMappingObj": {
+            "mapVarType": "this.page",
+            "mapVarValue": "result"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMappingObj": {},
+        "functionName": "sd_1bZYzXKbQ3gCbDrc",
+        "category": "HTTP",
+        "x": 285,
+        "y": 160,
+        "wires": [
+            [
+                "sd_B0Dt7fPa8UgKa7Cd"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_VGtavWQJeX6ROBft",
+        "type": "Script",
+        "z": "sd_ZDse0qC8AsUmnlKl",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.url = `${page.system.environment.properties.ssdBaseUrl}/getDecisionCount`\npage.payload = {\n    \"user\":page.system.oauthService.userInfo.additional.jbpm\n    // \"user\":'uw1a'\n}",
+        "functionName": "sd_VGtavWQJeX6ROBft",
+        "category": "Function",
+        "x": 180,
+        "y": 160,
+        "wires": [
+            [
+                "sd_1bZYzXKbQ3gCbDrc"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_B0Dt7fPa8UgKa7Cd",
+        "type": "Script",
+        "z": "sd_ZDse0qC8AsUmnlKl",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.finfo = 0;\n\nconsole.log(page.result,'page.result')\n\nif (page.result && page.result['status'] && page.result['status'] == 200) {\n    page.finfo = page.result['count'];\n    page.performanceData.push({\n        \"key\": \"Pending Requirement\",\n        \"value\": page.finfo\n    })\n}\n\n",
+        "functionName": "sd_B0Dt7fPa8UgKa7Cd",
+        "category": "Function",
+        "x": 420,
+        "y": 160,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_tvziaqz6W4d84Ixn",
+        "type": "PageCallService",
+        "z": "sd_ZDse0qC8AsUmnlKl",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_ZDse0qC8AsUmnlKl",
+            "type": "tab",
+            "createdDate": "2022-04-27T23:42:14.070Z",
+            "label": "uwadmindashboard",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_MuU3cTkDNcfsgblB",
+            "flowName": "getFinfoTasks"
+        },
+        "inputVariables": [],
+        "outputMapping": [],
+        "serviceImportPath": "./uwadmindashboard",
+        "startName": "getFinfoTasks",
+        "inputParams": [],
+        "accept_csd": false,
+        "functionName": "sd_tvziaqz6W4d84Ixn",
+        "category": "General",
+        "x": 625,
+        "y": 40,
+        "wires": [
+            [
+                "sd_NJgUkgubkwCN32jK"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_NJgUkgubkwCN32jK",
+        "type": "UseDependency",
+        "z": "sd_ZDse0qC8AsUmnlKl",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "",
+        "propertyType": "bh",
+        "propertyGv": "bh.",
+        "alias": "",
+        "modules": [
+            {
+                "textIp": "uwadmindbService",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "legservice"
+                },
+                "injectable": true
+            }
+        ],
+        "import_all": false,
+        "library": "app/services/uwadmindb/uwadmindb.service",
+        "serviceDesignerType": "pages",
+        "functionName": "sd_NJgUkgubkwCN32jK",
+        "category": "Function",
+        "x": 725,
+        "y": 40,
+        "wires": [
+            [
+                "sd_vXMtU66P1mGvoFRd"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_vXMtU66P1mGvoFRd",
+        "type": "Script",
+        "z": "sd_ZDse0qC8AsUmnlKl",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.leaderBoardData = await page.legservice.getLeaderBoardData();\n\npage.pendingAllocation = 0;\npage.inProcess = 0;\npage.allocated = 0;\npage.pendingReq = 0;\npage.completedCase = 0;\npage.allTasks = []\n\npage.leaderBoardData.filter(ele => {\n    ele.message.payload[\"task-summary\"].filter(ele1 => {\n        if (ele1) {\n            page.allTasks.push(ele1)\n        }\n    })\n})\n\nif (page.allTasks && page.allTasks != 0) {\n    page.allTasks.filter(ele => {\n        if (ele['task-status'] && ele['task-status'] == 'Ready') {\n            page.pendingAllocation++;\n        }\n        else if (ele['task-status'] && ele['task-status'] == 'Reserved') {\n            page.allocated++;\n        }\n        else if (ele['task-status'] && ele['task-status'] == 'InProgress') {\n            page.inProcess++;\n        }\n        else if (ele['task-status'] && ele['task-status'] == 'Completed') {\n            page.completedCase++;\n        }\n    })\n}\n\npage.performanceData = [\n    {\n        \"key\": \"Cases in Process\",\n        \"value\": page.allocated + page.pendingAllocation + page.inProcess\n    }, {\n        \"key\": \"Allocated\",\n        \"value\": page.allocated\n    }, {\n        \"key\": \"Complete\",\n        \"value\": page.completedCase\n    }, {\n        \"key\": \"In Process\",\n        \"value\": page.inProcess\n    }, {\n        \"key\": \"Pending Allocation\",\n        \"value\": page.pendingAllocation\n    }\n]\n\npage.pieChartLabels = ['Allocated', 'Pending Requirement', 'Complete', 'In Process', 'Pending Allocation'];\n\npage.pieChartData = [{\n    data: [page.allocated, page.pendingAllocation, page.completedCase, page.inProcess, page.pendingAllocation]\n}\n];\n\npage.totalPendingCases = page.allocated + page.pendingAllocation + page.inProcess;",
+        "functionName": "sd_vXMtU66P1mGvoFRd",
+        "category": "Function",
+        "x": 825,
+        "y": 40,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

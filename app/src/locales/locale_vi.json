@@ -1,0 +1,603 @@
+{
+    "localeId": "vi",
+    "localeName": "Vietnamese",
+    "isDefaultLanguage": false,
+    "properties": {
+        "workqueueTitle": [
+            "Hàng đợi công việc"
+        ],
+        "search": [
+            "Tìm kiếm"
+        ],
+        "claimDate": [
+            "Ngày xác nhận quyền sở hữu"
+        ],
+        "name": [
+            "Tên"
+        ],
+        "claimNo": [
+            "Số yêu cầu"
+        ],
+        "applicationNumber": [
+            "Sô hiệu đăng ki"
+        ],
+        "createdOn": [
+            "Được tạo ra"
+        ],
+        "policyNo": [
+            "Chính sách Không"
+        ],
+        "ploicyStatus": [
+            "Tình trạng chính sách"
+        ],
+        "otherClaims": [
+            "Các yêu cầu khác"
+        ],
+        "status": [
+            "Trạng thái"
+        ],
+        "taskName": [
+            "Tên nhiệm vụ"
+        ],
+        "taskContainerId": [
+            "ID vùng chứa tác vụ"
+        ],
+        "globalSearch": [
+            "Tìm kiếm toàn cầu"
+        ],
+        "queueFilter": [
+            "Bộ lọc hàng đợi"
+        ],
+        "taskLocked": [
+            "Tác vụ bị khóa"
+        ],
+        "taskUnLocked": [
+            "Tác vụ không bị khóa"
+        ],
+        "email": [
+            "e-mail"
+        ],
+        "lock": [
+            "Khoa"
+        ],
+        "unlock": [
+            "Mở khóa"
+        ],
+        "filterParam": [
+            "Thông số bộ lọc"
+        ],
+        "fullName": [
+            "Họ và tên"
+        ],
+        "sex": [
+            "Tình dục"
+        ],
+        "issueDatePlace": [
+            "Ngày & Địa điểm phát hành"
+        ],
+        "dob": [
+            "D.O.B"
+        ],
+        "age": [
+            "Tuổi"
+        ],
+        "birthPlace": [
+            "Nơi sinh"
+        ],
+        "nationality": [
+            "Quốc tịch"
+        ],
+        "relationship": [
+            "Mối quan hệ với chủ sở hữu hợp đồng"
+        ],
+        "idNumber": [
+            "Số CMND / Hộ chiếu / Giấy khai sinh"
+        ],
+        "phno": [
+            "Số điện thoại"
+        ],
+        "dob_": [
+            "Ngày sinh"
+        ],
+        "auto": [
+            "Tự động"
+        ],
+        "finfo": [
+            "Thêm thông tin"
+        ],
+        "refer": [
+            "Tham khảo"
+        ],
+        "myDecision": [
+            "Quyết định của tôi"
+        ],
+        "benefit": [
+            "Ích lợi"
+        ],
+        "totalSumAtRisk": [
+            "Tổng số tiền rủi ro"
+        ],
+        "totalSumAtRiskFinancial": [
+            "Tổng số tiền tài chính rủi ro"
+        ],
+        "totalSumAtRiskMedical": [
+            "Tổng số tiền y tế có rủi ro"
+        ],
+        "documents": [
+            "Các tài liệu"
+        ],
+        "autoRecommendation": [
+            "Đề xuất tự động"
+        ],
+        "reason": [
+            "Lý do"
+        ],
+        "recheck": [
+            "Kiểm tra lại"
+        ],
+        "create": [
+            "Tạo ra"
+        ],
+        "date": [
+            "Ngày tháng"
+        ],
+        "comments": [
+            "Bình luận"
+        ],
+        "addNewRefer": [
+            "Thêm giới thiệu mới"
+        ],
+        "requestor": [
+            "Người yêu cầu"
+        ],
+        "idIssueDate": [
+            "Ngày phát hành"
+        ],
+        "idIssuePlace": [
+            "Nơi phát hành"
+        ],
+        "palceOfBirth": [
+            "Nơi sinh"
+        ],
+        "address": [
+            "Địa chỉ nhà"
+        ],
+        "ward": [
+            "phường"
+        ],
+        "district": [
+            "Quận"
+        ],
+        "city": [
+            "Thành phố"
+        ],
+        "telephone": [
+            "Điện thoại"
+        ],
+        "category": [
+            "Danh mục"
+        ],
+        "code": [
+            "Mã số"
+        ],
+        "next": [
+            "Tiếp theo"
+        ],
+        "mobile": [
+            "Di động"
+        ],
+        "bankAccount": [
+            "Bankaccount (Tài khoản ngân hàng của Chủ sở hữu hợp đồng)"
+        ],
+        "bankAccountName": [
+            "tên tài khoản ngân hàng"
+        ],
+        "bankName": [
+            "tên ngân hàng"
+        ],
+        "bankBranch": [
+            "Chi nhánh ngân hàng"
+        ],
+        "bankAddress": [
+            "địa chỉ ngân hàng"
+        ],
+        "income": [
+            "Thu nhập hàng tháng"
+        ],
+        "mailingAddress": [
+            "Địa chỉ gửi thư"
+        ],
+        "occupation": [
+            "Nghề nghiệp"
+        ],
+        "answer": [
+            "Trả lời"
+        ],
+        "emailKeys": {
+            "to": [
+                "Đến"
+            ],
+            "cc": [
+                "Cc"
+            ],
+            "subject": [
+                "Môn học"
+            ],
+            "templates": [
+                "Mẫu"
+            ]
+        },
+        "action": [
+            "Hoạt động"
+        ],
+        "product": [
+            "Sản phẩm"
+        ],
+        "lifeInsured": [
+            "Bảo hiểm nhân thọ"
+        ],
+        "gender": [
+            "Giới tính"
+        ],
+        "sumInsured": [
+            "Tổng số tiền bảo hiểm"
+        ],
+        "term": [
+            "Thuật ngữ"
+        ],
+        "place": [
+            "Nơi phát hành"
+        ],
+        "from": [
+            "Từ"
+        ],
+        "forward": [
+            "Ở đằng trước"
+        ],
+        "reply": [
+            "Hồi đáp"
+        ],
+        "height": [
+            "Chiều cao"
+        ],
+        "weight": [
+            "Trọng lượng"
+        ],
+        "bmi": [
+            "BMI"
+        ],
+        "weightAtBirth": [
+            "Cân nặng khi sinh nếu Người được bảo hiểm dưới 2 tuổi"
+        ],
+        "sendMail": [
+            "Gửi email"
+        ],
+        "selectDocuments": [
+            "Chọn tài liệu"
+        ],
+        "compose": [
+            "Soạn, biên soạn"
+        ],
+        "referralOptions": [
+            "Tùy chọn giới thiệu"
+        ],
+        "redact": [
+            "Biên tập"
+        ],
+        "attachCaseSummary": [
+            "Đính kèm bản tóm tắt trường hợp"
+        ],
+        "attach": [
+            "Gắn"
+        ],
+        "upload": [
+            "Tải lên"
+        ],
+        "type": [
+            "Thể loại"
+        ],
+        "receivedDate": [
+            "Ngày nhận"
+        ],
+        "raisedby": [
+            "Được nuôi dưỡng bởi"
+        ],
+        "notes": [
+            "Ghi chú"
+        ],
+        "showAllEmails": [
+            "Hiển thị tất cả các email"
+        ],
+        "raisedDate": [
+            "Ngày nâng"
+        ],
+        "policies": [
+            "Chính sách"
+        ],
+        "policyNumber": [
+            "Số chính sách"
+        ],
+        "policyStatus": [
+            "Tình trạng chính sách"
+        ],
+        "dateOfApplication": [
+            "Ngày nộp đơn"
+        ],
+        "dateOfIssue": [
+            "Ngày phát hành"
+        ],
+        "requester": [
+            "Người yêu cầu"
+        ],
+        "dateTime": [
+            "Ngày giờ"
+        ],
+        "mergeRequests": [
+            "Hợp nhất các yêu cầu"
+        ],
+        "merge": [
+            "Hợp nhất"
+        ],
+        "role": [
+            "Vai diễn"
+        ],
+        "pin": [
+            "Mã PIN"
+        ],
+        "highlights": [
+            "Điểm nổi bật"
+        ],
+        "detailedView": [
+            "Xem chi tiết"
+        ],
+        "thirdPartyTitle": [
+            "Thông tin bên thứ ba"
+        ],
+        "policyOwnerTitle": [
+            "Chi tiết chủ sở hữu hợp đồng"
+        ],
+        "coverageDetailsTitle": [
+            "Chi tiết Bảo hiểm"
+        ],
+        "primaryLifeTitle": [
+            "Chi tiết về bảo hiểm nhân thọ"
+        ],
+        "personalDetails": [
+            "Thông tin cá nhân"
+        ],
+        "otherDetails": [
+            "Những chi tiết khác"
+        ],
+        "otherHealthInfo": [
+            "Thông tin khác và sức khỏe"
+        ],
+        "residentialAdd": [
+            "Địa chỉ cư trú"
+        ],
+        "companyAddress": [
+            "Tên công ty và địa chỉ doanh nghiệp"
+        ],
+        "currentAddress": [
+            "Địa chỉ hiện tại"
+        ],
+        "bankDetails": [
+            "Đăng ký Chuyển khoản Ngân hàng Tự động"
+        ],
+        "incomeTitle": [
+            "Thu nhập = earnings"
+        ],
+        "clients": [
+            "Khách hàng"
+        ],
+        "clientId": [
+            "ID khách hàng"
+        ],
+        "primaryLife": [
+            "Cuộc sống chính"
+        ],
+        "sender": [
+            "người gửi"
+        ],
+        "submit": [
+            "Nộp"
+        ],
+        "saveExit": [
+            "Cứu thoát"
+        ],
+        "rider": [
+            "Rider"
+        ],
+        "accept": [
+            "Chấp nhận"
+        ],
+        "postpone": [
+            "Hoãn"
+        ],
+        "counterOffer": [
+            "Ưu đãi truy cập"
+        ],
+        "drop": [
+            "Làm rơi"
+        ],
+        "closed": [
+            "Đã đóng cửa"
+        ],
+        "life": [
+            "SỰ SỐNG"
+        ],
+        "reject": [
+            "Từ chối"
+        ],
+        "acceptStandard": [
+            "Chấp nhận tiêu chuẩn"
+        ],
+        "verificationDecision": [
+            "Quyết định xác minh"
+        ],
+        "reassign": [
+            "Chỉ định lại"
+        ],
+        "customerName": [
+            "tên khách hàng"
+        ],
+        "productName": [
+            "tên sản phẩm"
+        ],
+        "channel": [
+            "Kênh"
+        ],
+        "priority": [
+            "Quyền ưu tiên"
+        ],
+        "SLA": [
+            "SLA"
+        ],
+        "underwriter": [
+            "Bảo lãnh phát hành"
+        ],
+        "createFilter": [
+            "Tạo bộ lọc"
+        ],
+        "traffic_light_status_done": [
+            "Xong"
+        ],
+        "traffic_light_status_in_progress": [
+            "Trong tiến trình"
+        ],
+        "traffic_light_status_incomplete": [
+            "chưa hoàn thiện"
+        ],
+        "comments_save_button": [
+            "Lưu bình luận"
+        ],
+        "traffic_lights_add_placeholder": [
+            "Nhập quy tắc ở đây"
+        ],
+        "traffic_lights_add_button": [
+            "Thêm vào"
+        ],
+        "traffic_lights_validation_rules_header": [
+            "Quy tắc xác thực"
+        ],
+        "comments_placeholder": [
+            "Bình luận"
+        ],
+        "applicationDate": [
+            "Ngày nộp hồ sơ"
+        ],
+        "userName": [
+            "Tên tài khoản"
+        ],
+        "managerName": [
+            "Tên người quản lý"
+        ],
+        "dailyLimit": [
+            "Giới hạn hàng ngày"
+        ],
+        "min": [
+            "Min"
+        ],
+        "max": [
+            "Max"
+        ],
+        "overwrite": [
+            "Ghi đè"
+        ],
+        "shift": [
+            "Sự thay đổi"
+        ],
+        "rnsSavedSuccessMsg": [
+            "Đã lưu thành công vai trò và dịch chuyển"
+        ],
+        "delete": [
+            "Xóa bỏ"
+        ],
+        "add": [
+            "Thêm vào"
+        ],
+        "elapsedTme": [
+            "Thời gian đã trôi qua"
+        ],
+        "editUsers": [
+            "Chỉnh sửa người dùng"
+        ],
+        "premium": [
+            "Phần thưởng"
+        ],
+        "aging": [
+            "Sự lão hóa"
+        ],
+        "supervisor": [
+            "Người giám sát"
+        ],
+        "manageUsers": [
+            "Quản lý người dùng"
+        ],
+        "theme": [
+            "Chủ đề"
+        ],
+        "save": [
+            "Cứu"
+        ],
+        "theme-primary": [
+            "Màu chính"
+        ],
+        "logo": [
+            "Logo"
+        ],
+        "taskNotLockable": [
+            "Tác vụ không thể bị khóa"
+        ],
+        "tasksNotAssignable": [
+            "Vui lòng chọn một hoặc nhiều nhiệm vụ"
+        ],
+        "selectUser": [
+            "Chọn người dùng"
+        ],
+        "selectedUser": [
+            "Người dùng được chọn"
+        ],
+        "noSelectedUser": [
+            "Không có người dùng nào được chọn"
+        ],
+        "cancel": [
+            "Hủy bỏ"
+        ],
+        "confirm": [
+            "Xác nhận"
+        ],
+        "referedTo": [
+            "Goi"
+        ],
+        "taskProcInstId": [
+            "Vé số"
+        ],
+        "activityName": [
+            "Hoạt động"
+        ],
+        "issueDate": [
+            "Ngày phát hành"
+        ],
+        "typeOfInvestigation": [
+            "Loại điều tra"
+        ],
+        "ticketNumber": [
+            "Vé số"
+        ],
+        "policyOwner": [
+            "Chính sách sở hữu"
+        ],
+        "investigationDetails": [
+            "Chi tiết điều tra"
+        ],
+        "positive": [
+            "Tích cực"
+        ],
+        "negative": [
+            "Phủ định"
+        ],
+        "inconclusive": [
+            "Không xác định"
+        ]
+    }
+}

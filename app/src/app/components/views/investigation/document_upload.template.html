@@ -1,0 +1,44 @@
+<mat-card>
+  <mat-card-content>
+    <div fxLayout="column wrap" style="background: white; border-radius: 6px;" fxLayoutAlign="start stretch" [fxShow]="true">
+      <div fxLayout="row wrap" class="section-header" fxLayoutGap="1rem" fxLayoutAlign="start center" [fxShow]="true"><img imgSrc="/Web/CaseDetails/profile.svg">
+        <div class="section-title">
+          Document</div>
+      </div>
+      <div fxLayout="column wrap" style="padding-left: 1em; padding-bottom:1rem" fxLayoutGap="1rem" fxLayoutAlign="start stretch" [fxShow]="true">
+        <div fxLayout="row " style="padding-right: 1rem" class="width-100" fxLayoutAlign="space-between center" [fxShow]="true">
+          <div fxLayout="column wrap" fxFlex="30" fxLayoutAlign="center start" [fxShow]="true">
+            <div>
+              Attachment </div>
+          </div>
+          <div fxLayout="column wrap" fxLayoutAlign="center end" [fxShow]="true">
+            <lib-file-upload [nFileUploadColor]="&apos;primary&apos;" [nFileUploadLabel]="&apos;Select Document&apos;" [nFileUploadAcceptableFileTypes]="&apos;application/zip&apos;" [nFileUploadSelectMultiple]="false" [nFileUploadChangeLabelWithFileName]="false" [nFileUploadDisabled]="false" (nFileUploadOnChange)="fileChange($event)"></lib-file-upload>
+          </div>
+        </div>
+        <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="page.documents.length">
+          <div fxLayout="column" class="light-gray-border">
+            <table mat-table [dataSource]="page.documents" class="table-width-fix">
+              <tr mat-header-row *matHeaderRowDef="[&apos;97e75967-57a0-cbaf-ab99-4376ef1435fe&apos;,&apos;e0a2cb1c-83e0-0091-d0ad-54b8a07d2d0b&apos;]"></tr>
+              <tr mat-row *matRowDef="let row; columns: [&apos;97e75967-57a0-cbaf-ab99-4376ef1435fe&apos;,&apos;e0a2cb1c-83e0-0091-d0ad-54b8a07d2d0b&apos;];"></tr>
+
+              <ng-container matColumnDef="97e75967-57a0-cbaf-ab99-4376ef1435fe">
+                <th mat-header-cell *matHeaderCellDef>#</th>
+                <td mat-cell *matCellDef="let table; let i = index;">
+                  <div>
+                    {{i + 1}}
+                  </div>
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="e0a2cb1c-83e0-0091-d0ad-54b8a07d2d0b">
+                <th mat-header-cell *matHeaderCellDef>Filename</th>
+                <td mat-cell *matCellDef="let table; let i = index;"><span>
+                  {{table.name}}</span></td>
+              </ng-container>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

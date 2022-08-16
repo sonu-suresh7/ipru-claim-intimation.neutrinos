@@ -1,0 +1,251 @@
+[
+    {
+        "id": "sd_COgZ9EOOy3T3VeiY",
+        "type": "tab",
+        "createdDate": "2022-03-29T08:54:02.158Z",
+        "label": "document_viewer",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "document_viewerComponent"
+    },
+    {
+        "id": "sd_n2HzlubeWMxuKzxx",
+        "type": "OnInit",
+        "z": "sd_COgZ9EOOy3T3VeiY",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "inputVariables": [
+            {
+                "key": "document",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                }
+            }
+        ],
+        "localVariables": [],
+        "outputVariables": [],
+        "functionName": "sd_n2HzlubeWMxuKzxx",
+        "category": "Lifecycle Events",
+        "x": 65,
+        "y": 120,
+        "wires": [
+            [
+                "sd_9ny9MYnFK6quBl9x"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "document_viewerComponent"
+    },
+    {
+        "id": "sd_9ny9MYnFK6quBl9x",
+        "type": "GetDialogData",
+        "z": "sd_COgZ9EOOy3T3VeiY",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "dialogDataMapping": "this.page.dialogData",
+        "functionName": "sd_9ny9MYnFK6quBl9x",
+        "category": "Dialog",
+        "x": 205,
+        "y": 120,
+        "wires": [
+            [
+                "sd_MTcrQKaEcW3w6XJv"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "dialogDataMapping": {
+                "type": "this.page",
+                "value": "dialogData",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_AdsIRr7l9Q0IOisG",
+        "type": "Log",
+        "z": "sd_COgZ9EOOy3T3VeiY",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 0,
+        "logObject": "this.page.documentResult",
+        "functionName": "sd_AdsIRr7l9Q0IOisG",
+        "category": "General",
+        "x": 440,
+        "y": 420,
+        "wires": [],
+        "__ssdTypeInputs__": {
+            "logObject": {
+                "type": "this.page",
+                "value": "documentResult",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
+    },
+    {
+        "id": "sd_t2CHNL4kCwzaJpB8",
+        "type": "Script",
+        "z": "sd_COgZ9EOOy3T3VeiY",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "if (page.documentResult?.classification &&\n    page.documentResult?.classification[0] &&\n    page.documentResult?.classification[0]?.tag_name) {\n        this.page.documentLabel = page.documentResult?.classification[0]?.tag_name;\n        this.page.confidence = page.documentResult?.classification[0]?.confidence;\n}",
+        "functionName": "sd_t2CHNL4kCwzaJpB8",
+        "category": "Function",
+        "x": 560,
+        "y": 340,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
+    },
+    {
+        "id": "sd_MTcrQKaEcW3w6XJv",
+        "type": "Script",
+        "z": "sd_COgZ9EOOy3T3VeiY",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.documentResult = page.dialogData?.documentResult\npage.pdf = page.dialogData?.pdf\nif (page.documentResult?.classification?.[0]?.tag_name) {\n        page.documentLabel = page.documentResult?.classification[0]?.tag_name;\n        page.confidence = page.documentResult?.classification[0]?.confidence;\n}",
+        "functionName": "sd_MTcrQKaEcW3w6XJv",
+        "category": "Function",
+        "x": 365,
+        "y": 120,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_TTn4Cv0E6eMdlwtm",
+        "type": "PageCallService",
+        "z": "sd_COgZ9EOOy3T3VeiY",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "getDocumentResult",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_jkXaNKtzX8iSR5cy",
+            "type": "tab",
+            "createdDate": "2022-03-25T10:09:01.250Z",
+            "label": "caseService",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_EP66Fkz1KfGyPWrz",
+            "flowName": "getCaseDocsForResult"
+        },
+        "inputVariables": [
+            {
+                "key": "idpFileId",
+                "map": true,
+                "valueType": "this.page",
+                "value": "dialogData.doc.metadata.idpFileId"
+            }
+        ],
+        "outputMapping": [
+            {
+                "mapVarType": "local",
+                "key": "idpAnlData",
+                "valueType": "this.page",
+                "value": "documentResult",
+                "mapVarName": "idpAnlData",
+                "localVar": "this.page.documentResult"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/caseService",
+        "startName": "getCaseDocsForResult",
+        "inputParams": [
+            "this.page.dialogData.doc.metadata.idpFileId"
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "getDocumentResult",
+        "category": "General",
+        "x": 665,
+        "y": 140,
+        "wires": [
+            [
+                "sd_egtacogQoGsVjCsM"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
+    },
+    {
+        "id": "sd_egtacogQoGsVjCsM",
+        "type": "PageCallService",
+        "z": "sd_COgZ9EOOy3T3VeiY",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "getDocumentPDF",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_jkXaNKtzX8iSR5cy",
+            "type": "tab",
+            "createdDate": "2022-03-25T10:09:01.250Z",
+            "label": "caseService",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_fNkNrQ5dznJ3YiTE",
+            "flowName": "getCaseDocsFile"
+        },
+        "inputVariables": [
+            {
+                "key": "docId",
+                "map": true,
+                "valueType": "this.page",
+                "value": "dialogData.doc._id"
+            }
+        ],
+        "outputMapping": [
+            {
+                "mapVarType": "local",
+                "key": "result",
+                "valueType": "this.page",
+                "value": "pdf",
+                "mapVarName": "result",
+                "localVar": "this.page.pdf"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/caseService",
+        "startName": "getCaseDocsFile",
+        "inputParams": [
+            "this.page.dialogData.doc._id"
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "getDocumentPDF",
+        "category": "General",
+        "x": 585,
+        "y": 220,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
+    }
+]

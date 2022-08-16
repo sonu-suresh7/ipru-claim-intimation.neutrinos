@@ -1,0 +1,17 @@
+{
+    "displayName": "ipru-portal-ui",
+    "appName": "ipru-portal-ui",
+    "description": "ipru portal ui",
+    "lastModified": "2022-08-16T08:47:37.628Z",
+    "imgSourcePath": "",
+    "version": "1.0.0",
+    "appType": "uiOnly",
+    "templateName": "blank",
+    "createDate": "2022-03-07T08:36:23.095Z",
+    "analyticsId": "a9686e20-bd2f-e921-d680-eb06b3fe8826",
+    "createdStudioVersion": "8.1.0",
+    "isCorrupt": false,
+    "oldAppName": "investigation-portal-ui",
+    "username": "sankarshan.joshi@neutrinos.co",
+    "organisationId": "neutrinos"
+}

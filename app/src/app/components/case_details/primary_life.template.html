@@ -1,0 +1,24 @@
+<div fxLayout="column " class="height-100" fxLayoutAlign="start stretch" [fxShow]="true">
+  <mat-accordion class="expansion-panel-styles">
+    <mat-expansion-panel [expanded]="true">
+      <mat-expansion-panel-header>
+        <div fxLayout="row " class="width-100" fxLayoutGap="1rem" fxLayoutAlign="start center" [fxShow]="true"><img imgSrc="/Web/CaseDetails/life.svg">
+          <mat-panel-title>
+            {{page.locales.keys.primaryLifeTitle}} - {{primaryLifeData.PersonalDetails.fullName}}
+          </mat-panel-title>
+        </div>
+      </mat-expansion-panel-header>
+      <div fxLayout="column " fxLayoutGap="1.5rem" fxLayoutAlign="start stretch" [fxShow]="true">
+        <bh-personal_details [personalDetails]="primaryLifeData.PersonalDetails"></bh-personal_details>
+        <div fxLayout="row wrap" fxLayoutAlign="space-between stretch" [fxShow]="true" fxLayout.lt-md="column">
+          <div fxLayout="row " fxFlex="49" fxLayoutAlign="start stretch" [fxShow]="true">
+            <bh-address_details [data]="page.residentialAddData"></bh-address_details>
+          </div>
+          <div fxLayout="row " fxFlex="49" fxLayoutAlign="start stretch" [fxShow]="true">
+            <bh-address_details [data]="page.companyAddData"></bh-address_details>
+          </div>
+        </div>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

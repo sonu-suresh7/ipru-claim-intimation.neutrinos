@@ -1,0 +1,894 @@
+[
+    {
+        "id": "sd_CWN3BqBJzJWkkhXF",
+        "type": "tab",
+        "createdDate": "2022-05-02T06:06:02.698Z",
+        "label": "editUserTaskAllocConf",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "editUserTaskAllocConfComponent"
+    },
+    {
+        "id": "sd_VT2K4sMEhhgICbrS",
+        "type": "OnInit",
+        "z": "sd_CWN3BqBJzJWkkhXF",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "sd_VT2K4sMEhhgICbrS",
+        "category": "Lifecycle Events",
+        "x": 105,
+        "y": 80,
+        "wires": [
+            [
+                "sd_z7nc1mIlCA2SDWoM"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "editUserTaskAllocConfComponent"
+    },
+    {
+        "id": "sd_IXCo03guW2Q1vyfW",
+        "type": "PageStart",
+        "z": "sd_CWN3BqBJzJWkkhXF",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "saveData",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "saveData",
+        "category": "General",
+        "x": 105,
+        "y": 220,
+        "wires": [
+            [
+                "sd_5kufAk0pnvJdYxDS"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "editUserTaskAllocConfComponent"
+    },
+    {
+        "id": "sd_n2wA0ZQbCBDPYjaN",
+        "type": "PageStart",
+        "z": "sd_CWN3BqBJzJWkkhXF",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "add user",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "itemIndex",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "addUser",
+        "category": "General",
+        "x": 105,
+        "y": 340,
+        "wires": [
+            [
+                "sd_jHlbITnWx7FIEecp"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "editUserTaskAllocConfComponent"
+    },
+    {
+        "id": "sd_jHlbITnWx7FIEecp",
+        "type": "Script",
+        "z": "sd_CWN3BqBJzJWkkhXF",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "add to user arr",
+        "script": "page.tableData.data.push({\n    shift: \"\",\n    from: '',\n    to: \"\",\n    symbol: '',\n    allowoverwrite: '',\n    priority: '',\n    enableDisable: ''\n})",
+        "functionName": "addToUserArr",
+        "category": "Function",
+        "x": 225,
+        "y": 340,
+        "wires": [
+            [
+                "sd_XGRe1DcbcuC38uFe"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "editUserTaskAllocConfComponent"
+    },
+    {
+        "id": "sd_FgN38DyvIkbgDxtk",
+        "type": "Script",
+        "z": "sd_CWN3BqBJzJWkkhXF",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "prepare save req",
+        "script": "// bh.local.url = 'https://bs-1394717.el.r.appspot.com/api/' + 'casemanager/config/add';\nbh.local.url = bh.local.ssdBaseUrl + '/admin/alloc/users';\nbh.local.body = {\n  configs: page.tableData.data,\n  deletedConfigs: page.deletedUserConfig\n}\n// bh.local.body = {\n//   query: {\n//     type: {\n//       subtype: \"role\",\n//       name: page.roleName\n//     }\n//   },\n//   document: {\n//     data: page.tableData.data\n//   }\n// }",
+        "functionName": "prepareSaveReq",
+        "category": "Function",
+        "x": 365,
+        "y": 220,
+        "wires": [
+            [
+                "sd_tTpO44fLDnwQSrS1"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "editUserTaskAllocConfComponent"
+    },
+    {
+        "id": "sd_tTpO44fLDnwQSrS1",
+        "type": "HttpRequest",
+        "z": "sd_CWN3BqBJzJWkkhXF",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "post",
+        "methodMapping": "",
+        "methodMappingObj": {},
+        "urlMapping": "bh.local.url",
+        "urlMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMapping": "",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMapping": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "bh.local.body",
+        "reqBodyObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "body"
+        },
+        "resultMapping": "bh.local.res",
+        "resultMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "res"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMapping": "",
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMapping": "",
+        "paramMappingObj": {},
+        "functionName": "sd_tTpO44fLDnwQSrS1",
+        "category": "HTTP",
+        "x": 485,
+        "y": 220,
+        "wires": [
+            [
+                "sd_fIxAsRbyfhXqYeHg"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_fIxAsRbyfhXqYeHg",
+        "type": "SnackBar",
+        "z": "sd_CWN3BqBJzJWkkhXF",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "message": {
+            "type": "str",
+            "value": "Users Saved Successfully"
+        },
+        "action": {
+            "type": "str",
+            "value": "Ok"
+        },
+        "duration": {
+            "type": "num",
+            "value": "3000"
+        },
+        "horizontalPosition": "center",
+        "horizontalPositionMap": "",
+        "verticalPosition": "bottom",
+        "verticalPositionMap": "",
+        "panelClass": {
+            "type": "str",
+            "value": ""
+        },
+        "direction": "ltr",
+        "functionName": "sd_fIxAsRbyfhXqYeHg",
+        "category": "General",
+        "x": 605,
+        "y": 220,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_bUrRbKpcynZAdySL",
+        "type": "Script",
+        "z": "sd_CWN3BqBJzJWkkhXF",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.userNames = [\n];\npage.managerNames = [\n    \"krisv\"\n];\npage.displayedColumns = [\"userName\", \"managerName\", \"dailyLimit\", \"min\", \"max\", \"allowoverwrite\", \"actions\"];\n\npage.deletedUserConfig = []\npage.shifts = []",
+        "functionName": "sd_bUrRbKpcynZAdySL",
+        "category": "Function",
+        "x": 365,
+        "y": 80,
+        "wires": [
+            [
+                "sd_HthDAUdz2MCZvYcL"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_HthDAUdz2MCZvYcL",
+        "type": "NavigationData",
+        "z": "sd_CWN3BqBJzJWkkhXF",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "tmpOp": "",
+        "tmpOpType": "",
+        "operationType": "queryParamMap",
+        "operation": "get",
+        "key": "\"role\"",
+        "resultMapping": "this.page.roleName",
+        "functionName": "sd_HthDAUdz2MCZvYcL",
+        "category": "Navigation",
+        "x": 485,
+        "y": 80,
+        "wires": [
+            [
+                "sd_3CVnQqsLJaFTo48k"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "key": {
+                "type": "str",
+                "value": "role",
+                "constant": false
+            },
+            "resultMapping": {
+                "type": "this.page",
+                "value": "roleName",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_z7nc1mIlCA2SDWoM",
+        "type": "UseDependency",
+        "z": "sd_CWN3BqBJzJWkkhXF",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "mat table data source",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "hb",
+        "propertyType": "this.page",
+        "propertyGv": "this.page.hb",
+        "alias": "hb",
+        "modules": [
+            {
+                "textIp": "MatTableDataSource",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                },
+                "injectable": false
+            }
+        ],
+        "import_all": false,
+        "library": "@angular/material/table",
+        "serviceDesignerType": "pages",
+        "functionName": "matTableDataSource",
+        "category": "Function",
+        "x": 225,
+        "y": 80,
+        "wires": [
+            [
+                "sd_bUrRbKpcynZAdySL"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_nwtY6SxNep1UBqiO",
+        "type": "PageStart",
+        "z": "sd_CWN3BqBJzJWkkhXF",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "remove user",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "itemIndex",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "removeUser",
+        "category": "General",
+        "x": 105,
+        "y": 460,
+        "wires": [
+            [
+                "sd_Dqtg5bVOI7EaEG5v"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "editUserTaskAllocConfComponent"
+    },
+    {
+        "id": "sd_Dqtg5bVOI7EaEG5v",
+        "type": "Script",
+        "z": "sd_CWN3BqBJzJWkkhXF",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "del user",
+        "script": "page.deletedUserConfig.push(...page.tableData.data.splice(bh.input.itemIndex, 1));\n",
+        "functionName": "delUser",
+        "category": "Function",
+        "x": 225,
+        "y": 460,
+        "wires": [
+            [
+                "sd_XGRe1DcbcuC38uFe"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_XGRe1DcbcuC38uFe",
+        "type": "Script",
+        "z": "sd_CWN3BqBJzJWkkhXF",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "reassign table DS",
+        "script": "page.tableData = new MatTableDataSource(page.tableData.data)\n",
+        "functionName": "reassignTableDS",
+        "category": "Function",
+        "x": 365,
+        "y": 400,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_EgWDx2RfewCCVAtf",
+        "type": "Script",
+        "z": "sd_CWN3BqBJzJWkkhXF",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "// bh.local.url = 'https://bs-1394717.el.r.appspot.com/api/' + 'casemanager/config/get';\nbh.local.url = bh.local.ssdBaseUrl + '/admin/alloc/user/' + page.roleName;\n// bh.local.body = {\n//     query: {\n//         type: {\n//             subtype: \"role\",\n//             name: page.roleName\n//         }\n//     }\n// }\n\n// const t = {\n//     UW_LEVEL_1: [\"uw1a\", \"uw1b\"],\n//     UW_LEVEL_2: [\"uw2a\", \"uw2b\"],\n//     UW_LEVEL_3: [\"uw3a\", \"uw3b\"],\n//     NBISSUE: [\"nbissue1\"],\n//     COMM: [\"comm1\"]\n// }\n\n// page.userNames = t[page.roleName];",
+        "functionName": "sd_EgWDx2RfewCCVAtf",
+        "category": "Function",
+        "x": 705,
+        "y": 520,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
+    },
+    {
+        "id": "sd_5kufAk0pnvJdYxDS",
+        "type": "Environment",
+        "z": "sd_CWN3BqBJzJWkkhXF",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "envMaps": [
+            {
+                "flowVar": {
+                    "type": "bh.local",
+                    "value": "ssdBaseUrl"
+                },
+                "envProperty": "ssdBaseUrl"
+            }
+        ],
+        "functionName": "sd_5kufAk0pnvJdYxDS",
+        "category": "General",
+        "x": 225,
+        "y": 220,
+        "wires": [
+            [
+                "sd_FgN38DyvIkbgDxtk"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_Lwx79Np5oEY2UL1N",
+        "type": "Environment",
+        "z": "sd_CWN3BqBJzJWkkhXF",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "envMaps": [
+            {
+                "flowVar": {
+                    "type": "bh.local",
+                    "value": "ssdBaseUrl"
+                },
+                "envProperty": "ssdBaseUrl"
+            }
+        ],
+        "functionName": "sd_Lwx79Np5oEY2UL1N",
+        "category": "General",
+        "x": 885,
+        "y": 220,
+        "wires": [
+            [
+                "sd_BVwGqbLayJ1p5FZZ"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_BVwGqbLayJ1p5FZZ",
+        "type": "Script",
+        "z": "sd_CWN3BqBJzJWkkhXF",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "// bh.local.url = bh.local.ssdBaseUrl + '/casemanager/config/get';\nbh.local.url = 'https://bs-1394717.el.r.appspot.com/api/casemanager/config/get';\nbh.local.typeShiftsBody = {\n    \"query\": {\n        \"type\": \"shifts\"\n    }\n}",
+        "functionName": "sd_BVwGqbLayJ1p5FZZ",
+        "category": "Function",
+        "x": 1005,
+        "y": 220,
+        "wires": [
+            [
+                "sd_crcraAQOBq5wJf7o"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_crcraAQOBq5wJf7o",
+        "type": "HttpRequest",
+        "z": "sd_CWN3BqBJzJWkkhXF",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "post",
+        "methodMapping": "",
+        "methodMappingObj": {},
+        "urlMapping": "bh.local.url",
+        "urlMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMapping": "",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMapping": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "bh.local.typeShiftsBody",
+        "reqBodyObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "typeShiftsBody"
+        },
+        "resultMapping": "bh.local.shifts",
+        "resultMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "shifts"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMapping": "",
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMapping": "",
+        "paramMappingObj": {},
+        "functionName": "sd_crcraAQOBq5wJf7o",
+        "category": "HTTP",
+        "x": 1125,
+        "y": 220,
+        "wires": [
+            [
+                "sd_G8PC0zy7lz0YqTvZ"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_G8PC0zy7lz0YqTvZ",
+        "type": "Script",
+        "z": "sd_CWN3BqBJzJWkkhXF",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.shifts = bh.local.shifts?.[0]?.data || [];\n",
+        "functionName": "sd_G8PC0zy7lz0YqTvZ",
+        "category": "Function",
+        "x": 1245,
+        "y": 220,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_oEZ5YInA9LE9eogE",
+        "type": "PageStart",
+        "z": "sd_CWN3BqBJzJWkkhXF",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "get shifts",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "getShifts",
+        "category": "General",
+        "x": 765,
+        "y": 220,
+        "wires": [
+            [
+                "sd_Lwx79Np5oEY2UL1N"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "editUserTaskAllocConfComponent"
+    },
+    {
+        "id": "sd_4o450D9MVvuDFzrP",
+        "type": "Script",
+        "z": "sd_CWN3BqBJzJWkkhXF",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.url = bh.local.ssdBaseUrl + '/admin/alloc/user/' + page.roleName;\n",
+        "functionName": "sd_4o450D9MVvuDFzrP",
+        "category": "Function",
+        "x": 1008.0000114440918,
+        "y": 94.00000381469727,
+        "wires": [
+            [
+                "sd_qMAq9Y3yTTHgrkot"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_qMAq9Y3yTTHgrkot",
+        "type": "HttpRequest",
+        "z": "sd_CWN3BqBJzJWkkhXF",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "get",
+        "methodMapping": "",
+        "methodMappingObj": {},
+        "urlMapping": "bh.local.url",
+        "urlMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMapping": "",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMapping": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "bh.local.body",
+        "reqBodyObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "body"
+        },
+        "resultMapping": "bh.local.res",
+        "resultMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "res"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMapping": "",
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMapping": "",
+        "paramMappingObj": {},
+        "functionName": "sd_qMAq9Y3yTTHgrkot",
+        "category": "HTTP",
+        "x": 1128.0000114440918,
+        "y": 94.00000381469727,
+        "wires": [
+            [
+                "sd_7QqBadBvutqaF2zt"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_7QqBadBvutqaF2zt",
+        "type": "Script",
+        "z": "sd_CWN3BqBJzJWkkhXF",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "const { configs, users } = bh.local.res;\npage.tableData = new MatTableDataSource(configs);\npage.userNames = users\n",
+        "functionName": "sd_7QqBadBvutqaF2zt",
+        "category": "Function",
+        "x": 1248.0000114440918,
+        "y": 94.00000381469727,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_jzJEMkklzgTQt3ee",
+        "type": "Environment",
+        "z": "sd_CWN3BqBJzJWkkhXF",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "envMaps": [
+            {
+                "flowVar": {
+                    "type": "bh.local",
+                    "value": "ssdBaseUrl"
+                },
+                "envProperty": "ssdBaseUrl"
+            }
+        ],
+        "functionName": "sd_jzJEMkklzgTQt3ee",
+        "category": "General",
+        "x": 888.0000114440918,
+        "y": 94.00000381469727,
+        "wires": [
+            [
+                "sd_4o450D9MVvuDFzrP"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_ZSpsLuN7DaugsaDh",
+        "type": "PageStart",
+        "z": "sd_CWN3BqBJzJWkkhXF",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "get users",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "getUsers",
+        "category": "General",
+        "x": 768.0000114440918,
+        "y": 94.00000381469727,
+        "wires": [
+            [
+                "sd_jzJEMkklzgTQt3ee"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "editUserTaskAllocConfComponent"
+    },
+    {
+        "id": "sd_3CVnQqsLJaFTo48k",
+        "type": "PageAsync",
+        "z": "sd_CWN3BqBJzJWkkhXF",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "flowNodes": [
+            {
+                "id": "sd_ZSpsLuN7DaugsaDh",
+                "type": "PageStart",
+                "z": "sd_CWN3BqBJzJWkkhXF",
+                "viewType": "pages",
+                "nodeType": "start",
+                "name": "get users",
+                "outputs": 1,
+                "inputVariables": [],
+                "localVariables": [],
+                "flow_type": "sync",
+                "functionName": "getUsers",
+                "category": "General",
+                "x": 768.0000114440918,
+                "y": 94.00000381469727,
+                "wires": [
+                    [
+                        "sd_jzJEMkklzgTQt3ee"
+                    ]
+                ],
+                "__n_excludedFromValidation__": {},
+                "_imported_service_designer_type": "pages",
+                "editorTabConfigType": "pages",
+                "flowId": "sd_ZSpsLuN7DaugsaDh",
+                "serviceId": "sd_CWN3BqBJzJWkkhXF",
+                "serviceName": "editUserTaskAllocConf",
+                "accept_bh": false,
+                "inputParams": [],
+                "relativePath": "./editUserTaskAllocConf"
+            },
+            {
+                "id": "sd_oEZ5YInA9LE9eogE",
+                "type": "PageStart",
+                "z": "sd_CWN3BqBJzJWkkhXF",
+                "viewType": "pages",
+                "nodeType": "start",
+                "name": "get shifts",
+                "outputs": 1,
+                "inputVariables": [],
+                "localVariables": [],
+                "flow_type": "sync",
+                "functionName": "getShifts",
+                "category": "General",
+                "x": 782.0000095367432,
+                "y": 216.0000057220459,
+                "wires": [
+                    [
+                        "sd_Lwx79Np5oEY2UL1N"
+                    ]
+                ],
+                "__n_excludedFromValidation__": {},
+                "_imported_service_designer_type": "pages",
+                "editorTabConfigType": "pages",
+                "flowId": "sd_oEZ5YInA9LE9eogE",
+                "serviceId": "sd_CWN3BqBJzJWkkhXF",
+                "serviceName": "editUserTaskAllocConf",
+                "accept_bh": false,
+                "inputParams": [],
+                "relativePath": "./editUserTaskAllocConf"
+            }
+        ],
+        "_flowNodes": [
+            {
+                "id": "sd_ZSpsLuN7DaugsaDh",
+                "type": "PageStart",
+                "z": "sd_CWN3BqBJzJWkkhXF",
+                "viewType": "pages",
+                "nodeType": "start",
+                "name": "get users",
+                "outputs": 1,
+                "inputVariables": [],
+                "localVariables": [],
+                "flow_type": "sync",
+                "functionName": "getUsers",
+                "category": "General",
+                "x": 768.0000114440918,
+                "y": 94.00000381469727,
+                "wires": [
+                    [
+                        "sd_jzJEMkklzgTQt3ee"
+                    ]
+                ],
+                "__n_excludedFromValidation__": {},
+                "_imported_service_designer_type": "pages",
+                "editorTabConfigType": "pages",
+                "flowId": "sd_ZSpsLuN7DaugsaDh",
+                "serviceId": "sd_CWN3BqBJzJWkkhXF",
+                "serviceName": "editUserTaskAllocConf",
+                "accept_bh": false,
+                "inputParams": [],
+                "relativePath": "./editUserTaskAllocConf"
+            },
+            {
+                "id": "sd_oEZ5YInA9LE9eogE",
+                "type": "PageStart",
+                "z": "sd_CWN3BqBJzJWkkhXF",
+                "viewType": "pages",
+                "nodeType": "start",
+                "name": "get shifts",
+                "outputs": 1,
+                "inputVariables": [],
+                "localVariables": [],
+                "flow_type": "sync",
+                "functionName": "getShifts",
+                "category": "General",
+                "x": 782.0000095367432,
+                "y": 216.0000057220459,
+                "wires": [
+                    [
+                        "sd_Lwx79Np5oEY2UL1N"
+                    ]
+                ],
+                "__n_excludedFromValidation__": {},
+                "_imported_service_designer_type": "pages",
+                "editorTabConfigType": "pages",
+                "flowId": "sd_oEZ5YInA9LE9eogE",
+                "serviceId": "sd_CWN3BqBJzJWkkhXF",
+                "serviceName": "editUserTaskAllocConf",
+                "accept_bh": false,
+                "inputParams": [],
+                "relativePath": "./editUserTaskAllocConf"
+            }
+        ],
+        "resultMapping": "bh.local.r",
+        "accept_csd": false,
+        "isValidNode": true,
+        "functionName": "sd_3CVnQqsLJaFTo48k",
+        "category": "Function",
+        "x": 640,
+        "y": 80,
+        "wires": [
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "resultMapping": {
+                "type": "bh.local",
+                "value": "r",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

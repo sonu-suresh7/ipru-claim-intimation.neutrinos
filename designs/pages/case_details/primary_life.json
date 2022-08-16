@@ -1,0 +1,109 @@
+[
+    {
+        "id": "sd_GLZfADc0W8LVh0sB",
+        "type": "tab",
+        "createdDate": "2022-03-23T04:44:55.176Z",
+        "label": "primary_life",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "primary_lifeComponent"
+    },
+    {
+        "id": "sd_vutB6usIbjXayEyZ",
+        "type": "OnInit",
+        "z": "sd_GLZfADc0W8LVh0sB",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "inputVariables": [
+            {
+                "key": "primaryLifeData",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                }
+            }
+        ],
+        "localVariables": [],
+        "outputVariables": [],
+        "functionName": "sd_vutB6usIbjXayEyZ",
+        "category": "Lifecycle Events",
+        "x": 85,
+        "y": 100,
+        "wires": [
+            [
+                "sd_THxYu5m7tchcLHcl"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "primary_lifeComponent"
+    },
+    {
+        "id": "sd_THxYu5m7tchcLHcl",
+        "type": "PageVariables",
+        "z": "sd_GLZfADc0W8LVh0sB",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "residentialAddData",
+                "typedIpValue": {
+                    "type": "bh",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "companyAddData",
+                "typedIpValue": {
+                    "type": "bh",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "occupationDetails",
+                "typedIpValue": {
+                    "type": "bh",
+                    "value": ""
+                }
+            }
+        ],
+        "functionName": "sd_THxYu5m7tchcLHcl",
+        "category": "Function",
+        "x": 205,
+        "y": 100,
+        "wires": [
+            [
+                "sd_E1OMcaz12DMmG1L1"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_E1OMcaz12DMmG1L1",
+        "type": "Script",
+        "z": "sd_GLZfADc0W8LVh0sB",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.residentialAddData = {\n    viewTitle: 'Residential Address',\n    viewIconName: 'assets/Web/CaseDetails/home.svg',\n    details: this.primaryLifeData.residentialAddress\n};\npage.companyAddData = {\n    viewTitle: 'Company Name and Business Address',\n    viewIconName: 'assets/Web/CaseDetails/office.svg',\n    details: this.primaryLifeData.workAddress\n}\npage.occupationDetails =\n{\n    // viewTitle: 'Occupation',\n    // viewIconName: 'assets/Web/CaseDetails/occupation.svg',\n    // details: {\n    occupation: this.primaryLifeData.PersonalDetails.occupation,\n    income: this.primaryLifeData.PersonalDetails.income\n    // }\n}",
+        "functionName": "sd_E1OMcaz12DMmG1L1",
+        "category": "Function",
+        "x": 325,
+        "y": 100,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

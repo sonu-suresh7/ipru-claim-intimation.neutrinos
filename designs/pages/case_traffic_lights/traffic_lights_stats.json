@@ -1,0 +1,212 @@
+[
+    {
+        "id": "sd_0gd4pUQz1cfUt0no",
+        "type": "tab",
+        "createdDate": "2022-04-26T14:07:07.220Z",
+        "label": "traffic_lights_stats",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "traffic_lights_statsComponent"
+    },
+    {
+        "id": "sd_IFwAhYgOtED6rhkE",
+        "type": "OnInit",
+        "z": "sd_0gd4pUQz1cfUt0no",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "sd_IFwAhYgOtED6rhkE",
+        "category": "Lifecycle Events",
+        "x": 105,
+        "y": 120,
+        "wires": [
+            [
+                "sd_tiZssb2XS0ekSiTn"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "traffic_lights_statsComponent"
+    },
+    {
+        "id": "sd_tiZssb2XS0ekSiTn",
+        "type": "PageVariables",
+        "z": "sd_0gd4pUQz1cfUt0no",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [],
+        "functionName": "sd_tiZssb2XS0ekSiTn",
+        "category": "Function",
+        "x": 255,
+        "y": 120,
+        "wires": [
+            [
+                "sd_S2TpEsgKnZP9Zs06"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_S2TpEsgKnZP9Zs06",
+        "type": "PageCallService",
+        "z": "sd_0gd4pUQz1cfUt0no",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_9emVj8kPGYoP9w8y",
+            "type": "tab",
+            "createdDate": "2022-04-26T03:23:46.015Z",
+            "label": "trafficLightService",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_7XIoJExO7MLjGf3P",
+            "flowName": "getAllLightsStats"
+        },
+        "inputVariables": [],
+        "outputMapping": [
+            {
+                "mapVarType": "local",
+                "key": "result",
+                "valueType": "bh",
+                "value": "result",
+                "mapVarName": "result",
+                "localVar": "bh.result"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/trafficLightService",
+        "startName": "getAllLightsStats",
+        "inputParams": [],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "sd_S2TpEsgKnZP9Zs06",
+        "category": "General",
+        "x": 425,
+        "y": 120,
+        "wires": [
+            [
+                "sd_HR5BPbL2C2aaNblZ"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_HR5BPbL2C2aaNblZ",
+        "type": "Script",
+        "z": "sd_0gd4pUQz1cfUt0no",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(bh.result);\npage.statuses = bh.result[0];",
+        "functionName": "sd_HR5BPbL2C2aaNblZ",
+        "category": "Function",
+        "x": 580,
+        "y": 120,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_yuhTzGmesyqldrPv",
+        "type": "0a527e77-2b6b-855b-557e-9f716099c2ed",
+        "z": "sd_0gd4pUQz1cfUt0no",
+        "viewType": "client-pages",
+        "nodeType": "start",
+        "name": "",
+        "eventName": "\"rsn-traffic-light-close\"",
+        "functionName": "sd_yuhTzGmesyqldrPv",
+        "category": "Events",
+        "x": 105,
+        "y": 360,
+        "wires": [
+            [
+                "sd_XUXqtoe317DDY9s1"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "eventName": {
+                "type": "str",
+                "value": "rsn-traffic-light-close",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "traffic_lights_statsComponent"
+    },
+    {
+        "id": "sd_BShyvU3yt9HJAHXm",
+        "type": "PageSwitch",
+        "z": "sd_0gd4pUQz1cfUt0no",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "property": "isTrafficLight",
+        "propertyType": "bh.local",
+        "propertyGv": "bh.local.isTrafficLight",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "functionName": "sd_BShyvU3yt9HJAHXm",
+        "category": "Function",
+        "x": 385,
+        "y": 360,
+        "wires": [
+            [
+                "sd_S2TpEsgKnZP9Zs06"
+            ],
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_XUXqtoe317DDY9s1",
+        "type": "Script",
+        "z": "sd_0gd4pUQz1cfUt0no",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log('isTrafficLight', bh.local.isTrafficLight);",
+        "functionName": "sd_XUXqtoe317DDY9s1",
+        "category": "Function",
+        "x": 245,
+        "y": 360,
+        "wires": [
+            [
+                "sd_BShyvU3yt9HJAHXm"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

@@ -1,0 +1,279 @@
+[
+    {
+        "id": "sd_RtQ4uqfmmSQLjLur",
+        "type": "tab",
+        "createdDate": "2022-07-18T19:31:29.744Z",
+        "label": "new_investigation_search",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "new_investigation_searchComponent"
+    },
+    {
+        "id": "sd_jbDFHgAnPub65ArQ",
+        "type": "OnInit",
+        "z": "sd_RtQ4uqfmmSQLjLur",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "inputVariables": [],
+        "localVariables": [],
+        "outputVariables": [
+            {
+                "key": "policy_details",
+                "defaultValue": {
+                    "type": "any",
+                    "value": null
+                }
+            }
+        ],
+        "functionName": "sd_jbDFHgAnPub65ArQ",
+        "category": "Lifecycle Events",
+        "x": 30,
+        "y": 30,
+        "wires": [
+            [
+                "sd_Vg0HlE3AWkyQifQA"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "new_investigation_searchComponent"
+    },
+    {
+        "id": "sd_Vg0HlE3AWkyQifQA",
+        "type": "PageVariables",
+        "z": "sd_RtQ4uqfmmSQLjLur",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "policy_details",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "{}"
+                }
+            }
+        ],
+        "functionName": "sd_Vg0HlE3AWkyQifQA",
+        "category": "Function",
+        "x": 180,
+        "y": 30,
+        "wires": [
+            [
+                "sd_8JuUi4AqaXCbXHdL"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_8JuUi4AqaXCbXHdL",
+        "type": "PageServiceVariables",
+        "z": "sd_RtQ4uqfmmSQLjLur",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "get user role",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "get",
+        "globalVariables": [
+            {
+                "textIp": "loggedInRole",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "USER_ROLE"
+                }
+            }
+        ],
+        "functionName": "getUserRole",
+        "service": {
+            "id": "sd_RbD2RZwzan9VSOEL",
+            "type": "tab",
+            "createdDate": "2022-03-10T07:40:30.532Z",
+            "label": "cache",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "generateNext": true,
+            "serviceName": "cache",
+            "relativeParentPath": "",
+            "_def": {
+                "defaults": {
+                    "label": {
+                        "value": ""
+                    },
+                    "disabled": {
+                        "value": false
+                    },
+                    "info": {
+                        "value": ""
+                    }
+                }
+            }
+        },
+        "serviceImportPath": "app/sd-services/cache",
+        "category": "Function",
+        "x": 305,
+        "y": 40,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_vTtZ9WTnKhS03pRo",
+        "type": "PageStart",
+        "z": "sd_RtQ4uqfmmSQLjLur",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "search policy",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "event",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "searchPolicy",
+        "category": "General",
+        "x": 45,
+        "y": 180,
+        "wires": [
+            [
+                "sd_CoiUkwfXOonN91cy"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "new_investigation_searchComponent"
+    },
+    {
+        "id": "sd_CoiUkwfXOonN91cy",
+        "type": "Script",
+        "z": "sd_RtQ4uqfmmSQLjLur",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(bh.input.event.value)\nbh.policy_number = bh.input.event.value.trim();\nif(!bh.policy_number){\n    return;\n}",
+        "functionName": "sd_CoiUkwfXOonN91cy",
+        "category": "Function",
+        "x": 160,
+        "y": 180,
+        "wires": [
+            [
+                "sd_JI0HE77aFKlsh270"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_JI0HE77aFKlsh270",
+        "type": "PageCallService",
+        "z": "sd_RtQ4uqfmmSQLjLur",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_FeSAKKAyQ3k2UP97",
+            "type": "tab",
+            "createdDate": "2022-07-18T20:18:51.772Z",
+            "label": "investigation",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_UyDxFhC2nV5zmHnR",
+            "flowName": "searchPolicy"
+        },
+        "inputVariables": [
+            {
+                "key": "policy_number",
+                "map": true,
+                "valueType": "bh",
+                "value": "policy_number"
+            }
+        ],
+        "outputMapping": [
+            {
+                "mapVarType": "local",
+                "key": "policy_details",
+                "valueType": "this.page",
+                "value": "policy_details",
+                "mapVarName": "policy_details",
+                "localVar": "this.page.policy_details"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/investigation",
+        "startName": "searchPolicy",
+        "inputParams": [
+            "bh.policy_number"
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "sd_JI0HE77aFKlsh270",
+        "category": "General",
+        "x": 280,
+        "y": 180,
+        "wires": [
+            [
+                "sd_s0nQOxmJNNmjW4FH"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_s0nQOxmJNNmjW4FH",
+        "type": "Output",
+        "z": "sd_RtQ4uqfmmSQLjLur",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "eventName": "bh.pageOutput.policy_details",
+        "data": "this.page.policy_details",
+        "functionName": "sd_s0nQOxmJNNmjW4FH",
+        "category": "Function",
+        "x": 400,
+        "y": 180,
+        "wires": [
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "eventName": {
+                "type": "bh.pageOutput",
+                "value": "policy_details",
+                "constant": false
+            },
+            "data": {
+                "type": "this.page",
+                "value": "policy_details",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

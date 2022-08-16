@@ -1,0 +1,111 @@
+{
+    "routes": [
+        {
+            "path": "web",
+            "component": "base_layoutComponent",
+            "canActivate": "NeutrinosAuthGuardService",
+            "children": [
+                {
+                    "path": "nav",
+                    "component": "navComponent",
+                    "children": [
+                        {
+                            "path": "admindashboard",
+                            "component": "uwadmindashboardComponent",
+                            "resolve": ""
+                        },
+                        {
+                            "path": "listofCases",
+                            "component": "listofCasesComponent"
+                        },
+                        {
+                            "path": "workqueue",
+                            "component": "workQueueComponent",
+                            "resolve": "{ workqueues: workqueues_resolverService}"
+                        },
+                        {
+                            "path": "productCatelog",
+                            "component": "productCatelogComponent"
+                        },
+                        {
+                            "path": "medicalDictionary",
+                            "component": "medicalDictionaryComponent"
+                        },
+                        {
+                            "path": "myNotes",
+                            "component": "myNotesComponent"
+                        },
+                        {
+                            "path": "myReminders",
+                            "component": "myRemindersComponent"
+                        },
+                        {
+                            "path": "admin",
+                            "component": "adminSettingsComponent"
+                        },
+                        {
+                            "path": "myprofile",
+                            "component": "myProfileComponent"
+                        },
+                        {
+                            "path": "uwGuidelines",
+                            "component": "uwGuidelinesComponent"
+                        },
+                        {
+                            "path": "external/:menuId",
+                            "component": "externalURLViewerComponent"
+                        },
+                        {
+                            "path": "''",
+                            "redirectTo": "workqueue",
+                            "pathMatch": "full"
+                        },
+                        {
+                            "path": "uwdashboard",
+                            "component": "uwdashboardComponent"
+                        },
+                        {
+                            "path": "investigation",
+                            "component": "newInvestigationComponent"
+                        }
+                    ],
+                    "resolve": "{ menu: configs_resolverService}"
+                },
+                {
+                    "path": "editUser",
+                    "component": "editUserTaskAllocConfComponent"
+                },
+                {
+                    "path": "caseview/:pid",
+                    "component": "caseViewBaseComponent",
+                    "canDeactivate": ""
+                },
+                {
+                    "path": "''",
+                    "redirectTo": "nav",
+                    "pathMatch": "full"
+                },
+                {
+                    "path": "manageUsers",
+                    "component": "manageUsersComponent"
+                },
+                {
+                    "path": "theme",
+                    "component": "themeComponent"
+                }
+            ],
+            "canDeactivate": "",
+            "resolve": "{ data: root_resolverService}"
+        },
+        {
+            "path": "''",
+            "redirectTo": "web/nav",
+            "pathMatch": "full",
+            "default": true
+        },
+        {
+            "path": "**",
+            "component": "PageNotFoundComponent"
+        }
+    ]
+}

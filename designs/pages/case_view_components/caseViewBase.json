@@ -1,0 +1,598 @@
+[
+    {
+        "id": "sd_OFLCfG1X2Gg1CH5L",
+        "type": "tab",
+        "createdDate": "2022-03-21T14:43:59.404Z",
+        "label": "caseViewBase",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "caseViewBaseComponent"
+    },
+    {
+        "id": "sd_aLLdBsslKOmzRNQC",
+        "type": "OnInit",
+        "z": "sd_OFLCfG1X2Gg1CH5L",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "inputVariables": [],
+        "localVariables": [],
+        "outputVariables": [],
+        "functionName": "sd_aLLdBsslKOmzRNQC",
+        "category": "Lifecycle Events",
+        "x": 65,
+        "y": 60,
+        "wires": [
+            [
+                "sd_NmBigHyVg3f6ad7J"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "caseViewBaseComponent"
+    },
+    {
+        "id": "sd_lmLsqjgy2zjsypGl",
+        "type": "NavigationData",
+        "z": "sd_OFLCfG1X2Gg1CH5L",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "get case pid",
+        "tmpOp": "",
+        "tmpOpType": "",
+        "operationType": "paramMap",
+        "operation": "get",
+        "key": "\"pid\"",
+        "resultMapping": "bh.local.pid",
+        "functionName": "getCasePid",
+        "category": "Navigation",
+        "x": 285,
+        "y": 60,
+        "wires": [
+            [
+                "sd_6qFncNiWwtCF3MPg"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "key": {
+                "type": "str",
+                "value": "pid",
+                "constant": false
+            },
+            "resultMapping": {
+                "type": "bh.local",
+                "value": "pid",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "caseViewBaseComponent"
+    },
+    {
+        "id": "sd_RiOb5g2Tqtf27dzm",
+        "type": "PageSwitch",
+        "z": "sd_OFLCfG1X2Gg1CH5L",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "property": "checkedOut.task",
+        "propertyType": "this.page",
+        "propertyGv": "this.page.checkedOut.task",
+        "rules": [
+            {
+                "t": "else"
+            },
+            {
+                "t": "null"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "functionName": "sd_RiOb5g2Tqtf27dzm",
+        "category": "Function",
+        "x": 525,
+        "y": 60,
+        "wires": [
+            [
+                "sd_DABvIe3lmTdWCQt0"
+            ],
+            [
+                "sd_e4gXbzVlqshbFdqj"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_yMVFBPFAnW3yIyNg",
+        "type": "Script",
+        "z": "sd_OFLCfG1X2Gg1CH5L",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "find and assign tasks",
+        "script": "page.checkedOut.task = bh.local.reponsePayload.tasks?.find(t => t.pid === bh.local.pid);",
+        "functionName": "findAndAssignTasks",
+        "category": "Function",
+        "x": 525,
+        "y": 200,
+        "wires": [
+            [
+                "sd_DABvIe3lmTdWCQt0"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_yzKuPnAWeOwHtAYW",
+        "type": "HttpRequest",
+        "z": "sd_OFLCfG1X2Gg1CH5L",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "request case",
+        "method": "get",
+        "methodMapping": "",
+        "methodMappingObj": {},
+        "urlMapping": "bh.local.url",
+        "urlMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMapping": "",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMapping": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "",
+        "reqBodyObj": {
+            "mapVarType": "this.page",
+            "mapVarValue": ""
+        },
+        "resultMapping": "bh.local.res",
+        "resultMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "res"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMapping": "",
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMapping": "",
+        "paramMappingObj": {},
+        "functionName": "requestCase",
+        "category": "HTTP",
+        "x": 805,
+        "y": 120,
+        "wires": [
+            [
+                "sd_p1IvNPfW66v6AQyV"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_DABvIe3lmTdWCQt0",
+        "type": "Script",
+        "z": "sd_OFLCfG1X2Gg1CH5L",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "case url constructor",
+        "script": "bh.local.url = page.system.environment.properties.ssdBaseUrl + '/case/' + bh.local.pid;\n",
+        "functionName": "caseUrlConstructor",
+        "category": "Function",
+        "x": 665,
+        "y": 120,
+        "wires": [
+            [
+                "sd_yzKuPnAWeOwHtAYW"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_p1IvNPfW66v6AQyV",
+        "type": "Script",
+        "z": "sd_OFLCfG1X2Gg1CH5L",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "assign case",
+        "script": "page.checkedOut.case = bh.local.res.case\n",
+        "functionName": "assignCase",
+        "category": "Function",
+        "x": 925,
+        "y": 120,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_NmBigHyVg3f6ad7J",
+        "type": "PageServiceVariables",
+        "z": "sd_OFLCfG1X2Gg1CH5L",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "get cache data",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "get",
+        "globalVariables": [
+            {
+                "textIp": "checkedOut",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "checkedOut"
+                }
+            }
+        ],
+        "functionName": "getCacheData",
+        "service": {
+            "id": "sd_RbD2RZwzan9VSOEL",
+            "type": "tab",
+            "createdDate": "2022-03-10T07:40:30.532Z",
+            "label": "cache",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "generateNext": true,
+            "serviceName": "cache",
+            "relativeParentPath": "",
+            "_def": {
+                "defaults": {
+                    "label": {
+                        "value": ""
+                    },
+                    "disabled": {
+                        "value": false
+                    },
+                    "info": {
+                        "value": ""
+                    }
+                }
+            }
+        },
+        "serviceImportPath": "app/sd-services/cache",
+        "category": "Function",
+        "x": 165,
+        "y": 60,
+        "wires": [
+            [
+                "sd_lmLsqjgy2zjsypGl"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_z8oA63ojIOJgzvTO",
+        "type": "Script",
+        "z": "sd_OFLCfG1X2Gg1CH5L",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "set dummy owner info",
+        "script": "page.ownerInfo = {\n    name: \"Mark Thomas\",\n    sex: \"M\",\n    phoneNumber: \"(257) 563-7401\",\n    email: \"john.doe@gmail.com\",\n    idNumber: \"\",\n    idIssueDate: \"\",\n    idIssuePlace: \"\",\n    dob: \"09-July-1992\",\n    age: \"\",\n    palceOfBirth: \"\",\n    nationality: \"\",\n    occupation: \"\",\n    income: \"\",\n    applicationNumber: \"MBD41500219210701004029\",\n    DOB: '09-July-1992'\n}\n\npage.checkedOut = {}\n",
+        "functionName": "setDummyOwnerInfo",
+        "category": "Function",
+        "x": 625,
+        "y": 440,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
+    },
+    {
+        "id": "sd_koliPMpg8HVlVGct",
+        "type": "OnDestroy",
+        "z": "sd_OFLCfG1X2Gg1CH5L",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "sd_koliPMpg8HVlVGct",
+        "category": "Lifecycle Events",
+        "x": 80,
+        "y": 540,
+        "wires": [
+            [
+                "sd_nlmDJitzyJre7hZ9"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "caseViewBaseComponent"
+    },
+    {
+        "id": "sd_nlmDJitzyJre7hZ9",
+        "type": "PageServiceVariables",
+        "z": "sd_OFLCfG1X2Gg1CH5L",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "unset cache data",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "checkedOut",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "{}"
+                }
+            }
+        ],
+        "functionName": "unsetCacheData",
+        "service": {
+            "id": "sd_RbD2RZwzan9VSOEL",
+            "type": "tab",
+            "createdDate": "2022-03-10T07:40:30.532Z",
+            "label": "cache",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "generateNext": true,
+            "serviceName": "cache",
+            "relativeParentPath": "",
+            "_def": {
+                "defaults": {
+                    "label": {
+                        "value": ""
+                    },
+                    "disabled": {
+                        "value": false
+                    },
+                    "info": {
+                        "value": ""
+                    }
+                }
+            }
+        },
+        "serviceImportPath": "app/sd-services/cache",
+        "category": "Function",
+        "x": 245,
+        "y": 540,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_pWXnxVXigindtfM8",
+        "type": "PageStart",
+        "z": "sd_OFLCfG1X2Gg1CH5L",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "getResourceLinks",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "event",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "getResourceLinks",
+        "category": "General",
+        "x": 85,
+        "y": 440,
+        "wires": [
+            [
+                "sd_aRzcclWYKqjBjoW1"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "caseViewBaseComponent"
+    },
+    {
+        "id": "sd_aRzcclWYKqjBjoW1",
+        "type": "Script",
+        "z": "sd_OFLCfG1X2Gg1CH5L",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "this.page.resourceLinksResult = [...bh.input.event];",
+        "functionName": "sd_aRzcclWYKqjBjoW1",
+        "category": "Function",
+        "x": 205,
+        "y": 440,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_KFrNRL0xqPZUvpsr",
+        "type": "Script",
+        "z": "sd_OFLCfG1X2Gg1CH5L",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "assign tasks 0",
+        "script": "bh.pid = Number(bh.pid);\n// page.checkedOut.task = bh.tasks?.find(t => t.pid === bh.pid);\n",
+        "functionName": "assignTasks",
+        "category": "Function",
+        "x": 765,
+        "y": 380,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
+    },
+    {
+        "id": "sd_2V4j10tPSIpG8z5b",
+        "type": "PageServiceVariables",
+        "z": "sd_OFLCfG1X2Gg1CH5L",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "tasks",
+                "typedIpValue": {
+                    "type": "bh.local",
+                    "value": "reponsePayload.tasks"
+                }
+            }
+        ],
+        "functionName": "sd_2V4j10tPSIpG8z5b",
+        "service": {
+            "id": "sd_RbD2RZwzan9VSOEL",
+            "type": "tab",
+            "createdDate": "2022-03-10T07:40:30.532Z",
+            "label": "cache",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "generateNext": true,
+            "serviceName": "cache",
+            "relativeParentPath": "",
+            "_def": {
+                "defaults": {
+                    "label": {
+                        "value": ""
+                    },
+                    "disabled": {
+                        "value": false
+                    },
+                    "info": {
+                        "value": ""
+                    }
+                }
+            }
+        },
+        "serviceImportPath": "app/sd-services/cache",
+        "category": "Function",
+        "x": 785,
+        "y": 540,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
+    },
+    {
+        "id": "sd_6qFncNiWwtCF3MPg",
+        "type": "Script",
+        "z": "sd_OFLCfG1X2Gg1CH5L",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "convert PID to Number",
+        "script": "bh.local.pid = Number(bh.local.pid);",
+        "functionName": "convertPIDToNumber",
+        "category": "Function",
+        "x": 405,
+        "y": 60,
+        "wires": [
+            [
+                "sd_RiOb5g2Tqtf27dzm"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_e4gXbzVlqshbFdqj",
+        "type": "Script",
+        "z": "sd_OFLCfG1X2Gg1CH5L",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.wqConf = {\n    // \"_id\": \"6257ea94269774b8e78af739\",\n    // \"workQueueId\": \"6257cecd269774b8e7515e45\",\n    \"selectedColumns\": [\"applicationNumber\", \"task-name\", \"task-created-on\", \"policyStatus\", \"task-status\"],\n    \"label\": \"Default Queue\",\n    \"filters\": { \"status\": [\"Reserved\", \"InProgress\"] },\n    // \"default\": true\n}",
+        "functionName": "sd_e4gXbzVlqshbFdqj",
+        "category": "Function",
+        "x": 285,
+        "y": 200,
+        "wires": [
+            [
+                "sd_pYQV1jw2Ry2GOuYe"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_pYQV1jw2Ry2GOuYe",
+        "type": "PageCallService",
+        "z": "sd_OFLCfG1X2Gg1CH5L",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "call csd get q tasks",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_IKMMWVWnX2MWpoSX",
+            "type": "tab",
+            "createdDate": "2022-03-21T14:08:29.053Z",
+            "label": "wq",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_uEyiJd3WGLanVvYX",
+            "flowName": "getDefaultQTasks"
+        },
+        "inputVariables": [],
+        "outputMapping": [
+            {
+                "mapVarType": "local",
+                "key": "reponsePayload",
+                "valueType": "bh.local",
+                "value": "reponsePayload",
+                "mapVarName": "reponsePayload",
+                "localVar": "bh.local.reponsePayload"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/wq",
+        "startName": "getDefaultQTasks",
+        "inputParams": [],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "callCsdGetQTasks",
+        "category": "General",
+        "x": 405,
+        "y": 200,
+        "wires": [
+            [
+                "sd_yMVFBPFAnW3yIyNg"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

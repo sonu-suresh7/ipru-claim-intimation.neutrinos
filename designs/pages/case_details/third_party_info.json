@@ -1,0 +1,87 @@
+[
+    {
+        "id": "sd_5I5rEtyleo3NW3eP",
+        "type": "tab",
+        "createdDate": "2022-03-23T05:17:12.399Z",
+        "label": "third_party_info",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "third_party_infoComponent"
+    },
+    {
+        "id": "sd_wDshvlheyZtLeynz",
+        "type": "OnInit",
+        "z": "sd_5I5rEtyleo3NW3eP",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "inputVariables": [
+            {
+                "key": "thirdPartyDetails",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                }
+            }
+        ],
+        "localVariables": [],
+        "outputVariables": [],
+        "functionName": "sd_wDshvlheyZtLeynz",
+        "category": "Lifecycle Events",
+        "x": 85,
+        "y": 140,
+        "wires": [
+            [
+                "sd_rIqungBK5M704gLH"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "third_party_infoComponent"
+    },
+    {
+        "id": "sd_rIqungBK5M704gLH",
+        "type": "PageVariables",
+        "z": "sd_5I5rEtyleo3NW3eP",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [],
+        "functionName": "sd_rIqungBK5M704gLH",
+        "category": "Function",
+        "x": 185,
+        "y": 140,
+        "wires": [
+            [
+                "sd_ymhF5sbjEM12a35P"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_ymhF5sbjEM12a35P",
+        "type": "Script",
+        "z": "sd_5I5rEtyleo3NW3eP",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "labels mapper",
+        "script": "page.labels = {\n    answer: {\n        get label() {\n            return page.locales.keys.answer;\n        }\n    }\n}\n",
+        "functionName": "labelsMapper",
+        "category": "Function",
+        "x": 325,
+        "y": 140,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

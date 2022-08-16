@@ -1,0 +1,1227 @@
+[
+    {
+        "id": "sd_ruCrGwNecen0Eaj9",
+        "type": "tab",
+        "createdDate": "2022-03-11T11:25:35.498Z",
+        "label": "tasks",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 2,
+        "generateNext": true,
+        "serviceName": "tasksComponent"
+    },
+    {
+        "id": "sd_lmdUk8PKKO2fuiwr",
+        "type": "OnInit",
+        "z": "sd_ruCrGwNecen0Eaj9",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "inputVariables": [
+            {
+                "key": "tasks",
+                "defaultValue": {
+                    "type": "any",
+                    "value": "[]"
+                }
+            }
+        ],
+        "localVariables": [],
+        "outputVariables": [],
+        "functionName": "sd_lmdUk8PKKO2fuiwr",
+        "category": "Lifecycle Events",
+        "x": 65,
+        "y": 60,
+        "wires": [
+            [
+                "sd_ADgJTlrtwIWcFeC3"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "tasksComponent"
+    },
+    {
+        "id": "sd_ADgJTlrtwIWcFeC3",
+        "type": "NavigationData",
+        "z": "sd_ruCrGwNecen0Eaj9",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "tmpOp": "",
+        "tmpOpType": "",
+        "operationType": "data",
+        "operation": "keys",
+        "key": "bh",
+        "resultMapping": "bh.res",
+        "functionName": "sd_ADgJTlrtwIWcFeC3",
+        "category": "Navigation",
+        "x": 205,
+        "y": 60,
+        "wires": [
+            [
+                "sd_wmPIVbmZoiY0aQTa"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "key": {
+                "type": "bh",
+                "value": "",
+                "constant": false
+            },
+            "resultMapping": {
+                "type": "bh",
+                "value": "res",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "tasksComponent"
+    },
+    {
+        "id": "sd_wmPIVbmZoiY0aQTa",
+        "type": "PageVariables",
+        "z": "sd_ruCrGwNecen0Eaj9",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "queues",
+                "typedIpValue": {
+                    "type": "bh",
+                    "value": "res.workqueues"
+                }
+            },
+            {
+                "textIp": "wqtasks",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "{}"
+                }
+            },
+            {
+                "textIp": "selectedIndex",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "0"
+                }
+            }
+        ],
+        "functionName": "sd_wmPIVbmZoiY0aQTa",
+        "category": "Function",
+        "x": 325,
+        "y": 60,
+        "wires": [
+            [
+                "sd_jxzlli0EWASpb7AD"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "tasksComponent"
+    },
+    {
+        "id": "sd_wk0b4PkeTfG173kI",
+        "type": "PageStart",
+        "z": "sd_ruCrGwNecen0Eaj9",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "on tab index change",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "index",
+                "defaultValue": {
+                    "type": "any",
+                    "value": "0"
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "onTabIndexChange",
+        "category": "General",
+        "x": 65,
+        "y": 180,
+        "wires": [
+            [
+                "sd_ys1BcQsrQkRDQSwP"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "tasksComponent"
+    },
+    {
+        "id": "sd_UIoFu3S1YlDsUSf3",
+        "type": "PageStart",
+        "z": "sd_ruCrGwNecen0Eaj9",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "confirm and delete q",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "e",
+                "defaultValue": {
+                    "type": "str",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "wq",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "confirmAndDeleteQ",
+        "category": "General",
+        "x": 65,
+        "y": 420,
+        "wires": [
+            [
+                "sd_gtzs0QtfjyjSU6tT"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "tasksComponent"
+    },
+    {
+        "id": "sd_2AZeEezdk9yRJE3F",
+        "type": "OpenDialog",
+        "z": "sd_ruCrGwNecen0Eaj9",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "confirm delete",
+        "outputs": 4,
+        "flow": {
+            "flowId": "sd_wlYzYT9peXcllgnn",
+            "label": "alert"
+        },
+        "relativePath": "../modals/alert",
+        "data": "bh.local.dialogData",
+        "ariaDescribedBy": "this.page",
+        "ariaLabel": "this.page",
+        "ariaLabelledBy": "this.page",
+        "autoFocus": "this.page",
+        "backdropClass": "this.page",
+        "closeOnNavigation": "this.page",
+        "direction": "this.page",
+        "disableClose": "this.page",
+        "hasBackdrop": "this.page",
+        "height": "this.page",
+        "maxHeight": "this.page",
+        "minHeight": "this.page",
+        "width": "\"50vw\"",
+        "maxWidth": "this.page",
+        "minWidth": "this.page",
+        "panelClass": "this.page",
+        "position": "this.page",
+        "restoreFocus": "this.page",
+        "role": "this.page",
+        "resultMapping": "bh.local.delete",
+        "functionName": "confirmDelete",
+        "category": "Dialog",
+        "x": 345,
+        "y": 420,
+        "wires": [
+            [],
+            [
+                "sd_7OlaPCKk3i6Y3s8b"
+            ],
+            [],
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "data": {
+                "type": "bh.local",
+                "value": "dialogData",
+                "constant": false
+            },
+            "ariaDescribedBy": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "ariaLabel": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "ariaLabelledBy": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "autoFocus": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "backdropClass": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "closeOnNavigation": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "direction": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "disableClose": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "hasBackdrop": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "height": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "maxHeight": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "minHeight": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "width": {
+                "type": "str",
+                "value": "50vw",
+                "constant": false
+            },
+            "maxWidth": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "minWidth": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "panelClass": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "position": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "restoreFocus": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "role": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "resultMapping": {
+                "type": "bh.local",
+                "value": "delete",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "tasksComponent"
+    },
+    {
+        "id": "sd_gtzs0QtfjyjSU6tT",
+        "type": "Script",
+        "z": "sd_ruCrGwNecen0Eaj9",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "prep confirm data",
+        "script": "bh.input.e.stopPropagation();\nbh.local.dialogData = {\n    title: `Delete \"${bh.input.wq.conf.label}\" queue?`,\n    description: \"Please confirm if you want to continue with this action.\"\n}",
+        "functionName": "prepConfirmData",
+        "category": "Function",
+        "x": 205,
+        "y": 420,
+        "wires": [
+            [
+                "sd_2AZeEezdk9yRJE3F"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "tasksComponent"
+    },
+    {
+        "id": "sd_7OlaPCKk3i6Y3s8b",
+        "type": "PageSwitch",
+        "z": "sd_ruCrGwNecen0Eaj9",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "check if delete",
+        "property": "delete",
+        "propertyType": "bh.local",
+        "propertyGv": "bh.local.delete",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "functionName": "checkIfDelete",
+        "category": "Function",
+        "x": 465,
+        "y": 420,
+        "wires": [
+            [
+                "sd_MhyyhoquN2KgJ5fk"
+            ],
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "tasksComponent"
+    },
+    {
+        "id": "sd_MhyyhoquN2KgJ5fk",
+        "type": "Script",
+        "z": "sd_ruCrGwNecen0Eaj9",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "log c",
+        "script": "console.log('queue should be deleted')",
+        "functionName": "logC",
+        "category": "Function",
+        "x": 585,
+        "y": 420,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_68eLOoS6KrNkvygQ",
+        "type": "0a527e77-2b6b-855b-557e-9f716099c2ed",
+        "z": "sd_ruCrGwNecen0Eaj9",
+        "viewType": "client-pages",
+        "nodeType": "start",
+        "name": "listen for wq refresh",
+        "eventName": "\"refresh-wq\"",
+        "functionName": "listenForWqRefresh",
+        "category": "Events",
+        "x": 65,
+        "y": 660,
+        "wires": [
+            [
+                "sd_QJbseJhs6PEXwcoc"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "eventName": {
+                "type": "str",
+                "value": "refresh-wq",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "tasksComponent"
+    },
+    {
+        "id": "sd_QJbseJhs6PEXwcoc",
+        "type": "PageCallService",
+        "z": "sd_ruCrGwNecen0Eaj9",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "call get wqs",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_IKMMWVWnX2MWpoSX",
+            "type": "tab",
+            "createdDate": "2022-03-21T14:08:29.053Z",
+            "label": "wq",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_e96J3FPrqUdxXJzr",
+            "flowName": "getWqs"
+        },
+        "inputVariables": [],
+        "outputMapping": [
+            {
+                "mapVarType": "local",
+                "key": "res",
+                "valueType": "bh",
+                "value": "res",
+                "mapVarName": "res",
+                "localVar": "bh.res"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/wq",
+        "startName": "getWqs",
+        "inputParams": [],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "callGetWqs",
+        "category": "General",
+        "x": 205,
+        "y": 660,
+        "wires": [
+            [
+                "sd_eWbcOGiDDBXmpOxQ"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_eWbcOGiDDBXmpOxQ",
+        "type": "PageVariables",
+        "z": "sd_ruCrGwNecen0Eaj9",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "queues",
+                "typedIpValue": {
+                    "type": "bh",
+                    "value": "res.workqueues"
+                }
+            }
+        ],
+        "functionName": "sd_eWbcOGiDDBXmpOxQ",
+        "category": "Function",
+        "x": 345,
+        "y": 660,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_N5wuMELzCaSZJiJj",
+        "type": "PageStart",
+        "z": "sd_ruCrGwNecen0Eaj9",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "checkout",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "task",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "checkout",
+        "category": "General",
+        "x": 65,
+        "y": 540,
+        "wires": [
+            [
+                "sd_0qDzXSsHMSkXJRTt"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "tasksComponent"
+    },
+    {
+        "id": "sd_0qDzXSsHMSkXJRTt",
+        "type": "PageServiceVariables",
+        "z": "sd_ruCrGwNecen0Eaj9",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "get checked out var",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "get",
+        "globalVariables": [
+            {
+                "textIp": "checkedOut",
+                "typedIpValue": {
+                    "type": "bh.local",
+                    "value": "co"
+                }
+            }
+        ],
+        "functionName": "getCheckedOutVar",
+        "service": {
+            "id": "sd_RbD2RZwzan9VSOEL",
+            "type": "tab",
+            "createdDate": "2022-03-10T07:40:30.532Z",
+            "label": "cache",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "generateNext": true,
+            "serviceName": "cache",
+            "relativeParentPath": "",
+            "_def": {
+                "defaults": {
+                    "label": {
+                        "value": ""
+                    },
+                    "disabled": {
+                        "value": false
+                    },
+                    "info": {
+                        "value": ""
+                    }
+                }
+            }
+        },
+        "serviceImportPath": "app/sd-services/cache",
+        "category": "Function",
+        "x": 205,
+        "y": 540,
+        "wires": [
+            [
+                "sd_bJFs9X47Lrim1uv1"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_q4lgiOrrD9GwTv71",
+        "type": "Navigation",
+        "z": "sd_ruCrGwNecen0Eaj9",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "nav to case view",
+        "path": "/web/caseview/:pid",
+        "pathparams": [
+            {
+                "paramKey": "pid",
+                "paramValue": {
+                    "type": "bh.input",
+                    "value": "task.pid"
+                }
+            }
+        ],
+        "functionName": "navToCaseView",
+        "category": "Navigation",
+        "x": 465,
+        "y": 540,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_bJFs9X47Lrim1uv1",
+        "type": "Script",
+        "z": "sd_ruCrGwNecen0Eaj9",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "assign checkedout task",
+        "script": "bh.local.co.task = bh.input.task",
+        "functionName": "assignCheckedoutTask",
+        "category": "Function",
+        "x": 345,
+        "y": 540,
+        "wires": [
+            [
+                "sd_q4lgiOrrD9GwTv71"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_qNTerCoHX8tFUDTP",
+        "type": "Script",
+        "z": "sd_ruCrGwNecen0Eaj9",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "assign wq tasks",
+        "script": "const tasks = [];\nconst wq = page.queues[page.selectedIndex];\nconst wqconf = wq.conf;\nconst validColumns = wqconf.selectedColumns.filter(c => page.colConf.hasOwnProperty(c));\nfor (const task of bh.local.reponsePayload.tasks) {\n\tif (task[\"task-proc-def-id\"] !== 'com.neutrinos.manulife.maxBusiness') {\n\t\tcontinue;\n\t}\n\tconst obj = JSON.parse(JSON.stringify(task))\n\tObject.assign(obj, validColumns?.reduce((acc, cur) => {\n\t\tacc[cur] = page.colConf[cur].val(task) || '-';\n\t\treturn acc;\n\t}, {}))\n\ttasks.push(obj);\n}\npage.wqtasks[wq.workQueueId] = {\n\ttasks,\n\tdisplayColumns: ['lock_unlock', ...validColumns, 'action'],\n\tsortedTasks: tasks.slice(),\n\tselection: new SelectionModel()\n}\nif (page.USER_ROLE === 'ADMIN') {\n\tpage.wqtasks[wq.workQueueId].displayColumns.unshift('selection')\n}\n// console.log(page.wqtasks[wq.workQueueId]);\n// page.wqtasks[page.queues[page.selectedIndex]._id].tasks.sort = this.MatSort;\n// page.wqtasks[page.queues[page.selectedIndex]._id].tasks.paginator = this.MatPaginator;\n\nbh.input.s = ({\n\tactive: 'task-priority',\n\tdirection: 'asc'\n})\n\nsetTimeout(() => {\n\tthis.sortChange({\n\t\tactive: 'task-created-on',\n\t\tdirection: 'asc'\n\t})\n})",
+        "functionName": "assignWqTasks",
+        "category": "Function",
+        "x": 2125,
+        "y": 180,
+        "wires": [
+            [
+                "sd_Qdn9X5s22nkxFXMT"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
+    },
+    {
+        "id": "sd_Qdn9X5s22nkxFXMT",
+        "type": "Script",
+        "z": "sd_ruCrGwNecen0Eaj9",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "sort",
+        "script": "const compare = (a, b, isAsc) => (a < b ? -1 : 1) * (isAsc ? 1 : -1);\n\nconst conf = page.wqtasks[page.queues[page.selectedIndex].workQueueId]\n\nconst sort = bh.input.s;\n\nif (!sort.active || sort.direction === '') {\n    conf.sortedTasks = conf.tasks.slice();\n} else {\n    conf.sortedTasks = conf.tasks.sort((a, b) => {\n        if (a[sort.active]) {\n            return compare(a[sort.active], b[sort.active], sort.direction === 'asc')\n        }\n        return 0\n    })\n}\nconsole.log('sorted')\n\n// conf.sortedTasks = new MatTableDataSource(conf.tasks);\n// conf.sortedTasks.sort = this.MatSort\n// conf.sortedTasks.paginator = this.MatPaginator\n",
+        "functionName": "sort",
+        "category": "Function",
+        "x": 2265,
+        "y": 240,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_DKsRncMbuGr6SmKU",
+        "type": "PageStart",
+        "z": "sd_ruCrGwNecen0Eaj9",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "sort change",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "s",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "sortChange",
+        "category": "General",
+        "x": 2125,
+        "y": 300,
+        "wires": [
+            [
+                "sd_Qdn9X5s22nkxFXMT"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "tasksComponent"
+    },
+    {
+        "id": "sd_y3ORfH2adYFSbnY9",
+        "type": "PageCallService",
+        "z": "sd_ruCrGwNecen0Eaj9",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "call csd get q tasks",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_IKMMWVWnX2MWpoSX",
+            "type": "tab",
+            "createdDate": "2022-03-21T14:08:29.053Z",
+            "label": "wq",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_Mwmnxvd5AMvCxFbP",
+            "flowName": "getQTasks"
+        },
+        "inputVariables": [
+            {
+                "key": "wqConf",
+                "map": true,
+                "valueType": "this.page",
+                "value": "queues[bh.input.index].conf"
+            }
+        ],
+        "outputMapping": [
+            {
+                "mapVarType": "local",
+                "key": "reponsePayload",
+                "valueType": "bh.local",
+                "value": "reponsePayload",
+                "mapVarName": "reponsePayload",
+                "localVar": "bh.local.reponsePayload"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/wq",
+        "startName": "getQTasks",
+        "inputParams": [
+            "this.page.queues[bh.input.index].conf"
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "callCsdGetQTasks",
+        "category": "General",
+        "x": 1880,
+        "y": 180,
+        "wires": [
+            [
+                "sd_nFYV4Q0vqs0nZw8t"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
+    },
+    {
+        "id": "sd_dMFdfX1wTc4AgmqE",
+        "type": "PageSwitch",
+        "z": "sd_ruCrGwNecen0Eaj9",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "property": "fetched",
+        "propertyType": "bh.local",
+        "propertyGv": "bh.local.fetched",
+        "rules": [
+            {
+                "t": "false"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "functionName": "sd_dMFdfX1wTc4AgmqE",
+        "category": "Function",
+        "x": 1745,
+        "y": 260,
+        "wires": [
+            [
+                "sd_y3ORfH2adYFSbnY9"
+            ],
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
+    },
+    {
+        "id": "sd_MK2ljHaWvAsVUvAl",
+        "type": "Script",
+        "z": "sd_ruCrGwNecen0Eaj9",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.fetched = !!page.wqtasks?.[page.queues[page.selectedIndex]?.workQueueId]?.tasks",
+        "functionName": "sd_MK2ljHaWvAsVUvAl",
+        "category": "Function",
+        "x": 1605,
+        "y": 260,
+        "wires": [
+            [
+                "sd_dMFdfX1wTc4AgmqE"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
+    },
+    {
+        "id": "sd_nFYV4Q0vqs0nZw8t",
+        "type": "UseDependency",
+        "z": "sd_ruCrGwNecen0Eaj9",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "selection model import",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "",
+        "propertyType": "bh",
+        "propertyGv": "bh.",
+        "alias": "",
+        "modules": [
+            {
+                "textIp": "SelectionModel",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                },
+                "injectable": false
+            }
+        ],
+        "import_all": false,
+        "library": "@angular/cdk/collections",
+        "serviceDesignerType": "pages",
+        "functionName": "selectionModelImport",
+        "category": "Function",
+        "x": 2005,
+        "y": 180,
+        "wires": [
+            [
+                "sd_qNTerCoHX8tFUDTP"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
+    },
+    {
+        "id": "sd_ys1BcQsrQkRDQSwP",
+        "type": "Script",
+        "z": "sd_ruCrGwNecen0Eaj9",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.selectedIndex = bh.input.index",
+        "functionName": "sd_ys1BcQsrQkRDQSwP",
+        "category": "Function",
+        "x": 205,
+        "y": 180,
+        "wires": [
+            [
+                "sd_gYIYnzxspjQaAvS8"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_F3MOnAC6YS6oUyPj",
+        "type": "AfterViewInit",
+        "z": "sd_ruCrGwNecen0Eaj9",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "After View Init",
+        "functionName": "ngAfterViewInit",
+        "category": "Lifecycle Events",
+        "x": 65,
+        "y": 300,
+        "wires": [
+            [
+                "sd_dPNVrZIwvQwX0owT"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "tasksComponent"
+    },
+    {
+        "id": "sd_dPNVrZIwvQwX0owT",
+        "type": "PageCallService",
+        "z": "sd_ruCrGwNecen0Eaj9",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_ruCrGwNecen0Eaj9",
+            "type": "tab",
+            "createdDate": "2022-03-11T11:25:35.498Z",
+            "label": "tasks",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 2
+        },
+        "flow": {
+            "flowId": "sd_wk0b4PkeTfG173kI",
+            "flowName": "onTabIndexChange"
+        },
+        "inputVariables": [
+            {
+                "key": "index",
+                "map": true,
+                "valueType": "this.page",
+                "value": "selectedIndex"
+            }
+        ],
+        "outputMapping": [],
+        "serviceImportPath": "./tasks",
+        "startName": "onTabIndexChange",
+        "inputParams": [
+            "this.page.selectedIndex"
+        ],
+        "accept_csd": false,
+        "functionName": "sd_dPNVrZIwvQwX0owT",
+        "category": "General",
+        "x": 205,
+        "y": 300,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_gYIYnzxspjQaAvS8",
+        "type": "4a14d245-3eca-40a4-550c-2885e99a00e9",
+        "z": "sd_ruCrGwNecen0Eaj9",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "eventName": "\"work-queue-table-selected\"",
+        "functionName": "sd_gYIYnzxspjQaAvS8",
+        "category": "Events",
+        "x": 325,
+        "y": 180,
+        "wires": [
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "eventName": {
+                "type": "str",
+                "value": "work-queue-table-selected",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_xGkBv4PfTui1QDV3",
+        "type": "PageStart",
+        "z": "sd_ruCrGwNecen0Eaj9",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "open right side bar",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "openRightSideBar",
+        "category": "General",
+        "x": 625,
+        "y": 60,
+        "wires": [
+            [
+                "sd_KShwQX1pYPjvOuvz"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "tasksComponent"
+    },
+    {
+        "id": "sd_TPeHLiMI9eqd0jeM",
+        "type": "4a14d245-3eca-40a4-550c-2885e99a00e9",
+        "z": "sd_ruCrGwNecen0Eaj9",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "emit open sidenav with wq filter",
+        "eventName": "\"open-rsn\"",
+        "functionName": "emitOpenSidenavWithWqFilter",
+        "category": "Events",
+        "x": 905,
+        "y": 60,
+        "wires": [
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "eventName": {
+                "type": "str",
+                "value": "open-rsn",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_KShwQX1pYPjvOuvz",
+        "type": "Script",
+        "z": "sd_ruCrGwNecen0Eaj9",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.rsnComponent = 'WQ_FILTER'",
+        "functionName": "sd_KShwQX1pYPjvOuvz",
+        "category": "Function",
+        "x": 765,
+        "y": 60,
+        "wires": [
+            [
+                "sd_TPeHLiMI9eqd0jeM"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_uqem9lNyTKm4Lbak",
+        "type": "PageStart",
+        "z": "sd_ruCrGwNecen0Eaj9",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "reassign tasks",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "reassignTasks",
+        "category": "General",
+        "x": 625,
+        "y": 160,
+        "wires": [
+            [
+                "sd_QBORA0GdCvaQDHEw"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "tasksComponent"
+    },
+    {
+        "id": "sd_QBORA0GdCvaQDHEw",
+        "type": "Script",
+        "z": "sd_ruCrGwNecen0Eaj9",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.selectedIndex = page.selectedIndex",
+        "functionName": "sd_QBORA0GdCvaQDHEw",
+        "category": "Function",
+        "x": 765,
+        "y": 160,
+        "wires": [
+            [
+                "sd_Qm5NS6OpL4A8IQOe"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_Qm5NS6OpL4A8IQOe",
+        "type": "4a14d245-3eca-40a4-550c-2885e99a00e9",
+        "z": "sd_ruCrGwNecen0Eaj9",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "eventName": "\"work-queue-table-reassign\"",
+        "functionName": "sd_Qm5NS6OpL4A8IQOe",
+        "category": "Events",
+        "x": 905,
+        "y": 160,
+        "wires": [
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "eventName": {
+                "type": "str",
+                "value": "work-queue-table-reassign",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_jxzlli0EWASpb7AD",
+        "type": "PageServiceVariables",
+        "z": "sd_ruCrGwNecen0Eaj9",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "get user role",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "get",
+        "globalVariables": [
+            {
+                "textIp": "loggedInRole",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "USER_ROLE"
+                }
+            }
+        ],
+        "functionName": "getUserRole",
+        "service": {
+            "id": "sd_RbD2RZwzan9VSOEL",
+            "type": "tab",
+            "createdDate": "2022-03-10T07:40:30.532Z",
+            "label": "cache",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "generateNext": true,
+            "serviceName": "cache",
+            "relativeParentPath": "",
+            "_def": {
+                "defaults": {
+                    "label": {
+                        "value": ""
+                    },
+                    "disabled": {
+                        "value": false
+                    },
+                    "info": {
+                        "value": ""
+                    }
+                }
+            }
+        },
+        "serviceImportPath": "app/sd-services/cache",
+        "category": "Function",
+        "x": 445,
+        "y": 60,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

@@ -1,0 +1,186 @@
+[
+    {
+        "id": "sd_2LsVU0G96Z8stCQg",
+        "type": "tab",
+        "createdDate": "2022-03-23T04:14:58.321Z",
+        "label": "coverage_details",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "coverage_detailsComponent"
+    },
+    {
+        "id": "sd_9tAAqa3O0qMBjthZ",
+        "type": "OnInit",
+        "z": "sd_2LsVU0G96Z8stCQg",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "inputVariables": [
+            {
+                "key": "coverageDetails",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                }
+            }
+        ],
+        "localVariables": [],
+        "outputVariables": [],
+        "functionName": "sd_9tAAqa3O0qMBjthZ",
+        "category": "Lifecycle Events",
+        "x": 105,
+        "y": 60,
+        "wires": [
+            [
+                "sd_IIX2HSgV0ce2eBfk"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "coverage_detailsComponent"
+    },
+    {
+        "id": "sd_IIX2HSgV0ce2eBfk",
+        "type": "PageVariables",
+        "z": "sd_2LsVU0G96Z8stCQg",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "coverageData",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "[]"
+                }
+            }
+        ],
+        "functionName": "sd_IIX2HSgV0ce2eBfk",
+        "category": "Function",
+        "x": 225,
+        "y": 60,
+        "wires": [
+            [
+                "sd_8C361pKfzCR7WiLR"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_8C361pKfzCR7WiLR",
+        "type": "Script",
+        "z": "sd_2LsVU0G96Z8stCQg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.coverageData = new MatTableDataSource(this.coverageDetails);",
+        "functionName": "sd_8C361pKfzCR7WiLR",
+        "category": "Function",
+        "x": 345,
+        "y": 60,
+        "wires": [
+            [
+                "sd_JYp5E32JxYiS3T4U"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_3IETl6dKw778mae0",
+        "type": "AfterViewInit",
+        "z": "sd_2LsVU0G96Z8stCQg",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "ngAfterViewInit",
+        "category": "Lifecycle Events",
+        "x": 105,
+        "y": 180,
+        "wires": [
+            [
+                "sd_5tFMzVd2niwA0VRE"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "coverage_detailsComponent"
+    },
+    {
+        "id": "sd_5tFMzVd2niwA0VRE",
+        "type": "ViewPicker",
+        "z": "sd_2LsVU0G96Z8stCQg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "childViewVariables": [
+            {
+                "key": {
+                    "type": "literal",
+                    "value": "MatSort"
+                },
+                "defaultValue": "MatSort",
+                "isViewChildren": false
+            }
+        ],
+        "functionName": "sd_xKCCTWKzvgDN0rx7_1",
+        "category": "Function",
+        "x": 245,
+        "y": 180,
+        "wires": [
+            [
+                "sd_qdSKCU0IubyP1x1r"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_qdSKCU0IubyP1x1r",
+        "type": "Script",
+        "z": "sd_2LsVU0G96Z8stCQg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "this.page.coverageData.sort = this.MatSort;",
+        "functionName": "sd_2VNGqvcKee34lvOz_1",
+        "category": "Function",
+        "x": 385,
+        "y": 180,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_JYp5E32JxYiS3T4U",
+        "type": "Script",
+        "z": "sd_2LsVU0G96Z8stCQg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "labels mapper",
+        "script": "page.labels = {\n    product: {\n        get label() {\n            return page.locales.keys.product;\n        }\n    },\n    lifeInsured: {\n        get label() {\n            return page.locales.keys.lifeInsured;\n        }\n    },\n    age: {\n        get label() {\n            return page.locales.keys.age;\n        }\n    },\n    gender: {\n        get label() {\n            return page.locales.keys.gender;\n        }\n    },\n    sumInsured: {\n        get label() {\n            return page.locales.keys.sumInsured;\n        }\n    },\n    premium: {\n        get label() {\n            return page.locales.keys.premium;\n        }\n    },\n    term: {\n        get label() {\n            return page.locales.keys.term;\n        }\n    },\n}\n",
+        "functionName": "labelsMapper",
+        "category": "Function",
+        "x": 465,
+        "y": 60,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

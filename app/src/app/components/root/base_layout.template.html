@@ -1,0 +1,44 @@
+<mat-toolbar layoutAlign class="justify-content-space-bw display-flex toolbar-clr bg-white width-100">
+  <div fxLayout="row " class="white-regular-text height-100" fxLayoutAlign="start center">
+    <div fxLayout="column " style="margin-right: 1rem;" class="light-gray-bottom-border ss-logo-container" fxLayoutAlign="center center" *ngIf="true || !page.mobileQuery.matches"><img [src]="page.logoSrc" class="max-width-100 max-height-100"></div>
+    <div fxLayout="row wrap" fxLayoutAlign="center stretch">
+      <div>
+        <strong> Good Morning, </strong>
+      </div>
+    </div>
+    <div fxLayout="row wrap" style="color: yellow; padding-top:0.4em; padding-left: 0.4em; padding-right:0.4em" fxLayoutAlign="center stretch">
+      <div>
+        <mat-icon>wb_sunny</mat-icon>
+      </div>
+    </div>
+    <div fxLayout="row wrap" fxLayoutAlign="center stretch">
+      <div>
+        {{page.system.currentUser.displayName}}
+      </div>
+    </div>
+  </div>
+  <div fxLayout="row " class="padding-1" fxLayoutAlign="end center" [fxShow]="true">
+    <div fxLayout="row " class="select-language" fxFlex="80" fxLayoutAlign="start stretch" [fxShow]="true">
+      <mat-form-field [appearance]="&apos;legacy&apos;" [floatLabel]="&apos;auto&apos;">
+        <mat-select class="white-regular-text" placeholder="Languages" [(ngModel)]="page.locales.language" [required]="false">
+          <ng-template ngFor let-option [ngForOf]="page.languages" let-i="index">
+            <mat-option [value]="option.value">{{option.viewValue}}</mat-option>
+          </ng-template>
+        </mat-select>
+
+      </mat-form-field>
+    </div>
+  </div>
+</mat-toolbar>
+<mat-sidenav-container style="height: 94%;" class="width-100 bg-white">
+  <router-outlet></router-outlet>
+  <mat-sidenav #sidenav [mode]="&apos;over&apos;" (closed)="sidenavclosed()" [position]="&apos;end&apos;" [opened]="page.rsnOpen">
+    <div fxLayout="column " style="width: 45vw;" class="height-100 width-100 padding-1 overflow-y" fxLayoutAlign="start stretch" [fxShow]="true">
+      <bh-wqFilterBase *ngIf="page.rsnComp === &apos;WQ_FILTER&apos;"></bh-wqFilterBase>
+      <bh-create_finfo class="height-100" *ngIf="page.rsnComp === &apos;CREATE_FINFO&apos;"></bh-create_finfo>
+      <bh-emailComposer class="height-100" [emailDataRes]="page.emailData" *ngIf="page.rsnComp === &apos;EMAIL_COMPOSE&apos;"></bh-emailComposer>
+      <bh-traffic_lights_base *ngIf="page.rsnComp === &apos;TRAFFIC_LIGHTS&apos;"></bh-traffic_lights_base>
+      <bh-add_referral class="height-100" *ngIf="page.rsnComp === &apos;ADD_REFERRAL&apos;"></bh-add_referral>
+    </div>
+  </mat-sidenav>
+</mat-sidenav-container>

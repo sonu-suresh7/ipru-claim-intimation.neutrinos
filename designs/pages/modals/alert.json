@@ -1,0 +1,77 @@
+[
+    {
+        "id": "sd_wlYzYT9peXcllgnn",
+        "type": "tab",
+        "createdDate": "2022-03-20T20:39:27.113Z",
+        "label": "alert",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "alertComponent"
+    },
+    {
+        "id": "sd_6D0Jh5dimeSZz5UL",
+        "type": "OnInit",
+        "z": "sd_wlYzYT9peXcllgnn",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "inputVariables": [
+            {
+                "key": "title",
+                "defaultValue": {
+                    "type": "any",
+                    "value": "\"Are You Sure?\""
+                }
+            },
+            {
+                "key": "description",
+                "defaultValue": {
+                    "type": "any",
+                    "value": "\"Do you want to continue with the action?\""
+                }
+            }
+        ],
+        "localVariables": [],
+        "outputVariables": [],
+        "functionName": "sd_6D0Jh5dimeSZz5UL",
+        "category": "Lifecycle Events",
+        "x": 85,
+        "y": 60,
+        "wires": [
+            [
+                "sd_Kdcp5nkvmvLPJ85E"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "alertComponent"
+    },
+    {
+        "id": "sd_Kdcp5nkvmvLPJ85E",
+        "type": "GetDialogData",
+        "z": "sd_wlYzYT9peXcllgnn",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "dialogDataMapping": "this.page.data",
+        "functionName": "sd_Kdcp5nkvmvLPJ85E",
+        "category": "Dialog",
+        "x": 225,
+        "y": 60,
+        "wires": [
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "dialogDataMapping": {
+                "type": "this.page",
+                "value": "data",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

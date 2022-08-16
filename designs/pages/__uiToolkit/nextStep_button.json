@@ -1,0 +1,151 @@
+[
+    {
+        "id": "sd_tNd899SWcCbJg96Z",
+        "type": "tab",
+        "createdDate": "2021-10-18T04:42:40.399Z",
+        "label": "nextStep_button",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "nextStep_buttonComponent"
+    },
+    {
+        "id": "sd_we2CgKvnm5Qh3aHW",
+        "type": "OnInit",
+        "z": "sd_tNd899SWcCbJg96Z",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "inputVariables": [
+            {
+                "key": "disabled",
+                "defaultValue": {
+                    "type": "any",
+                    "value": "false"
+                }
+            },
+            {
+                "key": "label",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                }
+            },
+            {
+                "key": "routerLink",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                }
+            },
+            {
+                "key": "spin",
+                "defaultValue": {
+                    "type": "any",
+                    "value": "false"
+                }
+            }
+        ],
+        "localVariables": [],
+        "outputVariables": [
+            {
+                "key": "clicked",
+                "defaultValue": {
+                    "type": "any",
+                    "value": null
+                }
+            }
+        ],
+        "functionName": "sd_we2CgKvnm5Qh3aHW",
+        "category": "Lifecycle Events",
+        "x": 45,
+        "y": 40,
+        "wires": [
+            [
+                "sd_tC2lXWKPLCfCDRLu"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "nextStep_buttonComponent"
+    },
+    {
+        "id": "sd_tC2lXWKPLCfCDRLu",
+        "type": "PageVariables",
+        "z": "sd_tNd899SWcCbJg96Z",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [],
+        "functionName": "sd_tC2lXWKPLCfCDRLu",
+        "category": "Function",
+        "x": 185,
+        "y": 40,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_G7ky1ielmWqHSjpU",
+        "type": "PageStart",
+        "z": "sd_tNd899SWcCbJg96Z",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "emit clicked",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "emitClicked",
+        "category": "General",
+        "x": 45,
+        "y": 200,
+        "wires": [
+            [
+                "sd_qBoBg1KpuQTekbQt"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "nextStep_buttonComponent"
+    },
+    {
+        "id": "sd_qBoBg1KpuQTekbQt",
+        "type": "Output",
+        "z": "sd_tNd899SWcCbJg96Z",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "eventName": "bh.pageOutput.clicked",
+        "data": "bh",
+        "functionName": "sd_qBoBg1KpuQTekbQt",
+        "category": "Function",
+        "x": 245,
+        "y": 200,
+        "wires": [
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "eventName": {
+                "type": "bh.pageOutput",
+                "value": "clicked",
+                "constant": false
+            },
+            "data": {
+                "type": "bh",
+                "value": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

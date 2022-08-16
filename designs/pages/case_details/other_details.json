@@ -1,0 +1,157 @@
+[
+    {
+        "id": "sd_NN8OT5N9bwBQ7jdV",
+        "type": "tab",
+        "createdDate": "2022-03-23T08:23:57.989Z",
+        "label": "other_details",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "other_detailsComponent"
+    },
+    {
+        "id": "sd_P6U58HdOEiFWbvCD",
+        "type": "OnInit",
+        "z": "sd_NN8OT5N9bwBQ7jdV",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "sd_P6U58HdOEiFWbvCD",
+        "category": "Lifecycle Events",
+        "x": 105,
+        "y": 80,
+        "wires": [
+            [
+                "sd_27to02xbLg08DdEU"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "other_detailsComponent"
+    },
+    {
+        "id": "sd_27to02xbLg08DdEU",
+        "type": "PageVariables",
+        "z": "sd_NN8OT5N9bwBQ7jdV",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "otherDetails",
+                "typedIpValue": {
+                    "type": "bh",
+                    "value": ""
+                }
+            }
+        ],
+        "functionName": "sd_27to02xbLg08DdEU",
+        "category": "Function",
+        "x": 245,
+        "y": 80,
+        "wires": [
+            [
+                "sd_eA4CBw28orc480eM"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_nhIV0aqJSkH0oSfw",
+        "type": "PageStart",
+        "z": "sd_NN8OT5N9bwBQ7jdV",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "getOtherDetailsKeys",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [
+            {
+                "key": "detailKeys",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": true
+            }
+        ],
+        "flow_type": "sync",
+        "functionName": "getOtherDetailsKeys",
+        "category": "General",
+        "x": 125,
+        "y": 200,
+        "wires": [
+            [
+                "sd_ThthEbq819VX5Ww4"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "other_detailsComponent"
+    },
+    {
+        "id": "sd_ThthEbq819VX5Ww4",
+        "type": "Script",
+        "z": "sd_NN8OT5N9bwBQ7jdV",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.detailKeys = Object.keys(page.otherDetails);",
+        "functionName": "sd_ThthEbq819VX5Ww4",
+        "category": "Function",
+        "x": 265,
+        "y": 200,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_eA4CBw28orc480eM",
+        "type": "Script",
+        "z": "sd_NN8OT5N9bwBQ7jdV",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.otherDetails = {\n  occupation: 'Adminstartion-Accountant',\n  income: '100000000',\n  mailingAddress: 'Residential Address of Policy Owner',\n};",
+        "functionName": "sd_eA4CBw28orc480eM",
+        "category": "Function",
+        "x": 385,
+        "y": 80,
+        "wires": [
+            [
+                "sd_Iz3xrU1fh9gDB6io"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_Iz3xrU1fh9gDB6io",
+        "type": "Script",
+        "z": "sd_NN8OT5N9bwBQ7jdV",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "labels mapper",
+        "script": "page.labels = {\n    occupation: {\n        get label() {\n            return page.locales.keys.occupation\n        }\n    },\n    income: {\n        get label() {\n            return page.locales.keys.income\n        }\n    },\n    mailingAddress: {\n        get label() {\n            return page.locales.keys.mailingAddress\n        }\n    },\n}",
+        "functionName": "labelsMapper",
+        "category": "Function",
+        "x": 505,
+        "y": 80,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

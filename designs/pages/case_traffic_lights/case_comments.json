@@ -1,0 +1,284 @@
+[
+    {
+        "id": "sd_Ip0PgwNSWhcUuEBx",
+        "type": "tab",
+        "createdDate": "2022-04-26T03:06:20.769Z",
+        "label": "case_comments",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "case_commentsComponent"
+    },
+    {
+        "id": "sd_dVqCFoCkh5Uhhd0x",
+        "type": "OnInit",
+        "z": "sd_Ip0PgwNSWhcUuEBx",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "sd_dVqCFoCkh5Uhhd0x",
+        "category": "Lifecycle Events",
+        "x": 145,
+        "y": 200,
+        "wires": [
+            [
+                "sd_utcbQRHOcjeCij8V"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "case_commentsComponent"
+    },
+    {
+        "id": "sd_utcbQRHOcjeCij8V",
+        "type": "PageVariables",
+        "z": "sd_Ip0PgwNSWhcUuEBx",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [],
+        "functionName": "sd_utcbQRHOcjeCij8V",
+        "category": "Function",
+        "x": 295,
+        "y": 200,
+        "wires": [
+            [
+                "sd_sF1U8QAvWbMbRBcM"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_sF1U8QAvWbMbRBcM",
+        "type": "PageCallService",
+        "z": "sd_Ip0PgwNSWhcUuEBx",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "getAllComments",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_cCD5v4sqKdB3vISb",
+            "type": "tab",
+            "createdDate": "2022-04-26T03:23:52.351Z",
+            "label": "commentService",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_tUg6y9COrGqWsApu",
+            "flowName": "getAllComments"
+        },
+        "inputVariables": [],
+        "outputMapping": [
+            {
+                "mapVarType": "local",
+                "key": "result",
+                "valueType": "this.page",
+                "value": "comments",
+                "mapVarName": "result",
+                "localVar": "this.page.comments"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/commentService",
+        "startName": "getAllComments",
+        "inputParams": [],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "getAllComments",
+        "category": "General",
+        "x": 445,
+        "y": 200,
+        "wires": [
+            [
+                "sd_LvKNOT32DXcUsOeZ"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_LvKNOT32DXcUsOeZ",
+        "type": "Script",
+        "z": "sd_Ip0PgwNSWhcUuEBx",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log('comments', page.comments);",
+        "functionName": "sd_LvKNOT32DXcUsOeZ",
+        "category": "Function",
+        "x": 640,
+        "y": 200,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_OrjSx6Ie3Axu7g6N",
+        "type": "PageStart",
+        "z": "sd_Ip0PgwNSWhcUuEBx",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "insert",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "comment",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "insert",
+        "category": "General",
+        "x": 160,
+        "y": 360,
+        "wires": [
+            [
+                "sd_zscCajNqDekFe8wn"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "case_commentsComponent"
+    },
+    {
+        "id": "sd_zscCajNqDekFe8wn",
+        "type": "PageCallService",
+        "z": "sd_Ip0PgwNSWhcUuEBx",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_cCD5v4sqKdB3vISb",
+            "type": "tab",
+            "createdDate": "2022-04-26T03:23:52.351Z",
+            "label": "commentService",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_QvdnbsWcF12erQkg",
+            "flowName": "insertComment"
+        },
+        "inputVariables": [
+            {
+                "key": "comment",
+                "map": true,
+                "valueType": "bh.input",
+                "value": "comment"
+            }
+        ],
+        "outputMapping": [],
+        "serviceImportPath": "app/sd-services/commentService",
+        "startName": "insertComment",
+        "inputParams": [
+            "bh.input.comment"
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "sd_zscCajNqDekFe8wn",
+        "category": "General",
+        "x": 300,
+        "y": 360,
+        "wires": [
+            [
+                "sd_nEJExOJMsAAUTBZK"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_nEJExOJMsAAUTBZK",
+        "type": "PageCallService",
+        "z": "sd_Ip0PgwNSWhcUuEBx",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_cCD5v4sqKdB3vISb",
+            "type": "tab",
+            "createdDate": "2022-04-26T03:23:52.351Z",
+            "label": "commentService",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_tUg6y9COrGqWsApu",
+            "flowName": "getAllComments"
+        },
+        "inputVariables": [],
+        "outputMapping": [
+            {
+                "mapVarType": "local",
+                "key": "result",
+                "valueType": "this.page",
+                "value": "comments",
+                "mapVarName": "result",
+                "localVar": "this.page.comments"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/commentService",
+        "startName": "getAllComments",
+        "inputParams": [],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "sd_nEJExOJMsAAUTBZK",
+        "category": "General",
+        "x": 445,
+        "y": 360,
+        "wires": [
+            [
+                "sd_lwbz60Xmh29yvKCu"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_lwbz60Xmh29yvKCu",
+        "type": "Script",
+        "z": "sd_Ip0PgwNSWhcUuEBx",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "clearCommentInput",
+        "script": "page.newComment = '';",
+        "functionName": "clearCommentInput",
+        "category": "Function",
+        "x": 585,
+        "y": 360,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

@@ -1,0 +1,343 @@
+[
+    {
+        "id": "sd_PsTwBt7PqcladmVL",
+        "type": "tab",
+        "createdDate": "2022-03-22T11:27:23.235Z",
+        "label": "finfo",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 2,
+        "generateNext": true,
+        "serviceName": "finfoComponent"
+    },
+    {
+        "id": "sd_ezjcUjUgISr3wDOu",
+        "type": "OnInit",
+        "z": "sd_PsTwBt7PqcladmVL",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "inputVariables": [],
+        "localVariables": [],
+        "outputVariables": [],
+        "functionName": "sd_ezjcUjUgISr3wDOu",
+        "category": "Lifecycle Events",
+        "x": 105,
+        "y": 140,
+        "wires": [
+            [
+                "sd_v7GyJD3dWDYNYWQ3"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "finfoComponent"
+    },
+    {
+        "id": "sd_SVMLe9lX2GvpUEDE",
+        "type": "PageVariables",
+        "z": "sd_PsTwBt7PqcladmVL",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "finfoList",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "[]"
+                }
+            }
+        ],
+        "functionName": "sd_SVMLe9lX2GvpUEDE",
+        "category": "Function",
+        "x": 425,
+        "y": 140,
+        "wires": [
+            [
+                "sd_HQw6ADJQPR9gcIeB"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "finfoComponent"
+    },
+    {
+        "id": "sd_DqpHv1l8Pg5Gh7v1",
+        "type": "Script",
+        "z": "sd_PsTwBt7PqcladmVL",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "const finfo = [...page.checkedOut.case['finfo'] || []];\npage.finfoList = new MatTableDataSource(finfo);\n\n// page.finfoList = new MatTableDataSource([\n//     {\n//         \"date\": \"2022-03-24T06:34:53.614Z\",\n//         \"author\": {\n//             \"name\": \"Annabel Chong\",\n//             \"accountId\": \"sankarshan.joshi@neutrinos.co\"\n//         },\n//         \"comments\": \"test\",\n//         \"documents\": [\n//             {\n//                 \"name\": \"2-D ECHO\",\n//                 \"category\": \"Medical\",\n//                 \"code\": \"01\"\n//             },\n//             {\n//                 \"name\": \"ASTHMA BRONCHI QUE\",\n//                 \"category\": \"Questionnaire\",\n//                 \"code\": \"01\"\n//             },\n//             {\n//                 \"name\": \"2-D ECHO\",\n//                 \"category\": \"Medical\",\n//                 \"code\": \"01\"\n//             },\n//             {\n//                 \"name\": \"ASTHMA BRONCHI QUE\",\n//                 \"category\": \"Questionnaire\",\n//                 \"code\": \"01\"\n//             }\n//         ],\n//         \"status\": \"pending\"\n//     }\n// ]);",
+        "functionName": "sd_DqpHv1l8Pg5Gh7v1",
+        "category": "Function",
+        "x": 785,
+        "y": 140,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_zpSp9nkAAsiY4oEx",
+        "type": "AfterViewInit",
+        "z": "sd_PsTwBt7PqcladmVL",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "ngAfterViewInit",
+        "category": "Lifecycle Events",
+        "x": 125,
+        "y": 360,
+        "wires": [
+            [
+                "sd_NxaMbBXw2y8tV8EN"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "finfoComponent"
+    },
+    {
+        "id": "sd_NxaMbBXw2y8tV8EN",
+        "type": "ViewPicker",
+        "z": "sd_PsTwBt7PqcladmVL",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "childViewVariables": [
+            {
+                "key": {
+                    "type": "literal",
+                    "value": "MatSort"
+                },
+                "defaultValue": "MatSort",
+                "isViewChildren": false
+            },
+            {
+                "key": {
+                    "type": "literal",
+                    "value": "MatTable"
+                },
+                "defaultValue": "",
+                "isViewChildren": false
+            },
+            {
+                "key": {
+                    "type": "literal",
+                    "value": "MatPaginator"
+                },
+                "defaultValue": "",
+                "isViewChildren": false
+            }
+        ],
+        "functionName": "sd_xKCCTWKzvgDN0rx7_1",
+        "category": "Function",
+        "x": 265,
+        "y": 360,
+        "wires": [
+            [
+                "sd_rJkbn9FvAD9rVZhe"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_rJkbn9FvAD9rVZhe",
+        "type": "Script",
+        "z": "sd_PsTwBt7PqcladmVL",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "this.page.finfoList.sort = this.MatSort;\n\nsetTimeout(() => this.MatSort.sort(({id: 'date', start: 'desc'})))\n\nthis.page.finfoList.paginator = this.MatPaginator;",
+        "functionName": "sd_2VNGqvcKee34lvOz_1",
+        "category": "Function",
+        "x": 405,
+        "y": 360,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_Nn4mCcfU3EBFhEu6",
+        "type": "0a527e77-2b6b-855b-557e-9f716099c2ed",
+        "z": "sd_PsTwBt7PqcladmVL",
+        "viewType": "client-pages",
+        "nodeType": "start",
+        "name": "finfo_created",
+        "eventName": "\"finfo_created\"",
+        "functionName": "finfo_created",
+        "category": "Events",
+        "x": 125,
+        "y": 540,
+        "wires": [
+            [
+                "sd_Qqj2qJYwawOECCMH"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "eventName": {
+                "type": "str",
+                "value": "finfo_created",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "finfoComponent"
+    },
+    {
+        "id": "sd_v7GyJD3dWDYNYWQ3",
+        "type": "UseDependency",
+        "z": "sd_PsTwBt7PqcladmVL",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "",
+        "propertyType": "bh",
+        "propertyGv": "bh.",
+        "alias": "",
+        "modules": [
+            {
+                "textIp": "MatTable",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                },
+                "injectable": false
+            }
+        ],
+        "import_all": false,
+        "library": "@angular/material/table",
+        "serviceDesignerType": "pages",
+        "functionName": "sd_v7GyJD3dWDYNYWQ3",
+        "category": "Function",
+        "x": 245,
+        "y": 140,
+        "wires": [
+            [
+                "sd_SVMLe9lX2GvpUEDE"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_HQw6ADJQPR9gcIeB",
+        "type": "PageServiceVariables",
+        "z": "sd_PsTwBt7PqcladmVL",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "get",
+        "globalVariables": [
+            {
+                "textIp": "checkedOut",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "checkedOut"
+                }
+            }
+        ],
+        "functionName": "sd_HQw6ADJQPR9gcIeB",
+        "service": {
+            "id": "sd_RbD2RZwzan9VSOEL",
+            "type": "tab",
+            "createdDate": "2022-03-10T07:40:30.532Z",
+            "label": "cache",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "generateNext": true,
+            "serviceName": "cache",
+            "relativeParentPath": "",
+            "_def": {
+                "defaults": {
+                    "label": {
+                        "value": ""
+                    },
+                    "disabled": {
+                        "value": false
+                    },
+                    "info": {
+                        "value": ""
+                    }
+                }
+            }
+        },
+        "serviceImportPath": "app/sd-services/cache",
+        "category": "Function",
+        "x": 605,
+        "y": 140,
+        "wires": [
+            [
+                "sd_DqpHv1l8Pg5Gh7v1"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_Qqj2qJYwawOECCMH",
+        "type": "Script",
+        "z": "sd_PsTwBt7PqcladmVL",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.checkedOut.case['finfo'].unshift(bh.local.newFINFO)\npage.finfoList.data = [...page.checkedOut.case['finfo']]\nthis.MatTable.renderRows();\n\n",
+        "functionName": "sd_Qqj2qJYwawOECCMH",
+        "category": "Function",
+        "x": 365,
+        "y": 540,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_i7wvNM9ZfFEeH8mx",
+        "type": "4a14d245-3eca-40a4-550c-2885e99a00e9",
+        "z": "sd_PsTwBt7PqcladmVL",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "eventName": "\"close-rsn\"",
+        "functionName": "sd_i7wvNM9ZfFEeH8mx",
+        "category": "Events",
+        "x": 165,
+        "y": 680,
+        "wires": [
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "eventName": {
+                "type": "str",
+                "value": "close-rsn",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
+    }
+]

@@ -1,0 +1,137 @@
+[
+    {
+        "id": "sd_gTJBuPiozob4QcY3",
+        "type": "tab",
+        "createdDate": "2021-10-26T15:35:42.506Z",
+        "label": "secandory_button",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "secandory_buttonComponent"
+    },
+    {
+        "id": "sd_Sd5tkDJ9VQNvYV9q",
+        "type": "OnInit",
+        "z": "sd_gTJBuPiozob4QcY3",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "inputVariables": [
+            {
+                "key": "disabled",
+                "defaultValue": {
+                    "type": "any",
+                    "value": "false"
+                }
+            },
+            {
+                "key": "label",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                }
+            }
+        ],
+        "localVariables": [],
+        "outputVariables": [
+            {
+                "key": "clicked",
+                "defaultValue": {
+                    "type": "any",
+                    "value": null
+                }
+            }
+        ],
+        "functionName": "sd_Sd5tkDJ9VQNvYV9q",
+        "category": "Lifecycle Events",
+        "x": 105,
+        "y": 80,
+        "wires": [
+            [
+                "sd_5bhvSJqvlGnZeU6k"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "secandory_buttonComponent"
+    },
+    {
+        "id": "sd_5bhvSJqvlGnZeU6k",
+        "type": "PageVariables",
+        "z": "sd_gTJBuPiozob4QcY3",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [],
+        "functionName": "sd_5bhvSJqvlGnZeU6k",
+        "category": "Function",
+        "x": 245,
+        "y": 80,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_NLgF8KjY1FowLCil",
+        "type": "PageStart",
+        "z": "sd_gTJBuPiozob4QcY3",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "emit clicked",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "emitClicked",
+        "category": "General",
+        "x": 105,
+        "y": 240,
+        "wires": [
+            [
+                "sd_xhYMm1tU7V7qv6Mt"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "secandory_buttonComponent"
+    },
+    {
+        "id": "sd_xhYMm1tU7V7qv6Mt",
+        "type": "Output",
+        "z": "sd_gTJBuPiozob4QcY3",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "eventName": "bh.pageOutput.clicked",
+        "data": "bh",
+        "functionName": "sd_xhYMm1tU7V7qv6Mt",
+        "category": "Function",
+        "x": 305,
+        "y": 240,
+        "wires": [
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "eventName": {
+                "type": "bh.pageOutput",
+                "value": "clicked",
+                "constant": false
+            },
+            "data": {
+                "type": "bh",
+                "value": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

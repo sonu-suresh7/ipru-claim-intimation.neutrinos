@@ -1,0 +1,48 @@
+<div fxLayout="column " fxLayoutGap="1rem" fxLayoutAlign="start stretch" [fxShow]="true" fxFill>
+  <div fxLayout="row " class="traffic_lights_checklist_header" fxLayoutAlign="none none" [fxShow]="true">
+    <h4 fxFlex="40">
+      {{page.locales.keys.traffic_lights_validation_rules_header}}
+    </h4>
+    <div fxLayout="row wrap" fxFlex="60" fxLayoutAlign="start stretch" [fxShow]="true">
+      <div fxLayout="column wrap" fxFlex="33" fxLayoutAlign="center center" [fxShow]="true">
+        <p>
+          {{page.locales.keys.positive}}
+        </p>
+      </div>
+      <p fxFlex="33" style="text-align: center;">
+        {{page.locales.keys.inconclusive}}
+      </p>
+      <p fxFlex="33" style="text-align: center;">
+        {{page.locales.keys.negative}}
+      </p>
+    </div>
+  </div>
+  <div fxLayout="column " class="traffic_light_radio_group_placeholder" fxLayoutAlign="start stretch" [fxShow]="true">
+    <div fxLayout="row " class="margin-bottom-05 margin-top-05" fxLayoutAlign="space-between center" [fxShow]="true" *ngFor="let light of page.trafficLights;">
+      <div fxLayout="row wrap" fxFlex="40" fxLayoutAlign="start stretch" [fxShow]="true">
+        <div fxLayout="column wrap" fxFlex="15" fxLayoutAlign="start stretch" [fxShow]="true">
+          <bh-dot [status]="light.status"></bh-dot>
+        </div>
+        <div fxLayout="column wrap" fxFlex="85" fxLayoutAlign="start stretch" [fxShow]="true">
+          <p [matTooltip]="light.name" class="width-100 text-ellipsis">
+            {{light.name}}
+          </p>
+        </div>
+      </div>
+      <mat-radio-group class="traffic_lights_checklist_radio_group" [(ngModel)]="light.status" fxFlex="60" (change)="udpate(light)" [required]="false">
+        <mat-radio-button [value]="&apos;done&apos;" class="traffic_done_status_radio" [required]="false" fxFlex="33" fxLayoutAlign="center center"></mat-radio-button>
+        <mat-radio-button [value]="&apos;in-progress&apos;" class="traffic_in_progress_status_radio" [required]="false" fxFlex="33"></mat-radio-button>
+        <mat-radio-button [value]="&apos;incomplete&apos;" class="traffic_incomplete_status_radio" [required]="false" fxFlex="33"></mat-radio-button>
+      </mat-radio-group>
+    </div>
+  </div>
+  <div fxLayout="row wrap" fxLayoutAlign="space-around stretch" [fxShow]="true" placeholder="Enter here">
+    <div fxLayout="column wrap" fxFlex="calc(100%-80px)" fxLayoutAlign="center stretch" [fxShow]="true">
+      <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;always&apos;" [hideRequiredMarker]="false">
+        <input matInput [(ngModel)]="page.newTrafficLight" placeholder="{{page.locales.keys.traffic_lights_add_placeholder}}" [required]="false">
+        <mat-label>{{page.locales.keys.traffic_lights_add_placeholder}}</mat-label>
+      </mat-form-field>
+    </div>
+    <div fxLayout="column wrap" fxFlex="80px" fxLayoutAlign="center end" [fxShow]="true"><button mat-raised-button class="traffic_lights_add_button" color="primary" (click)="insert(page.newTrafficLight)" type="button">Add</button></div>
+  </div>
+</div>

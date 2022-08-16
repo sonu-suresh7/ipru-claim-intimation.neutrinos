@@ -1,0 +1,31 @@
+<div fxLayout="column " class="height-100" fxLayoutAlign="start stretch" [fxShow]="true">
+  <mat-accordion class="expansion-panel-styles">
+    <mat-expansion-panel [expanded]="true">
+      <mat-expansion-panel-header>
+        <div fxLayout="row " class="width-100" fxLayoutGap="1rem" fxLayoutAlign="start center" [fxShow]="true"><img imgSrc="/Web/CaseDetails/legal.svg">
+          <mat-panel-title>
+            {{page.locales.keys.investigationDetails}}
+          </mat-panel-title>
+        </div>
+      </mat-expansion-panel-header>
+      <mat-card class="personal-details-card height-100">
+        <mat-card-content class="height-100">
+          <div fxLayout="row " fxFlex="100" fxLayoutAlign="start center">
+            <div fxLayout="row wrap" class="width-100" fxLayoutAlign="start stretch">
+              <mat-form-field class="width-100" [appearance]="&apos;legacy&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+                <input matInput placeholder="Investigator" [required]="false" [value]="investigation.agency" readonly="true">
+
+              </mat-form-field>
+            </div>
+            <div fxLayout="row wrap" class="width-100" fxLayoutAlign="start stretch">
+              <mat-form-field class="width-100" [appearance]="&apos;legacy&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+                <input matInput placeholder="Type Of Investigation" [required]="false" [value]="typeOfInvestigation" readonly="true">
+
+              </mat-form-field>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

@@ -1,0 +1,17 @@
+<mat-card>
+  <mat-card-content>
+    <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+      <div fxLayout="row " class="width-100" fxLayoutAlign="space-between center"><span style="display:block;" class="header-title font-weight-semi-bold">
+                Request New Investigation</span>
+        <div fxLayout="row " fxLayoutGap="1rem" fxLayoutAlign="end center">
+          <div style="letter-spacing: 0.4px; color: #183446; white-space: nowrap;">
+            Policy No.</div>
+          <mat-form-field class="width-100" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;never&apos;" [hideRequiredMarker]="false">
+            <input matInput placeholder="Search XYZ..." [required]="true" #search>
+
+          </mat-form-field><button mat-raised-button style="min-width:5rem" *ngIf="page.USER_ROLE === &apos;ADMIN&apos;" color="primary" (click)="searchPolicy(search)">Search</button>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

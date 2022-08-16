@@ -1,0 +1,22 @@
+<mat-sidenav-container style="height: 100%;" class="width-100 bg-white">
+  <mat-sidenav #sidenav style="padding: 0.25rem; width: fit-content; " class="sidenav" [mode]="&apos;side&apos;" [position] [opened]="true">
+    <div fxLayout="column " class="overflow-y height-100" fxFlex="100" fxLayoutAlign="start stretch">
+      <ng-container *ngFor="let nav of page.menu">
+        <div fxLayout="row " style="margin-bottom:0.75rem; border-radius: 4px;" fxLayoutAlign="center center" routerLink="{{nav.route}}" routerLinkActive="highlighted-menu" *ngIf="!nav.disabled"><button mat-button style="height: 2.5rem;" class="width-100" matTooltip="{{nav.label}}" matTooltipPosition="right" (click)="page.mobileQuery &amp;&amp; page.mobileQuery.matches &amp;&amp; snav.close()" type="button">
+            <mat-icon>{{nav.icon}}</mat-icon>
+          </button></div>
+        <div fxLayout="row " style="margin-bottom:0.75rem; border-radius: 4px;" fxLayoutAlign="center center" *ngIf="nav.disabled"><button mat-button style="height: 2.5rem;" class="width-100" matTooltip="{{nav.label}}" matTooltipPosition="right" (click)="page.mobileQuery &amp;&amp; page.mobileQuery.matches &amp;&amp; snav.close()" type="button">
+            <mat-icon>{{nav.icon}}</mat-icon>
+          </button></div>
+      </ng-container>
+      <div fxLayout="row " style="margin-bottom:0.75rem; border-radius: 4px;" fxLayoutAlign="center center"><button mat-button style="height: 2.5rem;" class="width-100" matTooltip="Sign Out" matTooltipPosition="right" (click)="confirmAndLogout()">
+          <mat-icon>power_settings_new </mat-icon>
+        </button></div>
+    </div>
+  </mat-sidenav>
+  <div fxLayout="column " class="height-100" fxLayoutAlign="start stretch">
+    <div fxLayout="column " class="width-100 height-100 overflow-y" fxFlex="100" fxLayoutAlign="start stretch">
+      <router-outlet #outlet></router-outlet>
+    </div>
+  </div>
+</mat-sidenav-container>

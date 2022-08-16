@@ -1,0 +1,180 @@
+[
+    {
+        "id": "sd_RbD2RZwzan9VSOEL",
+        "type": "tab",
+        "createdDate": "2022-03-10T07:40:30.532Z",
+        "label": "cache",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "cache",
+        "relativeParentPath": ""
+    },
+    {
+        "id": "sd_mbPCYs6btwWO1TFX",
+        "type": "Start",
+        "z": "sd_RbD2RZwzan9VSOEL",
+        "viewType": "client-server",
+        "nodeType": "start",
+        "name": "",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "accept_bh": false,
+        "functionName": "sd_mbPCYs6btwWO1TFX",
+        "category": "General",
+        "x": 80,
+        "y": 60,
+        "wires": [
+            [
+                "sd_GgTl4K76J2N7XUD6"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "cache"
+    },
+    {
+        "id": "sd_GgTl4K76J2N7XUD6",
+        "type": "ServiceVariables",
+        "z": "sd_RbD2RZwzan9VSOEL",
+        "viewType": "client-server",
+        "nodeType": "flow",
+        "name": "set vars",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "userInfo",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "{}"
+                }
+            },
+            {
+                "textIp": "navMenu",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "[]"
+                }
+            },
+            {
+                "textIp": "checkedOut",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "{task: null, case: null}"
+                }
+            },
+            {
+                "textIp": "resourceLinks",
+                "typedIpValue": {
+                    "type": "bh",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "loggedInRole",
+                "typedIpValue": {
+                    "type": "bh",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "appSettings",
+                "typedIpValue": {
+                    "type": "bh",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "languages",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "[]"
+                }
+            },
+            {
+                "textIp": "columns",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "{}"
+                }
+            }
+        ],
+        "functionName": "setVars",
+        "category": "Function",
+        "x": 305,
+        "y": 60,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_IBkHmsTw4ydnPL6L",
+        "type": "Start",
+        "z": "sd_RbD2RZwzan9VSOEL",
+        "viewType": "client-server",
+        "nodeType": "start",
+        "name": "getCheckedOut",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [
+            {
+                "key": "checkedOut",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": true
+            }
+        ],
+        "accept_bh": false,
+        "functionName": "getCheckedOut",
+        "category": "General",
+        "x": 100,
+        "y": 220,
+        "wires": [
+            [
+                "sd_97RYgyIS4hiZH5rU"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "cache"
+    },
+    {
+        "id": "sd_97RYgyIS4hiZH5rU",
+        "type": "ServiceVariables",
+        "z": "sd_RbD2RZwzan9VSOEL",
+        "viewType": "client-server",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "get",
+        "globalVariables": [
+            {
+                "textIp": "checkedOut",
+                "typedIpValue": {
+                    "type": "bh.local",
+                    "value": "checkedOut"
+                }
+            }
+        ],
+        "functionName": "sd_97RYgyIS4hiZH5rU",
+        "category": "Function",
+        "x": 260,
+        "y": 220,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

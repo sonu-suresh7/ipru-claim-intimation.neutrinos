@@ -1,0 +1,36 @@
+<div fxLayout="column " class="height-100" fxLayoutAlign="start stretch" [fxShow]="true">
+  <mat-card class="personal-details-card height-100">
+    <mat-card-content class="height-100">
+      <div fxLayout="column " class="padding-1 height-100" fxLayoutGap="2rem" fxLayoutAlign="start stretch" [fxShow]="true">
+        <div fxLayout="row wrap" fxFlex="100" fxLayoutGap="1rem" fxLayoutAlign="space-between center" [fxShow]="true" fxLayout.lt-md="column">
+          <div fxLayout="row " class="width-100" fxFlex="47" fxLayoutGap="1rem" fxLayoutAlign="start center" [fxShow]="true">
+            <div fxLayout="row " fxFlex="45" fxLayoutGap="1rem" fxLayoutAlign="start center" [fxShow]="true"><img imgSrc="/Web/CaseDetails/occupation.svg">
+              <mat-card-title class="margin-0">
+                {{page.locales.keys.occupation}}
+              </mat-card-title>
+            </div>
+            <div fxLayout="row " fxFlex="55" fxLayoutAlign="start stretch" [fxShow]="true">
+              <mat-form-field class="width-100" [appearance]="&apos;legacy&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+                <input matInput placeholder="{{page.locales.keys.occupation}}" [required]="false" [value]="occupationDetails.occupation || &apos;-&apos;" readonly="true">
+
+              </mat-form-field>
+            </div>
+          </div>
+          <div fxLayout="row " class="width-100" fxFlex="47" fxLayoutGap="1rem" fxLayoutAlign="start center" [fxShow]="true">
+            <div fxLayout="row " fxFlex="45" fxLayoutGap="1rem" fxLayoutAlign="start center" [fxShow]="true"><img imgSrc="/Web/CaseDetails/income.svg">
+              <mat-card-title class="margin-0">
+                {{page.locales.keys.incomeTitle}}
+              </mat-card-title>
+            </div>
+            <div fxLayout="row " fxFlex="55" fxLayoutAlign="start stretch" [fxShow]="true">
+              <mat-form-field class="width-100" [appearance]="&apos;legacy&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+                <input matInput placeholder="{{page.locales.keys.income}}" [required]="false" [value]="occupationDetails.income || &apos;-&apos;" readonly="true">
+
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,680 @@
+[
+    {
+        "id": "sd_9emVj8kPGYoP9w8y",
+        "type": "tab",
+        "createdDate": "2022-04-26T03:23:46.015Z",
+        "label": "trafficLightService",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "trafficLightService",
+        "relativeParentPath": ""
+    },
+    {
+        "id": "sd_kYwVzvYgNAD8KeuN",
+        "type": "Start",
+        "z": "sd_9emVj8kPGYoP9w8y",
+        "viewType": "client-server",
+        "nodeType": "start",
+        "name": "getAllLights",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [
+            {
+                "key": "result",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": true
+            }
+        ],
+        "accept_bh": false,
+        "functionName": "getAllLights",
+        "category": "General",
+        "x": 140,
+        "y": 200,
+        "wires": [
+            [
+                "sd_oqlHAGJDGcHH5WoP"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "trafficLightService"
+    },
+    {
+        "id": "sd_oqlHAGJDGcHH5WoP",
+        "type": "CallService",
+        "z": "sd_9emVj8kPGYoP9w8y",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "getCheckedOutDetails",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_RbD2RZwzan9VSOEL",
+            "type": "tab",
+            "createdDate": "2022-03-10T07:40:30.532Z",
+            "label": "cache",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_IBkHmsTw4ydnPL6L",
+            "flowName": "getCheckedOut"
+        },
+        "inputVariables": [],
+        "outputMapping": [
+            {
+                "mapVarType": "local",
+                "key": "checkedOut",
+                "valueType": "bh",
+                "value": "checkedOut",
+                "mapVarName": "checkedOut",
+                "localVar": "bh.checkedOut"
+            }
+        ],
+        "callService": "./cache",
+        "startName": "getCheckedOut",
+        "inputParams": [],
+        "accept_bh": false,
+        "functionName": "getCheckedOutDetails",
+        "category": "General",
+        "x": 285,
+        "y": 200,
+        "wires": [
+            [
+                "sd_FMDxBg2OzCBySinr"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "trafficLightService"
+    },
+    {
+        "id": "sd_oSNAF8UmB6rB2FXp",
+        "type": "HttpRequest",
+        "z": "sd_9emVj8kPGYoP9w8y",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "get",
+        "methodMapping": "",
+        "methodMappingObj": {},
+        "urlMapping": "bh.url",
+        "urlMappingObj": {
+            "mapVarType": "bh",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMapping": "",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMapping": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "",
+        "reqBodyObj": {
+            "mapVarType": "bh",
+            "mapVarValue": ""
+        },
+        "resultMapping": "bh.local.result",
+        "resultMappingObj": {
+            "mapVarType": "bh",
+            "mapVarValue": "local.result"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMapping": "",
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMapping": "",
+        "paramMappingObj": {},
+        "functionName": "sd_oSNAF8UmB6rB2FXp",
+        "category": "HTTP",
+        "x": 485,
+        "y": 200,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "trafficLightService"
+    },
+    {
+        "id": "sd_FMDxBg2OzCBySinr",
+        "type": "Script",
+        "z": "sd_9emVj8kPGYoP9w8y",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.url = `${bh.system.environment.properties.ssdBaseUrl}/case/${bh.checkedOut.case._id}/traffic-light`;",
+        "functionName": "sd_FMDxBg2OzCBySinr",
+        "category": "Function",
+        "x": 385,
+        "y": 200,
+        "wires": [
+            [
+                "sd_oSNAF8UmB6rB2FXp"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_2SAasfOvKxMs8JC9",
+        "type": "Start",
+        "z": "sd_9emVj8kPGYoP9w8y",
+        "viewType": "client-server",
+        "nodeType": "start",
+        "name": "updateLight",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "traffic_light_id",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "status",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "name",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "case_id",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [
+            {
+                "key": "result",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "accept_bh": false,
+        "functionName": "updateLight",
+        "category": "General",
+        "x": 145,
+        "y": 340,
+        "wires": [
+            [
+                "sd_rA2zVJvX2wm4jqBB"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "trafficLightService"
+    },
+    {
+        "id": "sd_rA2zVJvX2wm4jqBB",
+        "type": "CallService",
+        "z": "sd_9emVj8kPGYoP9w8y",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "getCheckedOutDetails1",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_RbD2RZwzan9VSOEL",
+            "type": "tab",
+            "createdDate": "2022-03-10T07:40:30.532Z",
+            "label": "cache",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_IBkHmsTw4ydnPL6L",
+            "flowName": "getCheckedOut"
+        },
+        "inputVariables": [],
+        "outputMapping": [
+            {
+                "mapVarType": "local",
+                "key": "checkedOut",
+                "valueType": "bh",
+                "value": "checkedOut",
+                "mapVarName": "checkedOut",
+                "localVar": "bh.checkedOut"
+            }
+        ],
+        "callService": "./cache",
+        "startName": "getCheckedOut",
+        "inputParams": [],
+        "accept_bh": false,
+        "functionName": "getCheckedOutDetails1",
+        "category": "General",
+        "x": 285,
+        "y": 340,
+        "wires": [
+            [
+                "sd_4b2UANHnsGeNWuzM"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_dkXaYmivOn9bvcJS",
+        "type": "HttpRequest",
+        "z": "sd_9emVj8kPGYoP9w8y",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "patch",
+        "methodMapping": "",
+        "methodMappingObj": {},
+        "urlMapping": "bh.url",
+        "urlMappingObj": {
+            "mapVarType": "bh",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMapping": "",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMapping": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "bh.body",
+        "reqBodyObj": {
+            "mapVarType": "bh",
+            "mapVarValue": "body"
+        },
+        "resultMapping": "bh.local.result",
+        "resultMappingObj": {
+            "mapVarType": "bh",
+            "mapVarValue": "local.result"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMapping": "",
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMapping": "",
+        "paramMappingObj": {},
+        "functionName": "sd_dkXaYmivOn9bvcJS",
+        "category": "HTTP",
+        "x": 510,
+        "y": 340,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_4b2UANHnsGeNWuzM",
+        "type": "Script",
+        "z": "sd_9emVj8kPGYoP9w8y",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.url = `${bh.system.environment.properties.ssdBaseUrl}/case/${bh.checkedOut.case._id}/traffic-light/${bh.input.traffic_light_id}`;\n\nbh.body = {\n    name: bh.input.name,\n    status: bh.input.status\n}",
+        "functionName": "sd_4b2UANHnsGeNWuzM",
+        "category": "Function",
+        "x": 410,
+        "y": 340,
+        "wires": [
+            [
+                "sd_dkXaYmivOn9bvcJS"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_MA2lTHytl91B1fXj",
+        "type": "Start",
+        "z": "sd_9emVj8kPGYoP9w8y",
+        "viewType": "client-server",
+        "nodeType": "start",
+        "name": "insertLight",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "name",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [
+            {
+                "key": "result",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "accept_bh": false,
+        "functionName": "insertLight",
+        "category": "General",
+        "x": 145,
+        "y": 460,
+        "wires": [
+            [
+                "sd_lCuaF2iewxa7p4xn"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "trafficLightService"
+    },
+    {
+        "id": "sd_lCuaF2iewxa7p4xn",
+        "type": "CallService",
+        "z": "sd_9emVj8kPGYoP9w8y",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "getCheckedOutDetails2",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_RbD2RZwzan9VSOEL",
+            "type": "tab",
+            "createdDate": "2022-03-10T07:40:30.532Z",
+            "label": "cache",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_IBkHmsTw4ydnPL6L",
+            "flowName": "getCheckedOut"
+        },
+        "inputVariables": [],
+        "outputMapping": [
+            {
+                "mapVarType": "local",
+                "key": "checkedOut",
+                "valueType": "bh",
+                "value": "checkedOut",
+                "mapVarName": "checkedOut",
+                "localVar": "bh.checkedOut"
+            }
+        ],
+        "callService": "./cache",
+        "startName": "getCheckedOut",
+        "inputParams": [],
+        "accept_bh": false,
+        "functionName": "getCheckedOutDetails2",
+        "category": "General",
+        "x": 285,
+        "y": 460,
+        "wires": [
+            [
+                "sd_3dtLQbjlESuIax0m"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_pN0xRuKzEl242cZb",
+        "type": "HttpRequest",
+        "z": "sd_9emVj8kPGYoP9w8y",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "post",
+        "methodMapping": "",
+        "methodMappingObj": {},
+        "urlMapping": "bh.url",
+        "urlMappingObj": {
+            "mapVarType": "bh",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMapping": "",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMapping": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "bh.body",
+        "reqBodyObj": {
+            "mapVarType": "bh",
+            "mapVarValue": "body"
+        },
+        "resultMapping": "bh.local.result",
+        "resultMappingObj": {
+            "mapVarType": "bh",
+            "mapVarValue": "local.result"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMapping": "",
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMapping": "",
+        "paramMappingObj": {},
+        "functionName": "sd_pN0xRuKzEl242cZb",
+        "category": "HTTP",
+        "x": 510,
+        "y": 460,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_3dtLQbjlESuIax0m",
+        "type": "Script",
+        "z": "sd_9emVj8kPGYoP9w8y",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.url = `${bh.system.environment.properties.ssdBaseUrl}/case/${bh.checkedOut.case._id}/traffic-light`;\nconsole.log(bh);\nbh.body = {\n    name: bh.input.name,\n    status: 'incomplete'\n}",
+        "functionName": "sd_3dtLQbjlESuIax0m",
+        "category": "Function",
+        "x": 410,
+        "y": 460,
+        "wires": [
+            [
+                "sd_pN0xRuKzEl242cZb"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_7XIoJExO7MLjGf3P",
+        "type": "Start",
+        "z": "sd_9emVj8kPGYoP9w8y",
+        "viewType": "client-server",
+        "nodeType": "start",
+        "name": "getAllLightsStats",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [
+            {
+                "key": "result",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": true
+            }
+        ],
+        "accept_bh": false,
+        "functionName": "getAllLightsStats",
+        "category": "General",
+        "x": 125,
+        "y": 100,
+        "wires": [
+            [
+                "sd_b6POYz5nqJasrbnB"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "trafficLightService"
+    },
+    {
+        "id": "sd_b6POYz5nqJasrbnB",
+        "type": "CallService",
+        "z": "sd_9emVj8kPGYoP9w8y",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "getCheckedOutDetails3",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_RbD2RZwzan9VSOEL",
+            "type": "tab",
+            "createdDate": "2022-03-10T07:40:30.532Z",
+            "label": "cache",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_IBkHmsTw4ydnPL6L",
+            "flowName": "getCheckedOut"
+        },
+        "inputVariables": [],
+        "outputMapping": [
+            {
+                "mapVarType": "local",
+                "key": "checkedOut",
+                "valueType": "bh",
+                "value": "checkedOut",
+                "mapVarName": "checkedOut",
+                "localVar": "bh.checkedOut"
+            }
+        ],
+        "callService": "./cache",
+        "startName": "getCheckedOut",
+        "inputParams": [],
+        "accept_bh": false,
+        "functionName": "getCheckedOutDetails3",
+        "category": "General",
+        "x": 270,
+        "y": 100,
+        "wires": [
+            [
+                "sd_IEU6oQvqbqrhss7S"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_Iije3NYs1lcwimDN",
+        "type": "HttpRequest",
+        "z": "sd_9emVj8kPGYoP9w8y",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "get",
+        "methodMappingObj": {},
+        "urlMapping": "bh.url",
+        "urlMappingObj": {
+            "mapVarType": "bh",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBodyObj": {
+            "mapVarType": "bh",
+            "mapVarValue": ""
+        },
+        "resultMapping": "bh.local.result",
+        "resultMappingObj": {
+            "mapVarType": "bh",
+            "mapVarValue": "local.result"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMappingObj": {},
+        "functionName": "sd_Iije3NYs1lcwimDN",
+        "category": "HTTP",
+        "x": 470,
+        "y": 100,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_IEU6oQvqbqrhss7S",
+        "type": "Script",
+        "z": "sd_9emVj8kPGYoP9w8y",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.url = `${bh.system.environment.properties.ssdBaseUrl}/case/${bh.checkedOut.case._id}/traffic-light/stats`;\n\nconsole.log('making call for stats');\nconsole.log(bh.url);",
+        "functionName": "sd_IEU6oQvqbqrhss7S",
+        "category": "Function",
+        "x": 370,
+        "y": 100,
+        "wires": [
+            [
+                "sd_Iije3NYs1lcwimDN"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

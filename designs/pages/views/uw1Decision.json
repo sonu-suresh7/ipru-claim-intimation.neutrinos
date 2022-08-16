@@ -1,0 +1,262 @@
+[
+    {
+        "id": "sd_ugEufobutPT6WDGg",
+        "type": "tab",
+        "createdDate": "2022-04-14T06:14:24.701Z",
+        "label": "uw1Decision",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "uw1DecisionComponent"
+    },
+    {
+        "id": "sd_Xd9JXF6cWLRKoKSX",
+        "type": "OnInit",
+        "z": "sd_ugEufobutPT6WDGg",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "inputVariables": [
+            {
+                "key": "selectedRecommendation",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                }
+            }
+        ],
+        "localVariables": [],
+        "outputVariables": [
+            {
+                "key": "decision",
+                "defaultValue": {
+                    "type": "any",
+                    "value": null
+                }
+            }
+        ],
+        "functionName": "sd_Xd9JXF6cWLRKoKSX",
+        "category": "Lifecycle Events",
+        "x": 85,
+        "y": 60,
+        "wires": [
+            [
+                "sd_FVixrBZpKln7agb7"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "uw1DecisionComponent"
+    },
+    {
+        "id": "sd_9CY0DGlQtu7cCLSO",
+        "type": "PageServiceVariables",
+        "z": "sd_ugEufobutPT6WDGg",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "get",
+        "globalVariables": [
+            {
+                "textIp": "checkedOut",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "checkedOut"
+                }
+            },
+            {
+                "textIp": "loggedInRole",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "loggedInRole"
+                }
+            }
+        ],
+        "functionName": "sd_9CY0DGlQtu7cCLSO",
+        "service": {
+            "id": "sd_RbD2RZwzan9VSOEL",
+            "type": "tab",
+            "createdDate": "2022-03-10T07:40:30.532Z",
+            "label": "cache",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "generateNext": true,
+            "serviceName": "cache",
+            "relativeParentPath": "",
+            "_def": {
+                "defaults": {
+                    "label": {
+                        "value": ""
+                    },
+                    "disabled": {
+                        "value": false
+                    },
+                    "info": {
+                        "value": ""
+                    }
+                }
+            }
+        },
+        "serviceImportPath": "app/sd-services/cache",
+        "category": "Function",
+        "x": 285,
+        "y": 60,
+        "wires": [
+            [
+                "sd_OpzK1KWAlrpK7Yv5"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_FVixrBZpKln7agb7",
+        "type": "PageVariables",
+        "z": "sd_ugEufobutPT6WDGg",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "comment",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "''"
+                }
+            },
+            {
+                "textIp": "benefits",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "[]"
+                }
+            },
+            {
+                "textIp": "loggedInRole",
+                "typedIpValue": {
+                    "type": "bh",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "uwLevel",
+                "typedIpValue": {
+                    "type": "bh",
+                    "value": ""
+                }
+            }
+        ],
+        "functionName": "sd_FVixrBZpKln7agb7",
+        "category": "Function",
+        "x": 185,
+        "y": 60,
+        "wires": [
+            [
+                "sd_9CY0DGlQtu7cCLSO"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_OpzK1KWAlrpK7Yv5",
+        "type": "Script",
+        "z": "sd_ugEufobutPT6WDGg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "let autoRecommendation = page.checkedOut.case['autoRecommendation'];\nlet decisions = page.checkedOut.case['decisions'];\nif (decisions && decisions.length > 0 && page.loggedInRole == decisions[decisions.length - 1].level) {\n    const obj = decisions[decisions.length - 1];\n    page.benefits = obj.benefits;\n    page.comment = obj.comments;\n    page.uwLevel = obj.level;\n} else if (autoRecommendation) {\n    autoRecommendation.forEach(ele => {\n        if (!page.benefits.includes(ele.benefit))\n            page.benefits.push({\n                type: ele.benefit,\n                decision: '',\n                em: '',\n                flatRate: '',\n                exclusion: '',\n                clause: '',\n                duration: '',\n                remarks: ''\n            });\n    });\n}\n\npage.decision = {\n    level: page.loggedInRole,\n    decision: 'myDecision',\n    comments: page.comment,\n    user: page.system.oauthService.userInfo.username,\n    datetime: new Date(),\n    benefits: page.benefits || []\n}\n",
+        "functionName": "sd_OpzK1KWAlrpK7Yv5",
+        "category": "Function",
+        "x": 400,
+        "y": 60,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_laaiec3AbOFAdWJL",
+        "type": "DoCheck",
+        "z": "sd_ugEufobutPT6WDGg",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "Do Check",
+        "functionName": "ngDoCheck",
+        "category": "Lifecycle Events",
+        "x": 85,
+        "y": 260,
+        "wires": [
+            [
+                "sd_ZFlHwPgPZWCSjOOs"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "uw1DecisionComponent"
+    },
+    {
+        "id": "sd_cYBw3QOyVMOY0c7a",
+        "type": "Output",
+        "z": "sd_ugEufobutPT6WDGg",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "eventName": "bh.pageOutput.decision",
+        "data": "this.page.decision",
+        "functionName": "sd_cYBw3QOyVMOY0c7a",
+        "category": "Function",
+        "x": 285,
+        "y": 260,
+        "wires": [
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "eventName": {
+                "type": "bh.pageOutput",
+                "value": "decision",
+                "constant": false
+            },
+            "data": {
+                "type": "this.page",
+                "value": "decision",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_ZFlHwPgPZWCSjOOs",
+        "type": "Script",
+        "z": "sd_ugEufobutPT6WDGg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "// console.log(page.comment);\npage.decision.comments = page.comment;\n// console.log(page.decision);",
+        "functionName": "sd_ZFlHwPgPZWCSjOOs",
+        "category": "Function",
+        "x": 185,
+        "y": 260,
+        "wires": [
+            [
+                "sd_cYBw3QOyVMOY0c7a"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

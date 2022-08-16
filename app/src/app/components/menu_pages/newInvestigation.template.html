@@ -1,0 +1,17 @@
+<div fxLayout="column wrap" class="padding-1" fxLayoutGap="1rem" fxLayoutAlign="start stretch" [fxShow]="true">
+  <bh-new_investigation_search (policy_details)="policyDetails($event)"></bh-new_investigation_search>
+  <div fxLayout="column wrap" fxLayoutGap="1rem" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="!!this.isValidPolicy()">
+    <bh-policy_details [policy_details]="page.policy_details" *ngIf="!!this.isValidPolicy()"></bh-policy_details>
+    <div fxLayout="row " fxLayoutAlign="space-between stretch" [fxShow]="true" *ngIf="page.policy_details.lifeAssured || page.policy_details.proposer">
+      <bh-lifeAssured_proposer [policy_details]="page.policy_details.lifeAssured" fxFlex="49" [section]="&apos;Life Assured&apos;"></bh-lifeAssured_proposer>
+      <bh-lifeAssured_proposer [policy_details]="page.policy_details.proposer" fxFlex="49" [section]="&apos;Proposer&apos;"></bh-lifeAssured_proposer>
+    </div>
+    <div fxLayout="column wrap" class="light-gray-border" fxLayoutAlign="start stretch" [fxShow]="true">
+      <bh-investigation_request [investigation_types]="page.investigation_types" *ngIf="page.investigation_types" (onInvestigationDataChange)="onInvestigationDataChange($event)" (onInvestigatorSelectionChange)="onInvestigatorSelectionChange($event)"></bh-investigation_request>
+    </div>
+    <div fxLayout="column wrap" class="light-gray-border" fxLayoutAlign="start stretch" [fxShow]="true">
+      <bh-document_upload (onDocumentChange)="onDocumentChange($event)"></bh-document_upload>
+    </div>
+    <div fxLayout="row wrap" fxLayoutGap="1rem" fxLayoutAlign="end center" [fxShow]="true"><button mat-raised-button (click)="cancel()">Cancel</button><button mat-raised-button color="primary" (click)="submit()" [disabled]="!page.isValid">Submit</button></div>
+  </div>
+</div>

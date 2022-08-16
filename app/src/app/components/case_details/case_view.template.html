@@ -1,0 +1,6 @@
+<div fxLayout="column " class="padding-top-1 height-100" fxLayoutGap="1.5rem" fxLayoutAlign="start stretch" *ngIf="page.caseDetails">
+  <bh-investigation_detials [investigation]="page.caseDetails.investigation" [typeOfInvestigation]="page.task.typeOfInvestigation"></bh-investigation_detials>
+  <bh-primary_life [primaryLifeData]="page.caseDetails.primaryLife"></bh-primary_life>
+  <bh-coverage_details [coverageDetails]="page.caseDetails.primaryLife.coverageDetails"></bh-coverage_details>
+  <bh-policy_owner_details [policyOwnerDetails]="page.caseDetails.owner"></bh-policy_owner_details>
+</div>

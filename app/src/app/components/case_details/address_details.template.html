@@ -1,0 +1,21 @@
+<div fxLayout="column wrap" class="height-100" fxLayoutGap="1rem" fxLayoutAlign="start stretch" [fxShow]="true">
+  <mat-card class="personal-details-card height-100">
+    <mat-card-content class="height-100">
+      <div fxLayout="column " class="padding-1 height-100" fxLayoutGap="2rem" fxLayoutAlign="start stretch" [fxShow]="true">
+        <div fxLayout="row " fxLayoutGap="1rem" fxLayoutAlign="start center" [fxShow]="true"><img [src]="data?.viewIconName">
+          <mat-card-title class="margin-0">
+            {{data?.viewTitle === &apos;Residential Address&apos; ?  page.locales.keys.residentialAdd : (data?.viewTitle === &apos;Company Name and Business Address&apos; ? page.locales.keys.companyAddress : (data?.viewTitle === &apos;Current Address&apos; ? page.locales.keys.currentAddress : (data?.viewTitle === &apos;Registration of Auto Bank Transfer&apos; ? page.locales.keys.bankDetails : null)))}}
+          </mat-card-title>
+        </div>
+        <div fxLayout="row wrap" class="width-100" fxLayoutAlign="start stretch" [fxShow]="true">
+          <div fxLayout="row wrap" fxFlex="50" fxLayoutAlign="start center" [fxShow]="true" *ngFor="let item of getAddressKeys()">
+            <mat-form-field [appearance]="&apos;legacy&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+              <input matInput placeholder="{{page.labels[item]?.label}}" [required]="false" [value]="data.details[item]" readonly="true">
+
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

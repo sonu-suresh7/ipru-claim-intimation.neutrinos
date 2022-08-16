@@ -1,0 +1,35 @@
+<div fxLayout="column wrap" class="height-100" fxLayoutAlign="start stretch" [fxShow]="true">
+  <div fxLayout="column " fxFlex="35" fxLayoutAlign="none none" [fxShow]="true">
+    <h4 class="margin-0">
+      {{page.locales.keys.comments_placeholder}}
+    </h4>
+    <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+      <div fxLayout="column wrap" fxFlex="calc(100%-160px)" fxLayoutAlign="start stretch" [fxShow]="true">
+        <mat-form-field class="traffic_lights_comments_textbox" [appearance]="&apos;outline&apos;">
+          <textarea matInput [(ngModel)]="page.newComment" placeholder="{{page.locales.keys.comments_placeholder}}" [required]="false"></textarea>
+        </mat-form-field>
+      </div>
+      <div fxLayout="column wrap" style="style: relative;" fxFlex="160px" fxLayoutAlign="none end" [fxShow]="true"><button mat-raised-button class="traffic_lights_save_button" color="primary" (click)="insert(page.newComment)">{{page.locales.keys.comments_save_button}}</button></div>
+    </div>
+  </div>
+  <div fxLayout="column " class="overflow-y" fxFlex="65" fxLayoutAlign="none none" [fxShow]="true">
+    <mat-card *ngFor="let comment of page.comments;" class="traffic_lights_comments_card">
+      <mat-card-content>
+        <div fxLayout="row wrap" fxLayoutAlign="space-between stretch" [fxShow]="true">
+          <div fxLayout="row wrap" fxLayoutAlign="start center" [fxShow]="true">
+            <mat-icon>person</mat-icon>
+            <p>
+              {{comment.user}}
+            </p>
+          </div>
+          <p>
+            {{comment.datetime | date:&apos;short&apos;}}
+          </p>
+        </div>
+        <p style="white-space: pre-wrap;">
+          {{comment.message}}
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

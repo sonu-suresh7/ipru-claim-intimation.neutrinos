@@ -1,0 +1,385 @@
+[
+    {
+        "id": "sd_Wk8LuQhp64XZFZkd",
+        "type": "tab",
+        "createdDate": "2022-03-22T09:44:44.719Z",
+        "label": "ownerInfoBanner",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "ownerInfoBannerComponent"
+    },
+    {
+        "id": "sd_nyvfXW0c0s2iceHx",
+        "type": "OnInit",
+        "z": "sd_Wk8LuQhp64XZFZkd",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "inputVariables": [
+            {
+                "key": "resourceLinkData",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                }
+            },
+            {
+                "key": "tasks",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                }
+            }
+        ],
+        "localVariables": [],
+        "outputVariables": [],
+        "functionName": "sd_nyvfXW0c0s2iceHx",
+        "category": "Lifecycle Events",
+        "x": 65,
+        "y": 40,
+        "wires": [
+            [
+                "sd_0uQbnwnUaErsSwXN"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "ownerInfoBannerComponent"
+    },
+    {
+        "id": "sd_xeMX4hQhn72LFAL8",
+        "type": "PageStart",
+        "z": "sd_Wk8LuQhp64XZFZkd",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "navToNav",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "navToNav",
+        "category": "General",
+        "x": 125,
+        "y": 320,
+        "wires": [
+            [
+                "sd_AfMgrjOCggQsjKoe"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "ownerInfoBannerComponent"
+    },
+    {
+        "id": "sd_AfMgrjOCggQsjKoe",
+        "type": "Navigation",
+        "z": "sd_Wk8LuQhp64XZFZkd",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "path": "/web/nav/",
+        "pathMap": "",
+        "pathparams": "",
+        "pathparamsMap": "",
+        "qparams": "",
+        "qparamsMap": "",
+        "qparamsArray": "",
+        "resultMapping": "",
+        "functionName": "sd_AfMgrjOCggQsjKoe",
+        "category": "Navigation",
+        "x": 310,
+        "y": 320,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "ownerInfoBannerComponent"
+    },
+    {
+        "id": "sd_5dqY2gqPt5HjGhSb",
+        "type": "Script",
+        "z": "sd_Wk8LuQhp64XZFZkd",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "label mapping",
+        "script": "page.labels = {\n    phoneNumber: {\n        get label() {\n            return page.locales.keys.phno\n        },\n        icon: '/Web/Icons/phone.svg'\n    },\n    email: {\n        get label() {\n            return page.locales.keys.email\n        },\n        icon: '/Web/Icons/mail.svg'\n    },\n    applicationNumber: {\n        get label() {\n            return page.locales.keys.applicationNumber\n        },\n        icon: '/Web/Icons/copy.svg'\n    },\n}\nconst caseDetails = bh.co.case.caseDetails;\nconsole.log(bh.co);\npage.taskName = bh?.co?.task['task-name'];\nconst owner = caseDetails.owner;\npage.owner = {\n    phoneNumber: owner.residentialAddress.telephone || '-',\n    email: owner.residentialAddress.email || '-',\n    name: owner.PersonalDetails.fullName || '-',\n    sex: owner.PersonalDetails.sex || '-',\n    idNumber: owner.PersonalDetails.idNumber || '-',\n    idIssueDate: owner.PersonalDetails.idIssueDate || '-',\n    idIssuePlace: owner.PersonalDetails.idIssuePlace || '-',\n    dob: owner.PersonalDetails.dob || '-',\n    age: owner.PersonalDetails.age || '-',\n    palceOfBirth: owner.PersonalDetails.palceOfBirth || '-',\n    nationality: owner.PersonalDetails.nationality || '-',\n    occupation: owner.PersonalDetails.occupation || '-',\n    income: owner.PersonalDetails.income || '-',\n    applicationNumber: bh.co.case.applicationNumber || '-',\n}",
+        "functionName": "labelMapping",
+        "category": "Function",
+        "x": 465,
+        "y": 40,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "ownerInfoBannerComponent"
+    },
+    {
+        "id": "sd_e8IxyT91my6JR0rN",
+        "type": "PageStart",
+        "z": "sd_Wk8LuQhp64XZFZkd",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "",
+        "outputs": 1,
+        "flow_type": "sync",
+        "functionName": "sd_e8IxyT91my6JR0rN",
+        "category": "General",
+        "x": 110,
+        "y": 440,
+        "wires": [
+            [
+                "sd_i2vwPSlpF8gkL7Fm"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "ownerInfoBannerComponent"
+    },
+    {
+        "id": "sd_i2vwPSlpF8gkL7Fm",
+        "type": "SnackBar",
+        "z": "sd_Wk8LuQhp64XZFZkd",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "message": {
+            "type": "str",
+            "value": "Application number copied to clipboard"
+        },
+        "action": {
+            "type": "str",
+            "value": "Okay"
+        },
+        "duration": {
+            "type": "num",
+            "value": ""
+        },
+        "horizontalPosition": "center",
+        "horizontalPositionMap": "",
+        "verticalPosition": "bottom",
+        "verticalPositionMap": "",
+        "panelClass": {
+            "type": "str",
+            "value": ""
+        },
+        "direction": "ltr",
+        "functionName": "sd_i2vwPSlpF8gkL7Fm",
+        "category": "General",
+        "x": 265,
+        "y": 440,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_xdrlnCVsHXNiqldk",
+        "type": "PageServiceVariables",
+        "z": "sd_Wk8LuQhp64XZFZkd",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "get",
+        "globalVariables": [
+            {
+                "textIp": "checkedOut",
+                "typedIpValue": {
+                    "type": "bh",
+                    "value": "co"
+                }
+            },
+            {
+                "textIp": "resourceLinks",
+                "typedIpValue": {
+                    "type": "bh",
+                    "value": "rl"
+                }
+            }
+        ],
+        "functionName": "sd_xdrlnCVsHXNiqldk",
+        "service": {
+            "id": "sd_RbD2RZwzan9VSOEL",
+            "type": "tab",
+            "createdDate": "2022-03-10T07:40:30.532Z",
+            "label": "cache",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "generateNext": true,
+            "serviceName": "cache",
+            "relativeParentPath": "",
+            "_def": {
+                "defaults": {
+                    "label": {
+                        "value": ""
+                    },
+                    "disabled": {
+                        "value": false
+                    },
+                    "info": {
+                        "value": ""
+                    }
+                }
+            }
+        },
+        "serviceImportPath": "app/sd-services/cache",
+        "category": "Function",
+        "x": 305,
+        "y": 40,
+        "wires": [
+            [
+                "sd_5dqY2gqPt5HjGhSb"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_0uQbnwnUaErsSwXN",
+        "type": "PageVariables",
+        "z": "sd_Wk8LuQhp64XZFZkd",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "owner",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "{}"
+                }
+            },
+            {
+                "textIp": "resourceLinks",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "{}"
+                }
+            }
+        ],
+        "functionName": "sd_0uQbnwnUaErsSwXN",
+        "category": "Function",
+        "x": 185,
+        "y": 40,
+        "wires": [
+            [
+                "sd_xdrlnCVsHXNiqldk"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_jdFjCgrdwUBQffpf",
+        "type": "OnChanges",
+        "z": "sd_Wk8LuQhp64XZFZkd",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "On Changes",
+        "functionName": "ngOnChanges",
+        "category": "Lifecycle Events",
+        "x": 105,
+        "y": 180,
+        "wires": [
+            [
+                "sd_K5oOUqRDLrAoJ8BD"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "ownerInfoBannerComponent"
+    },
+    {
+        "id": "sd_K5oOUqRDLrAoJ8BD",
+        "type": "Script",
+        "z": "sd_Wk8LuQhp64XZFZkd",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "if (this.resourceLinkData && this.resourceLinkData.length > 0) {\n    page.resourceLinks = this.resourceLinkData[0].taskResourceLinkMapping;\n    page.resourceLinks = this.resourceLinkData[0].taskResourceLinkMapping;\n}",
+        "functionName": "sd_K5oOUqRDLrAoJ8BD",
+        "category": "Function",
+        "x": 220,
+        "y": 180,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_pvoHf8B9HTrlw4wS",
+        "type": "PageStart",
+        "z": "sd_Wk8LuQhp64XZFZkd",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "open traffic lights",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [
+            {
+                "key": "rsnComponent",
+                "defaultValue": {
+                    "type": "str",
+                    "value": "TRAFFIC_LIGHTS"
+                },
+                "output": false
+            }
+        ],
+        "flow_type": "sync",
+        "functionName": "openTrafficLights",
+        "category": "General",
+        "x": 165,
+        "y": 560,
+        "wires": [
+            [
+                "sd_R5Ys4pzwKLCpNtBi"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "ownerInfoBannerComponent"
+    },
+    {
+        "id": "sd_R5Ys4pzwKLCpNtBi",
+        "type": "4a14d245-3eca-40a4-550c-2885e99a00e9",
+        "z": "sd_Wk8LuQhp64XZFZkd",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "eventName": "\"open-rsn\"",
+        "functionName": "sd_R5Ys4pzwKLCpNtBi",
+        "category": "Events",
+        "x": 405,
+        "y": 560,
+        "wires": [
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "eventName": {
+                "type": "str",
+                "value": "open-rsn",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

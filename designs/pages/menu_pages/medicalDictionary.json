@@ -1,0 +1,55 @@
+[
+    {
+        "id": "sd_vClfhmpC1mVqr5Ir",
+        "type": "tab",
+        "createdDate": "2022-03-08T12:18:11.404Z",
+        "label": "medicalDictionary",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "medicalDictionaryComponent"
+    },
+    {
+        "id": "sd_8nZEWF7x31pKhDQr",
+        "type": "OnInit",
+        "z": "sd_vClfhmpC1mVqr5Ir",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "sd_8nZEWF7x31pKhDQr",
+        "category": "Lifecycle Events",
+        "x": 30,
+        "y": 30,
+        "wires": [
+            [
+                "sd_1iYSLuo6nmxDxtCz"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "medicalDictionaryComponent"
+    },
+    {
+        "id": "sd_1iYSLuo6nmxDxtCz",
+        "type": "PageVariables",
+        "z": "sd_vClfhmpC1mVqr5Ir",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [],
+        "functionName": "sd_1iYSLuo6nmxDxtCz",
+        "category": "Function",
+        "x": 180,
+        "y": 30,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

@@ -1,0 +1,389 @@
+[
+    {
+        "id": "sd_9luJeybNkRMmK0Sy",
+        "type": "tab",
+        "createdDate": "2022-04-26T07:43:31.479Z",
+        "label": "mvDecision",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "mvDecisionComponent"
+    },
+    {
+        "id": "sd_Gm3SK0bLpbsKnqP7",
+        "type": "OnInit",
+        "z": "sd_9luJeybNkRMmK0Sy",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "sd_Gm3SK0bLpbsKnqP7",
+        "category": "Lifecycle Events",
+        "x": 85,
+        "y": 60,
+        "wires": [
+            [
+                "sd_M2OLar4GhIJ4OPhA"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "mvDecisionComponent"
+    },
+    {
+        "id": "sd_M2OLar4GhIJ4OPhA",
+        "type": "PageVariables",
+        "z": "sd_9luJeybNkRMmK0Sy",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "form",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "{ decision: 'reject', comments: '' }"
+                }
+            }
+        ],
+        "functionName": "sd_M2OLar4GhIJ4OPhA",
+        "category": "Function",
+        "x": 225,
+        "y": 60,
+        "wires": [
+            [
+                "sd_Pq2FSnfPlhp6oLdu"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "mvDecisionComponent"
+    },
+    {
+        "id": "sd_0LR3uiIBfMNeXckH",
+        "type": "PageStart",
+        "z": "sd_9luJeybNkRMmK0Sy",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "save and exit",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [
+            {
+                "key": "sne",
+                "defaultValue": {
+                    "type": "bool",
+                    "value": "true"
+                },
+                "output": false
+            }
+        ],
+        "flow_type": "sync",
+        "functionName": "saveAndExit",
+        "category": "General",
+        "x": 85,
+        "y": 200,
+        "wires": [
+            [
+                "sd_aL25VNnBsDBveFMp"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "mvDecisionComponent"
+    },
+    {
+        "id": "sd_aL25VNnBsDBveFMp",
+        "type": "Script",
+        "z": "sd_9luJeybNkRMmK0Sy",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "prepare request common",
+        "script": "const coCase = page.checkedOut.case;\nconst level = \"Manual Verification\";\ncoCase.decisions = coCase.decisions || [];\nconst levelDecisionIndex = coCase.decisions.findIndex(d => d.level === level);\nconst user = coCase.lastUser = page.system.oauthService.currentUserInfo?.additional?.jbpm || 'krisv';\nconst decisionItem = {\n    level,\n    decision: page.form.decision,\n    comments: page.form.comments,\n    user,\n    datetime: new Date().toISOString(),\n}\nif (levelDecisionIndex > -1) {\n    coCase.decisions[levelDecisionIndex] = decisionItem;\n} else {\n    coCase.decisions.push(decisionItem)\n}\nbh.local.body = {\n    case: coCase\n};\n\n",
+        "functionName": "prepareRequestCommon",
+        "category": "Function",
+        "x": 245,
+        "y": 260,
+        "wires": [
+            [
+                "sd_oJZVO6JH0Sx6eObw"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_xfVSQhBsgmDbm4zf",
+        "type": "HttpRequest",
+        "z": "sd_9luJeybNkRMmK0Sy",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "post",
+        "methodMapping": "",
+        "methodMappingObj": {},
+        "urlMapping": "bh.local.url",
+        "urlMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "url"
+        },
+        "ret": "text",
+        "retMapping": "",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMapping": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "bh.local.body",
+        "reqBodyObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "body"
+        },
+        "resultMapping": "bh.local.response",
+        "resultMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "response"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMapping": "",
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMapping": "",
+        "paramMappingObj": {},
+        "functionName": "sd_xfVSQhBsgmDbm4zf",
+        "category": "HTTP",
+        "x": 645,
+        "y": 260,
+        "wires": [
+            [
+                "sd_joM2xfUrFa4zQt2a"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_Q3RYVfXNRbl7YYem",
+        "type": "Script",
+        "z": "sd_9luJeybNkRMmK0Sy",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "re map decision",
+        "script": "const level = \"Manual Verification\";\nconst decision = (page.checkedOut.case.decisions || []).find(d => d.level === level);\nif (decision) {\n    page.form = {\n        decision: decision.decision,\n        comments: decision.comments\n    }\n}\n",
+        "functionName": "reMapDecision",
+        "category": "Function",
+        "x": 465,
+        "y": 60,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_biErSxK8MlqMEef3",
+        "type": "PageStart",
+        "z": "sd_9luJeybNkRMmK0Sy",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "Submit",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "submitType",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "submit",
+        "category": "General",
+        "x": 85,
+        "y": 320,
+        "wires": [
+            [
+                "sd_aL25VNnBsDBveFMp"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "mvDecisionComponent"
+    },
+    {
+        "id": "sd_Pq2FSnfPlhp6oLdu",
+        "type": "PageServiceVariables",
+        "z": "sd_9luJeybNkRMmK0Sy",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "get",
+        "globalVariables": [
+            {
+                "textIp": "checkedOut",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "checkedOut"
+                }
+            }
+        ],
+        "functionName": "sd_Pq2FSnfPlhp6oLdu",
+        "service": {
+            "id": "sd_RbD2RZwzan9VSOEL",
+            "type": "tab",
+            "createdDate": "2022-03-10T07:40:30.532Z",
+            "label": "cache",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "generateNext": true,
+            "serviceName": "cache",
+            "relativeParentPath": "",
+            "_def": {
+                "defaults": {
+                    "label": {
+                        "value": ""
+                    },
+                    "disabled": {
+                        "value": false
+                    },
+                    "info": {
+                        "value": ""
+                    }
+                }
+            }
+        },
+        "serviceImportPath": "app/sd-services/cache",
+        "category": "Function",
+        "x": 340,
+        "y": 60,
+        "wires": [
+            [
+                "sd_Q3RYVfXNRbl7YYem"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_joM2xfUrFa4zQt2a",
+        "type": "Navigation",
+        "z": "sd_9luJeybNkRMmK0Sy",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "path": "/web/nav/workqueue",
+        "pathMap": "",
+        "pathparams": "",
+        "pathparamsMap": "",
+        "qparams": "",
+        "qparamsMap": "",
+        "qparamsArray": "",
+        "resultMapping": "",
+        "functionName": "sd_joM2xfUrFa4zQt2a",
+        "category": "Navigation",
+        "x": 785,
+        "y": 260,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_VwKY4MjQfjYEDFFm",
+        "type": "Script",
+        "z": "sd_9luJeybNkRMmK0Sy",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "prepare submit request",
+        "script": "bh.local.body.taskId = page.checkedOut.task['task-id'];\nbh.local.body.containerId = page.checkedOut.task['task-container-id']\n\nbh.local.url = `${page.system.environment.properties.ssdBaseUrl}/case/decision/mv/submit`;\n\n",
+        "functionName": "prepareSubmitRequest",
+        "category": "Function",
+        "x": 505,
+        "y": 320,
+        "wires": [
+            [
+                "sd_xfVSQhBsgmDbm4zf"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_oJZVO6JH0Sx6eObw",
+        "type": "PageSwitch",
+        "z": "sd_9luJeybNkRMmK0Sy",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "property": "sne",
+        "propertyType": "bh.local",
+        "propertyGv": "bh.local.sne",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "functionName": "sd_oJZVO6JH0Sx6eObw",
+        "category": "Function",
+        "x": 365,
+        "y": 260,
+        "wires": [
+            [
+                "sd_FR6ub9yaEcpzwOJI"
+            ],
+            [
+                "sd_VwKY4MjQfjYEDFFm"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_FR6ub9yaEcpzwOJI",
+        "type": "Script",
+        "z": "sd_9luJeybNkRMmK0Sy",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "prepare sne req",
+        "script": "bh.local.url = `${page.system.environment.properties.ssdBaseUrl}/case/decision/save`;\n\n",
+        "functionName": "prepareSneReq",
+        "category": "Function",
+        "x": 505,
+        "y": 200,
+        "wires": [
+            [
+                "sd_xfVSQhBsgmDbm4zf"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

@@ -1,0 +1,373 @@
+[
+    {
+        "id": "sd_ifKcQ36jZp2E131C",
+        "type": "tab",
+        "createdDate": "2022-03-20T21:26:01.364Z",
+        "label": "wqFilterBase",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "wqFilterBaseComponent"
+    },
+    {
+        "id": "sd_1jNu2DcCYPjM0Eh4",
+        "type": "OnInit",
+        "z": "sd_ifKcQ36jZp2E131C",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "sd_1jNu2DcCYPjM0Eh4",
+        "category": "Lifecycle Events",
+        "x": 65,
+        "y": 80,
+        "wires": [
+            [
+                "sd_EeG51I6c7J1QdlTq"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "wqFilterBaseComponent"
+    },
+    {
+        "id": "sd_2nOTqLfjcGIqh3Wv",
+        "type": "PageStart",
+        "z": "sd_ifKcQ36jZp2E131C",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "add to filter fields",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "opt",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "addToFilterFields",
+        "category": "General",
+        "x": 85,
+        "y": 340,
+        "wires": [
+            [
+                "sd_oG1sr4j6WMRYKslv"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "wqFilterBaseComponent"
+    },
+    {
+        "id": "sd_EeG51I6c7J1QdlTq",
+        "type": "UseDependency",
+        "z": "sd_ifKcQ36jZp2E131C",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "",
+        "propertyType": "bh",
+        "propertyGv": "bh.",
+        "alias": "",
+        "modules": [
+            {
+                "textIp": "FormBuilder",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "fb"
+                },
+                "injectable": true
+            },
+            {
+                "textIp": "Validators",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                },
+                "injectable": false
+            }
+        ],
+        "import_all": false,
+        "library": "@angular/forms",
+        "serviceDesignerType": "pages",
+        "functionName": "sd_EeG51I6c7J1QdlTq",
+        "category": "Function",
+        "x": 185,
+        "y": 80,
+        "wires": [
+            [
+                "sd_kH4i8rjccZUUbbnX"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_zfWtcNTc1AnwJkAA",
+        "type": "Script",
+        "z": "sd_ifKcQ36jZp2E131C",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.filterForm = page.fb.group({\n    label: ['', Validators.required],\n    filters: page.fb.group({})\n})\n\nconsole.log('page.filterForm.controls.filters.controls', page.filterForm.controls.filters.controls)\n\npage.fields = Object.values(page.columnConf).filter((c: any) => c.key)",
+        "functionName": "sd_zfWtcNTc1AnwJkAA",
+        "category": "Function",
+        "x": 585,
+        "y": 80,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_kH4i8rjccZUUbbnX",
+        "type": "PageVariables",
+        "z": "sd_ifKcQ36jZp2E131C",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "selectedIndex",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "0"
+                }
+            },
+            {
+                "textIp": "filterForm",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
+            }
+        ],
+        "functionName": "sd_kH4i8rjccZUUbbnX",
+        "category": "Function",
+        "x": 305,
+        "y": 80,
+        "wires": [
+            [
+                "sd_Q05LyYwhMyuXLqfA"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_oG1sr4j6WMRYKslv",
+        "type": "Script",
+        "z": "sd_ifKcQ36jZp2E131C",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "Object.keys(page.filterForm.controls.filters.controls).forEach(v => page.filterForm.controls.filters.removeControl(v))\nbh.input.opt.value.forEach(v => {\n    page.filterForm.controls.filters.addControl(v, page.fb.control('', [Validators.required]))\n})",
+        "functionName": "sd_oG1sr4j6WMRYKslv",
+        "category": "Function",
+        "x": 285,
+        "y": 340,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_f3wCtsopQcgbE9qL",
+        "type": "PageStart",
+        "z": "sd_ifKcQ36jZp2E131C",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "create filter",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "createFilter",
+        "category": "General",
+        "x": 85,
+        "y": 540,
+        "wires": [
+            [
+                "sd_OPDcQWJINXCmLPlb"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "wqFilterBaseComponent"
+    },
+    {
+        "id": "sd_OPDcQWJINXCmLPlb",
+        "type": "Script",
+        "z": "sd_ifKcQ36jZp2E131C",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.url = page.system.environment.properties.ssdBaseUrl + '/wq/upsert'\nbh.body = page.filterForm.value\n\nconsole.log(bh.body)",
+        "functionName": "sd_OPDcQWJINXCmLPlb",
+        "category": "Function",
+        "x": 285,
+        "y": 540,
+        "wires": [
+            [
+                "sd_rgV4WHyzooXkenHP"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_rgV4WHyzooXkenHP",
+        "type": "HttpRequest",
+        "z": "sd_ifKcQ36jZp2E131C",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "post",
+        "methodMapping": "",
+        "methodMappingObj": {},
+        "urlMapping": "bh.url",
+        "urlMappingObj": {
+            "mapVarType": "bh",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMapping": "",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMapping": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "bh.body",
+        "reqBodyObj": {
+            "mapVarType": "bh",
+            "mapVarValue": "body"
+        },
+        "resultMapping": "bh.r",
+        "resultMappingObj": {
+            "mapVarType": "bh",
+            "mapVarValue": "r"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMapping": "",
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMapping": "",
+        "paramMappingObj": {},
+        "functionName": "sd_rgV4WHyzooXkenHP",
+        "category": "HTTP",
+        "x": 465,
+        "y": 540,
+        "wires": [
+            [
+                "sd_z82uklABfPz8niyp"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_Q05LyYwhMyuXLqfA",
+        "type": "PageServiceVariables",
+        "z": "sd_ifKcQ36jZp2E131C",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "get",
+        "globalVariables": [
+            {
+                "textIp": "columns",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "columnConf"
+                }
+            }
+        ],
+        "functionName": "sd_Q05LyYwhMyuXLqfA",
+        "service": {
+            "id": "sd_RbD2RZwzan9VSOEL",
+            "type": "tab",
+            "createdDate": "2022-03-10T07:40:30.532Z",
+            "label": "cache",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "generateNext": true,
+            "serviceName": "cache",
+            "relativeParentPath": "",
+            "_def": {
+                "defaults": {
+                    "label": {
+                        "value": ""
+                    },
+                    "disabled": {
+                        "value": false
+                    },
+                    "info": {
+                        "value": ""
+                    }
+                }
+            }
+        },
+        "serviceImportPath": "app/sd-services/cache",
+        "category": "Function",
+        "x": 445,
+        "y": 80,
+        "wires": [
+            [
+                "sd_zfWtcNTc1AnwJkAA"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_z82uklABfPz8niyp",
+        "type": "4a14d245-3eca-40a4-550c-2885e99a00e9",
+        "z": "sd_ifKcQ36jZp2E131C",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "eventName": "\"refresh-wq\"",
+        "functionName": "sd_z82uklABfPz8niyp",
+        "category": "Events",
+        "x": 645,
+        "y": 540,
+        "wires": [
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "eventName": {
+                "type": "str",
+                "value": "refresh-wq",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

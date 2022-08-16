@@ -1,0 +1,10 @@
+<div fxLayout="column wrap" class="padding-1" fxLayoutAlign="start stretch" [fxShow]="true">
+  <bh-settingsHeader [cancelNav]="&apos;/web/nav/admin&apos;" (save)="saveUITheme()" [heading]="&apos;Edit UI theme&apos;"></bh-settingsHeader>
+  <form [formGroup]="page.fg" *ngIf="page.fg">
+    <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+      <input matInput name="primaryColor" type="color" placeholder="{{page.locales.keys[&apos;theme-primary&apos;]}}" [required]="false" formControlName="primaryColor">
+      <mat-label>{{page.locales.keys[&apos;theme-primary&apos;]}}</mat-label>
+    </mat-form-field>
+  </form>
+  <lib-file-upload [nFileUploadColor]="&apos;primary&apos;" [nFileUploadLabel]="page.locales.keys.logo" [nFileUploadAcceptableFileTypes]="[&apos;image/png&apos;, &apos;image/jpeg&apos;]" [nFileUploadSelectMultiple]="false" [nFileUploadChangeLabelWithFileName]="false" [nFileUploadDisabled]="false" (nFileUploadOnChange)="saveImgInMemory($event)"></lib-file-upload>
+</div>

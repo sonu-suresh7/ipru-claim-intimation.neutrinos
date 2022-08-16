@@ -1,0 +1,113 @@
+[
+    {
+        "id": "sd_hZUu9sO7J60hB6dv",
+        "type": "tab",
+        "createdDate": "2022-04-07T07:52:36.923Z",
+        "label": "policies",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "policiesComponent"
+    },
+    {
+        "id": "sd_Pz93r0VbVK4sCZIw",
+        "type": "OnInit",
+        "z": "sd_hZUu9sO7J60hB6dv",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "inputVariables": [
+            {
+                "key": "policies",
+                "defaultValue": {
+                    "type": "any",
+                    "value": "[]"
+                }
+            }
+        ],
+        "localVariables": [],
+        "outputVariables": [],
+        "functionName": "sd_Pz93r0VbVK4sCZIw",
+        "category": "Lifecycle Events",
+        "x": 85,
+        "y": 80,
+        "wires": [
+            [
+                "sd_Gg862CbSmkvZSd07"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "policiesComponent"
+    },
+    {
+        "id": "sd_Gg862CbSmkvZSd07",
+        "type": "PageVariables",
+        "z": "sd_hZUu9sO7J60hB6dv",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "policiesArr",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "[]"
+                }
+            }
+        ],
+        "functionName": "sd_Gg862CbSmkvZSd07",
+        "category": "Function",
+        "x": 205,
+        "y": 80,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_I0WsN90ogdBfCidH",
+        "type": "Script",
+        "z": "sd_hZUu9sO7J60hB6dv",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "if (this.policies) {\n    page.policiesArr = this.policies;\n    // let dataSource = new MatTableDataSource(this.policies);\n    // if (dataSource && dataSource.data) {\n    //     page.policiesArr = dataSource.data;\n    // }\n    // console.log('policies array in child---', page.policiesArr);\n}",
+        "functionName": "sd_I0WsN90ogdBfCidH",
+        "category": "Function",
+        "x": 205,
+        "y": 200,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_Zvwr5dPF0F4Q0ag5",
+        "type": "OnChanges",
+        "z": "sd_hZUu9sO7J60hB6dv",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "On Changes",
+        "functionName": "ngOnChanges",
+        "category": "Lifecycle Events",
+        "x": 80,
+        "y": 200,
+        "wires": [
+            [
+                "sd_I0WsN90ogdBfCidH"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "policiesComponent"
+    }
+]

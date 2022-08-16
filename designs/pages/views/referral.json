@@ -1,0 +1,346 @@
+[
+    {
+        "id": "sd_CtPtO1zpY0EKPePh",
+        "type": "tab",
+        "createdDate": "2022-03-22T11:37:38.444Z",
+        "label": "referral",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 2,
+        "generateNext": true,
+        "serviceName": "referralComponent"
+    },
+    {
+        "id": "sd_pN0bSX8mBBrvrIUA",
+        "type": "OnInit",
+        "z": "sd_CtPtO1zpY0EKPePh",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "inputVariables": [],
+        "localVariables": [],
+        "outputVariables": [],
+        "functionName": "sd_pN0bSX8mBBrvrIUA",
+        "category": "Lifecycle Events",
+        "x": 125,
+        "y": 100,
+        "wires": [
+            [
+                "sd_2KCBn1ap76cOfSz0"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "referralComponent"
+    },
+    {
+        "id": "sd_oFxAGqti8cJOGe77",
+        "type": "PageVariables",
+        "z": "sd_CtPtO1zpY0EKPePh",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "referral",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "[]"
+                }
+            }
+        ],
+        "functionName": "sd_oFxAGqti8cJOGe77",
+        "category": "Function",
+        "x": 445,
+        "y": 100,
+        "wires": [
+            [
+                "sd_OKpaKq6Ga0VHnTHT"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "referralComponent"
+    },
+    {
+        "id": "sd_JsFu7Mw0dHzVIMxd",
+        "type": "Script",
+        "z": "sd_CtPtO1zpY0EKPePh",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "const referral = [...page.checkedOut.case['referrals'] || []];\npage.referral = new MatTableDataSource(referral);\n\n// page.referal = new MatTableDataSource([\n//     {\n//         'date':'11/03/2022, 10:30AM','requestor':'Mira Curtis', \n//         'referedTo': 'Brandon Culhane',\n//         'documents':'Medical Examination, Liver Function Test, Microurinalysis',\n//         'comments': 'Lorem ipsum dolor sit amet, consectetur adipiscing....', 'status':'Pending'\n//     },\n//     {\n//         'date':'11/03/2022, 10:30AM','requestor':'Livia Ekstrom Bothman', \n//         'referedTo': 'Ruben Siphron',\n//         'documents':'Medical Examination, Liver Function Test, Microurinalysis',\n//         'comments': 'Lorem ipsum dolor sit amet, consectetur adipiscing....', 'status':'Pending'\n//     },\n//     {\n//         'date':'11/03/2022, 10:30AM','requestor':'Omar Donin', \n//         'referedTo': 'Roger Workman',\n//         'documents':'Medical Examination, Liver Function Test, Microurinalysis',\n//         'comments': 'Lorem ipsum dolor sit amet, consectetur adipiscing....', 'status':'Pending'\n//     },\n//     {\n//         'date':'11/03/2022, 10:30AM','requestor':'Livia Ekstrom Bothman', \n//         'referedTo': 'Ruben Siphron',\n//         'documents':'Medical Examination, Liver Function Test, Microurinalysis',\n//         'comments': 'Lorem ipsum dolor sit amet, consectetur adipiscing....', 'status':'Pending'\n//     },\n//     {\n//         'date':'11/03/2022, 10:30AM','requestor': 'Omar Donin', \n//         'referedTo': 'Roger Workman',\n//         'documents':'Medical Examination, Liver Function Test, Microurinalysis',\n//         'comments': 'Lorem ipsum dolor sit amet, consectetur adipiscing....', 'status':'Pending'\n//     },\n// ]);",
+        "functionName": "sd_JsFu7Mw0dHzVIMxd",
+        "category": "Function",
+        "x": 785,
+        "y": 100,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_73sb8D5OodiYWMM2",
+        "type": "AfterViewInit",
+        "z": "sd_CtPtO1zpY0EKPePh",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "ngAfterViewInit",
+        "category": "Lifecycle Events",
+        "x": 145,
+        "y": 320,
+        "wires": [
+            [
+                "sd_BWz2cXFCkG5u0ZFI"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "referralComponent"
+    },
+    {
+        "id": "sd_BWz2cXFCkG5u0ZFI",
+        "type": "ViewPicker",
+        "z": "sd_CtPtO1zpY0EKPePh",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "childViewVariables": [
+            {
+                "key": {
+                    "type": "literal",
+                    "value": "MatSort"
+                },
+                "defaultValue": "MatSort",
+                "isViewChildren": false
+            },
+            {
+                "key": {
+                    "type": "literal",
+                    "value": "MatPaginator"
+                },
+                "defaultValue": "",
+                "isViewChildren": false
+            },
+            {
+                "key": {
+                    "type": "literal",
+                    "value": "MatTable"
+                },
+                "defaultValue": "",
+                "isViewChildren": false
+            }
+        ],
+        "functionName": "sd_xKCCTWKzvgDN0rx7_1",
+        "category": "Function",
+        "x": 285,
+        "y": 320,
+        "wires": [
+            [
+                "sd_vKDztl69D3mIkwwz"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_vKDztl69D3mIkwwz",
+        "type": "Script",
+        "z": "sd_CtPtO1zpY0EKPePh",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "this.page.referral.sort = this.MatSort;\nsetTimeout(() => this.MatSort.sort(({id: 'date', start: 'desc'})))\nthis.page.referral.paginator = this.MatPaginator;",
+        "functionName": "sd_2VNGqvcKee34lvOz_1",
+        "category": "Function",
+        "x": 425,
+        "y": 320,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_OKpaKq6Ga0VHnTHT",
+        "type": "PageServiceVariables",
+        "z": "sd_CtPtO1zpY0EKPePh",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "get",
+        "globalVariables": [
+            {
+                "textIp": "checkedOut",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "checkedOut"
+                }
+            }
+        ],
+        "functionName": "sd_OKpaKq6Ga0VHnTHT",
+        "service": {
+            "id": "sd_RbD2RZwzan9VSOEL",
+            "type": "tab",
+            "createdDate": "2022-03-10T07:40:30.532Z",
+            "label": "cache",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "generateNext": true,
+            "serviceName": "cache",
+            "relativeParentPath": "",
+            "_def": {
+                "defaults": {
+                    "label": {
+                        "value": ""
+                    },
+                    "disabled": {
+                        "value": false
+                    },
+                    "info": {
+                        "value": ""
+                    }
+                }
+            }
+        },
+        "serviceImportPath": "app/sd-services/cache",
+        "category": "Function",
+        "x": 615,
+        "y": 100,
+        "wires": [
+            [
+                "sd_JsFu7Mw0dHzVIMxd"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_LZn9Z0sfgqZy5vza",
+        "type": "0a527e77-2b6b-855b-557e-9f716099c2ed",
+        "z": "sd_CtPtO1zpY0EKPePh",
+        "viewType": "client-pages",
+        "nodeType": "start",
+        "name": "referal_created",
+        "eventName": "\"referal_created\"",
+        "functionName": "referal_created",
+        "category": "Events",
+        "x": 145,
+        "y": 520,
+        "wires": [
+            [
+                "sd_DyOtB2tjpTIRUrB1"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "eventName": {
+                "type": "str",
+                "value": "referal_created",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "referralComponent"
+    },
+    {
+        "id": "sd_DyOtB2tjpTIRUrB1",
+        "type": "Script",
+        "z": "sd_CtPtO1zpY0EKPePh",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.checkedOut.case['referrals'].unshift(bh.local.referral)\npage.referral.data = [...page.checkedOut.case['referrals']]\nthis.MatTable.renderRows();\n\n",
+        "functionName": "sd_DyOtB2tjpTIRUrB1",
+        "category": "Function",
+        "x": 285,
+        "y": 520,
+        "wires": [
+            [
+                "sd_EcjINi1cL7RTqaQW"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_2KCBn1ap76cOfSz0",
+        "type": "UseDependency",
+        "z": "sd_CtPtO1zpY0EKPePh",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "",
+        "propertyType": "bh",
+        "propertyGv": "bh.",
+        "alias": "",
+        "modules": [
+            {
+                "textIp": "MatTable",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                },
+                "injectable": false
+            }
+        ],
+        "import_all": false,
+        "library": "@angular/material/table",
+        "serviceDesignerType": "pages",
+        "functionName": "sd_2KCBn1ap76cOfSz0",
+        "category": "Function",
+        "x": 265,
+        "y": 100,
+        "wires": [
+            [
+                "sd_oFxAGqti8cJOGe77"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_EcjINi1cL7RTqaQW",
+        "type": "4a14d245-3eca-40a4-550c-2885e99a00e9",
+        "z": "sd_CtPtO1zpY0EKPePh",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "close rsn",
+        "eventName": "\"close-rsn\"",
+        "functionName": "closeRsn",
+        "category": "Events",
+        "x": 445,
+        "y": 520,
+        "wires": [
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "eventName": {
+                "type": "str",
+                "value": "close-rsn",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

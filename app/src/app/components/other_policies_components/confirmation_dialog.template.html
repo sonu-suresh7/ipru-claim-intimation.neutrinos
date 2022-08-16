@@ -1,0 +1,10 @@
+<div fxLayout="column wrap" class="padding-1 width-100" fxLayoutGap="1rem" fxLayoutAlign="center stretch" [fxShow]="true">
+  <div fxLayout="row wrap" fxLayoutAlign="space-between stretch" [fxShow]="true">
+    <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="page.alertObject?.title"><label class="title">
+        {{page.alertObject?.title}}</label></div>
+    <mat-icon class="cursor-pointer" *ngIf="page.alertObject?.icon" (click)="submit()">{{page.alertObject?.icon}}</mat-icon>
+  </div>
+  <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="page.alertObject?.message"><span [innerHTML]="page.alertObject?.message" class="message">
+                </span></div>
+  <div fxLayout="row " fxLayoutGap="0.5rem" fxLayoutAlign="end center" [fxShow]="true"><button mat-raised-button class="option-2" *ngIf="page.alertObject?.option1?.title" color="primary" (click)="submit(page.alertObject?.option1?.value)">{{page.alertObject?.option1?.title}}</button><button mat-raised-button class="option-2" *ngIf="page.alertObject?.option2?.title" color="primary" (click)="submit(page.alertObject?.option2?.value)">{{page.alertObject?.option2?.title}}</button></div>
+</div>

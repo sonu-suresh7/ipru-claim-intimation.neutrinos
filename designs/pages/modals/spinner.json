@@ -1,0 +1,154 @@
+[
+    {
+        "id": "sd_mYCrQSIQsVcVZ4AB",
+        "type": "tab",
+        "createdDate": "2021-10-28T15:43:34.407Z",
+        "label": "spinner",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "spinnerComponent"
+    },
+    {
+        "id": "sd_ovw5LVXj8rPzSWIg",
+        "type": "OnInit",
+        "z": "sd_mYCrQSIQsVcVZ4AB",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "inputVariables": [],
+        "localVariables": [],
+        "outputVariables": [],
+        "functionName": "sd_ovw5LVXj8rPzSWIg",
+        "category": "Lifecycle Events",
+        "x": 45,
+        "y": 60,
+        "wires": [
+            [
+                "sd_3srjZXGcQgeql0Yx"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "spinnerComponent"
+    },
+    {
+        "id": "sd_yCnq02t7Nqt33KY5",
+        "type": "GetDialogData",
+        "z": "sd_mYCrQSIQsVcVZ4AB",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "dialogDataMapping": "this.page.data",
+        "functionName": "sd_yCnq02t7Nqt33KY5",
+        "category": "Dialog",
+        "x": 525,
+        "y": 60,
+        "wires": [
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "dialogDataMapping": {
+                "type": "this.page",
+                "value": "data",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_3srjZXGcQgeql0Yx",
+        "type": "UseDependency",
+        "z": "sd_mYCrQSIQsVcVZ4AB",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "",
+        "propertyType": "bh",
+        "propertyGv": "bh.",
+        "alias": "",
+        "modules": [
+            {
+                "textIp": "loaderService",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "_loaderService"
+                },
+                "injectable": true
+            }
+        ],
+        "import_all": false,
+        "library": "app/services/loader/loader.service",
+        "serviceDesignerType": "pages",
+        "functionName": "sd_3srjZXGcQgeql0Yx",
+        "category": "Function",
+        "x": 165,
+        "y": 60,
+        "wires": [
+            [
+                "sd_MX6dFc599H34SP39"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_MX6dFc599H34SP39",
+        "type": "PageVariables",
+        "z": "sd_mYCrQSIQsVcVZ4AB",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "isLoading",
+                "typedIpValue": {
+                    "type": "bh",
+                    "value": ""
+                }
+            }
+        ],
+        "functionName": "sd_MX6dFc599H34SP39",
+        "category": "Function",
+        "x": 285,
+        "y": 60,
+        "wires": [
+            [
+                "sd_8hmhIbchf94FWzJB"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_8hmhIbchf94FWzJB",
+        "type": "Script",
+        "z": "sd_mYCrQSIQsVcVZ4AB",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.isLoading= page._loaderService.isLoading;",
+        "functionName": "sd_8hmhIbchf94FWzJB",
+        "category": "Function",
+        "x": 400,
+        "y": 60,
+        "wires": [
+            [
+                "sd_yCnq02t7Nqt33KY5"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

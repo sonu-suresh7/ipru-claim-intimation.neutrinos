@@ -1,0 +1,165 @@
+[
+    {
+        "id": "sd_SzHZwz71X8eIK6p8",
+        "type": "tab",
+        "createdDate": "2022-03-10T09:59:36.513Z",
+        "label": "externalURLViewer",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "externalURLViewerComponent"
+    },
+    {
+        "id": "sd_5GLVT7fulZCPONvP",
+        "type": "NavigationListener",
+        "z": "sd_SzHZwz71X8eIK6p8",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "listen for menuId change",
+        "operationType": "paramMap",
+        "operation": "get",
+        "key": "\"menuId\"",
+        "resultMapping": "bh.menuId",
+        "functionName": "listenForMenuIdChange",
+        "category": "Navigation",
+        "x": 85,
+        "y": 60,
+        "wires": [
+            [
+                "sd_l4oIKnvVjIyEXTq9"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "key": {
+                "type": "str",
+                "value": "menuId",
+                "constant": false
+            },
+            "resultMapping": {
+                "type": "bh",
+                "value": "menuId",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "externalURLViewerComponent"
+    },
+    {
+        "id": "sd_GbgOkfGlOHttl2qA",
+        "type": "Script",
+        "z": "sd_SzHZwz71X8eIK6p8",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "get menu and url",
+        "script": "page.menu = bh.routeConfig.find(c => c.id === bh.menuId);\npage.unsafeUrl = bh.sanitizer.bypassSecurityTrustResourceUrl(page.menu.url)",
+        "functionName": "getMenuAndUrl",
+        "category": "Function",
+        "x": 545,
+        "y": 60,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_l4oIKnvVjIyEXTq9",
+        "type": "PageServiceVariables",
+        "z": "sd_SzHZwz71X8eIK6p8",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "get nav menu from cache",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "get",
+        "globalVariables": [
+            {
+                "textIp": "navMenu",
+                "typedIpValue": {
+                    "type": "bh",
+                    "value": "routeConfig"
+                }
+            }
+        ],
+        "functionName": "getNavMenuFromCache",
+        "service": {
+            "id": "sd_RbD2RZwzan9VSOEL",
+            "type": "tab",
+            "createdDate": "2022-03-10T07:40:30.532Z",
+            "label": "cache",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "generateNext": true,
+            "serviceName": "cache",
+            "relativeParentPath": "",
+            "_def": {
+                "defaults": {
+                    "label": {
+                        "value": ""
+                    },
+                    "disabled": {
+                        "value": false
+                    },
+                    "info": {
+                        "value": ""
+                    }
+                }
+            }
+        },
+        "serviceImportPath": "app/sd-services/cache",
+        "category": "Function",
+        "x": 225,
+        "y": 60,
+        "wires": [
+            [
+                "sd_cErhMtHoODctTd1l"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_cErhMtHoODctTd1l",
+        "type": "UseDependency",
+        "z": "sd_SzHZwz71X8eIK6p8",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "get injected sanitizer",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "",
+        "propertyType": "bh",
+        "propertyGv": "bh.",
+        "alias": "",
+        "modules": [
+            {
+                "textIp": "DomSanitizer",
+                "typedIpValue": {
+                    "type": "bh",
+                    "value": "sanitizer"
+                },
+                "injectable": true
+            }
+        ],
+        "import_all": false,
+        "library": "@angular/platform-browser",
+        "serviceDesignerType": "pages",
+        "functionName": "getInjectedSanitizer",
+        "category": "Function",
+        "x": 385,
+        "y": 60,
+        "wires": [
+            [
+                "sd_GbgOkfGlOHttl2qA"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

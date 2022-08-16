@@ -1,0 +1,439 @@
+[
+    {
+        "id": "sd_Ni9k2GbmcrMMaArO",
+        "type": "tab",
+        "createdDate": "2022-03-21T14:53:12.503Z",
+        "label": "nav",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "navComponent"
+    },
+    {
+        "id": "sd_o15FwDkH9jF2cdq8",
+        "type": "OnInit",
+        "z": "sd_Ni9k2GbmcrMMaArO",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "sd_o15FwDkH9jF2cdq8",
+        "category": "Lifecycle Events",
+        "x": 65,
+        "y": 60,
+        "wires": [
+            [
+                "sd_y073NJBTd6qAssUB"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "navComponent"
+    },
+    {
+        "id": "sd_y073NJBTd6qAssUB",
+        "type": "PageServiceVariables",
+        "z": "sd_Ni9k2GbmcrMMaArO",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "get navMenu from cache",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "get",
+        "globalVariables": [
+            {
+                "textIp": "navMenu",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "menu"
+                }
+            }
+        ],
+        "functionName": "getNavMenuFromCache",
+        "service": {
+            "id": "sd_RbD2RZwzan9VSOEL",
+            "type": "tab",
+            "createdDate": "2022-03-10T07:40:30.532Z",
+            "label": "cache",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "generateNext": true,
+            "serviceName": "cache",
+            "relativeParentPath": "",
+            "_def": {
+                "defaults": {
+                    "label": {
+                        "value": ""
+                    },
+                    "disabled": {
+                        "value": false
+                    },
+                    "info": {
+                        "value": ""
+                    }
+                }
+            }
+        },
+        "serviceImportPath": "app/sd-services/cache",
+        "category": "Function",
+        "x": 225,
+        "y": 60,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_wIqcNA102m9IqwLy",
+        "type": "Script",
+        "z": "sd_Ni9k2GbmcrMMaArO",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "mobile query listener",
+        "script": "page.mobileQuery = bh.media.matchMedia('(max-width: 600px)');\npage._mobileQueryListener = () => {\n    console.log(page.mobileQuery)\n    bh.cdr.detectChanges()\n}\n\n",
+        "functionName": "mobileQueryListener",
+        "category": "Function",
+        "x": 985,
+        "y": 460,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
+    },
+    {
+        "id": "sd_00q7PhXDx5IrlbCy",
+        "type": "UseDependency",
+        "z": "sd_Ni9k2GbmcrMMaArO",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "media matcher",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "",
+        "propertyType": "bh",
+        "propertyGv": "bh.",
+        "alias": "",
+        "modules": [
+            {
+                "textIp": "MediaMatcher",
+                "typedIpValue": {
+                    "type": "bh",
+                    "value": "media"
+                },
+                "injectable": true
+            }
+        ],
+        "import_all": false,
+        "library": "@angular/cdk/layout",
+        "serviceDesignerType": "pages",
+        "functionName": "mediaMatcher",
+        "category": "Function",
+        "x": 825,
+        "y": 460,
+        "wires": [
+            [
+                "sd_wIqcNA102m9IqwLy"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
+    },
+    {
+        "id": "sd_2586KfTzatPcXwJh",
+        "type": "UseDependency",
+        "z": "sd_Ni9k2GbmcrMMaArO",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "change d r",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "",
+        "propertyType": "bh",
+        "propertyGv": "bh.",
+        "alias": "",
+        "modules": [
+            {
+                "textIp": "ChangeDetectorRef",
+                "typedIpValue": {
+                    "type": "bh",
+                    "value": "cdr"
+                },
+                "injectable": true
+            }
+        ],
+        "import_all": false,
+        "library": "@angular/core",
+        "serviceDesignerType": "pages",
+        "functionName": "changeDR",
+        "category": "Function",
+        "x": 665,
+        "y": 460,
+        "wires": [
+            [
+                "sd_00q7PhXDx5IrlbCy"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
+    },
+    {
+        "id": "sd_KqODz7b4mvsISt4l",
+        "type": "PageStart",
+        "z": "sd_Ni9k2GbmcrMMaArO",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "confirm and logout",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "confirmAndLogout",
+        "category": "General",
+        "x": 65,
+        "y": 200,
+        "wires": [
+            [
+                "sd_W1DcOcIjY3sbhxSS"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "navComponent"
+    },
+    {
+        "id": "sd_VUtmkJyFdYLc6HKk",
+        "type": "OpenDialog",
+        "z": "sd_Ni9k2GbmcrMMaArO",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 4,
+        "flow": {
+            "flowId": "sd_BOVQd6mx2TThVaS5",
+            "label": "confirmation_dialog"
+        },
+        "relativePath": "../other_policies_components/confirmation_dialog",
+        "data": "bh.local.data",
+        "ariaDescribedBy": "this.page",
+        "ariaLabel": "this.page",
+        "ariaLabelledBy": "this.page",
+        "autoFocus": "this.page",
+        "backdropClass": "this.page",
+        "closeOnNavigation": "this.page",
+        "direction": "this.page",
+        "disableClose": "this.page",
+        "hasBackdrop": "this.page",
+        "height": "\"150px\"",
+        "maxHeight": "this.page",
+        "minHeight": "this.page",
+        "width": "\"500px\"",
+        "maxWidth": "this.page",
+        "minWidth": "this.page",
+        "panelClass": "this.page",
+        "position": "this.page",
+        "restoreFocus": "this.page",
+        "role": "this.page",
+        "resultMapping": "bh.local.res",
+        "functionName": "sd_VUtmkJyFdYLc6HKk",
+        "category": "Dialog",
+        "x": 365,
+        "y": 200,
+        "wires": [
+            [],
+            [
+                "sd_Lq6rzp4uZoPCOViG"
+            ],
+            [],
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "data": {
+                "type": "bh.local",
+                "value": "data",
+                "constant": false
+            },
+            "ariaDescribedBy": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "ariaLabel": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "ariaLabelledBy": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "autoFocus": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "backdropClass": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "closeOnNavigation": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "direction": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "disableClose": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "hasBackdrop": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "height": {
+                "type": "str",
+                "value": "150px",
+                "constant": false
+            },
+            "maxHeight": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "minHeight": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "width": {
+                "type": "str",
+                "value": "500px",
+                "constant": false
+            },
+            "maxWidth": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "minWidth": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "panelClass": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "position": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "restoreFocus": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "role": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "resultMapping": {
+                "type": "bh.local",
+                "value": "res",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_W1DcOcIjY3sbhxSS",
+        "type": "Script",
+        "z": "sd_Ni9k2GbmcrMMaArO",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.data = {\n    title: 'Confirmation',\n    message: 'Are you sure you want to log out of the app?',\n    option1: {\n        title: 'No',\n        value: false,\n    },\n    option2: {\n        title: 'Yes',\n        value: true,\n    },\n}",
+        "functionName": "sd_W1DcOcIjY3sbhxSS",
+        "category": "Function",
+        "x": 225,
+        "y": 200,
+        "wires": [
+            [
+                "sd_VUtmkJyFdYLc6HKk"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_Lq6rzp4uZoPCOViG",
+        "type": "PageSwitch",
+        "z": "sd_Ni9k2GbmcrMMaArO",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "property": "res",
+        "propertyType": "bh.local",
+        "propertyGv": "bh.local.res",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "functionName": "sd_Lq6rzp4uZoPCOViG",
+        "category": "Function",
+        "x": 505,
+        "y": 200,
+        "wires": [
+            [
+                "sd_PcJLPqe6yMDfQseA"
+            ],
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_PcJLPqe6yMDfQseA",
+        "type": "Script",
+        "z": "sd_Ni9k2GbmcrMMaArO",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.system.oauthService.logout()",
+        "functionName": "sd_PcJLPqe6yMDfQseA",
+        "category": "Function",
+        "x": 665,
+        "y": 200,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

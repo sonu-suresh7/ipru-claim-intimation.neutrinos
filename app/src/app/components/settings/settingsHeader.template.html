@@ -1,0 +1,6 @@
+<div fxLayout="row " fxLayoutAlign="space-between center">
+  <h2>
+    {{heading}}
+  </h2>
+  <div fxLayout="row wrap" fxLayoutGap="18px" fxLayoutAlign="start stretch"><button mat-button style="background-color: #A1A4B1;" class="white-regular-text" routerLink="{{cancelNav}}">Cancel</button><button mat-raised-button color="primary" (click)="emitSave()">{{page.locales.keys.save}}</button></div>
+</div>

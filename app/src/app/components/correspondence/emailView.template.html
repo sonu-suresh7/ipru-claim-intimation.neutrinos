@@ -1,0 +1,28 @@
+<div fxLayout="column " class="height-100 width-100" fxLayoutGap="1rem" fxLayoutAlign="start stretch">
+  <div fxLayout="row " style="height: 6rem;" fxLayoutAlign="space-between stretch" [fxShow]="true" *ngIf="email">
+    <div fxLayout="column " fxLayoutGap="2%" fxLayoutAlign="space-between start"><span class="header-title-18">
+      {{email.subject}}</span>
+      <div fxLayout="row " fxLayoutGap="0.5rem" fxLayoutAlign="start center">
+        <ng-container>
+          <span class="label-text">{{page.labels.sender.label}}: </span><span class="regular-text">{{email.sender}}</span>
+        </ng-container>
+      </div>
+      <div fxLayout="row " fxLayoutGap="0.5rem" fxLayoutAlign="start center">
+        <ng-container>
+          <span class="label-text">{{page.labels.to.label}}: </span><span class="regular-text">{{email.to}}</span>
+        </ng-container>
+      </div>
+      <div fxLayout="row " fxLayoutGap="0.5rem" fxLayoutAlign="start center">
+        <ng-container *ngIf="email.cc">
+          <span class="label-text">{{page.labels.cc.label}}: </span><span class="regular-text">{{email.cc}}</span>
+        </ng-container>
+      </div>
+    </div>
+    <div fxLayout="row wrap" fxLayoutGap="1rem" fxLayoutAlign="end start" [fxShow]="true">
+      <div fxLayout="column wrap" fxLayoutAlign="center start" [fxShow]="true"><span class="label-text">
+        {{email.headers.date | date: &apos;short&apos; }}</span></div>
+    </div>
+  </div>
+  <div fxLayout="row " fxLayoutAlign="start stretch" [ngStyle]="{height: page.iframeContainerHeight}"><iframe #iframe (load)="sd_UYoQLexsK1ypr8sa()" [srcdoc]="page.html" name="show-email-html" class="border-none border-box width-100">
+    </iframe></div>
+</div>

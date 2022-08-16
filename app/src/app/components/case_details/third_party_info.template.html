@@ -1,0 +1,30 @@
+<div fxLayout="column " class="height-100" fxLayoutAlign="start stretch" [fxShow]="true">
+  <mat-accordion class="expansion-panel-styles">
+    <mat-expansion-panel [expanded]="true">
+      <mat-expansion-panel-header>
+        <div fxLayout="row " class="width-100" fxLayoutGap="1rem" fxLayoutAlign="start center" [fxShow]="true"><img imgSrc="/Web/CaseDetails/information.svg">
+          <mat-panel-title>
+            {{page.locales.keys.thirdPartyTitle}}
+          </mat-panel-title>
+        </div>
+      </mat-expansion-panel-header>
+      <div fxLayout="column " class="height-100" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="thirdPartyDetails.length&gt;0">
+        <mat-card class="personal-details-card">
+          <mat-card-content class="padding-1 height-100">
+            <div fxLayout="column " fxLayoutGap="1rem" fxLayoutAlign="start stretch" [fxShow]="true" *ngFor="let item of thirdPartyDetails">
+              <div style="font-weight:500;">
+                {{item.question}}
+              </div>
+              <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+                <mat-form-field [appearance]="&apos;legacy&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+                  <input matInput placeholder="{{page.labels[&apos;answer&apos;]?.label}}" [required]="false" [value]="item.answer" readonly="true">
+
+                </mat-form-field>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

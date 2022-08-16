@@ -1,0 +1,141 @@
+[
+    {
+        "id": "sd_QmoY7WKAu45IBsbK",
+        "type": "tab",
+        "createdDate": "2022-03-23T05:19:23.974Z",
+        "label": "policy_owner_details",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "policy_owner_detailsComponent"
+    },
+    {
+        "id": "sd_t1Meqb3F0AyeBv5a",
+        "type": "OnInit",
+        "z": "sd_QmoY7WKAu45IBsbK",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "inputVariables": [
+            {
+                "key": "policyOwnerDetails",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                }
+            }
+        ],
+        "localVariables": [],
+        "outputVariables": [],
+        "functionName": "sd_t1Meqb3F0AyeBv5a",
+        "category": "Lifecycle Events",
+        "x": 65,
+        "y": 80,
+        "wires": [
+            [
+                "sd_mfriqHrOnAWo92Dz"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "policy_owner_detailsComponent"
+    },
+    {
+        "id": "sd_mfriqHrOnAWo92Dz",
+        "type": "PageVariables",
+        "z": "sd_QmoY7WKAu45IBsbK",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "residentialAddData",
+                "typedIpValue": {
+                    "type": "bh",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "companyAddData",
+                "typedIpValue": {
+                    "type": "bh",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "currentAddress",
+                "typedIpValue": {
+                    "type": "bh",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "bankAccDetails",
+                "typedIpValue": {
+                    "type": "bh",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "personalDetails",
+                "typedIpValue": {
+                    "type": "bh",
+                    "value": ""
+                }
+            }
+        ],
+        "functionName": "sd_mfriqHrOnAWo92Dz",
+        "category": "Function",
+        "x": 165,
+        "y": 80,
+        "wires": [
+            [
+                "sd_sLkINxTQEmhyIzrb"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_sLkINxTQEmhyIzrb",
+        "type": "Script",
+        "z": "sd_QmoY7WKAu45IBsbK",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "// page.personalDetails = {\n//     viewTitle: 'Residential Address',\n//     viewIconName: 'assets/Web/CaseDetails/home.svg',\n//     details: this.policyOwnerDetails.PersonalDetails\n// };\npage.residentialAddData = {\n    viewTitle: 'Residential Address',\n    viewIconName: 'assets/Web/CaseDetails/home.svg',\n    details: this.policyOwnerDetails.residentialAddress\n};\npage.companyAddData = {\n    viewTitle: 'Company Name and Business Address',\n    viewIconName: 'assets/Web/CaseDetails/office.svg',\n    details: this.policyOwnerDetails.workAddress\n};\npage.currentAddress = {\n    viewTitle: 'Current Address',\n    viewIconName: 'assets/Web/CaseDetails/location.svg',\n    details: this.policyOwnerDetails.currentAddress\n};\npage.bankAccDetails = {\n    viewTitle: 'Registration of Auto Bank Transfer',\n    viewIconName: 'assets/Web/CaseDetails/substitution.svg',\n    details: this.policyOwnerDetails.bankDetails\n};",
+        "functionName": "sd_sLkINxTQEmhyIzrb",
+        "category": "Function",
+        "x": 325,
+        "y": 80,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_4YNGmkS5fPzRNmcg",
+        "type": "Script",
+        "z": "sd_QmoY7WKAu45IBsbK",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.otherDetails = {\n    occupation: 'Adminstartion-Accountant',\n    income: '100000000',\n    mailingAddress: 'Residential Address of Policy Owner'\n}\n\npage.otherDetailsData = {\n    otherDetails: {\n        occupation: 'Adminstartion-Accountant',\n        income: '100000000',\n        mailingAddress: 'Residential Address of Policy Owner'\n    },\n    viewTitle: 'Other Details',\n    viewImage: '/Web/CaseDetails/details.svg'\n}",
+        "functionName": "sd_4YNGmkS5fPzRNmcg",
+        "category": "Function",
+        "x": 485,
+        "y": 100,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
+    }
+]

@@ -1,0 +1,923 @@
+[
+    {
+        "id": "sd_dkBEOmXfTZ6o2frk",
+        "type": "tab",
+        "createdDate": "2022-03-10T13:50:58.182Z",
+        "label": "emailComposer",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "emailComposerComponent"
+    },
+    {
+        "id": "sd_DejUMrjuq3XIvFMR",
+        "type": "OnInit",
+        "z": "sd_dkBEOmXfTZ6o2frk",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "inputVariables": [
+            {
+                "key": "emailDataRes",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                }
+            }
+        ],
+        "localVariables": [],
+        "outputVariables": [],
+        "functionName": "sd_DejUMrjuq3XIvFMR",
+        "category": "Lifecycle Events",
+        "x": 45,
+        "y": 80,
+        "wires": [
+            [
+                "sd_zjbnhML5EvkbSSZ5"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "emailComposerComponent"
+    },
+    {
+        "id": "sd_6tgzAjmtP5uPGrw4",
+        "type": "PageStart",
+        "z": "sd_dkBEOmXfTZ6o2frk",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "selectTemplate",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "value",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "selectTemplate",
+        "category": "General",
+        "x": 105,
+        "y": 580,
+        "wires": [
+            [
+                "sd_FGg8Y3OA9Gu3SBbR"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "emailComposerComponent"
+    },
+    {
+        "id": "sd_FGg8Y3OA9Gu3SBbR",
+        "type": "Script",
+        "z": "sd_dkBEOmXfTZ6o2frk",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "const template = page.templates.find(t => t.templateName === bh.input.value)?.template\nif (template) {\n    const parseFn = page.hb.compile(template, { strict: false });\n    const result = parseFn(page.hbVars);\n    page.emailForm.get('body').setValue(result);\n}",
+        "functionName": "sd_FGg8Y3OA9Gu3SBbR",
+        "category": "Function",
+        "x": 305,
+        "y": 580,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "emailComposerComponent"
+    },
+    {
+        "id": "sd_hAUG77Ua0814HQzW",
+        "type": "NavigationData",
+        "z": "sd_dkBEOmXfTZ6o2frk",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "tmpOp": "",
+        "tmpOpType": "",
+        "operationType": "data",
+        "operation": "keys",
+        "key": "bh",
+        "resultMapping": "bh.routeData",
+        "functionName": "sd_hAUG77Ua0814HQzW",
+        "category": "Navigation",
+        "x": 885,
+        "y": 360,
+        "wires": [
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "key": {
+                "type": "bh",
+                "value": "",
+                "constant": false
+            },
+            "resultMapping": {
+                "type": "bh",
+                "value": "routeData",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "emailComposerComponent"
+    },
+    {
+        "id": "sd_g5VHMndrwRycoKna",
+        "type": "PageStart",
+        "z": "sd_dkBEOmXfTZ6o2frk",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "send Email",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "sendEmail",
+        "category": "General",
+        "x": 105,
+        "y": 680,
+        "wires": [
+            [
+                "sd_qKbPqe4CGEcpgWdR"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "emailComposerComponent"
+    },
+    {
+        "id": "sd_qKbPqe4CGEcpgWdR",
+        "type": "Script",
+        "z": "sd_dkBEOmXfTZ6o2frk",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "prepare http body",
+        "script": "bh.data = {\n    email: {\n        ...page.emailForm.value,\n        finfoId: page.newfinfo?.finfoId || page.newfinfo?._id,\n        attachments: page\n            .caseDocuments\n            .filter(d => page.emailForm.value.attachments.includes(d._id))\n    },\n    // finfo: page.newfinfo\n}\nconsole.log('bh.body', bh.body)\n",
+        "functionName": "prepareHttpBody",
+        "category": "Function",
+        "x": 305,
+        "y": 680,
+        "wires": [
+            [
+                "sd_9ybeOTGclM6TZ7My"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_8gi0gvOAeaNajnqH",
+        "type": "Script",
+        "z": "sd_dkBEOmXfTZ6o2frk",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "set hb vars",
+        "script": "const caseDetails = page.checkedOut.case.caseDetails;\nconst owner = caseDetails.owner;\npage.hbVars = {\n    data: {},\n    inputNames: {\n        emailTo: 'emailTo',\n        emailCc: 'emailCc',\n        emailSubject: 'emailSubject',\n        emailTemplates: 'emailTemplates',\n    },\n    get currentDate() { return new Date().toLocaleString() },\n    payable_items: null,\n    payable_amount: 0,\n    requiredDocs: {\n        questionnaire: page.newfinfo?.requirements?.filter?.(att => att.category !== 'Medical'),\n        medical: page.newfinfo?.requirements?.filter?.(att => att.category === 'Medical')\n    },\n    case: page.checkedOut.case,\n    caseDetails: {\n        'fna': {\n            firstName: 'Suresh',\n            lastName: 'Chandrashekharan',\n            name: owner.PersonalDetails.fullName,\n            address: '58 Coetsee James street 560100 India',\n            phoneNumber: '88800110',\n            productName: 'productName',\n            PolicyNo: '(APPL12183322 : 39)',\n        }\n    },\n    finfoUrl: page.newfinfo ? bh.system.environment.properties.AGENT_UI_APP_URL + '/finfo/' + page.newfinfo.finfoId : undefined\n}\n\npage.owner = {\n    phoneNumber: owner.residentialAddress.telephone || '-',\n    email: owner.residentialAddress.email || '-',\n    name: owner.PersonalDetails.fullName || '-',\n    sex: owner.PersonalDetails.sex || '-',\n    idNumber: owner.PersonalDetails.idNumber || '-',\n    idIssueDate: owner.PersonalDetails.idIssueDate || '-',\n    idIssuePlace: owner.PersonalDetails.idIssuePlace || '-',\n    dob: owner.PersonalDetails.dob || '-',\n    age: owner.PersonalDetails.age || '-',\n    palceOfBirth: owner.PersonalDetails.palceOfBirth || '-',\n    nationality: owner.PersonalDetails.nationality || '-',\n    occupation: owner.PersonalDetails.occupation || '-',\n    income: owner.PersonalDetails.income || '-',\n    applicationNumber: page.checkedOut.case.applicationNumber || '-',\n}",
+        "functionName": "setHbVars",
+        "category": "Function",
+        "x": 245,
+        "y": 240,
+        "wires": [
+            [
+                "sd_zlifqykPPY1sPkyM"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_KHEbZmE74b7fycZo",
+        "type": "UseDependency",
+        "z": "sd_dkBEOmXfTZ6o2frk",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "handlebars",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "hb",
+        "propertyType": "this.page",
+        "propertyGv": "this.page.hb",
+        "alias": "hb",
+        "modules": [],
+        "import_all": true,
+        "library": "handlebars/dist/handlebars.min.js",
+        "serviceDesignerType": "pages",
+        "functionName": "handlebars",
+        "category": "Function",
+        "x": 285,
+        "y": 80,
+        "wires": [
+            [
+                "sd_ApveW8IjpKEAuk01"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_zjbnhML5EvkbSSZ5",
+        "type": "UseDependency",
+        "z": "sd_dkBEOmXfTZ6o2frk",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "ckeditor5 build classic",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "Editor",
+        "propertyType": "this.page",
+        "propertyGv": "this.page.Editor",
+        "alias": "ClassicEditor",
+        "modules": [],
+        "import_all": true,
+        "library": "@ckeditor/ckeditor5-build-classic",
+        "serviceDesignerType": "pages",
+        "functionName": "ckeditor5BuildClassic",
+        "category": "Function",
+        "x": 165,
+        "y": 80,
+        "wires": [
+            [
+                "sd_KHEbZmE74b7fycZo"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_ApveW8IjpKEAuk01",
+        "type": "UseDependency",
+        "z": "sd_dkBEOmXfTZ6o2frk",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "import ng form",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "",
+        "propertyType": "bh",
+        "propertyGv": "bh.",
+        "alias": "",
+        "modules": [
+            {
+                "textIp": "FormBuilder",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "fb"
+                },
+                "injectable": true
+            },
+            {
+                "textIp": "Validators",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                },
+                "injectable": false
+            }
+        ],
+        "import_all": false,
+        "library": "@angular/forms",
+        "serviceDesignerType": "pages",
+        "functionName": "importNgForm",
+        "category": "Function",
+        "x": 385,
+        "y": 80,
+        "wires": [
+            [
+                "sd_KkGtRGzwHv6VesoQ"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_KkGtRGzwHv6VesoQ",
+        "type": "PageServiceVariables",
+        "z": "sd_dkBEOmXfTZ6o2frk",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "get",
+        "globalVariables": [
+            {
+                "textIp": "checkedOut",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "checkedOut"
+                }
+            },
+            {
+                "textIp": "emailComposerData",
+                "typedIpValue": {
+                    "type": "bh",
+                    "value": "emailData"
+                }
+            },
+            {
+                "textIp": "newfinfo",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "newfinfo"
+                }
+            }
+        ],
+        "functionName": "sd_KkGtRGzwHv6VesoQ",
+        "service": {
+            "id": "sd_RbD2RZwzan9VSOEL",
+            "type": "tab",
+            "createdDate": "2022-03-10T07:40:30.532Z",
+            "label": "cache",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "generateNext": true,
+            "serviceName": "cache",
+            "relativeParentPath": "",
+            "_def": {
+                "defaults": {
+                    "label": {
+                        "value": ""
+                    },
+                    "disabled": {
+                        "value": false
+                    },
+                    "info": {
+                        "value": ""
+                    }
+                }
+            }
+        },
+        "serviceImportPath": "app/sd-services/cache",
+        "category": "Function",
+        "x": 125,
+        "y": 240,
+        "wires": [
+            [
+                "sd_8gi0gvOAeaNajnqH"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_zlifqykPPY1sPkyM",
+        "type": "Script",
+        "z": "sd_dkBEOmXfTZ6o2frk",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "create form group",
+        "script": "const caseDetails = page.checkedOut.case.caseDetails;\nconst owner = caseDetails.owner;\nconst email = owner.residentialAddress.email\npage.emailForm = page.fb.group({\n    to: page.fb.control(email || '', [Validators.email, Validators.required]),\n    cc: page.fb.control('', [Validators.email]),\n    subject: page.fb.control('', [Validators.required]),\n    body: page.fb.control('', [Validators.required]),\n    attachments: page.fb.control([]),\n})\nconst attachmentsDocId = bh.emailData?.attachments?.docId;\nconst pv = {\n    subject: `(${page.checkedOut.case.applicationNumber} : ${page.checkedOut.task.pid})`,\n    ...bh.emailData,\n    attachments: attachmentsDocId ? [attachmentsDocId] : []\n}\nif (page.newfinfo) {\n    pv.subject = 'Request For Further Information - ' + pv.subject;\n}\npage.emailForm.patchValue(pv);",
+        "functionName": "createFormGroup",
+        "category": "Function",
+        "x": 385,
+        "y": 240,
+        "wires": [
+            [
+                "sd_MfjFHtW6tuZm9MVI"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_z6UAju2mIAwfjmdA",
+        "type": "PageStart",
+        "z": "sd_dkBEOmXfTZ6o2frk",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "get templates",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "getTemplates",
+        "category": "General",
+        "x": 105,
+        "y": 360,
+        "wires": [
+            [
+                "sd_iK3VlWybUE6mcH9B"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "emailComposerComponent"
+    },
+    {
+        "id": "sd_iK3VlWybUE6mcH9B",
+        "type": "Script",
+        "z": "sd_dkBEOmXfTZ6o2frk",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.url = `${bh.system.environment.properties.ssdBaseUrl}/correspondence/email/templates`;",
+        "functionName": "sd_iK3VlWybUE6mcH9B",
+        "category": "Function",
+        "x": 240,
+        "y": 360,
+        "wires": [
+            [
+                "sd_1gwqRIjSfeoWxNW9"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_1gwqRIjSfeoWxNW9",
+        "type": "HttpRequest",
+        "z": "sd_dkBEOmXfTZ6o2frk",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "get",
+        "methodMapping": "",
+        "methodMappingObj": {},
+        "urlMapping": "bh.url",
+        "urlMappingObj": {
+            "mapVarType": "bh",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMapping": "",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMapping": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "",
+        "reqBodyObj": {
+            "mapVarType": "this.page",
+            "mapVarValue": ""
+        },
+        "resultMapping": "this.page.templates",
+        "resultMappingObj": {
+            "mapVarType": "this.page",
+            "mapVarValue": "templates"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMapping": "",
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMapping": "",
+        "paramMappingObj": {},
+        "functionName": "sd_1gwqRIjSfeoWxNW9",
+        "category": "HTTP",
+        "x": 385,
+        "y": 360,
+        "wires": [
+            [
+                "sd_ol4eEOpxazpDc1Vc"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_MfjFHtW6tuZm9MVI",
+        "type": "PageAsync",
+        "z": "sd_dkBEOmXfTZ6o2frk",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "flowNodes": [
+            {
+                "serviceId": "sd_dkBEOmXfTZ6o2frk",
+                "serviceName": "emailComposer",
+                "flowId": "sd_z6UAju2mIAwfjmdA",
+                "flowName": "get templates",
+                "functionName": "getTemplates",
+                "inputParams": [],
+                "inputVariables": [],
+                "accept_bh": false,
+                "viewType": "pages",
+                "relativePath": "./emailComposer"
+            },
+            {
+                "serviceId": "sd_jkXaNKtzX8iSR5cy",
+                "serviceName": "caseService",
+                "flowId": "sd_er60ubsmAmc1cnmx",
+                "flowName": "get case docs for caseId",
+                "functionName": "getCaseDocsForCaseId",
+                "inputParams": [
+                    "this.page.checkedOut.case._id"
+                ],
+                "inputVariables": [
+                    {
+                        "key": "pid",
+                        "map": true,
+                        "valueType": "this.page",
+                        "value": "checkedOut.case._id"
+                    }
+                ],
+                "accept_bh": false,
+                "viewType": "client-server",
+                "relativePath": null
+            }
+        ],
+        "_flowNodes": [
+            {
+                "serviceId": "sd_dkBEOmXfTZ6o2frk",
+                "serviceName": "emailComposer",
+                "flowId": "sd_z6UAju2mIAwfjmdA",
+                "flowName": "get templates",
+                "functionName": "getTemplates",
+                "inputParams": [],
+                "inputVariables": [],
+                "accept_bh": false,
+                "viewType": "pages"
+            },
+            {
+                "serviceId": "sd_jkXaNKtzX8iSR5cy",
+                "serviceName": "caseService",
+                "flowId": "sd_er60ubsmAmc1cnmx",
+                "flowName": "get case docs for caseId",
+                "functionName": "getCaseDocsForCaseId",
+                "inputParams": [],
+                "inputVariables": [
+                    {
+                        "key": "caseId",
+                        "defaultValue": {
+                            "type": "any",
+                            "value": ""
+                        },
+                        "output": false
+                    }
+                ],
+                "accept_bh": false,
+                "viewType": "client-server"
+            }
+        ],
+        "resultMapping": "bh.results",
+        "accept_csd": true,
+        "isValidNode": true,
+        "functionName": "sd_MfjFHtW6tuZm9MVI",
+        "category": "Function",
+        "x": 505,
+        "y": 240,
+        "wires": [
+            [
+                "sd_qrfJx17XsbhhKi0a"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "resultMapping": {
+                "type": "bh",
+                "value": "results",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_qrfJx17XsbhhKi0a",
+        "type": "PageVariables",
+        "z": "sd_dkBEOmXfTZ6o2frk",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "caseDocuments",
+                "typedIpValue": {
+                    "type": "bh",
+                    "value": "results[1]?.local.result?.documents"
+                }
+            }
+        ],
+        "functionName": "sd_qrfJx17XsbhhKi0a",
+        "category": "Function",
+        "x": 660,
+        "y": 240,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_BRRe58nwN5kpxkYJ",
+        "type": "PageServiceVariables",
+        "z": "sd_dkBEOmXfTZ6o2frk",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "unset email data in cache",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "emailComposerData",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "null"
+                }
+            },
+            {
+                "textIp": "newfinfo",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "null"
+                }
+            }
+        ],
+        "functionName": "unsetEmailDataInCache",
+        "service": {
+            "id": "sd_RbD2RZwzan9VSOEL",
+            "type": "tab",
+            "createdDate": "2022-03-10T07:40:30.532Z",
+            "label": "cache",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "generateNext": true,
+            "serviceName": "cache",
+            "relativeParentPath": "",
+            "_def": {
+                "defaults": {
+                    "label": {
+                        "value": ""
+                    },
+                    "disabled": {
+                        "value": false
+                    },
+                    "info": {
+                        "value": ""
+                    }
+                }
+            }
+        },
+        "serviceImportPath": "app/sd-services/cache",
+        "category": "Function",
+        "x": 225,
+        "y": 840,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_8F9N0rhqpyWuVkXW",
+        "type": "OnDestroy",
+        "z": "sd_dkBEOmXfTZ6o2frk",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "sd_8F9N0rhqpyWuVkXW",
+        "category": "Lifecycle Events",
+        "x": 85,
+        "y": 840,
+        "wires": [
+            [
+                "sd_BRRe58nwN5kpxkYJ"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "emailComposerComponent"
+    },
+    {
+        "id": "sd_2fpMThtJT1Mmqln9",
+        "type": "4a14d245-3eca-40a4-550c-2885e99a00e9",
+        "z": "sd_dkBEOmXfTZ6o2frk",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "close rsn",
+        "eventName": "\"close-rsn\"",
+        "functionName": "closeRsn",
+        "category": "Events",
+        "x": 625,
+        "y": 680,
+        "wires": [
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "eventName": {
+                "type": "str",
+                "value": "close-rsn",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_9ybeOTGclM6TZ7My",
+        "type": "PageCallService",
+        "z": "sd_dkBEOmXfTZ6o2frk",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "call csd send email",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_ZDiZhKoMHdoCgieC",
+            "type": "tab",
+            "createdDate": "2022-03-10T18:37:26.786Z",
+            "label": "emailService",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_AWcp1Sv3cTckW698",
+            "flowName": "sendEmail"
+        },
+        "inputVariables": [
+            {
+                "key": "data",
+                "map": true,
+                "valueType": "bh",
+                "value": "data"
+            },
+            {
+                "key": "pid",
+                "map": true,
+                "valueType": "this.page",
+                "value": "checkedOut.task.pid"
+            }
+        ],
+        "outputMapping": [],
+        "serviceImportPath": "app/sd-services/emailService",
+        "startName": "sendEmail",
+        "inputParams": [
+            "bh.data",
+            "this.page.checkedOut.task.pid"
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "callCsdSendEmail",
+        "category": "General",
+        "x": 460,
+        "y": 680,
+        "wires": [
+            [
+                "sd_2fpMThtJT1Mmqln9",
+                "sd_ogOI9SQSVoHOKCh0"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_XkoWSSCXwiw11pxc",
+        "type": "Script",
+        "z": "sd_dkBEOmXfTZ6o2frk",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "select finfo as template",
+        "script": "page.selectedTemplate = 'NBPR';",
+        "functionName": "selectFinfoAsTemplate",
+        "category": "Function",
+        "x": 605,
+        "y": 360,
+        "wires": [
+            [
+                "sd_MzEMNPW0l5BzIbx6"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_MzEMNPW0l5BzIbx6",
+        "type": "PageCallService",
+        "z": "sd_dkBEOmXfTZ6o2frk",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_dkBEOmXfTZ6o2frk",
+            "type": "tab",
+            "createdDate": "2022-03-10T13:50:58.182Z",
+            "label": "emailComposer",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_6tgzAjmtP5uPGrw4",
+            "flowName": "selectTemplate"
+        },
+        "inputVariables": [
+            {
+                "key": "value",
+                "map": true,
+                "valueType": "this.page",
+                "value": "selectedTemplate"
+            }
+        ],
+        "outputMapping": [],
+        "serviceImportPath": "./emailComposer",
+        "startName": "selectTemplate",
+        "inputParams": [
+            "this.page.selectedTemplate"
+        ],
+        "accept_bh": false,
+        "accept_csd": false,
+        "functionName": "sd_MzEMNPW0l5BzIbx6",
+        "category": "General",
+        "x": 745,
+        "y": 360,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_ol4eEOpxazpDc1Vc",
+        "type": "PageSwitch",
+        "z": "sd_dkBEOmXfTZ6o2frk",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "check newfinfo",
+        "property": "newfinfo",
+        "propertyType": "this.page",
+        "propertyGv": "this.page.newfinfo",
+        "rules": [
+            {
+                "t": "nnull"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 1,
+        "functionName": "checkNewfinfo",
+        "category": "Function",
+        "x": 480,
+        "y": 360,
+        "wires": [
+            [
+                "sd_XkoWSSCXwiw11pxc"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_ogOI9SQSVoHOKCh0",
+        "type": "4a14d245-3eca-40a4-550c-2885e99a00e9",
+        "z": "sd_dkBEOmXfTZ6o2frk",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "emit fetch sent emails",
+        "eventName": "\"fetch-sent-emails\"",
+        "functionName": "emitFetchSentEmails",
+        "category": "Events",
+        "x": 625,
+        "y": 840,
+        "wires": [
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "eventName": {
+                "type": "str",
+                "value": "fetch-sent-emails",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

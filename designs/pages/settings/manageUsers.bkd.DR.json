@@ -1,0 +1,719 @@
+{
+    "e17dd4d8-ba01-4061-cf01-8fb4610c76b6": {
+        "paletteKey": "FlexLayoutCol",
+        "commentid": null,
+        "designerReference": [
+            {
+                "_key": "componentLabel",
+                "_value": "Column",
+                "_type": "kv",
+                "_attrDef": "p",
+                "_useAsLabel": true
+            },
+            {
+                "_key": "style",
+                "_value": "padding: 32px ;",
+                "_type": "kv",
+                "_attrDef": "p"
+            },
+            {
+                "_key": "class",
+                "_value": [
+                    "padding-1"
+                ],
+                "_type": "dav",
+                "_attrDef": "p"
+            },
+            {
+                "_key": "fxFlex",
+                "_value": "100",
+                "_type": "kv",
+                "_attrDef": "p"
+            },
+            {
+                "_key": "fxLayoutGap",
+                "_value": "1rem",
+                "_type": "kv",
+                "_attrDef": "p"
+            },
+            {
+                "_key": "wrap",
+                "_value": "",
+                "_type": "a",
+                "_attrDef": "p"
+            },
+            {
+                "_key": "layoutAlign",
+                "_value": "start",
+                "_type": "a",
+                "_attrDef": "p"
+            },
+            {
+                "_key": "pLayoutAlign",
+                "_value": "stretch",
+                "_type": "a",
+                "_attrDef": "p"
+            },
+            {
+                "_key": "[fxShow]",
+                "_value": "page.policy",
+                "_type": "kv",
+                "_attrDef": "p",
+                "_customAttributeFlag": "customInput"
+            },
+            {
+                "_key": "[fxHide]",
+                "_value": "false",
+                "_type": "kv",
+                "_attrDef": "c"
+            }
+        ],
+        "c461b562-707a-686f-f444-082929784746": {
+            "paletteKey": "NEUTRINOS_VIEW_settingsHeader",
+            "parentEditorKey": "e17dd4d8-ba01-4061-cf01-8fb4610c76b6",
+            "commentid": null,
+            "designerReference": [
+                {
+                    "_key": "componentLabel",
+                    "_value": "settingsHeader",
+                    "_type": "kv",
+                    "_attrDef": "p",
+                    "_useAsLabel": true
+                },
+                {
+                    "_key": "style",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "class",
+                    "_value": "",
+                    "_type": "dav",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "[cancelNav]",
+                    "_value": "'/web/nav/admin'",
+                    "_type": "kv",
+                    "_attrDef": "p",
+                    "_complexity": "advanced",
+                    "displayAs": "cancelNav",
+                    "attrType": "INPUT",
+                    "inValid": false,
+                    "message": ""
+                },
+                {
+                    "_key": "(save)",
+                    "_value": "saveData()",
+                    "_type": "kv",
+                    "_attrDef": "p",
+                    "_complexity": "advanced",
+                    "displayAs": "save",
+                    "attrType": "OUTPUT",
+                    "inValid": false,
+                    "message": "",
+                    "_customAttributeFlag": "flowpicker",
+                    "objValue": {
+                        "nodeID": "sd_MqXuLVd4MNC2iAOR",
+                        "functionName": "saveData",
+                        "activeTree": "pages",
+                        "z": "sd_VSkmwzz0p1aIJBgp",
+                        "input": []
+                    }
+                },
+                {
+                    "_key": "[heading]",
+                    "_value": "'Configuration'",
+                    "_type": "kv",
+                    "_attrDef": "p",
+                    "_complexity": "advanced",
+                    "displayAs": "heading",
+                    "attrType": "INPUT",
+                    "inValid": false,
+                    "message": ""
+                }
+            ]
+        },
+        "1034b588-53d7-6674-45ec-56e33f08bc37": {
+            "paletteKey": "FlexLayoutRow",
+            "parentEditorKey": "e17dd4d8-ba01-4061-cf01-8fb4610c76b6",
+            "commentid": null,
+            "designerReference": [
+                {
+                    "_key": "componentLabel",
+                    "_value": "Row",
+                    "_type": "kv",
+                    "_attrDef": "p",
+                    "_useAsLabel": true
+                },
+                {
+                    "_key": "style",
+                    "_value": "width: 100%;    ",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "class",
+                    "_value": "",
+                    "_type": "dav",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "fxFlex",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "fxLayoutGap",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "wrap",
+                    "_value": "wrap",
+                    "_type": "a",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "layoutAlign",
+                    "_value": "start",
+                    "_type": "a",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "pLayoutAlign",
+                    "_value": "stretch",
+                    "_type": "a",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "[fxShow]",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "[fxHide]",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "c"
+                }
+            ],
+            "c5b97956-e7af-38bd-8676-bf5727ba3d95": {
+                "paletteKey": "Html5",
+                "parentEditorKey": "1034b588-53d7-6674-45ec-56e33f08bc37",
+                "isAdvancedComponent": true,
+                "commentid": null,
+                "designerReference": [
+                    {
+                        "_key": "style",
+                        "_value": "    width: 100%;",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "class",
+                        "_value": [
+                            "tableclass2"
+                        ],
+                        "_type": "dav",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "htmlElement",
+                        "_value": "div",
+                        "_type": "dav",
+                        "_attrDef": "p",
+                        "_useAsLabel": true
+                    },
+                    {
+                        "_key": "tagType",
+                        "_value": "",
+                        "_type": "a",
+                        "_attrDef": "p",
+                        "_visibility": false
+                    },
+                    {
+                        "_key": "name",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p",
+                        "_visibility": false
+                    },
+                    {
+                        "_key": "sandbox",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p",
+                        "_visibility": false
+                    },
+                    {
+                        "_key": "src",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p",
+                        "_visibility": false
+                    },
+                    {
+                        "_key": "srcdoc",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p",
+                        "_visibility": false
+                    },
+                    {
+                        "_key": "width",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p",
+                        "_visibility": false
+                    },
+                    {
+                        "_key": "[autoplay]",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p",
+                        "_visibility": false
+                    },
+                    {
+                        "_key": "[loop]",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p",
+                        "_visibility": false
+                    },
+                    {
+                        "_key": "data",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p",
+                        "_visibility": false
+                    },
+                    {
+                        "_key": "audioSource",
+                        "_value": [],
+                        "_type": "a",
+                        "_attrDef": "p",
+                        "_visibility": false
+                    },
+                    {
+                        "_key": "videoSource",
+                        "_value": [],
+                        "_type": "a",
+                        "_attrDef": "p",
+                        "_visibility": false
+                    },
+                    {
+                        "_key": "audioDatasource",
+                        "_value": "",
+                        "_type": "a",
+                        "_attrDef": "p",
+                        "_visibility": false
+                    },
+                    {
+                        "_key": "audioSrc",
+                        "_value": "",
+                        "_type": "a",
+                        "_attrDef": "p",
+                        "_visibility": false
+                    },
+                    {
+                        "_key": "audioType",
+                        "_value": "",
+                        "_type": "a",
+                        "_attrDef": "p",
+                        "_visibility": false
+                    },
+                    {
+                        "_key": "videoDatasource",
+                        "_value": "",
+                        "_type": "a",
+                        "_attrDef": "p",
+                        "_visibility": false
+                    },
+                    {
+                        "_key": "videoSrc",
+                        "_value": "",
+                        "_type": "a",
+                        "_attrDef": "p",
+                        "_visibility": false
+                    },
+                    {
+                        "_key": "videoType",
+                        "_value": "",
+                        "_type": "a",
+                        "_attrDef": "p",
+                        "_visibility": false
+                    },
+                    {
+                        "_key": "(audioplay)",
+                        "_value": "",
+                        "_type": "a",
+                        "_attrDef": "p",
+                        "_visibility": false
+                    },
+                    {
+                        "_key": "(videoplay)",
+                        "_value": "",
+                        "_type": "a",
+                        "_attrDef": "p",
+                        "_visibility": false
+                    },
+                    {
+                        "_key": "(audiopause)",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p",
+                        "_visibility": false
+                    },
+                    {
+                        "_key": "(videopause)",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p",
+                        "_visibility": false
+                    },
+                    {
+                        "_key": "(audioended)",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p",
+                        "_visibility": false
+                    },
+                    {
+                        "_key": "(videoended)",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p",
+                        "_visibility": false
+                    },
+                    {
+                        "_key": "fxLayout",
+                        "_value": "column",
+                        "_type": "kv",
+                        "_attrDef": "c"
+                    }
+                ],
+                "a29d6dcd-ec5f-1ab2-ad3f-a22141bba065": {
+                    "paletteKey": "html-editor",
+                    "parentEditorKey": "c5b97956-e7af-38bd-8676-bf5727ba3d95",
+                    "isAdvancedChildComponent": true,
+                    "commentid": null,
+                    "designerReference": [
+                        {
+                            "_key": "style",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "class",
+                            "_value": "",
+                            "_type": "dav",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "html",
+                            "_value": "<div>\n\t<h3>Shifts</h3>\n</div>\n<table style=\"width: 100%;\" mat-table [dataSource]=\"page.tableData\" class=\"mat-elevation-z1 formfield_width\">\n\t<ng-container matColumnDef=\"shift\">\n\t\t<th mat-header-cell *matHeaderCellDef> Shift </th>\n\t\t<td mat-cell *matCellDef=\"let element\">\n\t\t\t<mat-form-field class=\"example-full-width\" appearance=\"legacy\">\n\t\t\t\t<input matInput name =\"Shift\"   [(ngModel)]=\"element.shift\" [value]=\"element.shift\">\n            </mat-form-field>\n\t\t</td>\n\t</ng-container>\n\t<ng-container matColumnDef=\"from\">\n\t\t<th mat-header-cell *matHeaderCellDef> From </th>\n\t\t<td mat-cell *matCellDef=\"let element\">\n\t\t\t<mat-form-field class=\"example-full-width\" appearance=\"legacy\">\n\t\t\t\t<input matInput type=\"number\" name=\"from\" [(ngModel)]=\"element.from\" [value]=\"element.from\" >\n            </mat-form-field>\n\t\t</td>\n\t</ng-container>\n\t<ng-container matColumnDef=\"to\">\n\t\t<th mat-header-cell *matHeaderCellDef> To </th>\n\t\t<td mat-cell *matCellDef=\"let element\">\n\t\t\t<mat-form-field class=\"example-full-width\" appearance=\"legacy\">\n\t\t\t\t<input type=\"number\" matInput  name=\"to\" [(ngModel)]=\"element.to\" [value]=\"element.to\" >\n                        </mat-form-field>\n\t\t</td>\n\t</ng-container>\n\t<ng-container matColumnDef=\"rule\">\n\t\t<th mat-header-cell *matHeaderCellDef> Rule </th>\n\t\t<td mat-cell *matCellDef=\"let element\">\n\t\t\t<mat-form-field>\n\t\t\t\t<mat-select name=\"rule\" [(ngModel)]=\"element.rule\">\n\t\t\t\t\t<mat-option *ngFor=\"let food of page.rules\" [value]=\"food\">\n\t\t\t\t\t\t{{food}}\n\t\t\t\t\t</mat-option>\n\t\t\t\t</mat-select>\n\t\t\t</mat-form-field>\n\n\t\t</td>\n\t</ng-container>\n\t<ng-container matColumnDef=\"allowoverwrite\">\n\t\t<th mat-header-cell *matHeaderCellDef> Allow overwrite </th>\n\t\t<td mat-cell *matCellDef=\"let element\" style=\"    text-align: center;\">\n\t\t\t<mat-slide-toggle [color]=\"red\" [checked]=\"element.allowoverwrite\" name=\"allowoverwrite\"\n\t\t\t\t[(ngModel)]=\"element.allowoverwrite\" [value]=\"element.allowoverwrite\"></mat-slide-toggle>\n\t\t</td>\n\t</ng-container>\n\t<ng-container matColumnDef=\"priority\">\n\t\t<th mat-header-cell *matHeaderCellDef> Priority </th>\n\t\t<td mat-cell *matCellDef=\"let element\">\n\t\t\t<mat-form-field class=\"example-full-width\" appearance=\"legacy\">\n\t\t\t\t<input type=\"number\" matInput name=\"priority\" [(ngModel)]=\"element.priority\" [value]=\"element.priority\">\n                        </mat-form-field>\n\t\t</td>\n\t</ng-container>\n\t<ng-container matColumnDef=\"enableDisable\">\n\t\t<th mat-header-cell *matHeaderCellDef> Enable/Disable </th>\n\t\t<td mat-cell *matCellDef=\"let element\" style=\"    text-align: center;\">\n\t\t\t<mat-slide-toggle [color]=\"green\" [checked]=\"element.enableDisable\" name=\"priority\"\n\t\t\t\t[(ngModel)]=\"element.enableDisable\" [value]=\"element.enableDisable\"></mat-slide-toggle>\n\t\t</td>\n\t</ng-container>\n\t<ng-container matColumnDef=\"actions\">\n\t\t<th mat-header-cell *matHeaderCellDef> </th>\n\t\t<td mat-cell *matCellDef=\"let element;let i = index;\">\n\t\t\t<mat-icon style=\"color: green;font-size: 33px;text-align: center;\"\n\t\t\t\t[ngStyle]=\"{'color': (page.tableData?.data?.length -1 == i) ? 'green':'red'}\"\n\t\t\t\t(click)=\"addShift((page.tableData?.data?.length -1 == i),i )\">\n\t\t\t\t{{  (page.tableData?.data?.length -1 == i) ? 'add_circle':'delete'}}</mat-icon>\n\n\t\t</td>\n\t</ng-container>\n\t<tr mat-header-row *matHeaderRowDef=\"page.displayedColumns\"></tr>\n\t<tr mat-row *matRowDef=\"let row; columns: page.displayedColumns;\"></tr>\n</table>",
+                            "_type": "a",
+                            "_attrDef": "p"
+                        }
+                    ]
+                }
+            }
+        },
+        "30d1ef2e-47b7-912e-cdf6-3e2bf649eb79": {
+            "paletteKey": "FlexLayoutRow",
+            "parentEditorKey": "e17dd4d8-ba01-4061-cf01-8fb4610c76b6",
+            "commentid": null,
+            "designerReference": [
+                {
+                    "_key": "componentLabel",
+                    "_value": "Row",
+                    "_type": "kv",
+                    "_attrDef": "p",
+                    "_useAsLabel": true
+                },
+                {
+                    "_key": "style",
+                    "_value": "width: 100%;    ",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "class",
+                    "_value": "",
+                    "_type": "dav",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "fxFlex",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "fxLayoutGap",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "wrap",
+                    "_value": "wrap",
+                    "_type": "a",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "layoutAlign",
+                    "_value": "start",
+                    "_type": "a",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "pLayoutAlign",
+                    "_value": "stretch",
+                    "_type": "a",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "[fxShow]",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "[fxHide]",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "c"
+                }
+            ],
+            "1b4d6729-0d78-2457-a81c-6c3fa3c750a5": {
+                "paletteKey": "Html5",
+                "parentEditorKey": "30d1ef2e-47b7-912e-cdf6-3e2bf649eb79",
+                "isAdvancedComponent": true,
+                "commentid": null,
+                "designerReference": [
+                    {
+                        "_key": "style",
+                        "_value": "    width: 100%;",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "class",
+                        "_value": [
+                            "tableclass2"
+                        ],
+                        "_type": "dav",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "htmlElement",
+                        "_value": "div",
+                        "_type": "dav",
+                        "_attrDef": "p",
+                        "_useAsLabel": true
+                    },
+                    {
+                        "_key": "tagType",
+                        "_value": "",
+                        "_type": "a",
+                        "_attrDef": "p",
+                        "_visibility": false
+                    },
+                    {
+                        "_key": "name",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p",
+                        "_visibility": false
+                    },
+                    {
+                        "_key": "sandbox",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p",
+                        "_visibility": false
+                    },
+                    {
+                        "_key": "src",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p",
+                        "_visibility": false
+                    },
+                    {
+                        "_key": "srcdoc",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p",
+                        "_visibility": false
+                    },
+                    {
+                        "_key": "width",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p",
+                        "_visibility": false
+                    },
+                    {
+                        "_key": "[autoplay]",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p",
+                        "_visibility": false
+                    },
+                    {
+                        "_key": "[loop]",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p",
+                        "_visibility": false
+                    },
+                    {
+                        "_key": "data",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p",
+                        "_visibility": false
+                    },
+                    {
+                        "_key": "audioSource",
+                        "_value": [],
+                        "_type": "a",
+                        "_attrDef": "p",
+                        "_visibility": false
+                    },
+                    {
+                        "_key": "videoSource",
+                        "_value": [],
+                        "_type": "a",
+                        "_attrDef": "p",
+                        "_visibility": false
+                    },
+                    {
+                        "_key": "audioDatasource",
+                        "_value": "",
+                        "_type": "a",
+                        "_attrDef": "p",
+                        "_visibility": false
+                    },
+                    {
+                        "_key": "audioSrc",
+                        "_value": "",
+                        "_type": "a",
+                        "_attrDef": "p",
+                        "_visibility": false
+                    },
+                    {
+                        "_key": "audioType",
+                        "_value": "",
+                        "_type": "a",
+                        "_attrDef": "p",
+                        "_visibility": false
+                    },
+                    {
+                        "_key": "videoDatasource",
+                        "_value": "",
+                        "_type": "a",
+                        "_attrDef": "p",
+                        "_visibility": false
+                    },
+                    {
+                        "_key": "videoSrc",
+                        "_value": "",
+                        "_type": "a",
+                        "_attrDef": "p",
+                        "_visibility": false
+                    },
+                    {
+                        "_key": "videoType",
+                        "_value": "",
+                        "_type": "a",
+                        "_attrDef": "p",
+                        "_visibility": false
+                    },
+                    {
+                        "_key": "(audioplay)",
+                        "_value": "",
+                        "_type": "a",
+                        "_attrDef": "p",
+                        "_visibility": false
+                    },
+                    {
+                        "_key": "(videoplay)",
+                        "_value": "",
+                        "_type": "a",
+                        "_attrDef": "p",
+                        "_visibility": false
+                    },
+                    {
+                        "_key": "(audiopause)",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p",
+                        "_visibility": false
+                    },
+                    {
+                        "_key": "(videopause)",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p",
+                        "_visibility": false
+                    },
+                    {
+                        "_key": "(audioended)",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p",
+                        "_visibility": false
+                    },
+                    {
+                        "_key": "(videoended)",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p",
+                        "_visibility": false
+                    },
+                    {
+                        "_key": "fxLayout",
+                        "_value": "column",
+                        "_type": "kv",
+                        "_attrDef": "c"
+                    }
+                ],
+                "f0e684f8-1231-2cce-aaa9-be522fa0af3f": {
+                    "paletteKey": "html-editor",
+                    "parentEditorKey": "1b4d6729-0d78-2457-a81c-6c3fa3c750a5",
+                    "isAdvancedChildComponent": true,
+                    "commentid": null,
+                    "designerReference": [
+                        {
+                            "_key": "style",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "class",
+                            "_value": "",
+                            "_type": "dav",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "html",
+                            "_value": "<div>\n\t<h3>Roles</h3>\n</div>\n<table style=\"width: 100%;\" mat-table [dataSource]=\"page.tableData1\" class=\"mat-elevation-z1 formfield_width\">\n\t<ng-container matColumnDef=\"roleName\">\n\t\t<th mat-header-cell *matHeaderCellDef> Role Name </th>\n\t\t<td mat-cell *matCellDef=\"let element\">\n\t\t\t<!-- <mat-form-field class=\"width-100\"> -->\n\t\t\t<!-- <mat-select name=\"roleName\" [(ngModel)]=\"element.roleName\">\n\t\t\t\t\t<mat-option *ngFor=\"let food of page.roleNames\" [value]=\"food\">\n\t\t\t\t\t\t{{food}}\n\t\t\t\t\t</mat-option>\n\t\t\t\t</mat-select> -->\n\t\t\t<!-- </mat-form-field> -->\n\t\t\t<!-- <input class=\"row-item\" matInput [value]=\"element.label\" readonly> -->\n\t\t\t<span class=\"row-item\">{{element.label}}</span>\n\t\t</td>\n\t</ng-container>\n\t<ng-container matColumnDef=\"min\">\n\t\t<th mat-header-cell *matHeaderCellDef> Min </th>\n\t\t<td mat-cell *matCellDef=\"let element\">\n\t\t\t<mat-form-field class=\"example-full-width\" appearance=\"legacy\">\n\t\t\t\t<input matInput  type=\"number\" name=\"Min\" [(ngModel)]=\"element.allocConfig.min\">\n            </mat-form-field>\n\t\t</td>\n\t</ng-container>\n\t<ng-container matColumnDef=\"max\">\n\t\t<th mat-header-cell *matHeaderCellDef> Max </th>\n\t\t<td mat-cell *matCellDef=\"let element\">\n\t\t\t<mat-form-field class=\"example-full-width\" appearance=\"legacy\">\n\t\t\t\t<input matInput type=\"number\"  name=\"max\" [(ngModel)]=\"element.allocConfig.max\" >\n            </mat-form-field>\n\t\t</td>\n\t</ng-container>\n\t<ng-container matColumnDef=\"dailyLimit\">\n\t\t<th mat-header-cell *matHeaderCellDef> Daily Limit </th>\n\t\t<td mat-cell *matCellDef=\"let element\">\n\t\t\t<mat-form-field class=\"example-full-width\" appearance=\"legacy\">\n\t\t\t\t<input matInput name =\"dailyLimit\"  type=\"number\"   [(ngModel)]=\"element.allocConfig.dailyLimit\">\n            </mat-form-field>\n\t\t</td>\n\t</ng-container>\n\t<ng-container matColumnDef=\"supervisorName\">\n\t\t<th mat-header-cell *matHeaderCellDef>{{page.locales.keys.supervisor}}</th>\n\t\t<td mat-cell *matCellDef=\"let element\">\n\t\t\t<mat-form-field class=\"example-full-width\" appearance=\"legacy\">\n\t\t\t\t<mat-select name=\"roleName\" [(ngModel)]=\"element.allocConfig.supervisor\">\n\t\t\t\t\t<mat-option *ngFor=\"let sv of page.superVisors\" [value]=\"sv.jbpm\">\n\t\t\t\t\t\t{{sv.jbpm}}\n\t\t\t\t\t</mat-option>\n\t\t\t\t</mat-select>\n\t\t\t</mat-form-field>\n\t\t</td>\n\t</ng-container>\n\n\t<ng-container matColumnDef=\"actions\">\n\t\t<th mat-header-cell *matHeaderCellDef> Actions</th>\n\t\t<td mat-cell *matCellDef=\"let element;let i = index;\">\n\t\t\t<div class=\"display-flex row-item primary-text-color justify-content-space-bw\" style=\"width: unset\">\n\t\t\t\t<mat-icon class=\"cursor-pointer\" style=\"margin-right: 1rem;\" (click)=\"editUser(i)\"\n\t\t\t\t\tmatTooltip=\"{{page.locales.keys.editUsers}}\">\n\t\t\t\t\tedit\n\t\t\t\t</mat-icon>\n\t\t\t\t<!-- <mat-icon class=\"cursor-pointer\" (click)=\"addRoles()\"> add_circle</mat-icon> -->\n\t\t\t</div>\n\t\t</td>\n\t</ng-container>\n\t<ng-container matColumnDef=\"overrideAuthority\">\n\t\t<th mat-header-cell *matHeaderCellDef style=\"text-align: center\"> Override Authority </th>\n\t\t<td mat-cell *matCellDef=\"let element\" style=\"text-align: center;\">\n\t\t\t<mat-slide-toggle [color]=\"red\" name=\"overrideAuthority\"\n\t\t\t\t[(ngModel)]=\"element.allocConfig.overrideAuthority\"></mat-slide-toggle>\n\t\t</td>\n\t</ng-container>\n\n\t<!-- <ng-container matColumnDef=\"act\">\n\t\t<th mat-header-cell *matHeaderCellDef> </th>\n\t\t<td mat-cell *matCellDef=\"let element;let i = index;\">\n\t\t\t<mat-icon class=\"row-item primary-text-color\" (click)=\"addRoles()\"> add_circle</mat-icon>\n\t\t</td>\n\t</ng-container> -->\n\t<tr mat-header-row *matHeaderRowDef=\"page.displayedColumns1\"></tr>\n\t<tr mat-row *matRowDef=\"let row; columns: page.displayedColumns1;\"></tr>\n</table>",
+                            "_type": "a",
+                            "_attrDef": "p"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

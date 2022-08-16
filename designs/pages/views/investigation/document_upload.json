@@ -1,0 +1,160 @@
+[
+    {
+        "id": "sd_eP3vmpzJ9VO3xZEc",
+        "type": "tab",
+        "createdDate": "2022-07-19T07:34:40.434Z",
+        "label": "document_upload",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "document_uploadComponent"
+    },
+    {
+        "id": "sd_9CvNaAmnU3qna16r",
+        "type": "OnInit",
+        "z": "sd_eP3vmpzJ9VO3xZEc",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "inputVariables": [],
+        "localVariables": [],
+        "outputVariables": [
+            {
+                "key": "onDocumentChange",
+                "defaultValue": {
+                    "type": "any",
+                    "value": null
+                }
+            }
+        ],
+        "functionName": "sd_9CvNaAmnU3qna16r",
+        "category": "Lifecycle Events",
+        "x": 30,
+        "y": 30,
+        "wires": [
+            [
+                "sd_i7PhJjEZ4ZOLUCHJ"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "document_uploadComponent"
+    },
+    {
+        "id": "sd_i7PhJjEZ4ZOLUCHJ",
+        "type": "PageVariables",
+        "z": "sd_eP3vmpzJ9VO3xZEc",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "documents",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "[]"
+                }
+            }
+        ],
+        "functionName": "sd_i7PhJjEZ4ZOLUCHJ",
+        "category": "Function",
+        "x": 180,
+        "y": 30,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_8U3hf74cv4u08i4M",
+        "type": "PageStart",
+        "z": "sd_eP3vmpzJ9VO3xZEc",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "file change",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "files",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "fileChange",
+        "category": "General",
+        "x": 45,
+        "y": 180,
+        "wires": [
+            [
+                "sd_MubQRbkyIVWZVhCS"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "document_uploadComponent"
+    },
+    {
+        "id": "sd_MubQRbkyIVWZVhCS",
+        "type": "Script",
+        "z": "sd_eP3vmpzJ9VO3xZEc",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.documents = [bh.input.files];",
+        "functionName": "sd_MubQRbkyIVWZVhCS",
+        "category": "Function",
+        "x": 185,
+        "y": 180,
+        "wires": [
+            [
+                "sd_H86gilbbSmLn5UvN"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_H86gilbbSmLn5UvN",
+        "type": "Output",
+        "z": "sd_eP3vmpzJ9VO3xZEc",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "eventName": "bh.pageOutput.onDocumentChange",
+        "data": "this.page.documents",
+        "functionName": "sd_H86gilbbSmLn5UvN",
+        "category": "Function",
+        "x": 320,
+        "y": 180,
+        "wires": [
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "eventName": {
+                "type": "bh.pageOutput",
+                "value": "onDocumentChange",
+                "constant": false
+            },
+            "data": {
+                "type": "this.page",
+                "value": "documents",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

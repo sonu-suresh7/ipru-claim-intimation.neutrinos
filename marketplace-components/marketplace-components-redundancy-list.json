@@ -1,0 +1,573 @@
+{
+    "neutrinos-all-default-nodes-plugin": {
+        "name": "neutrinos-all-default-nodes-plugin",
+        "default": true,
+        "deps": {
+            "ndefault-all-nodes": {
+                "name": "ndefault-all-nodes",
+                "packageType": "studio-nodes",
+                "nodes": {
+                    "server": [
+                        "ChildProcess",
+                        "CORS",
+                        "DBConfig",
+                        "GlobalMiddlewareEnd",
+                        "GlobalMiddlewareStart",
+                        "GlobalNext",
+                        "HttpIn",
+                        "HttpOut",
+                        "HttpProxyConfig",
+                        "ServerHttpRequest",
+                        "MiddlewareEnd",
+                        "MiddlewareStart",
+                        "Next",
+                        "RouteMiddlewareEnd",
+                        "RouteMiddlewareStart",
+                        "ServerLog",
+                        "TLSConfig"
+                    ],
+                    "common": [
+                        "Catch",
+                        "Comments",
+                        "Script",
+                        "Unknown"
+                    ],
+                    "pages": [
+                        "PageCallService",
+                        "PageStart",
+                        "PageSwitch",
+                        "ViewPicker",
+                        "PageVariables",
+                        "PageServiceVariables",
+                        "PageAsync"
+                    ],
+                    "client-server": [
+                        "ServiceVariables",
+                        "CallService",
+                        "Start",
+                        "Switch",
+                        "Async"
+                    ],
+                    "client-pages": [
+                        "Environment",
+                        "HttpRequest",
+                        "Log",
+                        "Navigation",
+                        "SnackBar",
+                        "Storage",
+                        "CallSSDApi",
+                        "UseDependency",
+                        "neutrinos-ngzone"
+                    ]
+                }
+            }
+        },
+        "parentDeps": {}
+    },
+    "ndefault-all-nodes": {
+        "name": "ndefault-all-nodes",
+        "packageType": "studio-nodes",
+        "deps": {},
+        "parentDeps": {
+            "neutrinos-all-default-nodes-plugin": true
+        },
+        "nodes": {
+            "server": [
+                "ChildProcess",
+                "CORS",
+                "DBConfig",
+                "GlobalMiddlewareEnd",
+                "GlobalMiddlewareStart",
+                "GlobalNext",
+                "HttpIn",
+                "HttpOut",
+                "HttpProxyConfig",
+                "ServerHttpRequest",
+                "MiddlewareEnd",
+                "MiddlewareStart",
+                "Next",
+                "RouteMiddlewareEnd",
+                "RouteMiddlewareStart",
+                "ServerLog",
+                "TLSConfig"
+            ],
+            "common": [
+                "Catch",
+                "Comments",
+                "Script",
+                "Unknown"
+            ],
+            "pages": [
+                "PageCallService",
+                "PageStart",
+                "PageSwitch",
+                "ViewPicker",
+                "PageVariables",
+                "PageServiceVariables",
+                "PageAsync"
+            ],
+            "client-server": [
+                "ServiceVariables",
+                "CallService",
+                "Start",
+                "Switch",
+                "Async"
+            ],
+            "client-pages": [
+                "Environment",
+                "HttpRequest",
+                "Log",
+                "Navigation",
+                "SnackBar",
+                "Storage",
+                "CallSSDApi",
+                "UseDependency",
+                "neutrinos-ngzone"
+            ]
+        }
+    },
+    "neutrinos-internet": {
+        "name": "neutrinos-internet",
+        "version": "1.0.0",
+        "default": true,
+        "deps": {
+            "neutrinos-internet": {
+                "name": "neutrinos-internet",
+                "version": "1.0.0",
+                "packageType": "studio-nodes",
+                "nodes": {
+                    "client-pages": [
+                        {
+                            "name": "09116728-8c4c-739f-c7da-625634afe918",
+                            "displayName": "On Online"
+                        },
+                        {
+                            "name": "c6ef8916-35f2-a758-e8d5-8b61fdac762d",
+                            "displayName": "On Offline"
+                        },
+                        {
+                            "name": "9f050d9a-4bf7-fc9b-6e14-cf39e33ead30",
+                            "displayName": "isOnline"
+                        }
+                    ]
+                }
+            }
+        },
+        "parentDeps": {
+            "neutrinos-internet": "1.0.0"
+        }
+    },
+    "neutrinos-lifecycle-events": {
+        "name": "neutrinos-lifecycle-events",
+        "version": "1.0.0",
+        "default": true,
+        "deps": {
+            "neutrinos-lifecycle-events": {
+                "name": "neutrinos-lifecycle-events",
+                "version": "1.0.0",
+                "packageType": "studio-nodes",
+                "nodes": {
+                    "pages": [
+                        {
+                            "name": "OnChanges",
+                            "displayName": "On Changes"
+                        },
+                        {
+                            "name": "OnInit",
+                            "displayName": "On Init"
+                        },
+                        {
+                            "name": "DoCheck",
+                            "displayName": "Do Check"
+                        },
+                        {
+                            "name": "AfterContentInit",
+                            "displayName": "After Content Init"
+                        },
+                        {
+                            "name": "AfterContentChecked",
+                            "displayName": "After Content Checked"
+                        },
+                        {
+                            "name": "AfterViewInit",
+                            "displayName": "After View Init"
+                        },
+                        {
+                            "name": "AfterViewChecked",
+                            "displayName": "After View Checked"
+                        },
+                        {
+                            "name": "OnDestroy",
+                            "displayName": "On Destroy"
+                        }
+                    ]
+                }
+            }
+        },
+        "parentDeps": {
+            "neutrinos-lifecycle-events": "1.0.0"
+        }
+    },
+    "neutrinos-dialog": {
+        "name": "neutrinos-dialog",
+        "version": "1.0.0",
+        "default": true,
+        "deps": {
+            "neutrinos-dialog": {
+                "name": "neutrinos-dialog",
+                "version": "1.0.0",
+                "packageType": "studio-nodes",
+                "nodes": {
+                    "pages": [
+                        {
+                            "name": "OpenDialog",
+                            "displayName": "Open Dialog"
+                        },
+                        {
+                            "name": "GetDialogData",
+                            "displayName": "Get Dialog Data"
+                        },
+                        {
+                            "name": "CloseDialog",
+                            "displayName": "Close Dialog"
+                        }
+                    ]
+                }
+            }
+        },
+        "parentDeps": {
+            "neutrinos-dialog": "1.0.0"
+        }
+    },
+    "neutrinos-listener": {
+        "name": "neutrinos-listener",
+        "version": "1.0.0",
+        "default": true,
+        "deps": {
+            "neutrinos-listener": {
+                "name": "neutrinos-listener",
+                "version": "1.0.0",
+                "packageType": "studio-nodes",
+                "nodes": {
+                    "pages": [
+                        {
+                            "name": "HostListener",
+                            "displayName": "Host Listener"
+                        }
+                    ]
+                }
+            }
+        },
+        "parentDeps": {
+            "neutrinos-listener": "1.0.0"
+        }
+    },
+    "neutrinos-output": {
+        "name": "neutrinos-output",
+        "version": "1.0.0",
+        "default": true,
+        "deps": {
+            "neutrinos-output": {
+                "name": "neutrinos-output",
+                "version": "1.0.0",
+                "packageType": "studio-nodes",
+                "nodes": {
+                    "pages": [
+                        {
+                            "name": "Output",
+                            "displayName": "Output"
+                        }
+                    ]
+                }
+            }
+        },
+        "parentDeps": {
+            "neutrinos-output": "1.0.0"
+        }
+    },
+    "neutrinos-route": {
+        "name": "neutrinos-route",
+        "version": "1.0.0",
+        "default": true,
+        "deps": {
+            "neutrinos-route": {
+                "name": "neutrinos-route",
+                "version": "1.0.0",
+                "packageType": "studio-nodes",
+                "nodes": {
+                    "pages": [
+                        {
+                            "name": "NavigationListener",
+                            "displayName": "Navigation Listener"
+                        },
+                        {
+                            "name": "NavigationData",
+                            "displayName": "Navigation Data"
+                        }
+                    ]
+                }
+            }
+        },
+        "parentDeps": {
+            "neutrinos-route": "1.0.0"
+        }
+    },
+    "60ae195f891d1aa657de4fa1": {
+        "name": "60ae195f891d1aa657de4fa1",
+        "version": "1.0.0",
+        "packageType": [
+            "studio-package"
+        ],
+        "deps": {
+            "neutrinos-select-plus": {
+                "name": "neutrinos-select-plus",
+                "version": "1.0.0",
+                "packageType": "studio-package"
+            }
+        },
+        "parentDeps": {}
+    },
+    "neutrinos-select-plus": {
+        "name": "neutrinos-select-plus",
+        "version": "1.0.0",
+        "packageType": "studio-package",
+        "deps": {},
+        "parentDeps": {
+            "60ae195f891d1aa657de4fa1": "1.0.0"
+        }
+    },
+    "60895a801f635aad386b5038": {
+        "name": "60895a801f635aad386b5038",
+        "version": "2.0.2",
+        "packageType": [
+            "studio-package"
+        ],
+        "deps": {
+            "material-table-paginator": {
+                "name": "material-table-paginator",
+                "version": "2.0.2",
+                "packageType": "studio-package",
+                "nModule": {
+                    "packageType": "angular-package",
+                    "importStatement": "import { MatPaginatorModule } from '@angular/material/paginator';",
+                    "imports": [
+                        "MatPaginatorModule"
+                    ]
+                }
+            }
+        },
+        "parentDeps": {}
+    },
+    "material-table-paginator": {
+        "name": "material-table-paginator",
+        "version": "2.0.2",
+        "packageType": "studio-package",
+        "deps": {},
+        "parentDeps": {
+            "60895a801f635aad386b5038": "2.0.2"
+        },
+        "nModule": {
+            "packageType": "angular-package",
+            "importStatement": "import { MatPaginatorModule } from '@angular/material/paginator';",
+            "imports": [
+                "MatPaginatorModule"
+            ]
+        }
+    },
+    "5dae9cb30bd86577d3d854f1": {
+        "name": "5dae9cb30bd86577d3d854f1",
+        "version": "1.2.1",
+        "packageType": "studio-package",
+        "deps": {
+            "n-richtexteditor": {
+                "name": "n-richtexteditor",
+                "version": "1.2.1",
+                "packageType": "studio-package",
+                "nModule": {
+                    "name": "@ckeditor/ckeditor5-angular",
+                    "version": "1.2.3",
+                    "packageType": "angular-package",
+                    "importStatement": "import { CKEditorModule } from '@ckeditor/ckeditor5-angular';",
+                    "imports": [
+                        "CKEditorModule"
+                    ]
+                }
+            }
+        },
+        "parentDeps": {}
+    },
+    "n-richtexteditor": {
+        "name": "n-richtexteditor",
+        "version": "1.2.1",
+        "packageType": "studio-package",
+        "deps": {},
+        "parentDeps": {
+            "5dae9cb30bd86577d3d854f1": "1.2.1"
+        },
+        "nModule": {
+            "name": "@ckeditor/ckeditor5-angular",
+            "version": "1.2.3",
+            "packageType": "angular-package",
+            "importStatement": "import { CKEditorModule } from '@ckeditor/ckeditor5-angular';",
+            "imports": [
+                "CKEditorModule"
+            ]
+        }
+    },
+    "6038feeda779d92befa05aa2": {
+        "name": "6038feeda779d92befa05aa2",
+        "version": "1.0.5",
+        "packageType": [
+            "studio-nodes"
+        ],
+        "deps": {
+            "neutrinos-pubsub-client": {
+                "name": "neutrinos-pubsub-client",
+                "version": "1.0.5",
+                "packageType": "studio-nodes",
+                "nodes": {
+                    "client-pages": [
+                        {
+                            "name": "0a527e77-2b6b-855b-557e-9f716099c2ed",
+                            "displayName": "Listen"
+                        },
+                        {
+                            "name": "4a14d245-3eca-40a4-550c-2885e99a00e9",
+                            "displayName": "Emit"
+                        }
+                    ]
+                }
+            }
+        },
+        "parentDeps": {}
+    },
+    "neutrinos-pubsub-client": {
+        "name": "neutrinos-pubsub-client",
+        "version": "1.0.5",
+        "packageType": "studio-nodes",
+        "deps": {},
+        "parentDeps": {
+            "6038feeda779d92befa05aa2": "1.0.5"
+        },
+        "nodes": {
+            "client-pages": [
+                {
+                    "name": "0a527e77-2b6b-855b-557e-9f716099c2ed",
+                    "displayName": "Listen"
+                },
+                {
+                    "name": "4a14d245-3eca-40a4-550c-2885e99a00e9",
+                    "displayName": "Emit"
+                }
+            ]
+        }
+    },
+    "624427b7121d3ae0ca9de503": {
+        "name": "624427b7121d3ae0ca9de503",
+        "version": "0.0.2",
+        "packageType": [
+            "studio-package",
+            "angular-package"
+        ],
+        "deps": {
+            "neutrinosidpviewer": {
+                "name": "neutrinosidpviewer",
+                "version": "1.0.27",
+                "packageType": "studio-package",
+                "nModule": {
+                    "importStatement": "import { IdpDvModule } from 'idp-dv';",
+                    "imports": [
+                        "IdpDvModule"
+                    ]
+                }
+            },
+            "idp-dv": {
+                "name": "idp-dv",
+                "version": "1.0.27",
+                "packageType": "angular-package"
+            }
+        },
+        "parentDeps": {}
+    },
+    "neutrinosidpviewer": {
+        "name": "neutrinosidpviewer",
+        "version": "0.0.2",
+        "packageType": "studio-package",
+        "deps": {},
+        "parentDeps": {
+            "624427b7121d3ae0ca9de503": "1.0.27"
+        },
+        "nModule": {
+            "importStatement": "import { IdpDvModule } from 'idp-dv';",
+            "imports": [
+                "IdpDvModule"
+            ]
+        }
+    },
+    "idp-dv": {
+        "name": "idp-dv",
+        "version": "0.0.2",
+        "packageType": "angular-package",
+        "deps": {},
+        "parentDeps": {
+            "624427b7121d3ae0ca9de503": "1.0.27"
+        }
+    },
+    "6230bf8a121d3ae0ca21cb91": {
+        "name": "6230bf8a121d3ae0ca21cb91",
+        "version": "1.0.0",
+        "packageType": [
+            "angular-package",
+            "studio-package"
+        ],
+        "deps": {
+            "neutrinos-file-upload": {
+                "name": "neutrinos-file-upload",
+                "version": "1.0.0",
+                "packageType": "angular-package"
+            },
+            "neutrinos-fileupload-component": {
+                "name": "neutrinos-fileupload-component",
+                "version": "1.0.0",
+                "packageType": "studio-package",
+                "nModule": {
+                    "name": "neutrinos-file-upload",
+                    "version": "1.0.0",
+                    "packageType": "angular-package",
+                    "importStatement": "import { NeutrinosFileUploadModule } from 'neutrinos-file-upload';",
+                    "imports": [
+                        "NeutrinosFileUploadModule"
+                    ]
+                }
+            }
+        },
+        "parentDeps": {}
+    },
+    "neutrinos-file-upload": {
+        "name": "neutrinos-file-upload",
+        "version": "1.0.0",
+        "packageType": "angular-package",
+        "deps": {},
+        "parentDeps": {
+            "6230bf8a121d3ae0ca21cb91": "1.0.0"
+        }
+    },
+    "neutrinos-fileupload-component": {
+        "name": "neutrinos-fileupload-component",
+        "version": "1.0.0",
+        "packageType": "studio-package",
+        "deps": {},
+        "parentDeps": {
+            "6230bf8a121d3ae0ca21cb91": "1.0.0"
+        },
+        "nModule": {
+            "name": "neutrinos-file-upload",
+            "version": "1.0.0",
+            "packageType": "angular-package",
+            "importStatement": "import { NeutrinosFileUploadModule } from 'neutrinos-file-upload';",
+            "imports": [
+                "NeutrinosFileUploadModule"
+            ]
+        }
+    }
+}

@@ -1,0 +1,130 @@
+[
+    {
+        "id": "sd_hifNWBgyNYOp4YBf",
+        "type": "tab",
+        "createdDate": "2022-03-22T09:46:31.148Z",
+        "label": "personal_details",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "personal_detailsComponent"
+    },
+    {
+        "id": "sd_kSmKDBQ6pubLBP2l",
+        "type": "OnInit",
+        "z": "sd_hifNWBgyNYOp4YBf",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "inputVariables": [
+            {
+                "key": "personalDetails",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                }
+            },
+            {
+                "key": "otherDetailsData",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                }
+            }
+        ],
+        "localVariables": [],
+        "outputVariables": [],
+        "functionName": "sd_kSmKDBQ6pubLBP2l",
+        "category": "Lifecycle Events",
+        "x": 45,
+        "y": 120,
+        "wires": [
+            [
+                "sd_yfPvbdqnGM8V1zM8"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "personal_detailsComponent"
+    },
+    {
+        "id": "sd_yfPvbdqnGM8V1zM8",
+        "type": "PageVariables",
+        "z": "sd_hifNWBgyNYOp4YBf",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "otherDetailsData",
+                "typedIpValue": {
+                    "type": "bh",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "detailsTitle",
+                "typedIpValue": {
+                    "type": "bh",
+                    "value": ""
+                }
+            }
+        ],
+        "functionName": "sd_yfPvbdqnGM8V1zM8",
+        "category": "Function",
+        "x": 185,
+        "y": 120,
+        "wires": [
+            [
+                "sd_gtyAIvz70Yc9070h"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_gtyAIvz70Yc9070h",
+        "type": "Script",
+        "z": "sd_hifNWBgyNYOp4YBf",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "labels mapper",
+        "script": "page.labels = {\n    fullName: {\n        get label() {\n            return page.locales.keys.fullName;\n        }\n    },\n    sex: {\n        get label() {\n            return page.locales.keys.sex;\n        }\n    },\n    idNumber: {\n        get label() {\n            return page.locales.keys.idNumber;\n        }\n    },\n    idIssueDate: {\n        get label() {\n            return page.locales.keys.idIssueDate;\n        }\n    },\n    idIssuePlace: {\n        get label() {\n            return page.locales.keys.idIssuePlace;\n        }\n    },\n    dob: {\n        get label() {\n            return page.locales.keys.dob;\n        }\n    },\n    age: {\n        get label() {\n            return page.locales.keys.age;\n        }\n    },\n    palceOfBirth: {\n        get label() {\n            return page.locales.keys.palceOfBirth;\n        }\n    },\n    nationality: {\n        get label() {\n            return page.locales.keys.nationality;\n        }\n    },\n    occupation: {\n        get label() {\n            return page.locales.keys.occupation;\n        }\n    },\n    income: {\n        get label() {\n            return page.locales.keys.income;\n        }\n    },\n    relationship: {\n        get label() {\n            return page.locales.keys.relationship;\n        }\n    },\n}\n",
+        "functionName": "labelsMapper",
+        "category": "Function",
+        "x": 325,
+        "y": 120,
+        "wires": [
+            [
+                "sd_nLemwNqjd7MH9mZ9"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_nLemwNqjd7MH9mZ9",
+        "type": "Script",
+        "z": "sd_hifNWBgyNYOp4YBf",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "// const deleteKeys = ['height', 'weight', 'bmi', 'weightAtBirth'];\nconst deleteKeys = ['idIssueDate', 'idIssuePlace', 'palceOfBirth', 'nationality'];\npage.detailKeys = Object.keys(this.personalDetails)\n    .filter(k => !deleteKeys.includes(k))\n",
+        "functionName": "sd_nLemwNqjd7MH9mZ9",
+        "category": "Function",
+        "x": 465,
+        "y": 120,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

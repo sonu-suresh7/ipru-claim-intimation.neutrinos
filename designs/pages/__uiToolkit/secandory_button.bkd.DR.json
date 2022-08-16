@@ -1,0 +1,75 @@
+{
+    "b2cc85e1-1b19-5a13-d7ee-5806794ba28e": {
+        "paletteKey": "NG-button",
+        "commentid": null,
+        "designerReference": [
+            {
+                "_key": "style",
+                "_value": "",
+                "_type": "kv",
+                "_attrDef": "p"
+            },
+            {
+                "_key": "class",
+                "_value": [
+                    "primary",
+                    "continue-button",
+                    "app-button"
+                ],
+                "_type": "dav",
+                "_attrDef": "p"
+            },
+            {
+                "_key": "buttonname",
+                "_value": "{{label}}",
+                "_type": "a",
+                "_attrDef": "p",
+                "_useAsLabel": true
+            },
+            {
+                "_key": "color",
+                "_value": "",
+                "_type": "kv",
+                "_attrDef": "p"
+            },
+            {
+                "_key": "(click)",
+                "_value": "emitClicked()",
+                "_type": "kv",
+                "_attrDef": "p",
+                "objValue": {
+                    "nodeID": "sd_NLgF8KjY1FowLCil",
+                    "functionName": "emitClicked",
+                    "activeTree": "pages",
+                    "z": "sd_gTJBuPiozob4QcY3",
+                    "input": []
+                }
+            },
+            {
+                "_key": "[disabled]",
+                "_value": "disabled",
+                "_type": "kv",
+                "_attrDef": "p",
+                "_customAttributeFlag": "customInput"
+            },
+            {
+                "_key": "[disableRipple]",
+                "_value": "",
+                "_type": "kv",
+                "_attrDef": "p"
+            },
+            {
+                "_key": "type",
+                "_value": "button",
+                "_type": "kv",
+                "_attrDef": "p"
+            },
+            {
+                "_key": "routerLink",
+                "_value": "",
+                "_type": "kv",
+                "_attrDef": "p"
+            }
+        ]
+    }
+}

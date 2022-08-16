@@ -1,0 +1,450 @@
+{
+    "e4882f45-5293-57b2-ed97-aa88f9d91913": {
+        "paletteKey": "ng-table",
+        "isAdvancedComponent": true,
+        "isCommented": "false",
+        "commentid": null,
+        "designerReference": [
+            {
+                "_key": "componentLabel",
+                "_value": "Table",
+                "_type": "kv",
+                "_attrDef": "p",
+                "_useAsLabel": true
+            },
+            {
+                "_key": "style",
+                "_value": "",
+                "_type": "kv",
+                "_attrDef": "p"
+            },
+            {
+                "_key": "class",
+                "_value": "",
+                "_type": "dav",
+                "_attrDef": "p"
+            },
+            {
+                "_key": "[dataSource]",
+                "_value": "page?.autoRecommendation",
+                "_type": "kv",
+                "_attrDef": "p",
+                "value": "page?.tableData"
+            },
+            {
+                "_key": "(rowclick)",
+                "_value": "",
+                "_type": "a",
+                "_attrDef": "p"
+            },
+            {
+                "_key": "header",
+                "_value": true,
+                "_type": "a",
+                "_attrDef": "p",
+                "_visibility": true
+            },
+            {
+                "skipCodegen": true,
+                "_key": "__n_dependant_flows_key__",
+                "_value": [
+                    "sd_0zwIzVk3vPYdmNG7",
+                    "sd_0j4u5p4Tg0qLWbBY",
+                    "sd_3xHSaSFqS4Gs2G2B",
+                    "sd_EkF1EQwJgXRqJPp0",
+                    "sd_lBVbdyrjn7o8WquK"
+                ],
+                "_type": "a",
+                "_attrDef": "c",
+                "_visibility": false
+            }
+        ],
+        "bce1f48d-6bc1-587c-b2f8-4d4de1b7a39b": {
+            "paletteKey": "ng-table-column",
+            "parentEditorKey": "e4882f45-5293-57b2-ed97-aa88f9d91913",
+            "isAdvancedChildComponent": true,
+            "isCommented": "false",
+            "commentid": null,
+            "designerReference": [
+                {
+                    "_key": "Header Label",
+                    "_value": "{{page.locales.keys.benefit}}",
+                    "_type": "a",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "matSortHeaderColumn",
+                    "_value": "mat-sort-header",
+                    "_type": "a",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "Mapping",
+                    "_value": "{{table.benefit}}",
+                    "_type": "ma",
+                    "_attrDef": "p",
+                    "_useAsLabel": true
+                },
+                {
+                    "_key": "columnName",
+                    "_value": "",
+                    "_type": "dav",
+                    "_attrDef": "p",
+                    "_visibility": false
+                },
+                {
+                    "_key": "headerclass",
+                    "_value": "",
+                    "_type": "dav",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "columnclass",
+                    "_value": "",
+                    "_type": "dav",
+                    "_attrDef": "p"
+                }
+            ]
+        },
+        "c8a9ab51-c70f-d100-002b-7eee21abb28b": {
+            "paletteKey": "ng-table-column",
+            "parentEditorKey": "e4882f45-5293-57b2-ed97-aa88f9d91913",
+            "isAdvancedChildComponent": true,
+            "isCommented": "false",
+            "commentid": null,
+            "designerReference": [
+                {
+                    "_key": "Header Label",
+                    "_value": "{{page.locales.keys.totalSumAtRisk}}",
+                    "_type": "a",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "matSortHeaderColumn",
+                    "_value": "mat-sort-header",
+                    "_type": "a",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "Mapping",
+                    "_value": "{{table.totalSumAtRisk}}",
+                    "_type": "ma",
+                    "_attrDef": "p",
+                    "_useAsLabel": true
+                },
+                {
+                    "_key": "columnName",
+                    "_value": "",
+                    "_type": "dav",
+                    "_attrDef": "p",
+                    "_visibility": false
+                },
+                {
+                    "_key": "headerclass",
+                    "_value": "",
+                    "_type": "dav",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "columnclass",
+                    "_value": "",
+                    "_type": "dav",
+                    "_attrDef": "p"
+                }
+            ]
+        },
+        "6a2f208e-952f-ba40-915e-fba13f8ed241": {
+            "paletteKey": "ng-table-column",
+            "parentEditorKey": "e4882f45-5293-57b2-ed97-aa88f9d91913",
+            "isAdvancedChildComponent": true,
+            "isCommented": "false",
+            "commentid": null,
+            "designerReference": [
+                {
+                    "_key": "Header Label",
+                    "_value": "{{page.locales.keys.totalSumAtRiskFinancial}}",
+                    "_type": "a",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "matSortHeaderColumn",
+                    "_value": "mat-sort-header",
+                    "_type": "a",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "Mapping",
+                    "_value": "{{table.totalSumAtRiskFinancial}}",
+                    "_type": "ma",
+                    "_attrDef": "p",
+                    "_useAsLabel": true
+                },
+                {
+                    "_key": "columnName",
+                    "_value": "",
+                    "_type": "dav",
+                    "_attrDef": "p",
+                    "_visibility": false
+                },
+                {
+                    "_key": "headerclass",
+                    "_value": "",
+                    "_type": "dav",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "columnclass",
+                    "_value": "",
+                    "_type": "dav",
+                    "_attrDef": "p"
+                }
+            ]
+        },
+        "8c950648-fc13-69da-986c-968d703f7ab8": {
+            "paletteKey": "ng-table-column",
+            "parentEditorKey": "e4882f45-5293-57b2-ed97-aa88f9d91913",
+            "isAdvancedChildComponent": true,
+            "isCommented": "false",
+            "commentid": null,
+            "designerReference": [
+                {
+                    "_key": "Header Label",
+                    "_value": "{{page.locales.keys.totalSumAtRiskMedical}}",
+                    "_type": "a",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "matSortHeaderColumn",
+                    "_value": "mat-sort-header",
+                    "_type": "a",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "Mapping",
+                    "_value": "{{table.totalSumAtRiskMedical}}",
+                    "_type": "ma",
+                    "_attrDef": "p",
+                    "_useAsLabel": true
+                },
+                {
+                    "_key": "columnName",
+                    "_value": "",
+                    "_type": "dav",
+                    "_attrDef": "p",
+                    "_visibility": false
+                },
+                {
+                    "_key": "headerclass",
+                    "_value": "",
+                    "_type": "dav",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "columnclass",
+                    "_value": "",
+                    "_type": "dav",
+                    "_attrDef": "p"
+                }
+            ]
+        },
+        "741380ae-6106-b104-75ad-0e8d71e61dbd": {
+            "paletteKey": "ng-table-column",
+            "parentEditorKey": "e4882f45-5293-57b2-ed97-aa88f9d91913",
+            "isAdvancedChildComponent": true,
+            "isCommented": "false",
+            "commentid": null,
+            "designerReference": [
+                {
+                    "_key": "Header Label",
+                    "_value": "{{page.locales.keys.documents}}",
+                    "_type": "a",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "matSortHeaderColumn",
+                    "_value": "",
+                    "_type": "a",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "Mapping",
+                    "_value": "{{table.documents}}",
+                    "_type": "ma",
+                    "_attrDef": "p",
+                    "_useAsLabel": true
+                },
+                {
+                    "_key": "columnName",
+                    "_value": "",
+                    "_type": "dav",
+                    "_attrDef": "p",
+                    "_visibility": false
+                },
+                {
+                    "_key": "headerclass",
+                    "_value": "",
+                    "_type": "dav",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "columnclass",
+                    "_value": "",
+                    "_type": "dav",
+                    "_attrDef": "p"
+                }
+            ]
+        },
+        "769e865c-b723-7f96-7ebf-05d38dfb2f4a": {
+            "paletteKey": "ng-table-column",
+            "parentEditorKey": "e4882f45-5293-57b2-ed97-aa88f9d91913",
+            "isAdvancedChildComponent": true,
+            "isCommented": "false",
+            "commentid": null,
+            "designerReference": [
+                {
+                    "_key": "Header Label",
+                    "_value": "{{page.locales.keys.autoRecommendation}}",
+                    "_type": "a",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "matSortHeaderColumn",
+                    "_value": "mat-sort-header",
+                    "_type": "a",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "Mapping",
+                    "_value": "{{table.autoRecommendation}}",
+                    "_type": "ma",
+                    "_attrDef": "p",
+                    "_useAsLabel": true
+                },
+                {
+                    "_key": "columnName",
+                    "_value": "",
+                    "_type": "dav",
+                    "_attrDef": "p",
+                    "_visibility": false
+                },
+                {
+                    "_key": "headerclass",
+                    "_value": "",
+                    "_type": "dav",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "columnclass",
+                    "_value": "",
+                    "_type": "dav",
+                    "_attrDef": "p"
+                }
+            ]
+        },
+        "a4562cab-ad15-882c-517f-a6b44c67670a": {
+            "paletteKey": "ng-table-column",
+            "parentEditorKey": "e4882f45-5293-57b2-ed97-aa88f9d91913",
+            "isAdvancedChildComponent": true,
+            "isCommented": "false",
+            "commentid": null,
+            "designerReference": [
+                {
+                    "_key": "Header Label",
+                    "_value": "{{page.locales.keys.reason}}",
+                    "_type": "a",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "matSortHeaderColumn",
+                    "_value": "mat-sort-header",
+                    "_type": "a",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "Mapping",
+                    "_value": "{{table.reason}}",
+                    "_type": "ma",
+                    "_attrDef": "p",
+                    "_useAsLabel": true
+                },
+                {
+                    "_key": "columnName",
+                    "_value": "",
+                    "_type": "dav",
+                    "_attrDef": "p",
+                    "_visibility": false
+                },
+                {
+                    "_key": "headerclass",
+                    "_value": "",
+                    "_type": "dav",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "columnclass",
+                    "_value": "",
+                    "_type": "dav",
+                    "_attrDef": "p"
+                }
+            ]
+        },
+        "87adfbcc-2db3-3d91-e60b-7c875e055ae0": {
+            "paletteKey": "ng-table-paginator",
+            "parentEditorKey": "e4882f45-5293-57b2-ed97-aa88f9d91913",
+            "isAdvancedComponent": true,
+            "advancedSiblingType": "after",
+            "isCommented": "false",
+            "commentid": null,
+            "designerReference": [
+                {
+                    "_key": "style",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "class",
+                    "_value": "",
+                    "_type": "dav",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "[length]",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "[pageSize]",
+                    "_value": "10",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "[pageSizeOptions]",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "(page)",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p",
+                    "value": ""
+                },
+                {
+                    "skipCodegen": true,
+                    "_key": "__n_dependant_flows_key__",
+                    "_value": [
+                        "sd_4cjz2ru21UYfkZbk",
+                        "sd_EzxiGUBqddqNqVR8"
+                    ],
+                    "_type": "a",
+                    "_attrDef": "c",
+                    "_visibility": false
+                }
+            ]
+        }
+    }
+}

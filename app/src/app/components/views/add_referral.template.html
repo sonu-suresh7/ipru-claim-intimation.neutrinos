@@ -1,0 +1,57 @@
+<div fxLayout="column " fxFlex="100" fxLayoutGap="20px;" fxLayoutAlign="space-between stretch" [fxShow]="true">
+  <div fxLayout="column " fxLayoutAlign="start stretch" [fxShow]="true">
+    <mat-form-field [hideRequiredMarker]="false" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;always&apos;">
+      <mat-label>{{page.locales.keys.referralOptions}}</mat-label>
+      <mat-select placeholder="{{page.locales.keys.referralOptions}}" [(ngModel)]="page.referedTo" [required]="false" multiple>
+        <ng-template ngFor let-option [ngForOf]="page.referralOptions" let-i="index">
+          <mat-option [value]="option">{{option}}</mat-option>
+        </ng-template>
+      </mat-select>
+
+
+    </mat-form-field>
+    <div fxLayout="column">
+      <table mat-table [dataSource]="page?.referalTable" matSort class="table-width-fix">
+        <tr mat-header-row *matHeaderRowDef="[&apos;2ffe7a39-f84d-d98f-d47d-730651022778&apos;,&apos;filename&apos;,&apos;d01e7d4a-c0a3-25c6-da0d-557b27f0be66&apos;]"></tr>
+        <tr mat-row *matRowDef="let row; columns: [&apos;2ffe7a39-f84d-d98f-d47d-730651022778&apos;,&apos;filename&apos;,&apos;d01e7d4a-c0a3-25c6-da0d-557b27f0be66&apos;];"></tr>
+
+        <ng-container matColumnDef="2ffe7a39-f84d-d98f-d47d-730651022778">
+          <th mat-header-cell *matHeaderCellDef>
+            <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="page.selection.hasValue() &amp;&amp; isAllSelected()" [indeterminate]="page.selection.hasValue() &amp;&amp; !isAllSelected()" [aria-label]="checkboxLabel()"></mat-checkbox>
+          </th>
+          <td mat-cell *matCellDef="let table; let i = index;">
+            <mat-checkbox (change)="$event ? page.selection.toggle(table) : null" [checked]="page.selection.isSelected(table)" [required]="false" (click)="$event.stopPropagation()" [aria-label]="checkboxLabel(row)"></mat-checkbox>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="filename">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{page.locales.keys.documents}}</th>
+          <td mat-cell *matCellDef="let table; let i = index;"><span>
+            {{table.filename}}</span></td>
+        </ng-container>
+
+        <ng-container matColumnDef="d01e7d4a-c0a3-25c6-da0d-557b27f0be66">
+          <th mat-header-cell *matHeaderCellDef>{{page.locales.keys.redact}}</th>
+          <td mat-cell *matCellDef="let table; let i = index;">
+            <mat-slide-toggle [required]="false" checked="{{table.redact}}" color="primary"> </mat-slide-toggle>
+          </td>
+        </ng-container>
+      </table>
+      <mat-paginator [pageSize]="5">
+      </mat-paginator>
+
+    </div>
+  </div>
+  <div fxLayout="row wrap" style="width:100%" fxLayoutAlign="space-between center" [fxShow]="true">
+    <div>
+      <label class="label-text" style="vertical-align:super">{{page.locales.keys.attachCaseSummary}}</label>&#xA0;&#xA0;<mat-icon style="cursor:pointer">save_alt</mat-icon>
+    </div>
+    <mat-slide-toggle [required]="false" [labelPosition]="&apos;before&apos;" class="label-text" checked="false" color="primary"> {{page.locales.keys.attach}}</mat-slide-toggle>
+  </div>
+  <div fxLayout="row wrap" style="width:100%" fxLayoutAlign="start stretch" [fxShow]="true">
+    <mat-form-field style="width: 100%;" color="primary" [appearance]="&apos;outline&apos;">
+      <textarea matInput [(ngModel)]="page.comment" placeholder="{{page.locales.keys.comments}}" [required]="true"></textarea>
+    </mat-form-field>
+  </div>
+  <div fxLayout="row wrap" fxLayoutAlign="end stretch" [fxShow]="true"><button mat-raised-button color="primary" (click)="submit()" [disabled]="page.referedTo.length == 0 || !page.comment" [disableRipple]="true">{{page.locales.keys.next}}</button></div>
+</div>

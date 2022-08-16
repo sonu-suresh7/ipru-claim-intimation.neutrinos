@@ -1,0 +1,18 @@
+<mat-card class="height-100">
+  <mat-card-content class="height-100">
+    <div fxLayout="column " class="padding-1 height-100 width-100" fxLayoutAlign="start stretch">
+      <mat-tab-group mat-align-tabs="start" class="height-100" animationDuration="0">
+        <ng-template ngFor let-tab [ngForOf]="page.tabs || []" let-i="index">
+          <mat-tab label="{{tab.label | uppercase}}" class="border-box height-100" [label]="tab.label">
+            <bh-case_view *ngIf="tab.id === &apos;caseDetails&apos;"></bh-case_view>
+            <bh-case_documents class="height-100" *ngIf="tab.id === &apos;documents&apos;"></bh-case_documents>
+            <bh-other_policies_base *ngIf="tab.id === &apos;otherPolicies&apos;"></bh-other_policies_base>
+            <bh-correspondenceBase class="height-100" *ngIf="tab.id === &apos;correspondence&apos;"></bh-correspondenceBase>
+            <bh-recommendation class="height-100" *ngIf="tab.id === &apos;recommendation&apos;"></bh-recommendation>
+            <bh-mvDecision *ngIf="tab.id === &apos;mv_decision&apos;"></bh-mvDecision>
+          </mat-tab>
+        </ng-template>
+      </mat-tab-group>
+    </div>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,47 @@
+<mat-card class="height-100">
+  <mat-card-content class="height-100">
+    <div fxLayout="row " class="border-radius-half bg-white height-100" fxLayoutGap="1rem" fxLayoutAlign="space-between stretch">
+      <div fxLayout="column " fxLayoutAlign="center center">
+        <mat-icon class="cursor-pointer" (click)="navToNav()">arrow_back</mat-icon>
+      </div>
+      <div fxLayout="column " fxLayoutAlign="center start"><span class="header-title">
+        {{page.owner.name}}</span><span class="label-text">
+        {{page.locales.keys.dob}}: {{page.owner.dob}}</span></div>
+      <div fxLayout="row wrap" fxLayoutGap="0.5rem" fxLayoutAlign="start stretch">
+        <div fxLayout="column " fxLayoutAlign="center stretch" [fxShow]="true"><img imgSrc="{{page.labels.phoneNumber.icon}}"></div>
+        <div fxLayout="column " fxLayoutAlign="center start"><span class="label-text">
+          {{page.labels.phoneNumber.label}}</span><span class="content-text">
+          {{page.owner.phoneNumber}}</span></div>
+      </div>
+      <div fxLayout="row wrap" fxLayoutGap="0.5rem" fxLayoutAlign="start stretch">
+        <div fxLayout="column " fxLayoutAlign="center stretch" [fxShow]="true"><img imgSrc="{{page.labels.email.icon}}"></div>
+        <div fxLayout="column " fxLayoutAlign="center start"><span class="label-text">
+          {{page.labels.email.label}}</span><span class="content-text">
+          {{page.owner.email}}</span></div>
+      </div>
+      <div fxLayout="row wrap" fxLayoutGap="0.5rem" fxLayoutAlign="start stretch">
+        <div fxLayout="column " fxLayoutAlign="center start"><span class="label-text">
+          {{page.labels.applicationNumber.label}}</span><span class="content-text">
+          {{page.owner.applicationNumber}}</span></div>
+        <div fxLayout="column " fxLayoutAlign="center stretch" [fxShow]="true"><img imgSrc="{{page.labels.applicationNumber.icon}}" style="max-height: 0.75rem;" [cdkCopyToClipboard]="page.owner.applicationNumber" matTooltip="Copy application number" (cdkCopyToClipboardCopied)="sd_e8IxyT91my6JR0rN()" class="cursor-pointer"></div>
+      </div>
+      <div fxLayout="row " fxLayoutGap="0.5rem" fxLayoutAlign="center center" [fxShow]="true">
+        <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="page.resourceLinks.length&gt;0"><button mat-button class="light-gray-border" [matMenuTriggerFor]="resourceLink"><img src="assets/Web/Icons/clipboard.svg"></button>
+          <mat-menu #resourceLink="matMenu"><button mat-menu-item *ngFor="let link of page.resourceLinks">
+              <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true"><a [href]="link.url" target="_blank" style="text-decoration: none;">
+                  <div>
+                    {{link.label}}
+                  </div>
+                </a></div>
+            </button></mat-menu>
+        </div>
+        <bh-traffic_lights_stats style="cursor:pointer;" (click)="openTrafficLights()"></bh-traffic_lights_stats>
+        <div fxLayout="row wrap" class="timeline-stepper" fxLayoutAlign="start stretch" [fxShow]="true"><button mat-button style="color: white;" class="primary-light light-gray-border" [matMenuTriggerFor]="timeLineData"><img style="margin-right: 0.5rem" src="assets/Web/CaseDetails/timeline.svg"><span>Timeline</span></button>
+          <mat-menu class="timeline-mat-menu" #timeLineData="matMenu">
+            <bh-timeline_stepper></bh-timeline_stepper>
+          </mat-menu>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,12 @@
+deploymentName: case-manager-ui
+deploymentNamespace: idp
+dockerURL: $DOCKER_URL/$DOCKER_REPO/$CASE_MANAGER_UI:${BUILD_NUMBER}
+serviceName: case-manager-ui-service
+httpPort: 80
+httpsPort: 443
+ingressNameBase: case-manager-ui-base-ingress
+ingressNameWeb: case-manager-ui-web-ingress
+ingressNameRefresh: case-manager-ui-refresh-ingress
+ingressService: case-manager-ui-service
+nginxClass: nginx
+ingressHost: 

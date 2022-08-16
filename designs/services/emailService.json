@@ -1,0 +1,506 @@
+[
+    {
+        "id": "sd_ZDiZhKoMHdoCgieC",
+        "type": "tab",
+        "createdDate": "2022-03-10T18:37:26.786Z",
+        "label": "emailService",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "emailService",
+        "relativeParentPath": ""
+    },
+    {
+        "id": "sd_AWcp1Sv3cTckW698",
+        "type": "Start",
+        "z": "sd_ZDiZhKoMHdoCgieC",
+        "viewType": "client-server",
+        "nodeType": "start",
+        "name": "sendEmail",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "data",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "pid",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [
+            {
+                "key": "emailBody",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "accept_bh": false,
+        "functionName": "sendEmail",
+        "category": "General",
+        "x": 65,
+        "y": 160,
+        "wires": [
+            [
+                "sd_7CLhGog4lQLsxcvq"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "emailService"
+    },
+    {
+        "id": "sd_2WxxNf4FSiIQX9l8",
+        "type": "HttpRequest",
+        "z": "sd_ZDiZhKoMHdoCgieC",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "post send email",
+        "method": "post",
+        "methodMappingObj": {},
+        "urlMapping": "bh.url",
+        "urlMappingObj": {
+            "mapVarType": "bh",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "bh.local.emailBody",
+        "reqBodyObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "emailBody"
+        },
+        "resultMapping": "bh.result",
+        "resultMappingObj": {
+            "mapVarType": "bh",
+            "mapVarValue": "result"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMappingObj": {},
+        "functionName": "postSendEmail",
+        "category": "HTTP",
+        "x": 365,
+        "y": 160,
+        "wires": [
+            [
+                "sd_JGVEPxjGBTcxZm0f"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "emailService"
+    },
+    {
+        "id": "sd_JGVEPxjGBTcxZm0f",
+        "type": "SnackBar",
+        "z": "sd_ZDiZhKoMHdoCgieC",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "message": {
+            "type": "str",
+            "value": "Email Sent"
+        },
+        "action": {
+            "type": "str",
+            "value": "Ok"
+        },
+        "duration": {
+            "type": "num",
+            "value": "2000"
+        },
+        "horizontalPosition": "center",
+        "horizontalPositionMap": "",
+        "verticalPosition": "bottom",
+        "verticalPositionMap": "",
+        "panelClass": {
+            "type": "str",
+            "value": ""
+        },
+        "direction": "ltr",
+        "functionName": "sd_JGVEPxjGBTcxZm0f",
+        "category": "General",
+        "x": 585,
+        "y": 160,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "emailService"
+    },
+    {
+        "id": "sd_7CLhGog4lQLsxcvq",
+        "type": "Script",
+        "z": "sd_ZDiZhKoMHdoCgieC",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "email url",
+        "script": "bh.url = `${bh.system.environment.properties.ssdBaseUrl}/correspondence/email/send/${bh.input.pid}`;\nconsole.log(bh.input.data);\nbh.local.emailBody = bh.input.data.email",
+        "functionName": "emailUrl",
+        "category": "Function",
+        "x": 205,
+        "y": 160,
+        "wires": [
+            [
+                "sd_2WxxNf4FSiIQX9l8"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_7XBbZdwPpElaMQNE",
+        "type": "Catch",
+        "z": "sd_ZDiZhKoMHdoCgieC",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "selectedNodes": [
+            "sd_2WxxNf4FSiIQX9l8",
+            "sd_IRAU8NcGF0fISOaz"
+        ],
+        "selectCatchType": "selectednodes",
+        "masternodeList": "",
+        "ignoreList": "",
+        "functionName": "sd_7XBbZdwPpElaMQNE",
+        "category": "General",
+        "x": 465,
+        "y": 540,
+        "wires": [
+            [
+                "sd_lCWLghxVuTuWrzGt"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "emailService"
+    },
+    {
+        "id": "sd_7qah2SE6xjfMWrqY",
+        "type": "Script",
+        "z": "sd_ZDiZhKoMHdoCgieC",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(bh);\nconsole.log(bh.error.message);",
+        "functionName": "sd_7qah2SE6xjfMWrqY",
+        "category": "Function",
+        "x": 865,
+        "y": 540,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_lCWLghxVuTuWrzGt",
+        "type": "SnackBar",
+        "z": "sd_ZDiZhKoMHdoCgieC",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "message": {
+            "type": "bh",
+            "value": "error.message"
+        },
+        "action": {
+            "type": "str",
+            "value": "Ok"
+        },
+        "duration": {
+            "type": "num",
+            "value": "2000"
+        },
+        "horizontalPosition": "center",
+        "horizontalPositionMap": "",
+        "verticalPosition": "bottom",
+        "verticalPositionMap": "",
+        "panelClass": {
+            "type": "str",
+            "value": ""
+        },
+        "direction": "ltr",
+        "functionName": "sd_lCWLghxVuTuWrzGt",
+        "category": "General",
+        "x": 765,
+        "y": 540,
+        "wires": [
+            [
+                "sd_7qah2SE6xjfMWrqY"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_NZY04I58Y5M2eg4N",
+        "type": "Start",
+        "z": "sd_ZDiZhKoMHdoCgieC",
+        "viewType": "client-server",
+        "nodeType": "start",
+        "name": "emailTemplate",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [
+            {
+                "key": "templates",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": true
+            }
+        ],
+        "accept_bh": false,
+        "functionName": "emailTemplate",
+        "category": "General",
+        "x": 65,
+        "y": 460,
+        "wires": [
+            [
+                "sd_U3Th5JrHDEcsjOVJ"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "emailService"
+    },
+    {
+        "id": "sd_Qv8sVYPs3ReAmiQB",
+        "type": "HttpRequest",
+        "z": "sd_ZDiZhKoMHdoCgieC",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "get email template",
+        "method": "get",
+        "methodMapping": "",
+        "methodMappingObj": {},
+        "urlMapping": "bh.templatesUrl",
+        "urlMappingObj": {
+            "mapVarType": "bh",
+            "mapVarValue": "templatesUrl"
+        },
+        "ret": "json",
+        "retMapping": "",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMapping": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "",
+        "reqBodyObj": {
+            "mapVarType": "bh",
+            "mapVarValue": ""
+        },
+        "resultMapping": "bh.local.templates",
+        "resultMappingObj": {
+            "mapVarType": "bh",
+            "mapVarValue": "local.templates"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMapping": "",
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMapping": "",
+        "paramMappingObj": {},
+        "functionName": "getEmailTemplate",
+        "category": "HTTP",
+        "x": 385,
+        "y": 460,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_U3Th5JrHDEcsjOVJ",
+        "type": "Script",
+        "z": "sd_ZDiZhKoMHdoCgieC",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "template url",
+        "script": "bh.templatesUrl = `${bh.system.environment.properties.ssdBaseUrl}/correspondence/email/templates`;",
+        "functionName": "templateUrl",
+        "category": "Function",
+        "x": 205,
+        "y": 460,
+        "wires": [
+            [
+                "sd_Qv8sVYPs3ReAmiQB"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_o4uHnDdOYeb42ejy",
+        "type": "Start",
+        "z": "sd_ZDiZhKoMHdoCgieC",
+        "viewType": "client-server",
+        "nodeType": "start",
+        "name": "get emails of type",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "emailType",
+                "defaultValue": {
+                    "type": "str",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "pid",
+                "defaultValue": {
+                    "type": "num",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [
+            {
+                "key": "emails",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": true
+            }
+        ],
+        "accept_bh": false,
+        "functionName": "getEmailsOfType",
+        "category": "General",
+        "x": 65,
+        "y": 300,
+        "wires": [
+            [
+                "sd_3EeO7sHRAJ07hK4K"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "emailService"
+    },
+    {
+        "id": "sd_fIxese3HxZ6aNReC",
+        "type": "HttpRequest",
+        "z": "sd_ZDiZhKoMHdoCgieC",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "request get emails",
+        "method": "get",
+        "methodMappingObj": {},
+        "urlMapping": "bh.url",
+        "urlMappingObj": {
+            "mapVarType": "bh",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBodyObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": ""
+        },
+        "resultMapping": "bh.local.res",
+        "resultMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "res"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMappingObj": {},
+        "functionName": "requestGetEmails",
+        "category": "HTTP",
+        "x": 365,
+        "y": 300,
+        "wires": [
+            [
+                "sd_RcPgCXRIOHEdNZ7f"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_3EeO7sHRAJ07hK4K",
+        "type": "Script",
+        "z": "sd_ZDiZhKoMHdoCgieC",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "emails get url",
+        "script": "bh.url = `${bh.system.environment.properties.ssdBaseUrl}/correspondence/email/${bh.input.emailType}/${bh.input.pid}`;",
+        "functionName": "emailsGetUrl",
+        "category": "Function",
+        "x": 205,
+        "y": 300,
+        "wires": [
+            [
+                "sd_fIxese3HxZ6aNReC"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_RcPgCXRIOHEdNZ7f",
+        "type": "Script",
+        "z": "sd_ZDiZhKoMHdoCgieC",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "assign to emails",
+        "script": "bh.local.emails = bh.local.res.emails;",
+        "functionName": "assignToEmails",
+        "category": "Function",
+        "x": 505,
+        "y": 300,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

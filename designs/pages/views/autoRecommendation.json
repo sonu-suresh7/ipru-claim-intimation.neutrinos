@@ -1,0 +1,223 @@
+[
+    {
+        "id": "sd_hxfFhkXN61hnTy1e",
+        "type": "tab",
+        "createdDate": "2022-03-22T09:56:13.129Z",
+        "label": "autoRecommendation",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 2,
+        "generateNext": true,
+        "serviceName": "autoRecommendationComponent"
+    },
+    {
+        "id": "sd_EVsX3meEsv4t7LxU",
+        "type": "OnInit",
+        "z": "sd_hxfFhkXN61hnTy1e",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "inputVariables": [],
+        "localVariables": [],
+        "outputVariables": [],
+        "functionName": "sd_EVsX3meEsv4t7LxU",
+        "category": "Lifecycle Events",
+        "x": 45,
+        "y": 60,
+        "wires": [
+            [
+                "sd_2xu19Ys3SxeddpaQ"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "autoRecommendationComponent"
+    },
+    {
+        "id": "sd_2xu19Ys3SxeddpaQ",
+        "type": "PageVariables",
+        "z": "sd_hxfFhkXN61hnTy1e",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "autoRecommendation",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "[]"
+                }
+            }
+        ],
+        "functionName": "sd_2xu19Ys3SxeddpaQ",
+        "category": "Function",
+        "x": 195,
+        "y": 60,
+        "wires": [
+            [
+                "sd_2vlD7E5A8Y2cgXmo"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_X8zlgz6AbPg7TZDJ",
+        "type": "Script",
+        "z": "sd_hxfFhkXN61hnTy1e",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "let autoRecommendation = page.checkedOut.case['autoRecommendation'] || [];\npage.autoRecommendation = new MatTableDataSource(autoRecommendation);\n",
+        "functionName": "sd_X8zlgz6AbPg7TZDJ",
+        "category": "Function",
+        "x": 525,
+        "y": 60,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_3xHSaSFqS4Gs2G2B",
+        "type": "AfterViewInit",
+        "z": "sd_hxfFhkXN61hnTy1e",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "ngAfterViewInit",
+        "category": "Lifecycle Events",
+        "x": 65,
+        "y": 280,
+        "wires": [
+            [
+                "sd_EkF1EQwJgXRqJPp0"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "autoRecommendationComponent"
+    },
+    {
+        "id": "sd_EkF1EQwJgXRqJPp0",
+        "type": "ViewPicker",
+        "z": "sd_hxfFhkXN61hnTy1e",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "childViewVariables": [
+            {
+                "key": {
+                    "type": "literal",
+                    "value": "MatSort"
+                },
+                "defaultValue": "MatSort",
+                "isViewChildren": false
+            },
+            {
+                "key": {
+                    "type": "literal",
+                    "value": "MatPaginator"
+                },
+                "defaultValue": "",
+                "isViewChildren": false
+            }
+        ],
+        "functionName": "sd_xKCCTWKzvgDN0rx7_1",
+        "category": "Function",
+        "x": 205,
+        "y": 280,
+        "wires": [
+            [
+                "sd_lBVbdyrjn7o8WquK"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_lBVbdyrjn7o8WquK",
+        "type": "Script",
+        "z": "sd_hxfFhkXN61hnTy1e",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "this.page.autoRecommendation.sort = this.MatSort;\nthis.page.autoRecommendation.paginator = this.MatPaginator;",
+        "functionName": "sd_2VNGqvcKee34lvOz_1",
+        "category": "Function",
+        "x": 345,
+        "y": 280,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_2vlD7E5A8Y2cgXmo",
+        "type": "PageServiceVariables",
+        "z": "sd_hxfFhkXN61hnTy1e",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "get",
+        "globalVariables": [
+            {
+                "textIp": "checkedOut",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "checkedOut"
+                }
+            }
+        ],
+        "functionName": "sd_2vlD7E5A8Y2cgXmo",
+        "service": {
+            "id": "sd_RbD2RZwzan9VSOEL",
+            "type": "tab",
+            "createdDate": "2022-03-10T07:40:30.532Z",
+            "label": "cache",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "generateNext": true,
+            "serviceName": "cache",
+            "relativeParentPath": "",
+            "_def": {
+                "defaults": {
+                    "label": {
+                        "value": ""
+                    },
+                    "disabled": {
+                        "value": false
+                    },
+                    "info": {
+                        "value": ""
+                    }
+                }
+            }
+        },
+        "serviceImportPath": "app/sd-services/cache",
+        "category": "Function",
+        "x": 365,
+        "y": 60,
+        "wires": [
+            [
+                "sd_X8zlgz6AbPg7TZDJ"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

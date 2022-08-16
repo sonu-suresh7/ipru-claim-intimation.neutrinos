@@ -1,0 +1,42 @@
+[
+    {
+        "id": "sd_ocyJ6mOD1Vtl2NWA",
+        "type": "tab",
+        "createdDate": "2022-03-11T12:37:55.245Z",
+        "label": "badge_like",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "badge_likeComponent"
+    },
+    {
+        "id": "sd_ZegsLptoZgPYrRmD",
+        "type": "OnInit",
+        "z": "sd_ocyJ6mOD1Vtl2NWA",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "inputVariables": [
+            {
+                "key": "content",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                }
+            }
+        ],
+        "localVariables": [],
+        "outputVariables": [],
+        "functionName": "sd_ZegsLptoZgPYrRmD",
+        "category": "Lifecycle Events",
+        "x": 105,
+        "y": 180,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "badge_likeComponent"
+    }
+]

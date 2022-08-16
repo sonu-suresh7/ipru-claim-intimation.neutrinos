@@ -1,0 +1,79 @@
+#!groovy
+
+pipeline {
+    agent any
+
+    tools { nodejs "nodejs_14_lts"}
+
+    parameters {
+        string(name: 'BRANCH', description: 'Case Manager Frontend Repo Branch Name', defaultValue: 'feature/manulife-poc' )
+        choice(name: 'Environment', choices: ['prd'], description: 'Select Production Environment')
+    }
+
+    environment {
+        REPO = "git clone git@bitbucket.org:bhivedevs/case-manager-frontend.git"
+        DOCKER_URL = "docker.neutrinos.co"
+        DOCKER_REPO = "case-manager-ui-dev"
+        CREDS = credentials('NEXUS_CREDENTIALS')
+        DOCKER_USERNAME = "${env.CREDS_USR}"
+        DOCKER_PASSWORD = "${env.CREDS_PSW}"
+        DOCKER_FILE = "prod-dockerfile"
+        APP_DIR = "case-manager-ui"
+        npm_config_cache = 'npm-cache'
+    }
+    
+    stages {
+        stage('++++==== Clone Case Manager Frontend ====++++') {
+            steps {
+                checkout scm: [
+                $class: 'GitSCM', 
+                branches: [[name: "refs/remotes/origin/${params.BRANCH}"]], 
+                browser: [
+                    $class: 'BitbucketWeb', 
+                    repoUrl: "${env.REPO}"
+                    ], 
+                doGenerateSubmoduleConfigurations: false, 
+                extensions: [[$class: 'CleanBeforeCheckout']], 
+                submoduleCfg: [], 
+                userRemoteConfigs: [[credentialsId: 'Veeresh_Bitbucket_Creds', url: 'https://vhalagegowda@bitbucket.org/bhivedevs/case-manager-frontend.git']]]
+            }
+        }
+
+        stage('++++==== Build Case Manager UI ====++++') {
+            steps {
+                script {
+                    dir("${env.WORKSPACE}/${env.APP_DIR}/app/") {
+                        sh "npm install"
+                        sh "npm run build-web-prod"
+                        sh 'mkdir -p ../server/build/angular-app && cp -r dist/* "$_"'
+                    }
+                    dir("${env.WORKSPACE}/${env.APP_DIR}/server/") {
+                        sh "npm install"
+                        sh "npm run tsc"
+                    }
+                }
+            }
+        }
+
+        stage('++++==== Build and Dockerize Case Manager UI ====++++') {
+            steps {
+                script {
+                    dir("${env.WORKSPACE}/${env.APP_DIR}/server/"){
+                        sh "${env.WORKSPACE}/${env.APP_DIR}/jenkins/docker_build_push.sh ${env.DOCKER_URL} ${env.DOCKER_USERNAME} ${env.DOCKER_PASSWORD} ${env.DOCKER_REPO} ${env.APP_DIR} ${env.BUILD_NUMBER} ${env.DOCKER_FILE}"
+                    }
+                }
+            }
+        }
+
+        stage('++++==== Deploy Case Manager UI to GCP Environment ====++++') {
+            steps {
+                dir("${env.WORKSPACE}/${env.APP_DIR}/helm/deploy-${env.APP_DIR}/"){
+                    withKubeConfig([credentialsId: 'KP_HDFC_PROD_KUBECONFIG_FILE']) {
+                        sh "envsubst < values.yaml > values-prd.yaml"
+                        sh "helm upgrade --install ${env.APP_DIR} -f values-${params.Environment}.yaml ./"
+                    }
+                }
+            }
+        }
+    }
+}

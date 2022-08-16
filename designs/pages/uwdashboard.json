@@ -1,0 +1,323 @@
+[
+    {
+        "id": "sd_Guj2BLJS6JmtGw7U",
+        "type": "tab",
+        "createdDate": "2022-04-13T08:58:04.320Z",
+        "label": "uwdashboard",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 8,
+        "generateNext": true,
+        "serviceName": "uwdashboardComponent"
+    },
+    {
+        "id": "sd_zCty1ZYVCWvHJ97J",
+        "type": "OnInit",
+        "z": "sd_Guj2BLJS6JmtGw7U",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "sd_zCty1ZYVCWvHJ97J",
+        "category": "Lifecycle Events",
+        "x": 30,
+        "y": 30,
+        "wires": [
+            [
+                "sd_Qnq7w1HSvKPHFhPt"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "uwdashboardComponent"
+    },
+    {
+        "id": "sd_Qnq7w1HSvKPHFhPt",
+        "type": "PageVariables",
+        "z": "sd_Guj2BLJS6JmtGw7U",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [],
+        "functionName": "sd_Qnq7w1HSvKPHFhPt",
+        "category": "Function",
+        "x": 145,
+        "y": 40,
+        "wires": [
+            [
+                "sd_sQTUjRSs4zUwroDt"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_sQTUjRSs4zUwroDt",
+        "type": "Script",
+        "z": "sd_Guj2BLJS6JmtGw7U",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.displaytable = false;\nbh.local.dataSource = new MatTableDataSource([\n  {\n    position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'\n  }\n  ,\n  {\n    position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'\n  }\n  ,\n  {\n    position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'\n  }\n  ,\n  {\n    position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'\n  }\n  ,\n  {\n    position: 5, name: 'Boron', weight: 10.811, symbol: 'B'\n  }\n  ,\n  {\n    position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'\n  }\n  ,\n  {\n    position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'\n  }\n  ,\n  {\n    position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'\n  }\n  ,\n  {\n    position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'\n  }\n  ,\n  {\n    position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'\n  }\n  ,\n]);\n\npage.pieChartLabels = ['Completed', 'Pending'];\n\npage.pieChartOptions = {\n  responsive: true\n}\n\npage.pieChartColors = [{\n  backgroundColor: ['#F8CA4D', '#006DBA'],\n  borderColor: ['#F8CA4D', '#006DBA']\n}];\n\npage.items = [{\n  header: 'Week',\n  value: 'Avg Time Per Case'\n},\n{\n  header: 'Week 1',\n  value: '15'\n},\n{\n  header: 'Week 2',\n  value: '13'\n},\n{\n  header: 'Week 3',\n  value: '12'\n},\n{\n  header: 'Week 4',\n  value: '12'\n},\n{\n  header: 'Week 5',\n  value: '15'\n}, {\n  header: 'Week 6',\n  value: '12'\n},\n{\n  header: 'Week 7',\n  value: '13'\n},\n{\n  header: 'Week 8',\n  value: '16'\n},\n{\n  header: 'Week 9',\n  value: '18'\n},\n{\n  header: 'Week 10',\n  value: '19'\n}]\n\npage.barChartData = [\n        { data: [10, 10, 8, 6, 5, 14, 12, 6, 16], label: 'Series A' },\n    ];\n    \npage.barChartLabels = ['0', '2', '4', '6', '8', '10', '12','14','16'];\n\n  page.chartColors = [\n    { \n      backgroundColor: '#006DBA',\n      borderColor: '#006DBA',\n      pointBackgroundColor: '#006DBA',\n      pointBorderColor: '#fff',\n      pointHoverBackgroundColor: '#fff',\n      pointHoverBorderColor: '#006DBA'\n    }];\n\n\npage.pieChartData = [{data:[0, 0]}];\n",
+        "functionName": "sd_eJuzOUTYKNgXaqdz_6",
+        "category": "Function",
+        "x": 245,
+        "y": 40,
+        "wires": [
+            [
+                "sd_cZ6HaGMyNirueOP6"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_cZ6HaGMyNirueOP6",
+        "type": "PageVariables",
+        "z": "sd_Guj2BLJS6JmtGw7U",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "tableData",
+                "typedIpValue": {
+                    "type": "bh.local",
+                    "value": "dataSource"
+                }
+            }
+        ],
+        "functionName": "sd_E9QbOlnVduPNV5MO_6",
+        "category": "Function",
+        "x": 385,
+        "y": 40,
+        "wires": [
+            [
+                "sd_BKI5hQDSaw7uS3qj"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_BKI5hQDSaw7uS3qj",
+        "type": "PageCallService",
+        "z": "sd_Guj2BLJS6JmtGw7U",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_Guj2BLJS6JmtGw7U",
+            "type": "tab",
+            "createdDate": "2022-04-13T08:58:04.320Z",
+            "label": "uwdashboard",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 8
+        },
+        "flow": {
+            "flowId": "sd_j7DWEgEndMkR8HyG",
+            "flowName": "getTaskCPList"
+        },
+        "inputVariables": [],
+        "outputMapping": [],
+        "serviceImportPath": "./uwdashboard",
+        "startName": "getTaskCPList",
+        "inputParams": [],
+        "accept_csd": false,
+        "functionName": "sd_BKI5hQDSaw7uS3qj",
+        "category": "General",
+        "x": 540,
+        "y": 50,
+        "wires": [
+            [
+                "sd_3UjO9xWHPaVQHYJJ"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_3UjO9xWHPaVQHYJJ",
+        "type": "UseDependency",
+        "z": "sd_Guj2BLJS6JmtGw7U",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "",
+        "propertyType": "bh",
+        "propertyGv": "bh.",
+        "alias": "",
+        "modules": [
+            {
+                "textIp": "uwadmindbService",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "legservice"
+                },
+                "injectable": true
+            }
+        ],
+        "import_all": false,
+        "library": "app/services/uwadmindb/uwadmindb.service",
+        "serviceDesignerType": "pages",
+        "functionName": "sd_3UjO9xWHPaVQHYJJ",
+        "category": "Function",
+        "x": 665,
+        "y": 140,
+        "wires": [
+            [
+                "sd_LdWpSjMpsstkOxRv"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_LdWpSjMpsstkOxRv",
+        "type": "Script",
+        "z": "sd_Guj2BLJS6JmtGw7U",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.leaderBoardData = await page.legservice.getLeaderBoardData();\n\npage.leaderBoardData.map(ele => {\n    ele.completed = ele['counter']['completed'];\n    ele.userName = ele['message']['payload']['user']\n    ele['picture'] = ''\n    delete ele['message']\n    delete ele['counter']\n})\n\npage.leaderBoardData.sort((a, b) => b.completed - a.completed);\n\npage.leaderBoardData[0]['picture'] = 'assets/Web/1.png'\npage.leaderBoardData[1]['picture'] = 'assets/Web/2.png'\npage.leaderBoardData[2]['picture'] = 'assets/Web/3.png'\npage.leaderBoardData[3]['picture'] = ''\n\npage.displaytable = true;\n\nconsole.log(page.leaderBoardData, 'page.leaderBoardData');\nconsole.log(page.displaytable,'page.displaytable')",
+        "functionName": "sd_LdWpSjMpsstkOxRv",
+        "category": "Function",
+        "x": 765,
+        "y": 140,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_j7DWEgEndMkR8HyG",
+        "type": "PageStart",
+        "z": "sd_Guj2BLJS6JmtGw7U",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "getTaskCPList",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "getTaskCPList",
+        "category": "General",
+        "x": 85,
+        "y": 200,
+        "wires": [
+            [
+                "sd_oWoAWWAleB7c7V17"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "uwdashboardComponent"
+    },
+    {
+        "id": "sd_fgRfeW0fdiWjWJTs",
+        "type": "HttpRequest",
+        "z": "sd_Guj2BLJS6JmtGw7U",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "post",
+        "methodMappingObj": {},
+        "urlMapping": "this.page.url",
+        "urlMappingObj": {
+            "mapVarType": "this.page",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "this.page.payload",
+        "reqBodyObj": {
+            "mapVarType": "this.page",
+            "mapVarValue": "payload"
+        },
+        "resultMapping": "this.page.result",
+        "resultMappingObj": {
+            "mapVarType": "this.page",
+            "mapVarValue": "result"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMappingObj": {},
+        "functionName": "sd_fgRfeW0fdiWjWJTs",
+        "category": "HTTP",
+        "x": 310,
+        "y": 220,
+        "wires": [
+            [
+                "sd_kBbwOjByYTthN3ny"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_oWoAWWAleB7c7V17",
+        "type": "Script",
+        "z": "sd_Guj2BLJS6JmtGw7U",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.url = `${page.system.environment.properties.ssdBaseUrl}/getTaskCPList`\npage.payload = {\n    \"user\":page.system.oauthService.userInfo.additional.jbpm\n}",
+        "functionName": "sd_oWoAWWAleB7c7V17",
+        "category": "Function",
+        "x": 205,
+        "y": 220,
+        "wires": [
+            [
+                "sd_fgRfeW0fdiWjWJTs"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_kBbwOjByYTthN3ny",
+        "type": "Script",
+        "z": "sd_Guj2BLJS6JmtGw7U",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(page.result.message.payload['task-summary']);\npage.pendingAllocation = 0;\npage.inProcess = 0;\npage.allocated = 0;\npage.pendingReq = 0;\npage.completedCase = 0;\n\n\nif (page.result.message.payload['task-summary'] && page.result.message.payload['task-summary'].length != 0) {\n    page.result.message.payload['task-summary'].filter(ele => {\n        if (ele['task-status'] && ele['task-status'] == 'Ready') {\n            page.pendingAllocation++;\n        }\n        else if (ele['task-status'] && ele['task-status'] == 'Reserved') {\n            page.allocated++;\n        }\n        else if (ele['task-status'] && ele['task-status'] == 'InProgress') {\n            page.inProcess++;\n        }\n        else if (ele['task-status'] && ele['task-status'] == 'Completed') {\n            page.completedCase++;\n        }\n    })\n}\n\n    page.pieChartData = [{data:[page.completedCase, page.inProcess]}];\n",
+        "functionName": "sd_kBbwOjByYTthN3ny",
+        "category": "Function",
+        "x": 445,
+        "y": 220,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

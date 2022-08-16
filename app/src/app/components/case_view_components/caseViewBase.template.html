@@ -1,0 +1,4 @@
+<div fxLayout="column " class="height-100 border-box padding-1 width-100" fxLayoutGap="20px" fxLayoutAlign="start stretch" *ngIf="page.checkedOut.case &amp;&amp; page.checkedOut.task">
+  <bh-ownerInfoBanner style="height: 6rem;" class="border-radius-half" *ngIf="page.checkedOut.case" [resourceLinkData]="page.resourceLinksResult"></bh-ownerInfoBanner>
+  <bh-taskTabs class="border-radius-half" [task]="page.checkedOut.task" *ngIf="page.checkedOut.task" (resourceLinkData)="page.resourceLinksResult = $event.slice()"></bh-taskTabs>
+</div>

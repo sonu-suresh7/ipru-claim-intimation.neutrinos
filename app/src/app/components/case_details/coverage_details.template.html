@@ -1,0 +1,57 @@
+<div fxLayout="column " class="height-100" fxLayoutAlign="start stretch" [fxShow]="true">
+  <mat-accordion class="expansion-panel-styles">
+    <mat-expansion-panel [expanded]="true">
+      <mat-expansion-panel-header>
+        <div fxLayout="row " class="width-100" fxLayoutGap="1rem" fxLayoutAlign="start center" [fxShow]="true"><img imgSrc="/Web/CaseDetails/health-insurance.svg">
+          <mat-panel-title>
+            {{page.locales.keys.coverageDetailsTitle}}
+          </mat-panel-title>
+        </div>
+      </mat-expansion-panel-header>
+      <div fxLayout="column" class="personal-details-card">
+        <table mat-table [dataSource]="page?.coverageData" matSort class="table-width-fix">
+          <tr mat-header-row *matHeaderRowDef="[&apos;product&apos;,&apos;lifeInsured&apos;,&apos;age&apos;,&apos;gender&apos;,&apos;sumInsured&apos;,&apos;current_premium&apos;,&apos;term&apos;]"></tr>
+          <tr mat-row *matRowDef="let row; columns: [&apos;product&apos;,&apos;lifeInsured&apos;,&apos;age&apos;,&apos;gender&apos;,&apos;sumInsured&apos;,&apos;current_premium&apos;,&apos;term&apos;];"></tr>
+
+          <ng-container matColumnDef="product">
+            <th mat-header-cell *matHeaderCellDef>{{page.labels.product.label}}</th>
+            <td mat-cell *matCellDef="let table; let i = index;">{{table.product}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="lifeInsured">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{page.labels.lifeInsured.label}}</th>
+            <td mat-cell *matCellDef="let table; let i = index;">{{table.lifeInsured}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="age">
+            <th mat-header-cell *matHeaderCellDef>{{page.labels.age.label}}</th>
+            <td mat-cell *matCellDef="let table; let i = index;">{{table.age}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="gender">
+            <th mat-header-cell *matHeaderCellDef>{{page.labels.gender.label}}</th>
+            <td mat-cell *matCellDef="let table; let i = index;">{{table.gender}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="sumInsured">
+            <th mat-header-cell *matHeaderCellDef>{{page.labels.sumInsured.label}}</th>
+            <td mat-cell *matCellDef="let table; let i = index;">{{table.sumInsured}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="current_premium">
+            <th mat-header-cell *matHeaderCellDef>{{page.labels.premium.label}}</th>
+            <td mat-cell *matCellDef="let table; let i = index;">{{table.current_premium}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="term">
+            <th mat-header-cell *matHeaderCellDef>{{page.labels.term.label}}</th>
+            <td mat-cell *matCellDef="let table; let i = index;">{{table.term}}</td>
+          </ng-container>
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]">
+        </mat-paginator>
+
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

@@ -1,0 +1,3 @@
+<div fxLayout="row " style="height: 3rem; width: 4rem;" fxLayoutAlign="center center" *ngIf="spin">
+  <mat-progress-spinner [mode]="&apos;indeterminate&apos;" strokeWidth="5" [diameter]="32"></mat-progress-spinner>
+</div><button mat-button class="continue-button app-button secondary" *ngIf="!spin" (click)="emitClicked()" [disabled]="disabled" type="submit">{{label}}</button>

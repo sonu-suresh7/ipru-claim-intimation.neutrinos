@@ -1,0 +1,135 @@
+[
+    {
+        "id": "sd_EpOwAic9OaWdWNod",
+        "type": "tab",
+        "createdDate": "2022-03-08T11:08:33.580Z",
+        "label": "adminDashboard",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "adminDashboardComponent"
+    },
+    {
+        "id": "sd_YgxP0zhBO1Hsru5p",
+        "type": "OnInit",
+        "z": "sd_EpOwAic9OaWdWNod",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "sd_YgxP0zhBO1Hsru5p",
+        "category": "Lifecycle Events",
+        "x": 30,
+        "y": 30,
+        "wires": [
+            [
+                "sd_EMnGZ8jS5sV6cD8y"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "adminDashboardComponent"
+    },
+    {
+        "id": "sd_EMnGZ8jS5sV6cD8y",
+        "type": "PageVariables",
+        "z": "sd_EpOwAic9OaWdWNod",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [],
+        "functionName": "sd_EMnGZ8jS5sV6cD8y",
+        "category": "Function",
+        "x": 180,
+        "y": 30,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_GtJu7X4oJAGf8bNj",
+        "type": "PageStart",
+        "z": "sd_EpOwAic9OaWdWNod",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "open right side bar",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [
+            {
+                "key": "emailData",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "flow_type": "sync",
+        "functionName": "openRightSideBar",
+        "category": "General",
+        "x": 125,
+        "y": 140,
+        "wires": [
+            [
+                "sd_LBE57FFEAwKt7N4A"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "adminDashboardComponent"
+    },
+    {
+        "id": "sd_LBE57FFEAwKt7N4A",
+        "type": "Script",
+        "z": "sd_EpOwAic9OaWdWNod",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.rsnComponent = 'EMAIL'\nbh.local.emailData = {\n    name: 'EmailComponent',\n    viewName: 'emailComponent',\n    data: {}\n}",
+        "functionName": "sd_LBE57FFEAwKt7N4A",
+        "category": "Function",
+        "x": 260,
+        "y": 140,
+        "wires": [
+            [
+                "sd_nksVkvt6lphVnCmV"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_nksVkvt6lphVnCmV",
+        "type": "4a14d245-3eca-40a4-550c-2885e99a00e9",
+        "z": "sd_EpOwAic9OaWdWNod",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "eventName": "\"open-rsn\"",
+        "functionName": "sd_nksVkvt6lphVnCmV",
+        "category": "Events",
+        "x": 365,
+        "y": 140,
+        "wires": [
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "eventName": {
+                "type": "str",
+                "value": "open-rsn",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

@@ -1,0 +1,55 @@
+[
+    {
+        "id": "sd_XKkEkKZ12vH4MMNN",
+        "type": "tab",
+        "createdDate": "2022-04-26T03:06:47.056Z",
+        "label": "traffic_lights_base",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "traffic_lights_baseComponent"
+    },
+    {
+        "id": "sd_gUQ2VyBATg66r2ef",
+        "type": "OnInit",
+        "z": "sd_XKkEkKZ12vH4MMNN",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "sd_gUQ2VyBATg66r2ef",
+        "category": "Lifecycle Events",
+        "x": 30,
+        "y": 30,
+        "wires": [
+            [
+                "sd_VdcswUdj8RqfTsYL"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "traffic_lights_baseComponent"
+    },
+    {
+        "id": "sd_VdcswUdj8RqfTsYL",
+        "type": "PageVariables",
+        "z": "sd_XKkEkKZ12vH4MMNN",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [],
+        "functionName": "sd_VdcswUdj8RqfTsYL",
+        "category": "Function",
+        "x": 180,
+        "y": 30,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

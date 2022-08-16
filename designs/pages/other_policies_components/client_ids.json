@@ -1,0 +1,790 @@
+[
+    {
+        "id": "sd_MOPkMHoJ2CNuJvBL",
+        "type": "tab",
+        "createdDate": "2022-04-07T07:52:30.812Z",
+        "label": "client_ids",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "client_idsComponent"
+    },
+    {
+        "id": "sd_0XyXk8Xie5l5ZgsN",
+        "type": "OnInit",
+        "z": "sd_MOPkMHoJ2CNuJvBL",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "inputVariables": [
+            {
+                "key": "caseDetails",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                }
+            },
+            {
+                "key": "caseData",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                }
+            }
+        ],
+        "localVariables": [],
+        "outputVariables": [
+            {
+                "key": "filteredPolicies",
+                "defaultValue": {
+                    "type": "any",
+                    "value": null
+                }
+            }
+        ],
+        "functionName": "sd_0XyXk8Xie5l5ZgsN",
+        "category": "Lifecycle Events",
+        "x": 85,
+        "y": 100,
+        "wires": [
+            [
+                "sd_OhNb8ZMkL1KWPjUj"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "client_idsComponent"
+    },
+    {
+        "id": "sd_tWqvig11ImZIUW0m",
+        "type": "PageVariables",
+        "z": "sd_MOPkMHoJ2CNuJvBL",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "clientIdArr",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "[]"
+                }
+            },
+            {
+                "textIp": "selection",
+                "typedIpValue": {
+                    "type": "bh",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "clientsArr",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "[]"
+                }
+            },
+            {
+                "textIp": "policiesArr",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "[]"
+                }
+            },
+            {
+                "textIp": "policies",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "[]"
+                }
+            }
+        ],
+        "functionName": "sd_tWqvig11ImZIUW0m",
+        "category": "Function",
+        "x": 325,
+        "y": 100,
+        "wires": [
+            [
+                "sd_0prLby1EhE0rlQQm"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "client_idsComponent"
+    },
+    {
+        "id": "sd_0prLby1EhE0rlQQm",
+        "type": "Script",
+        "z": "sd_MOPkMHoJ2CNuJvBL",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "if (this.caseData) {\n    page.clientsArr = this.caseData.otherPolicies?.clients;\n    page.policies = this.caseData.otherPolicies?.policies;\n}\nif (page.clientsArr) {\n    page.clientIdArr = new MatTableDataSource(page.clientsArr);\n}\npage.selection = new SelectionModel(true, []);\n\n",
+        "functionName": "sd_0prLby1EhE0rlQQm",
+        "category": "Function",
+        "x": 425,
+        "y": 100,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "client_idsComponent"
+    },
+    {
+        "id": "sd_mqKVAGQrA7fyo1iK",
+        "type": "PageStart",
+        "z": "sd_MOPkMHoJ2CNuJvBL",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "master Toggle",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "masterToggle",
+        "category": "General",
+        "x": 80,
+        "y": 260,
+        "wires": [
+            [
+                "sd_ycZ4rjFtfP3buFIs"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "client_idsComponent"
+    },
+    {
+        "id": "sd_ycZ4rjFtfP3buFIs",
+        "type": "Script",
+        "z": "sd_MOPkMHoJ2CNuJvBL",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "if (this.isAllSelected()) {\n    page.selection.clear();\n    return;\n}\npage.selection.select(...page.clientIdArr.data);\n",
+        "functionName": "sd_ycZ4rjFtfP3buFIs",
+        "category": "Function",
+        "x": 225,
+        "y": 260,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_OhNb8ZMkL1KWPjUj",
+        "type": "UseDependency",
+        "z": "sd_MOPkMHoJ2CNuJvBL",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "angular cdk collection",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "",
+        "propertyType": "bh",
+        "propertyGv": "bh.",
+        "alias": "",
+        "modules": [
+            {
+                "textIp": "SelectionModel",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                },
+                "injectable": false
+            }
+        ],
+        "import_all": false,
+        "library": "@angular/cdk/collections",
+        "serviceDesignerType": "pages",
+        "functionName": "angularCdkCollection",
+        "category": "Function",
+        "x": 205,
+        "y": 100,
+        "wires": [
+            [
+                "sd_tWqvig11ImZIUW0m"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_eYCY4HcDv7sFBCg1",
+        "type": "PageStart",
+        "z": "sd_MOPkMHoJ2CNuJvBL",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "isAllSelected",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [
+            {
+                "key": "result",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": true
+            }
+        ],
+        "flow_type": "sync",
+        "functionName": "isAllSelected",
+        "category": "General",
+        "x": 85,
+        "y": 380,
+        "wires": [
+            [
+                "sd_6V4kTisVphEfVVIa"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "client_idsComponent"
+    },
+    {
+        "id": "sd_6V4kTisVphEfVVIa",
+        "type": "Script",
+        "z": "sd_MOPkMHoJ2CNuJvBL",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "const numSelected = page.selection.selected.length;\nconst numRows = page.clientIdArr.data.length;\nbh.local.result = numSelected === numRows;",
+        "functionName": "sd_6V4kTisVphEfVVIa",
+        "category": "Function",
+        "x": 225,
+        "y": 380,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_Ibm38Oe4fA7OoZzM",
+        "type": "OpenDialog",
+        "z": "sd_MOPkMHoJ2CNuJvBL",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 4,
+        "flow": {
+            "flowId": "sd_BOVQd6mx2TThVaS5",
+            "label": "confirmation_dialog"
+        },
+        "relativePath": "./confirmation_dialog",
+        "data": "bh.local.data",
+        "ariaDescribedBy": "this.page",
+        "ariaLabel": "this.page",
+        "ariaLabelledBy": "this.page",
+        "autoFocus": "this.page",
+        "backdropClass": "this.page",
+        "closeOnNavigation": "this.page",
+        "direction": "this.page",
+        "disableClose": "this.page",
+        "hasBackdrop": "this.page",
+        "height": "\"150px\"",
+        "maxHeight": "this.page",
+        "minHeight": "this.page",
+        "width": "\"500px\"",
+        "maxWidth": "this.page",
+        "minWidth": "this.page",
+        "panelClass": "this.page",
+        "position": "this.page",
+        "restoreFocus": "this.page",
+        "role": "this.page",
+        "resultMapping": "this.page.result",
+        "functionName": "sd_Ibm38Oe4fA7OoZzM",
+        "category": "Dialog",
+        "x": 285,
+        "y": 500,
+        "wires": [
+            [],
+            [
+                "sd_MH9RbPuBoUZAO0Rg"
+            ],
+            [],
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "data": {
+                "type": "bh.local",
+                "value": "data",
+                "constant": false
+            },
+            "ariaDescribedBy": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "ariaLabel": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "ariaLabelledBy": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "autoFocus": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "backdropClass": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "closeOnNavigation": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "direction": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "disableClose": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "hasBackdrop": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "height": {
+                "type": "str",
+                "value": "150px",
+                "constant": false
+            },
+            "maxHeight": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "minHeight": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "width": {
+                "type": "str",
+                "value": "500px",
+                "constant": false
+            },
+            "maxWidth": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "minWidth": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "panelClass": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "position": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "restoreFocus": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "role": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "resultMapping": {
+                "type": "this.page",
+                "value": "result",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_ZqBcR6k4sBjWxVlM",
+        "type": "PageStart",
+        "z": "sd_MOPkMHoJ2CNuJvBL",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "merge requests",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [
+            {
+                "key": "data",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "flow_type": "sync",
+        "functionName": "mergeRequests",
+        "category": "General",
+        "x": 85,
+        "y": 500,
+        "wires": [
+            [
+                "sd_YUxfQFWSmFGc8C3b"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "client_idsComponent"
+    },
+    {
+        "id": "sd_YUxfQFWSmFGc8C3b",
+        "type": "Script",
+        "z": "sd_MOPkMHoJ2CNuJvBL",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.data = {\n    icon: 'close',\n    title: 'Confirmation',\n    message: 'Are you sure you want to merge these Client IDs?',\n    option1: {\n        title: 'No',\n        value: false,\n    },\n    option2: {\n        title: 'Yes',\n        value: true,\n    },\n}",
+        "functionName": "sd_YUxfQFWSmFGc8C3b",
+        "category": "Function",
+        "x": 185,
+        "y": 500,
+        "wires": [
+            [
+                "sd_Ibm38Oe4fA7OoZzM"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_5aRgDLwAxwmFxWq9",
+        "type": "Script",
+        "z": "sd_MOPkMHoJ2CNuJvBL",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log('resssss', page.result);\n// if (page.result === true) {\n    bh.local.data = {\n        icon: 'close',\n        title: 'Success',\n        message: 'Merge request raised successfully.',\n        option2: {\n            title: 'Okay',\n            value: true,\n        },\n    }\n// }",
+        "functionName": "sd_5aRgDLwAxwmFxWq9",
+        "category": "Function",
+        "x": 485,
+        "y": 480,
+        "wires": [
+            [
+                "sd_LqhCMVvGNUQg7TSk"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_LqhCMVvGNUQg7TSk",
+        "type": "OpenDialog",
+        "z": "sd_MOPkMHoJ2CNuJvBL",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 4,
+        "flow": {
+            "flowId": "sd_BOVQd6mx2TThVaS5",
+            "label": "confirmation_dialog"
+        },
+        "relativePath": "./confirmation_dialog",
+        "data": "bh.local.data",
+        "ariaDescribedBy": "this.page",
+        "ariaLabel": "this.page",
+        "ariaLabelledBy": "this.page",
+        "autoFocus": "this.page",
+        "backdropClass": "this.page",
+        "closeOnNavigation": "this.page",
+        "direction": "this.page",
+        "disableClose": "this.page",
+        "hasBackdrop": "this.page",
+        "height": "\"150px\"",
+        "maxHeight": "this.page",
+        "minHeight": "this.page",
+        "width": "\"500px\"",
+        "maxWidth": "this.page",
+        "minWidth": "this.page",
+        "panelClass": "this.page",
+        "position": "this.page",
+        "restoreFocus": "this.page",
+        "role": "this.page",
+        "resultMapping": "this.page",
+        "functionName": "sd_LqhCMVvGNUQg7TSk",
+        "category": "Dialog",
+        "x": 585,
+        "y": 460,
+        "wires": [
+            [],
+            [],
+            [],
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "data": {
+                "type": "bh.local",
+                "value": "data",
+                "constant": false
+            },
+            "ariaDescribedBy": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "ariaLabel": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "ariaLabelledBy": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "autoFocus": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "backdropClass": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "closeOnNavigation": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "direction": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "disableClose": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "hasBackdrop": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "height": {
+                "type": "str",
+                "value": "150px",
+                "constant": false
+            },
+            "maxHeight": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "minHeight": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "width": {
+                "type": "str",
+                "value": "500px",
+                "constant": false
+            },
+            "maxWidth": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "minWidth": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "panelClass": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "position": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "restoreFocus": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "role": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "resultMapping": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_MH9RbPuBoUZAO0Rg",
+        "type": "PageSwitch",
+        "z": "sd_MOPkMHoJ2CNuJvBL",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "property": "result",
+        "propertyType": "this.page",
+        "propertyGv": "this.page.result",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "functionName": "sd_MH9RbPuBoUZAO0Rg",
+        "category": "Function",
+        "x": 385,
+        "y": 500,
+        "wires": [
+            [
+                "sd_5aRgDLwAxwmFxWq9"
+            ],
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_9z0ZGSVAcWTReyjB",
+        "type": "PageStart",
+        "z": "sd_MOPkMHoJ2CNuJvBL",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "update policies",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "event",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "clientId",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "updatePolicies",
+        "category": "General",
+        "x": 100,
+        "y": 640,
+        "wires": [
+            [
+                "sd_pHucDKL4Py3Y1vEL"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "client_idsComponent"
+    },
+    {
+        "id": "sd_pHucDKL4Py3Y1vEL",
+        "type": "Script",
+        "z": "sd_MOPkMHoJ2CNuJvBL",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "if (bh.input.event.checked && page.policies) {\n    // page.policiesArr = page.policies.filter(obj => (obj.lifeId === bh.input.clientId) || (obj.ownerId === bh.input.clientId));\n    page.policies.forEach(obj => {\n        if ((obj.lifeId === bh.input.clientId) || (obj.ownerId === bh.input.clientId)) {\n            page.policiesArr.push(obj);\n        }\n    });\n} else {\n    const index = page.policiesArr.findIndex(obj => (obj.lifeId === bh.input.clientId) || (obj.ownerId === bh.input.clientId))\n    if (index !== -1) {\n        page.policiesArr.splice(index, 1);\n    }\n}\n",
+        "functionName": "sd_pHucDKL4Py3Y1vEL",
+        "category": "Function",
+        "x": 220,
+        "y": 640,
+        "wires": [
+            [
+                "sd_mfL19g8L6Y3TL2Zi"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_mfL19g8L6Y3TL2Zi",
+        "type": "Output",
+        "z": "sd_MOPkMHoJ2CNuJvBL",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "eventName": "bh.pageOutput.filteredPolicies",
+        "data": "this.page.policiesArr",
+        "functionName": "sd_mfL19g8L6Y3TL2Zi",
+        "category": "Function",
+        "x": 325,
+        "y": 640,
+        "wires": [
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "eventName": {
+                "type": "bh.pageOutput",
+                "value": "filteredPolicies",
+                "constant": false
+            },
+            "data": {
+                "type": "this.page",
+                "value": "policiesArr",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

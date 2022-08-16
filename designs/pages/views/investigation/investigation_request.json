@@ -1,0 +1,422 @@
+[
+    {
+        "id": "sd_SFLBWorT72n1eI6T",
+        "type": "tab",
+        "createdDate": "2022-07-18T22:49:35.850Z",
+        "label": "investigation_request",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "investigation_requestComponent"
+    },
+    {
+        "id": "sd_xqepcU75RpoxqyVZ",
+        "type": "OnInit",
+        "z": "sd_SFLBWorT72n1eI6T",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "inputVariables": [
+            {
+                "key": "investigation_types",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                }
+            }
+        ],
+        "localVariables": [],
+        "outputVariables": [
+            {
+                "key": "onInvestigationDataChange",
+                "defaultValue": {
+                    "type": "any",
+                    "value": null
+                }
+            },
+            {
+                "key": "onInvestigatorSelectionChange",
+                "defaultValue": {
+                    "type": "any",
+                    "value": null
+                }
+            }
+        ],
+        "functionName": "sd_xqepcU75RpoxqyVZ",
+        "category": "Lifecycle Events",
+        "x": 30,
+        "y": 30,
+        "wires": [
+            [
+                "sd_0Cr4hbWvC1SCE1eW"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "investigation_requestComponent"
+    },
+    {
+        "id": "sd_0Cr4hbWvC1SCE1eW",
+        "type": "PageVariables",
+        "z": "sd_SFLBWorT72n1eI6T",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "selected_types",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "{}"
+                }
+            },
+            {
+                "textIp": "selected_sub_type",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "{}"
+                }
+            },
+            {
+                "textIp": "selected_checklist",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "{}"
+                }
+            },
+            {
+                "textIp": "investigator",
+                "typedIpValue": {
+                    "type": "bh",
+                    "value": ""
+                }
+            }
+        ],
+        "functionName": "sd_0Cr4hbWvC1SCE1eW",
+        "category": "Function",
+        "x": 180,
+        "y": 30,
+        "wires": [
+            [
+                "sd_Zr7vZ52qE3Bj625J"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "investigation_requestComponent"
+    },
+    {
+        "id": "sd_fXPE32ZIngyx7yO2",
+        "type": "PageStart",
+        "z": "sd_SFLBWorT72n1eI6T",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "prepareSelectedTypes",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "investigation_data",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "event",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "investigation_type",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "prepareSelectedTypes",
+        "category": "General",
+        "x": 60,
+        "y": 180,
+        "wires": [
+            [
+                "sd_XXA8A0sBT6zfVfDW"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "investigation_requestComponent"
+    },
+    {
+        "id": "sd_XXA8A0sBT6zfVfDW",
+        "type": "Script",
+        "z": "sd_SFLBWorT72n1eI6T",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(bh.input.investigation_type, bh.input.event, bh.input.investigation_data);\nif (!bh.input.event.checked && Array.isArray(bh.input.investigation_data.value)) {\n    bh.input.investigation_data.value.forEach(el => {\n        el.checked = false;\n        if (Array.isArray(el.value)) {\n            el.value.forEach(obj => obj.checked = false);\n        }\n    })\n}\n\nthis.onInvestigationDataChange.emit(this.investigation_types)",
+        "functionName": "sd_XXA8A0sBT6zfVfDW",
+        "category": "Function",
+        "x": 200,
+        "y": 180,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "investigation_requestComponent"
+    },
+    {
+        "id": "sd_j3v4sJ1zFHrDkZSx",
+        "type": "PageStart",
+        "z": "sd_SFLBWorT72n1eI6T",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "Should show subtype",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [
+            {
+                "key": "should_show",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": true
+            }
+        ],
+        "flow_type": "sync",
+        "functionName": "shouldShowSubtype",
+        "category": "General",
+        "x": 65,
+        "y": 300,
+        "wires": [
+            [
+                "sd_DT8JBOFs2dKIX8GL"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "investigation_requestComponent"
+    },
+    {
+        "id": "sd_DT8JBOFs2dKIX8GL",
+        "type": "Script",
+        "z": "sd_SFLBWorT72n1eI6T",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.should_show = this.investigation_types.some(el => el.checked)",
+        "functionName": "sd_DT8JBOFs2dKIX8GL",
+        "category": "Function",
+        "x": 220,
+        "y": 300,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_rRb65OHLZGdSwU74",
+        "type": "PageStart",
+        "z": "sd_SFLBWorT72n1eI6T",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "Should show checklist",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [
+            {
+                "key": "should_show",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": true
+            }
+        ],
+        "flow_type": "sync",
+        "functionName": "shouldShowChecklist",
+        "category": "General",
+        "x": 70,
+        "y": 415.79998779296875,
+        "wires": [
+            [
+                "sd_7P7xJtPulBnKhJR0"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "investigation_requestComponent"
+    },
+    {
+        "id": "sd_7P7xJtPulBnKhJR0",
+        "type": "Script",
+        "z": "sd_SFLBWorT72n1eI6T",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.should_show = this.shouldShowSubtype() && this.investigation_types.some(el => el.value.some(obj => obj.checked));\n",
+        "functionName": "sd_7P7xJtPulBnKhJR0",
+        "category": "Function",
+        "x": 225,
+        "y": 415.79998779296875,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_Zr7vZ52qE3Bj625J",
+        "type": "PageCallService",
+        "z": "sd_SFLBWorT72n1eI6T",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_FeSAKKAyQ3k2UP97",
+            "type": "tab",
+            "createdDate": "2022-07-18T20:18:51.772Z",
+            "label": "investigation",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_3APjdFuejeEEayfl",
+            "flowName": "getInvestigators"
+        },
+        "inputVariables": [],
+        "outputMapping": [
+            {
+                "mapVarType": "local",
+                "key": "result",
+                "valueType": "this.page",
+                "value": "investigators",
+                "mapVarName": "result",
+                "localVar": "this.page.investigators"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/investigation",
+        "startName": "getInvestigators",
+        "inputParams": [],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "sd_Zr7vZ52qE3Bj625J",
+        "category": "General",
+        "x": 325,
+        "y": 40,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_M3pwOozAT8Q26xLV",
+        "type": "PageStart",
+        "z": "sd_SFLBWorT72n1eI6T",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "investigatorSelectionChange",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "index",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "investigatorSelectionChange",
+        "category": "General",
+        "x": 85,
+        "y": 520,
+        "wires": [
+            [
+                "sd_ZKr37SFWqETBop1K"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "investigation_requestComponent"
+    },
+    {
+        "id": "sd_Za8bdmOk9IHavRYk",
+        "type": "Output",
+        "z": "sd_SFLBWorT72n1eI6T",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "eventName": "bh.pageOutput.onInvestigatorSelectionChange",
+        "data": "bh.local.investigator",
+        "functionName": "sd_Za8bdmOk9IHavRYk",
+        "category": "Function",
+        "x": 325,
+        "y": 520,
+        "wires": [
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "eventName": {
+                "type": "bh.pageOutput",
+                "value": "onInvestigatorSelectionChange",
+                "constant": false
+            },
+            "data": {
+                "type": "bh.local",
+                "value": "investigator",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_ZKr37SFWqETBop1K",
+        "type": "Script",
+        "z": "sd_SFLBWorT72n1eI6T",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.investigator = page.investigators[bh.input.index.value]",
+        "functionName": "sd_ZKr37SFWqETBop1K",
+        "category": "Function",
+        "x": 200,
+        "y": 520,
+        "wires": [
+            [
+                "sd_Za8bdmOk9IHavRYk"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

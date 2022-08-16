@@ -1,0 +1,501 @@
+[
+    {
+        "id": "sd_x4je3BxNisr8hHdH",
+        "type": "tab",
+        "createdDate": "2022-05-10T14:35:48.228Z",
+        "label": "reassign",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "reassignComponent"
+    },
+    {
+        "id": "sd_HX3StKM3z0rTFu6z",
+        "type": "OnInit",
+        "z": "sd_x4je3BxNisr8hHdH",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "sd_HX3StKM3z0rTFu6z",
+        "category": "Lifecycle Events",
+        "x": 65,
+        "y": 60,
+        "wires": [
+            [
+                "sd_a7HbimdPiCuqflbv"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "reassignComponent"
+    },
+    {
+        "id": "sd_a7HbimdPiCuqflbv",
+        "type": "PageVariables",
+        "z": "sd_x4je3BxNisr8hHdH",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "fds",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "[]"
+                }
+            }
+        ],
+        "functionName": "sd_a7HbimdPiCuqflbv",
+        "category": "Function",
+        "x": 185,
+        "y": 60,
+        "wires": [
+            [
+                "sd_gTU3AinhTV5F7MKq"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "reassignComponent"
+    },
+    {
+        "id": "sd_cWcnhK4eahzqeZ1t",
+        "type": "PageStart",
+        "z": "sd_x4je3BxNisr8hHdH",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "get UW users",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "getUWUsers",
+        "category": "General",
+        "x": 65,
+        "y": 200,
+        "wires": [
+            [
+                "sd_D2IQEPnEllettPhu"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "reassignComponent"
+    },
+    {
+        "id": "sd_nT5r1580NGHbMPkL",
+        "type": "PageCallService",
+        "z": "sd_x4je3BxNisr8hHdH",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "call get UW users",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_x4je3BxNisr8hHdH",
+            "type": "tab",
+            "createdDate": "2022-05-10T14:35:48.228Z",
+            "label": "reassign",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_cWcnhK4eahzqeZ1t",
+            "flowName": "getUWUsers"
+        },
+        "inputVariables": [],
+        "outputMapping": [],
+        "serviceImportPath": "./reassign",
+        "startName": "getUWUsers",
+        "inputParams": [],
+        "accept_bh": false,
+        "accept_csd": false,
+        "functionName": "callGetUWUsers",
+        "category": "General",
+        "x": 585,
+        "y": 60,
+        "wires": [
+            [
+                "sd_9f8H9Hx2n80FPJPY"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_gTU3AinhTV5F7MKq",
+        "type": "PageServiceVariables",
+        "z": "sd_x4je3BxNisr8hHdH",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "get user role",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "get",
+        "globalVariables": [
+            {
+                "textIp": "loggedInRole",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "USER_ROLE"
+                }
+            }
+        ],
+        "functionName": "getUserRole",
+        "service": {
+            "id": "sd_RbD2RZwzan9VSOEL",
+            "type": "tab",
+            "createdDate": "2022-03-10T07:40:30.532Z",
+            "label": "cache",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "generateNext": true,
+            "serviceName": "cache",
+            "relativeParentPath": "",
+            "_def": {
+                "defaults": {
+                    "label": {
+                        "value": ""
+                    },
+                    "disabled": {
+                        "value": false
+                    },
+                    "info": {
+                        "value": ""
+                    }
+                }
+            }
+        },
+        "serviceImportPath": "app/sd-services/cache",
+        "category": "Function",
+        "x": 305,
+        "y": 60,
+        "wires": [
+            [
+                "sd_oXTTBcW5S6dTvDZr"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_oXTTBcW5S6dTvDZr",
+        "type": "PageSwitch",
+        "z": "sd_x4je3BxNisr8hHdH",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "property": "USER_ROLE",
+        "propertyType": "this.page",
+        "propertyGv": "this.page.USER_ROLE",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "ADMIN",
+                "vt": "str",
+                "gv": "\"ADMIN\""
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 1,
+        "functionName": "sd_oXTTBcW5S6dTvDZr",
+        "category": "Function",
+        "x": 445,
+        "y": 60,
+        "wires": [
+            [
+                "sd_nT5r1580NGHbMPkL"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_we9Cc3ZoalTH8bch",
+        "type": "Script",
+        "z": "sd_x4je3BxNisr8hHdH",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.url = bh.local.ssdBaseUrl + '/admin/uw/jbpm-users'",
+        "functionName": "sd_we9Cc3ZoalTH8bch",
+        "category": "Function",
+        "x": 305,
+        "y": 200,
+        "wires": [
+            [
+                "sd_Bv4AGf6H0clxLnCw"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_Bv4AGf6H0clxLnCw",
+        "type": "HttpRequest",
+        "z": "sd_x4je3BxNisr8hHdH",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "get",
+        "methodMapping": "",
+        "methodMappingObj": {},
+        "urlMapping": "bh.local.url",
+        "urlMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMapping": "",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMapping": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "",
+        "reqBodyObj": {
+            "mapVarType": "this.page",
+            "mapVarValue": ""
+        },
+        "resultMapping": "this.page.users",
+        "resultMappingObj": {
+            "mapVarType": "this.page",
+            "mapVarValue": "users"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMapping": "",
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMapping": "",
+        "paramMappingObj": {},
+        "functionName": "sd_Bv4AGf6H0clxLnCw",
+        "category": "HTTP",
+        "x": 445,
+        "y": 200,
+        "wires": [
+            [
+                "sd_P0xqf5FuvQJar7Nr"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_D2IQEPnEllettPhu",
+        "type": "Environment",
+        "z": "sd_x4je3BxNisr8hHdH",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "envMaps": [
+            {
+                "flowVar": {
+                    "type": "bh.local",
+                    "value": "ssdBaseUrl"
+                },
+                "envProperty": "ssdBaseUrl"
+            }
+        ],
+        "functionName": "sd_D2IQEPnEllettPhu",
+        "category": "General",
+        "x": 185,
+        "y": 200,
+        "wires": [
+            [
+                "sd_we9Cc3ZoalTH8bch"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_w1NnsJjcjstTJGh5",
+        "type": "PageStart",
+        "z": "sd_x4je3BxNisr8hHdH",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "ac filter",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "v",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "acFilter",
+        "category": "General",
+        "x": 65,
+        "y": 380,
+        "wires": [
+            [
+                "sd_7ewKxZHyNBW7BwkC"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "reassignComponent"
+    },
+    {
+        "id": "sd_7ewKxZHyNBW7BwkC",
+        "type": "Script",
+        "z": "sd_x4je3BxNisr8hHdH",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "filter",
+        "script": "const filterValue = bh.input.v.toLowerCase();\npage.fds = page.users.filter(option =>\n    option.username.toLowerCase().includes(filterValue)\n);\n",
+        "functionName": "filter",
+        "category": "Function",
+        "x": 185,
+        "y": 380,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_nkKIv0WNhCNRNfqw",
+        "type": "PageStart",
+        "z": "sd_x4je3BxNisr8hHdH",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "select user",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "e",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "selectUser",
+        "category": "General",
+        "x": 65,
+        "y": 520,
+        "wires": [
+            [
+                "sd_IIXJzPQ3kCyu7Q8q"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "reassignComponent"
+    },
+    {
+        "id": "sd_IIXJzPQ3kCyu7Q8q",
+        "type": "Script",
+        "z": "sd_x4je3BxNisr8hHdH",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "assign to selected user",
+        "script": "console.log(page.selectedUser = bh.input.e.option.value)\n",
+        "functionName": "assignToSelectedUser",
+        "category": "Function",
+        "x": 185,
+        "y": 520,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_9f8H9Hx2n80FPJPY",
+        "type": "Script",
+        "z": "sd_x4je3BxNisr8hHdH",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.displayOpt = (v) => v.username",
+        "functionName": "sd_9f8H9Hx2n80FPJPY",
+        "category": "Function",
+        "x": 745,
+        "y": 60,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_P0xqf5FuvQJar7Nr",
+        "type": "PageCallService",
+        "z": "sd_x4je3BxNisr8hHdH",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "f",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_x4je3BxNisr8hHdH",
+            "type": "tab",
+            "createdDate": "2022-05-10T14:35:48.228Z",
+            "label": "reassign",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_w1NnsJjcjstTJGh5",
+            "flowName": "acFilter"
+        },
+        "inputVariables": [
+            {
+                "key": "v",
+                "map": false,
+                "value": "\"\""
+            }
+        ],
+        "outputMapping": [],
+        "serviceImportPath": "./reassign",
+        "startName": "acFilter",
+        "inputParams": [
+            "\"\""
+        ],
+        "accept_csd": false,
+        "functionName": "f",
+        "category": "General",
+        "x": 585,
+        "y": 200,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

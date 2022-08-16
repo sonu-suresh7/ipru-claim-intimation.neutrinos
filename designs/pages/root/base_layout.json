@@ -1,0 +1,571 @@
+[
+    {
+        "id": "sd_NPCU1P6cY5JK7yXL",
+        "type": "tab",
+        "createdDate": "2022-03-08T07:02:11.502Z",
+        "label": "base_layout",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "base_layoutComponent"
+    },
+    {
+        "id": "sd_E9kGkxM3w2NZJHoU",
+        "type": "OnInit",
+        "z": "sd_NPCU1P6cY5JK7yXL",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "sd_E9kGkxM3w2NZJHoU",
+        "category": "Lifecycle Events",
+        "x": 85,
+        "y": 60,
+        "wires": [
+            [
+                "sd_jhQUuUvxStJlXPlz"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "base_layoutComponent"
+    },
+    {
+        "id": "sd_vjx0G9QlI8V86zjZ",
+        "type": "Script",
+        "z": "sd_NPCU1P6cY5JK7yXL",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "mobile query listener",
+        "script": "page.mobileQuery = bh.media.matchMedia('(max-width: 600px)');\npage._mobileQueryListener = () => {\n    console.log(page.mobileQuery)\n    bh.cdr.detectChanges()\n}\n\n",
+        "functionName": "mobileQueryListener",
+        "category": "Function",
+        "x": 330,
+        "y": 1360,
+        "wires": [
+            [
+                "sd_XrN15UaEYkAz1Y1u"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "base_layoutComponent"
+    },
+    {
+        "id": "sd_0OucdKM6qoWit0g0",
+        "type": "UseDependency",
+        "z": "sd_NPCU1P6cY5JK7yXL",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "media matcher",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "",
+        "propertyType": "bh",
+        "propertyGv": "bh.",
+        "alias": "",
+        "modules": [
+            {
+                "textIp": "MediaMatcher",
+                "typedIpValue": {
+                    "type": "bh",
+                    "value": "media"
+                },
+                "injectable": true
+            }
+        ],
+        "import_all": false,
+        "library": "@angular/cdk/layout",
+        "serviceDesignerType": "pages",
+        "functionName": "mediaMatcher",
+        "category": "Function",
+        "x": 190,
+        "y": 1360,
+        "wires": [
+            [
+                "sd_vjx0G9QlI8V86zjZ"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "base_layoutComponent"
+    },
+    {
+        "id": "sd_ZP9eK8fxwUgnEW1T",
+        "type": "UseDependency",
+        "z": "sd_NPCU1P6cY5JK7yXL",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "change d r",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "",
+        "propertyType": "bh",
+        "propertyGv": "bh.",
+        "alias": "",
+        "modules": [
+            {
+                "textIp": "ChangeDetectorRef",
+                "typedIpValue": {
+                    "type": "bh",
+                    "value": "cdr"
+                },
+                "injectable": true
+            }
+        ],
+        "import_all": false,
+        "library": "@angular/core",
+        "serviceDesignerType": "pages",
+        "functionName": "changeDR",
+        "category": "Function",
+        "x": 65,
+        "y": 1360,
+        "wires": [
+            [
+                "sd_0OucdKM6qoWit0g0"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "base_layoutComponent"
+    },
+    {
+        "id": "sd_ODL6OuLS3u3mdDzE",
+        "type": "0a527e77-2b6b-855b-557e-9f716099c2ed",
+        "z": "sd_NPCU1P6cY5JK7yXL",
+        "viewType": "client-pages",
+        "nodeType": "start",
+        "name": "listen for rsn open event",
+        "eventName": "\"open-rsn\"",
+        "functionName": "listenForRsnOpenEvent",
+        "category": "Events",
+        "x": 85,
+        "y": 200,
+        "wires": [
+            [
+                "sd_qMFeMXEARbQlQB1D"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "eventName": {
+                "type": "str",
+                "value": "open-rsn",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "base_layoutComponent"
+    },
+    {
+        "id": "sd_qMFeMXEARbQlQB1D",
+        "type": "PageVariables",
+        "z": "sd_NPCU1P6cY5JK7yXL",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "rsnOpen",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "true"
+                }
+            },
+            {
+                "textIp": "rsnComp",
+                "typedIpValue": {
+                    "type": "bh.local",
+                    "value": "rsnComponent"
+                }
+            }
+        ],
+        "functionName": "sd_qMFeMXEARbQlQB1D",
+        "category": "Function",
+        "x": 225,
+        "y": 200,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_jhQUuUvxStJlXPlz",
+        "type": "PageServiceVariables",
+        "z": "sd_NPCU1P6cY5JK7yXL",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "set cache vars",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "get",
+        "globalVariables": [
+            {
+                "textIp": "appSettings",
+                "typedIpValue": {
+                    "type": "bh.local",
+                    "value": "appSettings"
+                }
+            },
+            {
+                "textIp": "languages",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "languages"
+                }
+            }
+        ],
+        "functionName": "setCacheVars",
+        "service": {
+            "id": "sd_RbD2RZwzan9VSOEL",
+            "type": "tab",
+            "createdDate": "2022-03-10T07:40:30.532Z",
+            "label": "cache",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "generateNext": true,
+            "serviceName": "cache",
+            "relativeParentPath": "",
+            "_def": {
+                "defaults": {
+                    "label": {
+                        "value": ""
+                    },
+                    "disabled": {
+                        "value": false
+                    },
+                    "info": {
+                        "value": ""
+                    }
+                }
+            }
+        },
+        "serviceImportPath": "app/sd-services/cache",
+        "category": "Function",
+        "x": 225,
+        "y": 60,
+        "wires": [
+            [
+                "sd_eZrOlYwUhQOftwRo"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_XrN15UaEYkAz1Y1u",
+        "type": "PageServiceVariables",
+        "z": "sd_NPCU1P6cY5JK7yXL",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "get navMenu from cache",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "get",
+        "globalVariables": [
+            {
+                "textIp": "navMenu",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "menu"
+                }
+            }
+        ],
+        "functionName": "getNavMenuFromCache",
+        "service": {
+            "id": "sd_RbD2RZwzan9VSOEL",
+            "type": "tab",
+            "createdDate": "2022-03-10T07:40:30.532Z",
+            "label": "cache",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "generateNext": true,
+            "serviceName": "cache",
+            "relativeParentPath": "",
+            "_def": {
+                "defaults": {
+                    "label": {
+                        "value": ""
+                    },
+                    "disabled": {
+                        "value": false
+                    },
+                    "info": {
+                        "value": ""
+                    }
+                }
+            }
+        },
+        "serviceImportPath": "app/sd-services/cache",
+        "category": "Function",
+        "x": 470,
+        "y": 1360,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
+    },
+    {
+        "id": "sd_MPCxIGYQdiiw5JpJ",
+        "type": "0a527e77-2b6b-855b-557e-9f716099c2ed",
+        "z": "sd_NPCU1P6cY5JK7yXL",
+        "viewType": "client-pages",
+        "nodeType": "start",
+        "name": "listen for rsn close event",
+        "eventName": "\"close-rsn\"",
+        "functionName": "listenForRsnCloseEvent",
+        "category": "Events",
+        "x": 85,
+        "y": 340,
+        "wires": [
+            [
+                "sd_z2GYYLlDwvgGZ8Sx"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "eventName": {
+                "type": "str",
+                "value": "close-rsn",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "base_layoutComponent"
+    },
+    {
+        "id": "sd_z2GYYLlDwvgGZ8Sx",
+        "type": "PageVariables",
+        "z": "sd_NPCU1P6cY5JK7yXL",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "rsnOpen",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "false"
+                }
+            },
+            {
+                "textIp": "rsnComp",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "null"
+                }
+            }
+        ],
+        "functionName": "sd_z2GYYLlDwvgGZ8Sx",
+        "category": "Function",
+        "x": 225,
+        "y": 340,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_dQtPZFJEdLVlsqTJ",
+        "type": "4a14d245-3eca-40a4-550c-2885e99a00e9",
+        "z": "sd_NPCU1P6cY5JK7yXL",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "eventName": "\"rsn-traffic-light-close\"",
+        "functionName": "sd_dQtPZFJEdLVlsqTJ",
+        "category": "Events",
+        "x": 405,
+        "y": 680,
+        "wires": [
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "eventName": {
+                "type": "str",
+                "value": "rsn-traffic-light-close",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_sG1y936HmblsdLQo",
+        "type": "PageStart",
+        "z": "sd_NPCU1P6cY5JK7yXL",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "sidenavclosed",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "sidenavclosed",
+        "category": "General",
+        "x": 85,
+        "y": 680,
+        "wires": [
+            [
+                "sd_ILd5poPHeF1Z7VS2"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "base_layoutComponent"
+    },
+    {
+        "id": "sd_wg7JqyYn32qyXfjk",
+        "type": "PageCallService",
+        "z": "sd_NPCU1P6cY5JK7yXL",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_tSoBS3t3cHJzNlhG",
+            "type": "tab",
+            "createdDate": "2022-05-06T12:38:31.127Z",
+            "label": "appSettings",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_CXfXfMy8Y80VU8Gr",
+            "flowName": "changeAppUIColors"
+        },
+        "inputVariables": [
+            {
+                "key": "uiSettings",
+                "map": true,
+                "valueType": "bh.local",
+                "value": "appSettings.ui"
+            }
+        ],
+        "outputMapping": [],
+        "serviceImportPath": "app/sd-services/appSettings",
+        "startName": "changeAppUIColors",
+        "inputParams": [
+            "bh.local.appSettings.ui"
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "sd_wg7JqyYn32qyXfjk",
+        "category": "General",
+        "x": 585,
+        "y": 60,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_eZrOlYwUhQOftwRo",
+        "type": "Script",
+        "z": "sd_NPCU1P6cY5JK7yXL",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "// page.logo = () => page.system.environment.properties.ssdBaseUrl + '/app-settings/logo?' + Date.now()\n\npage.logoSrc = page.system.environment.properties.ssdBaseUrl + '/app-settings/logo';",
+        "functionName": "sd_eZrOlYwUhQOftwRo",
+        "category": "Function",
+        "x": 385,
+        "y": 60,
+        "wires": [
+            [
+                "sd_wg7JqyYn32qyXfjk"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_pUKqYDOJlF2KdZ76",
+        "type": "0a527e77-2b6b-855b-557e-9f716099c2ed",
+        "z": "sd_NPCU1P6cY5JK7yXL",
+        "viewType": "client-pages",
+        "nodeType": "start",
+        "name": "",
+        "eventName": "\"update-app-logo-url\"",
+        "functionName": "sd_pUKqYDOJlF2KdZ76",
+        "category": "Events",
+        "x": 85,
+        "y": 500,
+        "wires": [
+            [
+                "sd_xeWbMt7qkptMouHF"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "eventName": {
+                "type": "str",
+                "value": "update-app-logo-url",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "base_layoutComponent"
+    },
+    {
+        "id": "sd_xeWbMt7qkptMouHF",
+        "type": "Script",
+        "z": "sd_NPCU1P6cY5JK7yXL",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "// page.logo = () => page.system.environment.properties.ssdBaseUrl + '/app-settings/logo?' + Date.now()\n\npage.logoSrc = page.system.environment.properties.ssdBaseUrl\n    + '/app-settings/logo?'\n    + Date.now();",
+        "functionName": "sd_xeWbMt7qkptMouHF",
+        "category": "Function",
+        "x": 225,
+        "y": 500,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_ILd5poPHeF1Z7VS2",
+        "type": "Script",
+        "z": "sd_NPCU1P6cY5JK7yXL",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.isTrafficLight = false;\n\nif(page.rsnComp === 'TRAFFIC_LIGHTS'){\n    bh.local.isTrafficLight = true;\n}\n\npage.rsnOpen = false;\npage.rsnComp = ''; ",
+        "functionName": "sd_ILd5poPHeF1Z7VS2",
+        "category": "Function",
+        "x": 245,
+        "y": 680,
+        "wires": [
+            [
+                "sd_dQtPZFJEdLVlsqTJ"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

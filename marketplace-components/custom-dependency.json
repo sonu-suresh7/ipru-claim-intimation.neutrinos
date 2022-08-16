@@ -1,0 +1,27 @@
+{
+    "packages": [
+        {
+            "type": "npm",
+            "name": "@ckeditor/ckeditor5-build-classic",
+            "version": "33.0.0"
+        },
+        {
+            "type": "npm",
+            "version": "4.7.7",
+            "name": "handlebars"
+        },
+        {
+            "type": "angular-package",
+            "name": "@ckeditor/ckeditor5-angular",
+            "version": "3.0.0",
+            "nModule": {
+                "importStatement": "import {CKEditorModule} from '@ckeditor/ckeditor5-angular'",
+                "imports": [
+                    "CKEditorModule"
+                ],
+                "name": "@ckeditor/ckeditor5-angular",
+                "version": "3.0.0"
+            }
+        }
+    ]
+}

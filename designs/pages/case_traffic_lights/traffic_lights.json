@@ -1,0 +1,418 @@
+[
+    {
+        "id": "sd_kgqjXVhl3Fiv1lfh",
+        "type": "tab",
+        "createdDate": "2022-04-26T03:06:13.143Z",
+        "label": "traffic_lights",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "traffic_lightsComponent"
+    },
+    {
+        "id": "sd_TRo8LFSwEu7HpobU",
+        "type": "OnInit",
+        "z": "sd_kgqjXVhl3Fiv1lfh",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "sd_TRo8LFSwEu7HpobU",
+        "category": "Lifecycle Events",
+        "x": 205,
+        "y": 180,
+        "wires": [
+            [
+                "sd_jyHxlVTXilUzbJil"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "traffic_lightsComponent"
+    },
+    {
+        "id": "sd_jyHxlVTXilUzbJil",
+        "type": "PageVariables",
+        "z": "sd_kgqjXVhl3Fiv1lfh",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "traffic_lights",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
+            }
+        ],
+        "functionName": "sd_jyHxlVTXilUzbJil",
+        "category": "Function",
+        "x": 355,
+        "y": 180,
+        "wires": [
+            [
+                "sd_LJZMckbFsCOQBMfp"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "traffic_lightsComponent"
+    },
+    {
+        "id": "sd_LJZMckbFsCOQBMfp",
+        "type": "PageCallService",
+        "z": "sd_kgqjXVhl3Fiv1lfh",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "getAllTrafficLights",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_9emVj8kPGYoP9w8y",
+            "type": "tab",
+            "createdDate": "2022-04-26T03:23:46.015Z",
+            "label": "trafficLightService",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_kYwVzvYgNAD8KeuN",
+            "flowName": "getAllLights"
+        },
+        "inputVariables": [],
+        "outputMapping": [
+            {
+                "mapVarType": "local",
+                "key": "result",
+                "valueType": "this.page",
+                "value": "trafficLights",
+                "mapVarName": "result",
+                "localVar": "this.page.trafficLights"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/trafficLightService",
+        "startName": "getAllLights",
+        "inputParams": [],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "getAllTrafficLights",
+        "category": "General",
+        "x": 560,
+        "y": 180,
+        "wires": [
+            [
+                "sd_v1QlncYTtGg9uouu"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_v1QlncYTtGg9uouu",
+        "type": "Script",
+        "z": "sd_kgqjXVhl3Fiv1lfh",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log('trafficLights', page.trafficLights);",
+        "functionName": "sd_v1QlncYTtGg9uouu",
+        "category": "Function",
+        "x": 700,
+        "y": 180,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_q14wXXUE0tAKIy5f",
+        "type": "PageStart",
+        "z": "sd_kgqjXVhl3Fiv1lfh",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "insert",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "name",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "insert",
+        "category": "General",
+        "x": 205,
+        "y": 340,
+        "wires": [
+            [
+                "sd_RNDrY43aXIjUZakS"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "traffic_lightsComponent"
+    },
+    {
+        "id": "sd_RNDrY43aXIjUZakS",
+        "type": "PageCallService",
+        "z": "sd_kgqjXVhl3Fiv1lfh",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_9emVj8kPGYoP9w8y",
+            "type": "tab",
+            "createdDate": "2022-04-26T03:23:46.015Z",
+            "label": "trafficLightService",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_MA2lTHytl91B1fXj",
+            "flowName": "insertLight"
+        },
+        "inputVariables": [
+            {
+                "key": "name",
+                "map": true,
+                "valueType": "bh.input",
+                "value": "name"
+            }
+        ],
+        "outputMapping": [],
+        "serviceImportPath": "app/sd-services/trafficLightService",
+        "startName": "insertLight",
+        "inputParams": [
+            "bh.input.name"
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "sd_RNDrY43aXIjUZakS",
+        "category": "General",
+        "x": 365,
+        "y": 340,
+        "wires": [
+            [
+                "sd_uv37d2PxYQa3k2oP"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_uv37d2PxYQa3k2oP",
+        "type": "PageCallService",
+        "z": "sd_kgqjXVhl3Fiv1lfh",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_9emVj8kPGYoP9w8y",
+            "type": "tab",
+            "createdDate": "2022-04-26T03:23:46.015Z",
+            "label": "trafficLightService",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_kYwVzvYgNAD8KeuN",
+            "flowName": "getAllLights"
+        },
+        "inputVariables": [],
+        "outputMapping": [
+            {
+                "mapVarType": "local",
+                "key": "result",
+                "valueType": "this.page",
+                "value": "trafficLights",
+                "mapVarName": "result",
+                "localVar": "this.page.trafficLights"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/trafficLightService",
+        "startName": "getAllLights",
+        "inputParams": [],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "sd_uv37d2PxYQa3k2oP",
+        "category": "General",
+        "x": 565,
+        "y": 340,
+        "wires": [
+            [
+                "sd_PIip8ryQmAECdbHb"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_LiP5hIC4DWRYZAgN",
+        "type": "PageStart",
+        "z": "sd_kgqjXVhl3Fiv1lfh",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "udpate",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "light",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "udpate",
+        "category": "General",
+        "x": 220,
+        "y": 480,
+        "wires": [
+            [
+                "sd_VTdaP1PHWl5LsvbP"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "traffic_lightsComponent"
+    },
+    {
+        "id": "sd_VTdaP1PHWl5LsvbP",
+        "type": "Script",
+        "z": "sd_kgqjXVhl3Fiv1lfh",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(bh.input.light)",
+        "functionName": "sd_VTdaP1PHWl5LsvbP",
+        "category": "Function",
+        "x": 365,
+        "y": 480,
+        "wires": [
+            [
+                "sd_VrJaK1E2ALjqHqhD"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_VrJaK1E2ALjqHqhD",
+        "type": "PageCallService",
+        "z": "sd_kgqjXVhl3Fiv1lfh",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "updateLight",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_9emVj8kPGYoP9w8y",
+            "type": "tab",
+            "createdDate": "2022-04-26T03:23:46.015Z",
+            "label": "trafficLightService",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_2SAasfOvKxMs8JC9",
+            "flowName": "updateLight"
+        },
+        "inputVariables": [
+            {
+                "key": "traffic_light_id",
+                "map": true,
+                "valueType": "bh.input",
+                "value": "light._id"
+            },
+            {
+                "key": "status",
+                "map": true,
+                "valueType": "bh.input",
+                "value": "light.status"
+            },
+            {
+                "key": "name",
+                "map": true,
+                "valueType": "bh.input",
+                "value": "light.name"
+            },
+            {
+                "key": "case_id",
+                "map": true,
+                "valueType": "bh.input",
+                "value": "light.case_id"
+            }
+        ],
+        "outputMapping": [],
+        "serviceImportPath": "app/sd-services/trafficLightService",
+        "startName": "updateLight",
+        "inputParams": [
+            "bh.input.light._id",
+            "bh.input.light.status",
+            "bh.input.light.name",
+            "bh.input.light.case_id"
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "updateLight",
+        "category": "General",
+        "x": 505,
+        "y": 480,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_PIip8ryQmAECdbHb",
+        "type": "Script",
+        "z": "sd_kgqjXVhl3Fiv1lfh",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.newTrafficLight = null;",
+        "functionName": "sd_PIip8ryQmAECdbHb",
+        "category": "Function",
+        "x": 720,
+        "y": 340,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

@@ -1,0 +1,337 @@
+[
+    {
+        "id": "sd_cCD5v4sqKdB3vISb",
+        "type": "tab",
+        "createdDate": "2022-04-26T03:23:52.351Z",
+        "label": "commentService",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "commentService",
+        "relativeParentPath": ""
+    },
+    {
+        "id": "sd_tUg6y9COrGqWsApu",
+        "type": "Start",
+        "z": "sd_cCD5v4sqKdB3vISb",
+        "viewType": "client-server",
+        "nodeType": "start",
+        "name": "getAllComments",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [
+            {
+                "key": "result",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": true
+            }
+        ],
+        "accept_bh": false,
+        "functionName": "getAllComments",
+        "category": "General",
+        "x": 205,
+        "y": 120,
+        "wires": [
+            [
+                "sd_uUPlW0zRDTSxnYlU"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "commentService"
+    },
+    {
+        "id": "sd_uUPlW0zRDTSxnYlU",
+        "type": "CallService",
+        "z": "sd_cCD5v4sqKdB3vISb",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "getCheckedOutDetails",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_RbD2RZwzan9VSOEL",
+            "type": "tab",
+            "createdDate": "2022-03-10T07:40:30.532Z",
+            "label": "cache",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_IBkHmsTw4ydnPL6L",
+            "flowName": "getCheckedOut"
+        },
+        "inputVariables": [],
+        "outputMapping": [
+            {
+                "mapVarType": "local",
+                "key": "checkedOut",
+                "valueType": "bh",
+                "value": "checkedOut",
+                "mapVarName": "checkedOut",
+                "localVar": "bh.checkedOut"
+            }
+        ],
+        "callService": "./cache",
+        "startName": "getCheckedOut",
+        "inputParams": [],
+        "accept_bh": false,
+        "functionName": "getCheckedOutDetails",
+        "category": "General",
+        "x": 350,
+        "y": 120,
+        "wires": [
+            [
+                "sd_15lad68f21jrYVNx"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_dcWsdweEVw0DMcps",
+        "type": "HttpRequest",
+        "z": "sd_cCD5v4sqKdB3vISb",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "get",
+        "methodMapping": "",
+        "methodMappingObj": {},
+        "urlMapping": "bh.url",
+        "urlMappingObj": {
+            "mapVarType": "bh",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMapping": "",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMapping": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "",
+        "reqBodyObj": {
+            "mapVarType": "bh",
+            "mapVarValue": ""
+        },
+        "resultMapping": "bh.local.result",
+        "resultMappingObj": {
+            "mapVarType": "bh",
+            "mapVarValue": "local.result"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMapping": "",
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMapping": "",
+        "paramMappingObj": {},
+        "functionName": "sd_dcWsdweEVw0DMcps",
+        "category": "HTTP",
+        "x": 550,
+        "y": 120,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_15lad68f21jrYVNx",
+        "type": "Script",
+        "z": "sd_cCD5v4sqKdB3vISb",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log('bh.checkedOut', bh.checkedOut)\n\nbh.url = `${bh.system.environment.properties.ssdBaseUrl}/case/${bh.checkedOut.case._id}/comments`;",
+        "functionName": "sd_15lad68f21jrYVNx",
+        "category": "Function",
+        "x": 450,
+        "y": 120,
+        "wires": [
+            [
+                "sd_dcWsdweEVw0DMcps"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_QvdnbsWcF12erQkg",
+        "type": "Start",
+        "z": "sd_cCD5v4sqKdB3vISb",
+        "viewType": "client-server",
+        "nodeType": "start",
+        "name": "insertComment",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "comment",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [
+            {
+                "key": "result",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "accept_bh": false,
+        "functionName": "insertComment",
+        "category": "General",
+        "x": 185,
+        "y": 260,
+        "wires": [
+            [
+                "sd_d31oJe1JvYk5Qugb"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "commentService"
+    },
+    {
+        "id": "sd_d31oJe1JvYk5Qugb",
+        "type": "CallService",
+        "z": "sd_cCD5v4sqKdB3vISb",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "getCheckedOutDetails2",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_RbD2RZwzan9VSOEL",
+            "type": "tab",
+            "createdDate": "2022-03-10T07:40:30.532Z",
+            "label": "cache",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_IBkHmsTw4ydnPL6L",
+            "flowName": "getCheckedOut"
+        },
+        "inputVariables": [],
+        "outputMapping": [
+            {
+                "mapVarType": "local",
+                "key": "checkedOut",
+                "valueType": "bh",
+                "value": "checkedOut",
+                "mapVarName": "checkedOut",
+                "localVar": "bh.checkedOut"
+            }
+        ],
+        "callService": "./cache",
+        "startName": "getCheckedOut",
+        "inputParams": [],
+        "accept_bh": false,
+        "functionName": "getCheckedOutDetails2",
+        "category": "General",
+        "x": 325,
+        "y": 260,
+        "wires": [
+            [
+                "sd_7iEvQdInauP5RJJm"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_wHqEU3SICrfP4gt7",
+        "type": "HttpRequest",
+        "z": "sd_cCD5v4sqKdB3vISb",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "post",
+        "methodMapping": "",
+        "methodMappingObj": {},
+        "urlMapping": "bh.url",
+        "urlMappingObj": {
+            "mapVarType": "bh",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMapping": "",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMapping": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "bh.body",
+        "reqBodyObj": {
+            "mapVarType": "bh",
+            "mapVarValue": "body"
+        },
+        "resultMapping": "bh.local.result",
+        "resultMappingObj": {
+            "mapVarType": "bh",
+            "mapVarValue": "local.result"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMapping": "",
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMapping": "",
+        "paramMappingObj": {},
+        "functionName": "sd_wHqEU3SICrfP4gt7",
+        "category": "HTTP",
+        "x": 525,
+        "y": 260,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_7iEvQdInauP5RJJm",
+        "type": "Script",
+        "z": "sd_cCD5v4sqKdB3vISb",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.url = `${bh.system.environment.properties.ssdBaseUrl}/case/${bh.checkedOut.case._id}/comments`;\n\nbh.body = {\n    comment: bh.input.comment,\n    user: bh.system.currentUser.username\n}\n",
+        "functionName": "sd_7iEvQdInauP5RJJm",
+        "category": "Function",
+        "x": 425,
+        "y": 260,
+        "wires": [
+            [
+                "sd_wHqEU3SICrfP4gt7"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

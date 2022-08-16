@@ -1,0 +1,99 @@
+[
+    {
+        "id": "sd_YdGOLkYVq04CRVEK",
+        "type": "tab",
+        "createdDate": "2022-04-26T13:41:03.704Z",
+        "label": "globalSearch",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "globalSearchComponent"
+    },
+    {
+        "id": "sd_9qZlzzwGDFoO0Anj",
+        "type": "OnInit",
+        "z": "sd_YdGOLkYVq04CRVEK",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "sd_9qZlzzwGDFoO0Anj",
+        "category": "Lifecycle Events",
+        "x": 85,
+        "y": 60,
+        "wires": [
+            [
+                "sd_BX75z4isKtpt4zg1"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "globalSearchComponent"
+    },
+    {
+        "id": "sd_BX75z4isKtpt4zg1",
+        "type": "UseDependency",
+        "z": "sd_YdGOLkYVq04CRVEK",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "import ng form",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "",
+        "propertyType": "bh",
+        "propertyGv": "bh.",
+        "alias": "",
+        "modules": [
+            {
+                "textIp": "FormBuilder",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "fb"
+                },
+                "injectable": true
+            },
+            {
+                "textIp": "Validators",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                },
+                "injectable": false
+            }
+        ],
+        "import_all": false,
+        "library": "@angular/forms",
+        "serviceDesignerType": "pages",
+        "functionName": "importNgForm",
+        "category": "Function",
+        "x": 225,
+        "y": 60,
+        "wires": [
+            [
+                "sd_YkYkCIUGOULTjRpX"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_YkYkCIUGOULTjRpX",
+        "type": "Script",
+        "z": "sd_YdGOLkYVq04CRVEK",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "labels conf",
+        "script": "page.fields = [\n    {\n        name: 'applicationNumber',\n        get label() {\n            return page.locales.keys.applicationNumber;\n        },\n    },\n    {\n        name: 'createdOn',\n        get label() {\n            return page.locales.keys.createdOn;\n        },\n    },\n    {\n        name: 'phoneNumber',\n        get label() {\n            return page.locales.keys.phno\n        }\n    },\n    {\n        name: 'customerName',\n        get label() {\n            return page.locales.keys.customerName\n        }\n    },\n    {\n        name: 'clientId',\n        get label() {\n            return page.locales.keys.clientId\n        }\n    }\n]",
+        "functionName": "labelsConf",
+        "category": "Function",
+        "x": 445,
+        "y": 60,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

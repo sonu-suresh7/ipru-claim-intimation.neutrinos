@@ -1,0 +1,175 @@
+[
+    {
+        "id": "sd_J5wKLLB8LdAdh2Iw",
+        "type": "tab",
+        "createdDate": "2021-09-09T03:39:12.538Z",
+        "label": "alluicomponents",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "alluicomponentsComponent"
+    },
+    {
+        "id": "sd_h5pYZlWxs7XiQcFh",
+        "type": "OnInit",
+        "z": "sd_J5wKLLB8LdAdh2Iw",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "Init",
+        "inputVariables": [],
+        "localVariables": [],
+        "outputVariables": [],
+        "functionName": "init",
+        "category": "Lifecycle Events",
+        "x": 45,
+        "y": 40,
+        "wires": [
+            [
+                "sd_Y4o0dqf1LYO8lsF3"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "alluicomponentsComponent"
+    },
+    {
+        "id": "sd_XHNNhjcqlV93T2kd",
+        "type": "PageVariables",
+        "z": "sd_J5wKLLB8LdAdh2Iw",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "abc",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "['asdasd', 'adsdasd', 'asdadsads', 'hghghg']"
+                }
+            }
+        ],
+        "functionName": "sd_XHNNhjcqlV93T2kd",
+        "category": "Function",
+        "x": 465,
+        "y": 40,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_Y4o0dqf1LYO8lsF3",
+        "type": "UseDependency",
+        "z": "sd_J5wKLLB8LdAdh2Iw",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "",
+        "propertyType": "bh",
+        "propertyGv": "bh.",
+        "alias": "",
+        "modules": [
+            {
+                "textIp": "MatHorizontalStepper",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                },
+                "injectable": false
+            }
+        ],
+        "import_all": false,
+        "library": "@angular/material/stepper",
+        "serviceDesignerType": "pages",
+        "functionName": "sd_Y4o0dqf1LYO8lsF3",
+        "category": "Function",
+        "x": 245,
+        "y": 40,
+        "wires": [
+            [
+                "sd_XHNNhjcqlV93T2kd"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_gnNuhYmXFt3P4kw1",
+        "type": "AfterViewInit",
+        "z": "sd_J5wKLLB8LdAdh2Iw",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "After View Init",
+        "functionName": "ngAfterViewInit",
+        "category": "Lifecycle Events",
+        "x": 48,
+        "y": 182.8125,
+        "wires": [
+            [
+                "sd_bM6d5aGFmyxkf1ft"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "alluicomponentsComponent"
+    },
+    {
+        "id": "sd_bM6d5aGFmyxkf1ft",
+        "type": "ViewPicker",
+        "z": "sd_J5wKLLB8LdAdh2Iw",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "childViewVariables": [
+            {
+                "key": {
+                    "type": "literal",
+                    "value": "MatHorizontalStepper"
+                },
+                "defaultValue": "",
+                "isViewChildren": false
+            }
+        ],
+        "functionName": "sd_bM6d5aGFmyxkf1ft",
+        "category": "Function",
+        "x": 248,
+        "y": 182.8125,
+        "wires": [
+            [
+                "sd_iWepxyaKRIJ9kOxz"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_iWepxyaKRIJ9kOxz",
+        "type": "Script",
+        "z": "sd_J5wKLLB8LdAdh2Iw",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.pageViews.MatHorizontalStepper._getIndicatorType = () => 'number';\n",
+        "functionName": "sd_iWepxyaKRIJ9kOxz",
+        "category": "Function",
+        "x": 465,
+        "y": 183,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

@@ -1,0 +1,55 @@
+[
+    {
+        "id": "sd_9LWtlHMlA7HfUfUG",
+        "type": "tab",
+        "createdDate": "2022-03-08T12:16:34.826Z",
+        "label": "productCatelog",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "productCatelogComponent"
+    },
+    {
+        "id": "sd_RrGaVR0JJbeQTJoX",
+        "type": "OnInit",
+        "z": "sd_9LWtlHMlA7HfUfUG",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "sd_RrGaVR0JJbeQTJoX",
+        "category": "Lifecycle Events",
+        "x": 30,
+        "y": 30,
+        "wires": [
+            [
+                "sd_xFWRKHsD4ffroYLA"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "productCatelogComponent"
+    },
+    {
+        "id": "sd_xFWRKHsD4ffroYLA",
+        "type": "PageVariables",
+        "z": "sd_9LWtlHMlA7HfUfUG",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [],
+        "functionName": "sd_xFWRKHsD4ffroYLA",
+        "category": "Function",
+        "x": 180,
+        "y": 30,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

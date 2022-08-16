@@ -1,0 +1,21 @@
+<div fxLayout="column " class="height-100" fxLayoutAlign="start stretch" [fxShow]="true">
+  <mat-card class="personal-details-card height-100">
+    <mat-card-content class="height-100">
+      <div fxLayout="column " class="padding-1 height-100" fxLayoutGap="2rem" fxLayoutAlign="start stretch" [fxShow]="true">
+        <div fxLayout="row " fxLayoutGap="1rem" fxLayoutAlign="start center" [fxShow]="true"><img imgSrc="/Web/CaseDetails/details.svg">
+          <mat-card-title class="margin-0">
+            {{page.locales.keys.otherDetails}}
+          </mat-card-title>
+        </div>
+        <div fxLayout="row wrap" class="width-100" fxLayoutAlign="start center" [fxShow]="true">
+          <div fxLayout="row wrap" fxFlex="33" fxLayoutAlign="start center" [fxShow]="true" *ngFor="let item of getOtherDetailsKeys()" fxFlex.lt-md="33" fxFlex.lt-sm="50">
+            <mat-form-field class="width-100" [appearance]="&apos;legacy&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+              <input matInput placeholder="{{page.labels[item]?.label}}" [required]="false" [value]="page.otherDetails[item]" readonly="true">
+
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

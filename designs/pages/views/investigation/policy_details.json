@@ -1,0 +1,201 @@
+[
+    {
+        "id": "sd_5MzxFTHPk5tfFY6T",
+        "type": "tab",
+        "createdDate": "2022-07-18T20:01:19.732Z",
+        "label": "policy_details",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "policy_detailsComponent"
+    },
+    {
+        "id": "sd_XtfJAcf3ar0mNCmx",
+        "type": "OnInit",
+        "z": "sd_5MzxFTHPk5tfFY6T",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "inputVariables": [
+            {
+                "key": "policy_details",
+                "defaultValue": {
+                    "type": "any",
+                    "value": "{}"
+                }
+            }
+        ],
+        "localVariables": [],
+        "outputVariables": [],
+        "functionName": "sd_XtfJAcf3ar0mNCmx",
+        "category": "Lifecycle Events",
+        "x": 45,
+        "y": 40,
+        "wires": [
+            [
+                "sd_1W2WaO23FUMtJn3R"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "policy_detailsComponent"
+    },
+    {
+        "id": "sd_1W2WaO23FUMtJn3R",
+        "type": "PageVariables",
+        "z": "sd_5MzxFTHPk5tfFY6T",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [],
+        "functionName": "sd_1W2WaO23FUMtJn3R",
+        "category": "Function",
+        "x": 185,
+        "y": 40,
+        "wires": [
+            [
+                "sd_cspzT6FZ2k9MnWGT"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "policy_detailsComponent"
+    },
+    {
+        "id": "sd_cspzT6FZ2k9MnWGT",
+        "type": "Script",
+        "z": "sd_5MzxFTHPk5tfFY6T",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(\"init\",this.policy_details)",
+        "functionName": "sd_cspzT6FZ2k9MnWGT",
+        "category": "Function",
+        "x": 320,
+        "y": 40,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_oakw8kEGaiRS6uk3",
+        "type": "PageStart",
+        "z": "sd_5MzxFTHPk5tfFY6T",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "filter policy details",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [
+            {
+                "key": "details",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": true
+            }
+        ],
+        "flow_type": "sync",
+        "functionName": "filterPolicyDetails",
+        "category": "General",
+        "x": 65,
+        "y": 200,
+        "wires": [
+            [
+                "sd_hCngiSNazOM07sdY"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "policy_detailsComponent"
+    },
+    {
+        "id": "sd_hCngiSNazOM07sdY",
+        "type": "Script",
+        "z": "sd_5MzxFTHPk5tfFY6T",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "const filter = ['policyStatus','policyNumber','policyTerm','productName','policyIssueDate','sumAssured','policyStatusCode','underwritingDecision']\nbh.local.details = Object.keys(this.policy_details?.policy).\n    filter((key) => filter.includes(key)).\n    reduce((cur, key) => { return Object.assign(cur, { [key]: this.policy_details.policy[key] }) }, {});",
+        "functionName": "sd_hCngiSNazOM07sdY",
+        "category": "Function",
+        "x": 180,
+        "y": 200,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_6lwPvPvPEKyLWKIu",
+        "type": "PageStart",
+        "z": "sd_5MzxFTHPk5tfFY6T",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "title case",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "text",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [
+            {
+                "key": "title_case",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": true
+            }
+        ],
+        "flow_type": "sync",
+        "functionName": "titleCase",
+        "category": "General",
+        "x": 80,
+        "y": 340,
+        "wires": [
+            [
+                "sd_Qntnu3Na5W3oYwWL"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "policy_detailsComponent"
+    },
+    {
+        "id": "sd_Qntnu3Na5W3oYwWL",
+        "type": "Script",
+        "z": "sd_5MzxFTHPk5tfFY6T",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "\nconst result = bh.input.text.replace(/([A-Z])/g, \" $1\");\nbh.local.title_case = result.charAt(0).toUpperCase() + result.slice(1);",
+        "functionName": "sd_Qntnu3Na5W3oYwWL",
+        "category": "Function",
+        "x": 220,
+        "y": 340,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

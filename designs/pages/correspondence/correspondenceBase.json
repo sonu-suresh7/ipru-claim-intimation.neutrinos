@@ -1,0 +1,463 @@
+[
+    {
+        "id": "sd_kn0FyFPOaNE2fRez",
+        "type": "tab",
+        "createdDate": "2022-03-24T11:42:02.277Z",
+        "label": "correspondenceBase",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "correspondenceBaseComponent"
+    },
+    {
+        "id": "sd_EJTiPHbYVFoPGhGy",
+        "type": "OnInit",
+        "z": "sd_kn0FyFPOaNE2fRez",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "inputVariables": [],
+        "localVariables": [],
+        "outputVariables": [],
+        "functionName": "sd_EJTiPHbYVFoPGhGy",
+        "category": "Lifecycle Events",
+        "x": 85,
+        "y": 60,
+        "wires": [
+            [
+                "sd_SmgPZbXqZsBOO3mB"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "correspondenceBaseComponent"
+    },
+    {
+        "id": "sd_SmgPZbXqZsBOO3mB",
+        "type": "PageVariables",
+        "z": "sd_kn0FyFPOaNE2fRez",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "emails",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "[]"
+                }
+            },
+            {
+                "textIp": "pagedEmails",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "[]"
+                }
+            },
+            {
+                "textIp": "pageSize",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "10"
+                }
+            }
+        ],
+        "functionName": "sd_SmgPZbXqZsBOO3mB",
+        "category": "Function",
+        "x": 205,
+        "y": 60,
+        "wires": [
+            [
+                "sd_8fP1ZyOVzRQE3oTy"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "correspondenceBaseComponent"
+    },
+    {
+        "id": "sd_Y96NAvgSPnIdSNrj",
+        "type": "Script",
+        "z": "sd_kn0FyFPOaNE2fRez",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "mock emails",
+        "script": "page.emails = [\n    {\n        \"subject\": \"Over the Brooklyn Bridge\",\n        \"from\": \"dantonoyev0@sbwire.com\",\n        \"date\": \"1617652963000\",\n        \"body\": \"Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.\\n\\nCras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.\\n\\nQuisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.\",\n        \"id\": \"b7b753fa-cae5-465f-b8ea-10cc32901df3\"\n    },\n    {\n        \"subject\": \"I'm Not Scared (Io non ho paura)\",\n        \"from\": \"vbolstridge1@ocn.ne.jp\",\n        \"date\": \"1617450014000\",\n        \"body\": \"Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.\\n\\nSed ante. Vivamus tortor. Duis mattis egestas metus.\\n\\nAenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.\",\n        \"id\": \"d6295a1a-275c-43eb-ac7c-093cd0e85df2\"\n    },\n    {\n        \"subject\": \"Blue Crush\",\n        \"from\": \"vmell2@earthlink.net\",\n        \"date\": \"1645409539000\",\n        \"body\": \"Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.\",\n        \"id\": \"4d1d0e39-7275-4337-b8a5-7a42525da751\"\n    },\n    {\n        \"subject\": \"My Afternoons with Margueritte (La tête en friche)\",\n        \"from\": \"rfreeth3@census.gov\",\n        \"date\": \"1621235240000\",\n        \"body\": \"In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.\",\n        \"id\": \"ba8406c2-3eda-42dd-b79d-fa2463a95625\"\n    },\n    {\n        \"subject\": \"Lone Ranger and the Lost City of Gold, The\",\n        \"from\": \"cperillio4@umich.edu\",\n        \"date\": \"1637593043000\",\n        \"body\": \"Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.\\n\\nNullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.\\n\\nIn quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.\",\n        \"id\": \"24f8592f-317d-4ccf-8756-2358a9381a9a\"\n    },\n    {\n        \"subject\": \"009 Re: Cyborg\",\n        \"from\": \"rchatin5@nationalgeographic.com\",\n        \"date\": \"1642211416000\",\n        \"body\": \"Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.\",\n        \"id\": \"d9998863-f75b-4d9b-b5a2-6706a398b37f\"\n    },\n    {\n        \"subject\": \"Dirty Dancing: Havana Nights\",\n        \"from\": \"eberks6@ed.gov\",\n        \"date\": \"1639132921000\",\n        \"body\": \"Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.\",\n        \"id\": \"6340f7c5-36f1-4802-9f24-a509011c6c12\"\n    },\n    {\n        \"subject\": \"Calendar Girls\",\n        \"from\": \"ggorring7@ycombinator.com\",\n        \"date\": \"1617052210000\",\n        \"body\": \"Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.\",\n        \"id\": \"f0524c32-a105-4edf-af31-261911fb62c5\"\n    },\n    {\n        \"subject\": \"Sting II, The\",\n        \"from\": \"sszantho8@mediafire.com\",\n        \"date\": \"1635459435000\",\n        \"body\": \"Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.\\n\\nAenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.\\n\\nCurabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.\",\n        \"id\": \"ec772795-44c1-40f5-bd80-13d77a5bc1a5\"\n    },\n    {\n        \"subject\": \"Too Much Sleep\",\n        \"from\": \"jstobbie9@mail.ru\",\n        \"date\": \"1633924594000\",\n        \"body\": \"Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.\",\n        \"id\": \"575f7946-051e-4255-bd35-2907f1f6f2e3\"\n    },\n    {\n        \"subject\": \"Paradine Case, The\",\n        \"from\": \"rgerkensa@jiathis.com\",\n        \"date\": \"1644202564000\",\n        \"body\": \"Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.\\n\\nMauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.\\n\\nNullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.\",\n        \"id\": \"7659ec85-73d5-4d00-92da-965b1d5986b5\"\n    },\n    {\n        \"subject\": \"Freebie and the Bean\",\n        \"from\": \"jcoatenb@booking.com\",\n        \"date\": \"1646570277000\",\n        \"body\": \"In congue. Etiam justo. Etiam pretium iaculis justo.\\n\\nIn hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.\\n\\nNulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.\",\n        \"id\": \"39982c04-1c1f-4c41-a3d9-74ca6e32275c\"\n    },\n    {\n        \"subject\": \"Miller's Crossing\",\n        \"from\": \"wbrunac@unc.edu\",\n        \"date\": \"1639420673000\",\n        \"body\": \"Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.\\n\\nEtiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.\",\n        \"id\": \"4a722767-c645-42fd-b453-230e02e47f6b\"\n    },\n    {\n        \"subject\": \"Miracle in Milan (Miracolo a Milano)\",\n        \"from\": \"mseebertd@de.vu\",\n        \"date\": \"1621037716000\",\n        \"body\": \"Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.\\n\\nInteger ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.\\n\\nNam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.\",\n        \"id\": \"7b9070a3-4286-4b28-82fd-f3984d50b49b\"\n    },\n    {\n        \"subject\": \"Sugar Curtain, The (El telón de azúcar)\",\n        \"from\": \"jbottlee@trellian.com\",\n        \"date\": \"1623361978000\",\n        \"body\": \"Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.\",\n        \"id\": \"dce104e7-40a0-47cf-86dc-59edb967738c\"\n    }\n]\n",
+        "functionName": "mockEmails",
+        "category": "Function",
+        "x": 645,
+        "y": 60,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "correspondenceBaseComponent"
+    },
+    {
+        "id": "sd_ED4NAPLbsnLQJySo",
+        "type": "PageStart",
+        "z": "sd_kn0FyFPOaNE2fRez",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "open compose mail",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "mail",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [
+            {
+                "key": "rsnComponent",
+                "defaultValue": {
+                    "type": "str",
+                    "value": "EMAIL_COMPOSE"
+                },
+                "output": false
+            }
+        ],
+        "flow_type": "sync",
+        "functionName": "openComposeMail",
+        "category": "General",
+        "x": 105,
+        "y": 420,
+        "wires": [
+            [
+                "sd_mxBoLNpCgdG5ygMv"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "correspondenceBaseComponent"
+    },
+    {
+        "id": "sd_mxBoLNpCgdG5ygMv",
+        "type": "4a14d245-3eca-40a4-550c-2885e99a00e9",
+        "z": "sd_kn0FyFPOaNE2fRez",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "eventName": "\"open-rsn\"",
+        "functionName": "sd_mxBoLNpCgdG5ygMv",
+        "category": "Events",
+        "x": 345,
+        "y": 420,
+        "wires": [
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "eventName": {
+                "type": "str",
+                "value": "open-rsn",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "correspondenceBaseComponent"
+    },
+    {
+        "id": "sd_gibHnjrE5f4frqit",
+        "type": "PageCallService",
+        "z": "sd_kn0FyFPOaNE2fRez",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_ZDiZhKoMHdoCgieC",
+            "type": "tab",
+            "createdDate": "2022-03-10T18:37:26.786Z",
+            "label": "emailService",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_o4uHnDdOYeb42ejy",
+            "flowName": "getEmailsOfType"
+        },
+        "inputVariables": [
+            {
+                "key": "emailType",
+                "map": false,
+                "value": "\"sent\""
+            },
+            {
+                "key": "pid",
+                "map": true,
+                "valueType": "bh.local",
+                "value": "checkedOut.task.pid"
+            }
+        ],
+        "outputMapping": [
+            {
+                "mapVarType": "local",
+                "key": "emails",
+                "valueType": "this.page",
+                "value": "emails",
+                "mapVarName": "emails",
+                "localVar": "this.page.emails"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/emailService",
+        "startName": "getEmailsOfType",
+        "inputParams": [
+            "\"sent\"",
+            "bh.local.checkedOut.task.pid"
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "sd_gibHnjrE5f4frqit",
+        "category": "General",
+        "x": 445,
+        "y": 60,
+        "wires": [
+            [
+                "sd_ckiuMUDhjC2s5qH2"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_8fP1ZyOVzRQE3oTy",
+        "type": "PageServiceVariables",
+        "z": "sd_kn0FyFPOaNE2fRez",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "get",
+        "globalVariables": [
+            {
+                "textIp": "checkedOut",
+                "typedIpValue": {
+                    "type": "bh.local",
+                    "value": "checkedOut"
+                }
+            }
+        ],
+        "functionName": "sd_8fP1ZyOVzRQE3oTy",
+        "service": {
+            "id": "sd_RbD2RZwzan9VSOEL",
+            "type": "tab",
+            "createdDate": "2022-03-10T07:40:30.532Z",
+            "label": "cache",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "generateNext": true,
+            "serviceName": "cache",
+            "relativeParentPath": "",
+            "_def": {
+                "defaults": {
+                    "label": {
+                        "value": ""
+                    },
+                    "disabled": {
+                        "value": false
+                    },
+                    "info": {
+                        "value": ""
+                    }
+                }
+            }
+        },
+        "serviceImportPath": "app/sd-services/cache",
+        "category": "Function",
+        "x": 320,
+        "y": 60,
+        "wires": [
+            [
+                "sd_gibHnjrE5f4frqit"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_9AIUmePd4tqnnOCF",
+        "type": "PageStart",
+        "z": "sd_kn0FyFPOaNE2fRez",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "open email view",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "email",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "openEmailView",
+        "category": "General",
+        "x": 100,
+        "y": 580,
+        "wires": [
+            [
+                "sd_p9o4g2ZdTkz2lHLM"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "correspondenceBaseComponent"
+    },
+    {
+        "id": "sd_p9o4g2ZdTkz2lHLM",
+        "type": "PageVariables",
+        "z": "sd_kn0FyFPOaNE2fRez",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "selectedEmail",
+                "typedIpValue": {
+                    "type": "bh.input",
+                    "value": "email"
+                }
+            }
+        ],
+        "functionName": "sd_p9o4g2ZdTkz2lHLM",
+        "category": "Function",
+        "x": 305,
+        "y": 660,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_0NVY3vL49kiOduGQ",
+        "type": "PageStart",
+        "z": "sd_kn0FyFPOaNE2fRez",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "exit email view",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "exitEmailView",
+        "category": "General",
+        "x": 100,
+        "y": 720,
+        "wires": [
+            [
+                "sd_p9o4g2ZdTkz2lHLM"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "correspondenceBaseComponent"
+    },
+    {
+        "id": "sd_ZFiJoBRZwT0hpftq",
+        "type": "PageStart",
+        "z": "sd_kn0FyFPOaNE2fRez",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "change list for page",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "evt",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "changeListForPage",
+        "category": "General",
+        "x": 465,
+        "y": 240,
+        "wires": [
+            [
+                "sd_ckiuMUDhjC2s5qH2"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "correspondenceBaseComponent"
+    },
+    {
+        "id": "sd_ckiuMUDhjC2s5qH2",
+        "type": "Script",
+        "z": "sd_kn0FyFPOaNE2fRez",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "const { pageIndex = 0, pageSize = page.pageSize} = bh.input.evt || {}\nconst start = pageIndex * pageSize;\nconst end = start + pageSize;\npage.pagedEmails = page.emails.slice(start, end)",
+        "functionName": "sd_ckiuMUDhjC2s5qH2",
+        "category": "Function",
+        "x": 585,
+        "y": 140,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_bVRrS3qwBSBZGkyK",
+        "type": "0a527e77-2b6b-855b-557e-9f716099c2ed",
+        "z": "sd_kn0FyFPOaNE2fRez",
+        "viewType": "client-pages",
+        "nodeType": "start",
+        "name": "fetch sent emails",
+        "eventName": "\"fetch-sent-emails\"",
+        "functionName": "fetchSentEmails",
+        "category": "Events",
+        "x": 105,
+        "y": 240,
+        "wires": [
+            [
+                "sd_8fP1ZyOVzRQE3oTy"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "eventName": {
+                "type": "str",
+                "value": "fetch-sent-emails",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "correspondenceBaseComponent"
+    }
+]

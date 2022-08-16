@@ -1,0 +1,159 @@
+[
+    {
+        "id": "sd_iPmsiuXlMxxuDvd9",
+        "type": "tab",
+        "createdDate": "2022-03-24T11:42:32.076Z",
+        "label": "emailListItem",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "emailListItemComponent"
+    },
+    {
+        "id": "sd_xqv9Mx43FWlVtAHy",
+        "type": "OnInit",
+        "z": "sd_iPmsiuXlMxxuDvd9",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "inputVariables": [
+            {
+                "key": "email",
+                "defaultValue": {
+                    "type": "any",
+                    "value": "{}"
+                }
+            }
+        ],
+        "localVariables": [],
+        "outputVariables": [],
+        "functionName": "sd_xqv9Mx43FWlVtAHy",
+        "category": "Lifecycle Events",
+        "x": 30,
+        "y": 30,
+        "wires": [
+            [
+                "sd_0BcV9wix8zE9k036"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "emailListItemComponent"
+    },
+    {
+        "id": "sd_0BcV9wix8zE9k036",
+        "type": "PageVariables",
+        "z": "sd_iPmsiuXlMxxuDvd9",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [],
+        "functionName": "sd_0BcV9wix8zE9k036",
+        "category": "Function",
+        "x": 180,
+        "y": 30,
+        "wires": [
+            [
+                "sd_btXxRjrVbuWzLNWR"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "emailListItemComponent"
+    },
+    {
+        "id": "sd_btXxRjrVbuWzLNWR",
+        "type": "Script",
+        "z": "sd_iPmsiuXlMxxuDvd9",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.labels = {\n    from: {\n        get label() {\n            return page.locales.keys.from\n        }\n    },\n    sender: {\n        get label() {\n            return page.locales.keys.sender\n        }\n    },\n}\n\n// \"subject\": \"Candyman 3: Day of the Dead\",\n// \"from\": \"hlillb@jimdo.com\",\n// \"date\": \"1629559163000\",\n// \"body\": \"Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.\\n\\nNullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.\",\n// \"uid\": \"6927b47c-b66f-42d9-9b5c-b94e56d903ec\"",
+        "functionName": "sd_btXxRjrVbuWzLNWR",
+        "category": "Function",
+        "x": 400,
+        "y": 140,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_sExGlsd4sZn1BlSU",
+        "type": "PageStart",
+        "z": "sd_iPmsiuXlMxxuDvd9",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "reply mail action",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "mail",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "replyMailAction",
+        "category": "General",
+        "x": 105,
+        "y": 440,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "emailListItemComponent"
+    },
+    {
+        "id": "sd_SQ4vT37X9BalH6J8",
+        "type": "PageStart",
+        "z": "sd_iPmsiuXlMxxuDvd9",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "forward mail action",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "mail",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [
+            {
+                "key": "rsnComponent",
+                "defaultValue": {
+                    "type": "str",
+                    "value": "EMAIL_COMPOSE"
+                },
+                "output": false
+            }
+        ],
+        "flow_type": "sync",
+        "functionName": "forwardMailAction",
+        "category": "General",
+        "x": 105,
+        "y": 300,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "emailListItemComponent"
+    }
+]

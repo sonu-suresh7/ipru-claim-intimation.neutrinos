@@ -1,0 +1,211 @@
+[
+    {
+        "id": "sd_jd6epe0Md2ec9ftA",
+        "type": "tab",
+        "createdDate": "2022-04-07T07:52:14.058Z",
+        "label": "other_policies_base",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "other_policies_baseComponent"
+    },
+    {
+        "id": "sd_WGGitB3tKoXkaQtt",
+        "type": "OnInit",
+        "z": "sd_jd6epe0Md2ec9ftA",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "inputVariables": [],
+        "localVariables": [],
+        "outputVariables": [],
+        "functionName": "sd_WGGitB3tKoXkaQtt",
+        "category": "Lifecycle Events",
+        "x": 45,
+        "y": 100,
+        "wires": [
+            [
+                "sd_h312JZ4FoD8wYb80"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "other_policies_baseComponent"
+    },
+    {
+        "id": "sd_x0TsJ6xKrY6znfbb",
+        "type": "Script",
+        "z": "sd_jd6epe0Md2ec9ftA",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.caseDetails = bh.co.case.caseDetails;\npage.case = bh.co.case;",
+        "functionName": "sd_x0TsJ6xKrY6znfbb",
+        "category": "Function",
+        "x": 385,
+        "y": 100,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_h312JZ4FoD8wYb80",
+        "type": "PageServiceVariables",
+        "z": "sd_jd6epe0Md2ec9ftA",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "get",
+        "globalVariables": [
+            {
+                "textIp": "checkedOut",
+                "typedIpValue": {
+                    "type": "bh",
+                    "value": "co"
+                }
+            }
+        ],
+        "functionName": "sd_h312JZ4FoD8wYb80",
+        "service": {
+            "id": "sd_RbD2RZwzan9VSOEL",
+            "type": "tab",
+            "createdDate": "2022-03-10T07:40:30.532Z",
+            "label": "cache",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "generateNext": true,
+            "serviceName": "cache",
+            "relativeParentPath": "",
+            "_def": {
+                "defaults": {
+                    "label": {
+                        "value": ""
+                    },
+                    "disabled": {
+                        "value": false
+                    },
+                    "info": {
+                        "value": ""
+                    }
+                }
+            }
+        },
+        "serviceImportPath": "app/sd-services/cache",
+        "category": "Function",
+        "x": 165,
+        "y": 100,
+        "wires": [
+            [
+                "sd_tUdiU64BLv5gwH4K"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_tUdiU64BLv5gwH4K",
+        "type": "PageVariables",
+        "z": "sd_jd6epe0Md2ec9ftA",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "policies",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "[]"
+                }
+            },
+            {
+                "textIp": "clientsArr",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "[]"
+                }
+            },
+            {
+                "textIp": "case",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "[]"
+                }
+            }
+        ],
+        "functionName": "sd_tUdiU64BLv5gwH4K",
+        "category": "Function",
+        "x": 285,
+        "y": 100,
+        "wires": [
+            [
+                "sd_x0TsJ6xKrY6znfbb"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_oCdyOjqit5HH6O63",
+        "type": "PageStart",
+        "z": "sd_jd6epe0Md2ec9ftA",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "filteredPoliciesFromClient",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "event",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "filteredPoliciesFromClient",
+        "category": "General",
+        "x": 80,
+        "y": 280,
+        "wires": [
+            [
+                "sd_qTac9AD1ezaBLkSP"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "other_policies_baseComponent"
+    },
+    {
+        "id": "sd_qTac9AD1ezaBLkSP",
+        "type": "Script",
+        "z": "sd_jd6epe0Md2ec9ftA",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "if (bh.input.event) {\n    page.policies = [...bh.input.event];\n}",
+        "functionName": "sd_qTac9AD1ezaBLkSP",
+        "category": "Function",
+        "x": 245,
+        "y": 280,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

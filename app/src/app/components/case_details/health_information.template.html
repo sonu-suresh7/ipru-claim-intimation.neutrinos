@@ -1,0 +1,57 @@
+<div fxLayout="column " class="height-100" fxLayoutAlign="start stretch" [fxShow]="true">
+  <mat-card class="personal-details-card height-100">
+    <mat-card-content class="height-100">
+      <div fxLayout="column " class="padding-1 height-100" fxLayoutGap="1rem" fxLayoutAlign="start stretch" [fxShow]="true">
+        <div fxLayout="row " fxLayoutAlign="start stretch" [fxShow]="true">
+          <div fxLayout="row " fxFlex="50" fxLayoutGap="1rem" fxLayoutAlign="start center" [fxShow]="true"><img imgSrc="/Web/CaseDetails/clinical.svg">
+            <mat-card-title class="margin-0">
+              {{page.locales.keys.otherHealthInfo}}
+            </mat-card-title>
+          </div>
+          <div fxLayout="row " fxFlex="50" fxLayoutGap="1rem" fxLayoutAlign="end center" [fxShow]="true"><button mat-button [ngClass]="{&apos;primary-light&apos;: page.highLighted===true}" (click)="page.highLighted=true">{{page.locales.keys.highlights}}</button><button mat-button [ngClass]="{&apos;primary-light&apos;: page.highLighted===false}" (click)="page.highLighted=false">{{page.locales.keys.detailedView}}</button></div>
+        </div>
+        <div fxLayout="column wrap" fxLayoutGap="1rem" fxLayoutAlign="start stretch" [fxShow]="true">
+          <div fxLayout="row wrap" fxLayoutAlign="start center" [fxShow]="true">
+            <div fxLayout="row wrap" fxFlex="24" fxLayoutAlign="space-between center" [fxShow]="true" *ngFor="let item of page.healthInfo;let i=index;">
+              <div fxLayout="column " style="padding-left:1rem;" fxLayoutGap="1rem" fxLayoutAlign="start stretch" [fxShow]="true">
+                <div fxLayout="row " fxLayoutGap="0.5rem" fxLayoutAlign="start stretch" [fxShow]="true"><label>
+                    {{item.label}}</label>
+                  <div fxLayout="row " class="cursor-pointer" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="item.showLabel"><img imgSrc="/Web/Icons/edit.svg" style="width:1rem;height:1rem;" (click)="editValue(item,i,$event)" matTooltip="Edit"></div>
+                </div>
+                <div fxLayout="row " fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="item.showLabel"><label class="text-ellipsis">
+                    {{item.fieldName}}</label></div>
+                <div fxLayout="row " fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="!item.showLabel">
+                  <mat-form-field class="height-weight-input" [appearance]="&apos;legacy&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+                    <input matInput [(ngModel)]="item.fieldName" [required]="false" (blur)="editValue(item,i,$event)">
+
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+            <div fxLayout="row wrap" fxFlex="24" fxLayoutAlign="space-between center" [fxShow]="true" *ngFor="let item of page.otherHealthInfo;let i=index;">
+              <div fxLayout="column " style="padding-left:1rem;" fxLayoutGap="1rem" fxLayoutAlign="start stretch" [fxShow]="true">
+                <div fxLayout="row " fxLayoutGap="0.5rem" fxLayoutAlign="start stretch" [fxShow]="true"><label>
+                    {{item.label}}</label></div>
+                <div fxLayout="row " fxLayoutAlign="start stretch" [fxShow]="true"><label class="text-ellipsis">
+                    {{item.fieldName}}</label></div>
+              </div>
+            </div>
+          </div>
+          <div fxLayout="column " fxLayoutAlign="start stretch" [fxShow]="true">
+            <div fxLayout="column " fxLayoutGap="1rem" fxLayoutAlign="start stretch" [fxShow]="true" *ngFor="let item of getHealthInfo()">
+              <div style="font-weight:500;">
+                {{item.question}}
+              </div>
+              <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+                <mat-form-field [appearance]="&apos;legacy&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+                  <input matInput placeholder="{{page.labels[&apos;answer&apos;]?.label}}" [required]="false" [value]="item.answer" [ngClass]="item.color === &apos;red&apos; ? &apos;yes-answer&apos; : &apos;no-answer&apos;" readonly="true">
+
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

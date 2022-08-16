@@ -1,0 +1,104 @@
+<div fxLayout="column " style="padding: 32px ;" class="padding-1" fxFlex="100" fxLayoutGap="1rem" fxLayoutAlign="start stretch" [fxShow]="page.policy" [fxHide]="false">
+  <bh-settingsHeader [cancelNav]="&apos;/web/manageUsers&apos;" (save)="saveData()" [heading]="&apos;Edit users for &apos; + page.roleName"></bh-settingsHeader>
+  <div fxLayout="column" class="formfield_width mat-elevation-z1 width-100">
+    <table mat-table [dataSource]="page.tableData" class="table-width-fix">
+      <tr mat-header-row *matHeaderRowDef="[&apos;userName&apos;,&apos;managerName&apos;,&apos;dailyLimit&apos;,&apos;min&apos;,&apos;max&apos;,&apos;shift&apos;,&apos;allowoverwrite&apos;,&apos;action&apos;]"></tr>
+      <tr mat-row *matRowDef="let row; columns: [&apos;userName&apos;,&apos;managerName&apos;,&apos;dailyLimit&apos;,&apos;min&apos;,&apos;max&apos;,&apos;shift&apos;,&apos;allowoverwrite&apos;,&apos;action&apos;];"></tr>
+
+      <ng-container matColumnDef="userName">
+        <th mat-header-cell *matHeaderCellDef>{{page.locales.keys.userName}}</th>
+        <td mat-cell *matCellDef="let table; let i = index;">
+          <mat-form-field [hideRequiredMarker]="false" [appearance]="&apos;legacy&apos;" [floatLabel]="&apos;auto&apos;">
+            <mat-label></mat-label>
+            <mat-select [(ngModel)]="table.user" [required]="false">
+              <ng-template ngFor let-option [ngForOf]="page.userNames" let-i="index">
+                <mat-option [value]="option.jbpm">{{option.jbpm}}</mat-option>
+              </ng-template>
+            </mat-select>
+
+
+          </mat-form-field>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="managerName">
+        <th mat-header-cell *matHeaderCellDef>{{page.locales.keys.managerName}}</th>
+        <td mat-cell *matCellDef="let table; let i = index;">
+          <mat-form-field [hideRequiredMarker]="false" [appearance]="&apos;legacy&apos;" [floatLabel]="&apos;auto&apos;">
+            <mat-label></mat-label>
+            <mat-select [(ngModel)]="table.managerName" [required]="false">
+              <ng-template ngFor let-option [ngForOf]="page.managerNames" let-i="index">
+                <mat-option [value]="option">{{option}}</mat-option>
+              </ng-template>
+            </mat-select>
+
+
+          </mat-form-field>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="dailyLimit">
+        <th mat-header-cell *matHeaderCellDef>{{page.locales.keys.dailyLimit}}</th>
+        <td mat-cell *matCellDef="let table; let i = index;">
+          <mat-form-field [appearance]="&apos;legacy&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+            <input matInput [(ngModel)]="table.dailyLimit" type="number" placeholder="Input" [required]="false">
+
+          </mat-form-field>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="min">
+        <th mat-header-cell *matHeaderCellDef>{{page.locales.keys.min}}</th>
+        <td mat-cell *matCellDef="let table; let i = index;">
+          <mat-form-field [appearance]="&apos;legacy&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+            <input matInput [(ngModel)]="table.min" type="number" placeholder="Input" [required]="false">
+
+          </mat-form-field>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="max">
+        <th mat-header-cell *matHeaderCellDef>{{page.locales.keys.max}}</th>
+        <td mat-cell *matCellDef="let table; let i = index;">
+          <mat-form-field [appearance]="&apos;legacy&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+            <input matInput [(ngModel)]="table.max" type="number" placeholder="Input" [required]="false">
+
+          </mat-form-field>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="shift">
+        <th mat-header-cell *matHeaderCellDef>{{page.locales.keys.shift}}</th>
+        <td mat-cell *matCellDef="let table; let i = index;">
+          <mat-form-field [hideRequiredMarker]="false" [appearance]="&apos;legacy&apos;" [floatLabel]="&apos;auto&apos;">
+            <mat-label></mat-label>
+            <mat-select [(ngModel)]="table.shift" [required]="false">
+              <ng-template ngFor let-option [ngForOf]="page.shifts" let-i="index">
+                <mat-option [value]="option.shift">{{option.shift}}</mat-option>
+              </ng-template>
+            </mat-select>
+
+
+          </mat-form-field>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="allowoverwrite">
+        <th mat-header-cell *matHeaderCellDef>{{page.locales.keys.overwrite}}</th>
+        <td mat-cell *matCellDef="let table; let i = index;">
+          <mat-slide-toggle [required]="false" [(ngModel)]="table.overwriteRoleConfig"> </mat-slide-toggle>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let table; let i = index;">
+          <div fxLayout="row wrap" fxLayoutGap="1rem" fxLayoutAlign="start center">
+            <mat-icon class="cursor-pointer" (click)="removeUser(i)" matTooltip="{{page.locales.keys.delete}}" color="warn">delete</mat-icon>
+            <mat-icon class="cursor-pointer" *ngIf="page.tableData?.data?.length - 1 === i" (click)="addUser(i)" matTooltip="{{page.locales.keys.add}}" color="primary">add_circle</mat-icon>
+          </div>
+        </td>
+      </ng-container>
+    </table>
+  </div>
+</div>

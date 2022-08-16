@@ -1,0 +1,451 @@
+[
+    {
+        "id": "sd_2AbWH9AJz72chPP0",
+        "type": "tab",
+        "createdDate": "2022-05-09T10:55:32.154Z",
+        "label": "theme",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "themeComponent"
+    },
+    {
+        "id": "sd_GNzfpUz0Z5JeaTvg",
+        "type": "OnInit",
+        "z": "sd_2AbWH9AJz72chPP0",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "sd_GNzfpUz0Z5JeaTvg",
+        "category": "Lifecycle Events",
+        "x": 65,
+        "y": 60,
+        "wires": [
+            [
+                "sd_To2PXcUsoxrRCGsg"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "themeComponent"
+    },
+    {
+        "id": "sd_DyHw0W6W1muvSAWa",
+        "type": "Script",
+        "z": "sd_2AbWH9AJz72chPP0",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "assign to fg",
+        "script": "page.fg = page.fb.group({\n    primaryColor: page.fb.control('', [Validators.required]),\n    // cc: page.fb.control('', [Validators.email]),\n    // subject: page.fb.control('', [Validators.required]),\n    // body: page.fb.control('', [Validators.required]),\n    // attachments: page.fb.control([]),\n})\n\npage.fg.patchValue(page.appSettings.ui);",
+        "functionName": "assignToFg",
+        "category": "Function",
+        "x": 425,
+        "y": 60,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "themeComponent"
+    },
+    {
+        "id": "sd_To2PXcUsoxrRCGsg",
+        "type": "UseDependency",
+        "z": "sd_2AbWH9AJz72chPP0",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "import ng form",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "",
+        "propertyType": "bh",
+        "propertyGv": "bh.",
+        "alias": "",
+        "modules": [
+            {
+                "textIp": "FormBuilder",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "fb"
+                },
+                "injectable": true
+            },
+            {
+                "textIp": "Validators",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                },
+                "injectable": false
+            }
+        ],
+        "import_all": false,
+        "library": "@angular/forms",
+        "serviceDesignerType": "pages",
+        "functionName": "importNgForm",
+        "category": "Function",
+        "x": 185,
+        "y": 60,
+        "wires": [
+            [
+                "sd_NGl1yLf5OEJsuyER"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_NGl1yLf5OEJsuyER",
+        "type": "PageServiceVariables",
+        "z": "sd_2AbWH9AJz72chPP0",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "get",
+        "globalVariables": [
+            {
+                "textIp": "appSettings",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "appSettings"
+                }
+            }
+        ],
+        "functionName": "sd_NGl1yLf5OEJsuyER",
+        "service": {
+            "id": "sd_RbD2RZwzan9VSOEL",
+            "type": "tab",
+            "createdDate": "2022-03-10T07:40:30.532Z",
+            "label": "cache",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "generateNext": true,
+            "serviceName": "cache",
+            "relativeParentPath": "",
+            "_def": {
+                "defaults": {
+                    "label": {
+                        "value": ""
+                    },
+                    "disabled": {
+                        "value": false
+                    },
+                    "info": {
+                        "value": ""
+                    }
+                }
+            }
+        },
+        "serviceImportPath": "app/sd-services/cache",
+        "category": "Function",
+        "x": 305,
+        "y": 60,
+        "wires": [
+            [
+                "sd_DyHw0W6W1muvSAWa"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_CrSmPgtVloK4Fls3",
+        "type": "PageStart",
+        "z": "sd_2AbWH9AJz72chPP0",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "save UI theme",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "saveUITheme",
+        "category": "General",
+        "x": 65,
+        "y": 220,
+        "wires": [
+            [
+                "sd_qqYV61d3uoRfvTnJ"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "themeComponent"
+    },
+    {
+        "id": "sd_qqYV61d3uoRfvTnJ",
+        "type": "Script",
+        "z": "sd_2AbWH9AJz72chPP0",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "Object.assign(page.appSettings.ui, page.fg.value)\n\nconsole.log('page.appSettings', page.appSettings)",
+        "functionName": "sd_qqYV61d3uoRfvTnJ",
+        "category": "Function",
+        "x": 185,
+        "y": 220,
+        "wires": [
+            [
+                "sd_RvuMaZZuVKeNGGY8"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_HU6tyRzMlK9lfPbS",
+        "type": "PageStart",
+        "z": "sd_2AbWH9AJz72chPP0",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "save img in memory",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "f",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "saveImgInMemory",
+        "category": "General",
+        "x": 65,
+        "y": 440,
+        "wires": [
+            [
+                "sd_7zpFSU3g14GoGcv0"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "themeComponent"
+    },
+    {
+        "id": "sd_7zpFSU3g14GoGcv0",
+        "type": "Script",
+        "z": "sd_2AbWH9AJz72chPP0",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.logo1 = bh.input.f",
+        "functionName": "sd_7zpFSU3g14GoGcv0",
+        "category": "Function",
+        "x": 185,
+        "y": 440,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_RvuMaZZuVKeNGGY8",
+        "type": "PageAsync",
+        "z": "sd_2AbWH9AJz72chPP0",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "flowNodes": [
+            {
+                "serviceId": "sd_tSoBS3t3cHJzNlhG",
+                "serviceName": "appSettings",
+                "flowId": "sd_JmaxNlsLJrcwYCja",
+                "flowName": "save App settings",
+                "functionName": "saveAppSettings",
+                "inputParams": [
+                    "this.page.appSettings"
+                ],
+                "inputVariables": [
+                    {
+                        "key": "appSettings",
+                        "map": true,
+                        "valueType": "this.page",
+                        "value": "appSettings"
+                    }
+                ],
+                "accept_bh": false,
+                "viewType": "client-server",
+                "relativePath": null
+            },
+            {
+                "serviceId": "sd_tSoBS3t3cHJzNlhG",
+                "serviceName": "appSettings",
+                "flowId": "sd_qLJcPNs1JnngMeBD",
+                "flowName": "save App logo",
+                "functionName": "saveAppLogo",
+                "inputParams": [
+                    "this.page.logo1"
+                ],
+                "inputVariables": [
+                    {
+                        "key": "f",
+                        "map": true,
+                        "valueType": "this.page",
+                        "value": "logo1"
+                    }
+                ],
+                "accept_bh": false,
+                "viewType": "client-server",
+                "relativePath": null
+            }
+        ],
+        "_flowNodes": [
+            {
+                "serviceId": "sd_tSoBS3t3cHJzNlhG",
+                "serviceName": "appSettings",
+                "flowId": "sd_JmaxNlsLJrcwYCja",
+                "flowName": "save App settings",
+                "functionName": "saveAppSettings",
+                "inputParams": [
+                    "this.page.appSettings"
+                ],
+                "inputVariables": [
+                    {
+                        "key": "appSettings",
+                        "map": true,
+                        "valueType": "this.page",
+                        "value": "appSettings"
+                    }
+                ],
+                "accept_bh": false,
+                "viewType": "client-server",
+                "relativePath": null
+            },
+            {
+                "serviceId": "sd_tSoBS3t3cHJzNlhG",
+                "serviceName": "appSettings",
+                "flowId": "sd_qLJcPNs1JnngMeBD",
+                "flowName": "save App logo",
+                "functionName": "saveAppLogo",
+                "inputParams": [
+                    "this.page.logo1"
+                ],
+                "inputVariables": [
+                    {
+                        "key": "f",
+                        "map": true,
+                        "valueType": "this.page",
+                        "value": "logo1"
+                    }
+                ],
+                "accept_bh": false,
+                "viewType": "client-server",
+                "relativePath": null
+            }
+        ],
+        "resultMapping": "bh.local.r",
+        "accept_csd": true,
+        "isValidNode": true,
+        "functionName": "sd_RvuMaZZuVKeNGGY8",
+        "category": "Function",
+        "x": 305,
+        "y": 220,
+        "wires": [
+            [
+                "sd_88DXABGGkheZNGMO"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "resultMapping": {
+                "type": "bh.local",
+                "value": "r",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_88DXABGGkheZNGMO",
+        "type": "PageCallService",
+        "z": "sd_2AbWH9AJz72chPP0",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "change UI colors",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_tSoBS3t3cHJzNlhG",
+            "type": "tab",
+            "createdDate": "2022-05-06T12:38:31.127Z",
+            "label": "appSettings",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_CXfXfMy8Y80VU8Gr",
+            "flowName": "changeAppUIColors"
+        },
+        "inputVariables": [
+            {
+                "key": "uiSettings",
+                "map": true,
+                "valueType": "this.page",
+                "value": "appSettings.ui"
+            }
+        ],
+        "outputMapping": [],
+        "serviceImportPath": "app/sd-services/appSettings",
+        "startName": "changeAppUIColors",
+        "inputParams": [
+            "this.page.appSettings.ui"
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "changeUIColors",
+        "category": "General",
+        "x": 425,
+        "y": 220,
+        "wires": [
+            [
+                "sd_H9BaAAmfAiOUzrXD"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_H9BaAAmfAiOUzrXD",
+        "type": "4a14d245-3eca-40a4-550c-2885e99a00e9",
+        "z": "sd_2AbWH9AJz72chPP0",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "eventName": "\"update-app-logo-url\"",
+        "functionName": "sd_H9BaAAmfAiOUzrXD",
+        "category": "Events",
+        "x": 565,
+        "y": 220,
+        "wires": [
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "eventName": {
+                "type": "str",
+                "value": "update-app-logo-url",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

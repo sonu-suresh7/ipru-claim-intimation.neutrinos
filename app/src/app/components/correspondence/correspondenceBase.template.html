@@ -1,0 +1,12 @@
+<div fxLayout="column " class="padding-1 height-100 width-100" fxLayoutAlign="start stretch" [fxShow]="!page.selectedEmail">
+  <div fxLayout="row " fxLayoutAlign="end stretch"><button mat-raised-button color="primary" (click)="openComposeMail()">{{page.locales.keys.compose}}</button></div>
+  <bh-emailListItem class="cursor-pointer light-gray-bottom-border border-box" *ngFor="let emailItem of page.pagedEmails" [email]="emailItem" (click)="openEmailView(emailItem)"></bh-emailListItem>
+  <mat-paginator [length]="(page.emails || []).length" [pageSize]="page.pageSize" [showFirstLastButtons]="true" (page)="changeListForPage($event)">
+  </mat-paginator>
+</div>
+<div fxLayout="column " class="padding-1 height-100 width-100" fxLayoutGap="1rem" fxLayoutAlign="start stretch" *ngIf="page.selectedEmail">
+  <div fxLayout="row " fxLayoutAlign="start stretch">
+    <mat-icon class="cursor-pointer" (click)="exitEmailView()" matTooltip="{{page.locales.keys.showAllEmails}}">arrow_back</mat-icon>
+  </div>
+  <bh-emailView class="height-100" [email]="page.selectedEmail"></bh-emailView>
+</div>

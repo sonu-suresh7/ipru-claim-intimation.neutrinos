@@ -1,0 +1,150 @@
+[
+    {
+        "id": "sd_BOVQd6mx2TThVaS5",
+        "type": "tab",
+        "createdDate": "2022-04-07T17:38:57.313Z",
+        "label": "confirmation_dialog",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "confirmation_dialogComponent"
+    },
+    {
+        "id": "sd_fDowhIlOSTw78fRd",
+        "type": "OnInit",
+        "z": "sd_BOVQd6mx2TThVaS5",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "sd_fDowhIlOSTw78fRd",
+        "category": "Lifecycle Events",
+        "x": 65,
+        "y": 60,
+        "wires": [
+            [
+                "sd_XTSbWsPuJKkjN1ln"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "confirmation_dialogComponent"
+    },
+    {
+        "id": "sd_XTSbWsPuJKkjN1ln",
+        "type": "PageVariables",
+        "z": "sd_BOVQd6mx2TThVaS5",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "alertObject",
+                "typedIpValue": {
+                    "type": "bh",
+                    "value": ""
+                }
+            }
+        ],
+        "functionName": "sd_XTSbWsPuJKkjN1ln",
+        "category": "Function",
+        "x": 185,
+        "y": 60,
+        "wires": [
+            [
+                "sd_VrTOui6hu5IgMzmz"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_VrTOui6hu5IgMzmz",
+        "type": "GetDialogData",
+        "z": "sd_BOVQd6mx2TThVaS5",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "dialogDataMapping": "this.page.alertObject",
+        "functionName": "sd_VrTOui6hu5IgMzmz",
+        "category": "Dialog",
+        "x": 305,
+        "y": 60,
+        "wires": [
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "dialogDataMapping": {
+                "type": "this.page",
+                "value": "alertObject",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_I4n0eB9NG32V4ljy",
+        "type": "PageStart",
+        "z": "sd_BOVQd6mx2TThVaS5",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "submit",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "data",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "submit",
+        "category": "General",
+        "x": 85,
+        "y": 200,
+        "wires": [
+            [
+                "sd_4bG4BownJhEdBkVO"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "confirmation_dialogComponent"
+    },
+    {
+        "id": "sd_4bG4BownJhEdBkVO",
+        "type": "CloseDialog",
+        "z": "sd_BOVQd6mx2TThVaS5",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "data": "bh.input.data",
+        "functionName": "sd_4bG4BownJhEdBkVO",
+        "category": "Dialog",
+        "x": 205,
+        "y": 200,
+        "wires": [
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "data": {
+                "type": "bh.input",
+                "value": "data",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

@@ -1,0 +1,330 @@
+{
+    "14fa6daf-f347-66b7-a4d8-b5666f766cf8": {
+        "paletteKey": "Html5",
+        "isAdvancedComponent": true,
+        "commentid": null,
+        "designerReference": [
+            {
+                "_key": "style",
+                "_value": "",
+                "_type": "kv",
+                "_attrDef": "p"
+            },
+            {
+                "_key": "class",
+                "_value": "",
+                "_type": "dav",
+                "_attrDef": "p"
+            },
+            {
+                "_key": "htmlElement",
+                "_value": "mat-table",
+                "_type": "dav",
+                "_attrDef": "p",
+                "_useAsLabel": true,
+                "_customAttributeFlag": "customInput"
+            },
+            {
+                "_key": "tagType",
+                "_value": "mat-table",
+                "_type": "a",
+                "_attrDef": "p",
+                "_visibility": false
+            },
+            {
+                "_key": "name",
+                "_value": "",
+                "_type": "kv",
+                "_attrDef": "p",
+                "_visibility": false
+            },
+            {
+                "_key": "sandbox",
+                "_value": "",
+                "_type": "kv",
+                "_attrDef": "p",
+                "_visibility": false
+            },
+            {
+                "_key": "src",
+                "_value": "",
+                "_type": "kv",
+                "_attrDef": "p",
+                "_visibility": false
+            },
+            {
+                "_key": "srcdoc",
+                "_value": "",
+                "_type": "kv",
+                "_attrDef": "p",
+                "_visibility": false
+            },
+            {
+                "_key": "width",
+                "_value": "",
+                "_type": "kv",
+                "_attrDef": "p",
+                "_visibility": false
+            },
+            {
+                "_key": "[autoplay]",
+                "_value": "",
+                "_type": "kv",
+                "_attrDef": "p",
+                "_visibility": false
+            },
+            {
+                "_key": "[loop]",
+                "_value": "",
+                "_type": "kv",
+                "_attrDef": "p",
+                "_visibility": false
+            },
+            {
+                "_key": "data",
+                "_value": "",
+                "_type": "kv",
+                "_attrDef": "p",
+                "_visibility": false
+            },
+            {
+                "_key": "audioSource",
+                "_value": [],
+                "_type": "a",
+                "_attrDef": "p",
+                "_visibility": false
+            },
+            {
+                "_key": "videoSource",
+                "_value": [],
+                "_type": "a",
+                "_attrDef": "p",
+                "_visibility": false
+            },
+            {
+                "_key": "audioDatasource",
+                "_value": "",
+                "_type": "a",
+                "_attrDef": "p",
+                "_visibility": false
+            },
+            {
+                "_key": "audioSrc",
+                "_value": "",
+                "_type": "a",
+                "_attrDef": "p",
+                "_visibility": false
+            },
+            {
+                "_key": "audioType",
+                "_value": "",
+                "_type": "a",
+                "_attrDef": "p",
+                "_visibility": false
+            },
+            {
+                "_key": "videoDatasource",
+                "_value": "",
+                "_type": "a",
+                "_attrDef": "p",
+                "_visibility": false
+            },
+            {
+                "_key": "videoSrc",
+                "_value": "",
+                "_type": "a",
+                "_attrDef": "p",
+                "_visibility": false
+            },
+            {
+                "_key": "videoType",
+                "_value": "",
+                "_type": "a",
+                "_attrDef": "p",
+                "_visibility": false
+            },
+            {
+                "_key": "(audioplay)",
+                "_value": "",
+                "_type": "a",
+                "_attrDef": "p",
+                "_visibility": false
+            },
+            {
+                "_key": "(videoplay)",
+                "_value": "",
+                "_type": "a",
+                "_attrDef": "p",
+                "_visibility": false
+            },
+            {
+                "_key": "(audiopause)",
+                "_value": "",
+                "_type": "kv",
+                "_attrDef": "p",
+                "_visibility": false
+            },
+            {
+                "_key": "(videopause)",
+                "_value": "",
+                "_type": "kv",
+                "_attrDef": "p",
+                "_visibility": false
+            },
+            {
+                "_key": "(audioended)",
+                "_value": "",
+                "_type": "kv",
+                "_attrDef": "p",
+                "_visibility": false
+            },
+            {
+                "_key": "(videoended)",
+                "_value": "",
+                "_type": "kv",
+                "_attrDef": "p",
+                "_visibility": false
+            },
+            {
+                "_key": "[dataSource]",
+                "_value": "page.sortedTasks",
+                "_type": "kv",
+                "_attrDef": "c"
+            },
+            {
+                "_key": "matSort",
+                "_value": "matSort",
+                "_type": "a",
+                "_attrDef": "c"
+            },
+            {
+                "_key": "(matSortChange)",
+                "_value": "sortChange($event)",
+                "_type": "kv",
+                "_attrDef": "c",
+                "_customAttributeFlag": "flowpicker",
+                "objValue": {
+                    "nodeID": "sd_x7BgJjZCKYr6sx9A",
+                    "functionName": "sortChange",
+                    "activeTree": "pages",
+                    "z": "sd_ruCrGwNecen0Eaj9",
+                    "input": [
+                        "$event"
+                    ]
+                }
+            },
+            {
+                "_key": "[trackBy]",
+                "_value": "page.trackTask",
+                "_type": "kv",
+                "_attrDef": "c"
+            }
+        ],
+        "21bea40a-a1cf-3ac5-5ccc-609d44595916": {
+            "paletteKey": "html-editor",
+            "parentEditorKey": "14fa6daf-f347-66b7-a4d8-b5666f766cf8",
+            "isAdvancedChildComponent": true,
+            "isCommented": "true",
+            "commentid": "1658237759596",
+            "designerReference": [
+                {
+                    "_key": "style",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "class",
+                    "_value": "",
+                    "_type": "dav",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "html",
+                    "_value": "<ng-container matColumnDef=\"lock_unlock\">\r\n\t<mat-header-cell *matHeaderCellDef></mat-header-cell>\r\n\t<mat-cell *matCellDef=\"let row\">\r\n\t\t<mat-icon [matTooltip]=\"page.taskStatus.tooltip(row)\" class=\"primary-text-color\">\r\n\t\t\t{{page.taskStatus.icon(row)}}\r\n\t\t</mat-icon>\r\n\t</mat-cell>\r\n</ng-container>\r\n<!-- Checkbox Column -->\r\n<ng-container matColumnDef=\"selection\">\r\n\t<mat-header-cell *matHeaderCellDef>\r\n\t\t<mat-checkbox (change)=\"$event ? masterToggle() : null\" [checked]=\"page.selection.hasValue() && isAllSelected()\"\r\n\t\t\t[indeterminate]=\"page.selection.hasValue() && !isAllSelected()\">\r\n\t\t</mat-checkbox>\r\n\t</mat-header-cell>\r\n\t<mat-cell *matCellDef=\"let row\">\r\n\t\t<mat-checkbox (click)=\"$event.stopPropagation()\" (change)=\"$event ? page.selection.toggle(row) : null\"\r\n\t\t\t[checked]=\"page.selection.isSelected(row)\">\r\n\t\t</mat-checkbox>\r\n\t</mat-cell>\r\n</ng-container>",
+                    "_type": "a",
+                    "_attrDef": "p"
+                }
+            ]
+        },
+        "012a6b30-a10a-3390-cc6a-ceb48705c0cb": {
+            "paletteKey": "html-editor",
+            "parentEditorKey": "14fa6daf-f347-66b7-a4d8-b5666f766cf8",
+            "isAdvancedChildComponent": true,
+            "commentid": null,
+            "designerReference": [
+                {
+                    "_key": "style",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "class",
+                    "_value": "",
+                    "_type": "dav",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "html",
+                    "_value": "<ng-container *ngFor=\"let col of wq.conf.selectedColumns\" matColumnDef=\"{{col}}\">\r\n\t<mat-header-cell mat-sort-header *matHeaderCellDef> {{page.colConf[col]?.label}} </mat-header-cell>\r\n\t<mat-cell *matCellDef=\"let row\"> {{row[col]}} </mat-cell>\r\n</ng-container>\r\n",
+                    "_type": "a",
+                    "_attrDef": "p"
+                }
+            ]
+        },
+        "197f448c-208f-4900-d05e-05f8591b90f1": {
+            "paletteKey": "html-editor",
+            "parentEditorKey": "14fa6daf-f347-66b7-a4d8-b5666f766cf8",
+            "isAdvancedChildComponent": true,
+            "isCommented": "true",
+            "commentid": "1658239894346",
+            "designerReference": [
+                {
+                    "_key": "style",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "class",
+                    "_value": "",
+                    "_type": "dav",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "html",
+                    "_value": "<ng-container matColumnDef=\"action\">\r\n\t<mat-header-cell *matHeaderCellDef> {{page.locales.keys.action}} </mat-header-cell>\r\n\t<mat-cell *matCellDef=\"let row\" class=\"cursor-pointer\">\r\n\t\t<mat-icon [matMenuTriggerFor]=\"actionMenu\" [matMenuTriggerData]=\"{ row: row }\"\r\n\t\t\t(click)=\"$event.stopPropagation()\">more_vert</mat-icon>\r\n\t\t<mat-menu #actionMenu=\"matMenu\">\r\n\t\t\t<ng-template matMenuContent let-row=\"row\">\r\n\t\t\t\t<button mat-menu-item *ngIf=\"row['task-status'] === 'InProgress'\" (click)=\"toggleTaskLock(row, false)\">{{page.locales.keys.unlock}}</button>\r\n\t\t\t\t<button mat-menu-item *ngIf=\"row['task-status'] !== 'InProgress'\" (click)=\"toggleTaskLock(row, true)\">{{page.locales.keys.lock}}</button>\r\n\t\t\t</ng-template>\r\n\t\t</mat-menu>\r\n\t</mat-cell>\r\n</ng-container>",
+                    "_type": "a",
+                    "_attrDef": "p"
+                }
+            ]
+        },
+        "79706749-a384-4d2b-75bd-5332abfc8f84": {
+            "paletteKey": "html-editor",
+            "parentEditorKey": "14fa6daf-f347-66b7-a4d8-b5666f766cf8",
+            "isAdvancedChildComponent": true,
+            "commentid": null,
+            "designerReference": [
+                {
+                    "_key": "style",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "class",
+                    "_value": "",
+                    "_type": "dav",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "html",
+                    "_value": "<mat-header-row *matHeaderRowDef=\"page.displayColumns\"></mat-header-row>\r\n<mat-row class=\"cursor-pointer\" *matRowDef=\"let row; columns: page.displayColumns\" (click)=\"checkout(row)\"></mat-row>",
+                    "_type": "a",
+                    "_attrDef": "p"
+                }
+            ]
+        }
+    }
+}

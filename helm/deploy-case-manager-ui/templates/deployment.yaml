@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.deploymentName }}
+  namespace: {{ .Values.deploymentNamespace }}
+  labels:
+    app: {{ .Values.deploymentName }}
+  annotations:
+      cluster-autoscaler.kubernetes.io/safe-to-evict: "false"
+      prometheus.io/scrape: 'true'
+      prometheus.io/port:   '9090'
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Values.deploymentName }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.deploymentName }}
+        tier: {{ .Values.deploymentName }}
+        version: v1
+    spec:
+      securityContext:
+        runAsUser: 0
+      containers:
+      - name: {{ .Values.deploymentName }}
+        image: {{ .Values.dockerURL }}
+        imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: "1"
+            memory: 1Gi
+          limits:
+            cpu: "1"
+            memory: 2.4Gi
+        # livenessProbe:
+        #     httpGet:
+        #       path: /
+        #       port: http
+        #   readinessProbe:
+        #     httpGet:
+        #       path: /
+        #       port: http
+      imagePullSecrets:
+      - name: regcred

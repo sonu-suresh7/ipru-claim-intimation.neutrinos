@@ -1,0 +1,44 @@
+<form [formGroup]="page.emailForm" class="height-100" (ngSubmit)="sendEmail()">
+  <div fxLayout="column " class="height-100" fxLayoutGap="1rem" fxLayoutAlign="space-between stretch">
+    <div fxLayout="column " style="height: 90%; overflow-x: hidden;" class="overflow-y" fxLayoutGap="1rem" fxLayoutAlign="start stretch">
+      <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;always&apos;" [hideRequiredMarker]="false">
+        <input matInput type="email" placeholder="{{page.locales.keys.emailKeys.to}}" formControlName="to">
+        <mat-error align="start" *ngIf="page.emailForm?.controls.to.errors?.required">This field is required</mat-error>
+        <mat-error align="start" *ngIf="page.emailForm?.controls.to.errors?.email">Value should be a valid email address</mat-error>
+        <mat-label>{{page.locales.keys.emailKeys.to}}</mat-label>
+      </mat-form-field>
+      <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;always&apos;" [hideRequiredMarker]="false">
+        <input matInput type="email" placeholder="{{page.locales.keys.emailKeys.cc}}" formControlName="cc">
+        <mat-error align="start" *ngIf="page.emailForm?.controls.cc.errors?.email">Value should be valid email address</mat-error>
+        <mat-label>{{page.locales.keys.emailKeys.cc}}</mat-label>
+      </mat-form-field>
+      <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;always&apos;" [hideRequiredMarker]="false">
+        <input matInput type="text" placeholder="{{page.locales.keys.emailKeys.subject}}" formControlName="subject">
+        <mat-error align="start" *ngIf="page.emailForm?.controls.subject.errors?.required">This field is required</mat-error>
+        <mat-label>{{page.locales.keys.emailKeys.subject}}</mat-label>
+      </mat-form-field>
+      <mat-form-field [hideRequiredMarker]="false" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;always&apos;">
+        <mat-label>{{page.locales.keys.emailKeys.templates}}</mat-label>
+        <mat-select [(value)]="page.selectedTemplate" panelClass="select-template" placeholder="{{page.locales.keys.emailKeys.templates}}" [required]="false" (selectionChange)="selectTemplate($event.value)">
+          <ng-template ngFor let-option [ngForOf]="page.templates" let-i="index">
+            <mat-option [value]="option.templateName">{{option.templateLabel}}</mat-option>
+          </ng-template>
+        </mat-select>
+
+
+      </mat-form-field>
+      <mat-form-field [hideRequiredMarker]="false" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;always&apos;">
+        <mat-label>{{page.locales.keys.selectDocuments}}</mat-label>
+        <mat-select formControlName="attachments" placeholder="{{page.locales.keys.selectDocuments}}" [required]="false" multiple>
+          <ng-template ngFor let-option [ngForOf]="page.caseDocuments" let-i="index">
+            <mat-option [value]="option._id">{{option.filename}}</mat-option>
+          </ng-template>
+        </mat-select>
+
+        <mat-hint align="start" *ngIf="true">{{page.emailForm?.controls.attachments.value.length || 0}} attachments selected</mat-hint>
+      </mat-form-field>
+      <ckeditor class="margin-bottom-1 ck-editor" formControlName="body" [config]="{placeholder: &apos;Text&apos;, toolbar: [&apos;heading&apos;,&apos;bold&apos;,&apos;italic&apos;,&apos;undo&apos;,&apos;redo&apos;,&apos;bulletedList&apos;,&apos;numberedList&apos;,&apos;blockQuote&apos;,&apos;link&apos;,&apos;insertTable&apos;]}" [editor]="page.Editor"></ckeditor>
+    </div>
+    <div fxLayout="row " fxLayoutAlign="end stretch"><button mat-button class="cursor-pointer" [disabled]="page.emailForm?.invalid">{{page.locales.keys.sendMail}}</button></div>
+  </div>
+</form>

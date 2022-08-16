@@ -1,0 +1,5 @@
+<div fxLayout="column wrap" class="height-100 padding-top-1" fxLayoutAlign="start stretch" [fxShow]="true">
+  <bh-client_ids [caseDetails]="page.caseDetails" [caseData]="page.case" (filteredPolicies)="filteredPoliciesFromClient($event)"></bh-client_ids>
+  <bh-policies [policies]="page?.policies"></bh-policies>
+  <bh-merge_requests></bh-merge_requests>
+</div>

@@ -1,0 +1,166 @@
+<div fxLayout="column " style="padding: 32px ;" class="padding-1" fxFlex="100" fxLayoutGap="1rem" fxLayoutAlign="start stretch" [fxShow]="page.policy" [fxHide]="false">
+  <bh-settingsHeader [cancelNav]="&apos;/web/nav/admin&apos;" (save)="saveData()" [heading]="&apos;Configuration&apos;"></bh-settingsHeader>
+  <div fxLayout="row wrap" style="width: 100%;    " fxLayoutAlign="start stretch">
+    <div fxLayout="column" style="    width: 100%;" class="tableclass2">
+      <div>
+        <h3>Shifts</h3>
+      </div>
+      <table style="width: 100%;" mat-table [dataSource]="page.tableData" class="mat-elevation-z1 formfield_width">
+        <ng-container matColumnDef="shift">
+          <th mat-header-cell *matHeaderCellDef> Shift </th>
+          <td mat-cell *matCellDef="let element">
+            <mat-form-field class="example-full-width" appearance="legacy">
+              <input matInput name="Shift" [(ngModel)]="element.shift" [value]="element.shift">
+            </mat-form-field>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="from">
+          <th mat-header-cell *matHeaderCellDef> From </th>
+          <td mat-cell *matCellDef="let element">
+            <mat-form-field class="example-full-width" appearance="legacy">
+              <input matInput type="number" name="from" [(ngModel)]="element.from" [value]="element.from">
+            </mat-form-field>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="to">
+          <th mat-header-cell *matHeaderCellDef> To </th>
+          <td mat-cell *matCellDef="let element">
+            <mat-form-field class="example-full-width" appearance="legacy">
+              <input type="number" matInput name="to" [(ngModel)]="element.to" [value]="element.to">
+            </mat-form-field>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="rule">
+          <th mat-header-cell *matHeaderCellDef> Rule </th>
+          <td mat-cell *matCellDef="let element">
+            <mat-form-field>
+              <mat-select name="rule" [(ngModel)]="element.rule">
+                <mat-option *ngFor="let food of page.rules" [value]="food">
+                  {{food}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="allowoverwrite">
+          <th mat-header-cell *matHeaderCellDef> Allow overwrite </th>
+          <td mat-cell *matCellDef="let element" style="    text-align: center;">
+            <mat-slide-toggle [color]="red" [checked]="element.allowoverwrite" name="allowoverwrite" [(ngModel)]="element.allowoverwrite" [value]="element.allowoverwrite"></mat-slide-toggle>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="priority">
+          <th mat-header-cell *matHeaderCellDef> Priority </th>
+          <td mat-cell *matCellDef="let element">
+            <mat-form-field class="example-full-width" appearance="legacy">
+              <input type="number" matInput name="priority" [(ngModel)]="element.priority" [value]="element.priority">
+            </mat-form-field>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="enableDisable">
+          <th mat-header-cell *matHeaderCellDef> Enable/Disable </th>
+          <td mat-cell *matCellDef="let element" style="    text-align: center;">
+            <mat-slide-toggle [color]="green" [checked]="element.enableDisable" name="priority" [(ngModel)]="element.enableDisable" [value]="element.enableDisable"></mat-slide-toggle>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef> </th>
+          <td mat-cell *matCellDef="let element;let i = index;">
+            <mat-icon style="color: green;font-size: 33px;text-align: center;" [ngStyle]="{&apos;color&apos;: (page.tableData?.data?.length -1 == i) ? &apos;green&apos;:&apos;red&apos;}" (click)="addShift((page.tableData?.data?.length -1 == i),i )">
+              {{ (page.tableData?.data?.length -1 == i) ? &apos;add_circle&apos;:&apos;delete&apos;}}
+            </mat-icon>
+
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="page.displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: page.displayedColumns;"></tr>
+      </table>
+    </div>
+  </div>
+  <div fxLayout="row wrap" style="width: 100%;    " fxLayoutAlign="start stretch">
+    <div fxLayout="column" style="    width: 100%;" class="tableclass2">
+      <div>
+        <h3>Roles</h3>
+      </div>
+      <table style="width: 100%;" mat-table [dataSource]="page.tableData1" class="mat-elevation-z1 formfield_width">
+        <ng-container matColumnDef="roleName">
+          <th mat-header-cell *matHeaderCellDef> Role Name </th>
+          <td mat-cell *matCellDef="let element">
+            <!-- <mat-form-field class="width-100"> -->
+            <!-- <mat-select name="roleName" [(ngModel)]="element.roleName">
+					<mat-option *ngFor="let food of page.roleNames" [value]="food">
+						{{food}}
+					</mat-option>
+				</mat-select> -->
+            <!-- </mat-form-field> -->
+            <!-- <input class="row-item" matInput [value]="element.label" readonly> -->
+            <span class="row-item">{{element.label}}</span>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="min">
+          <th mat-header-cell *matHeaderCellDef> Min </th>
+          <td mat-cell *matCellDef="let element">
+            <mat-form-field class="example-full-width" appearance="legacy">
+              <input matInput type="number" name="Min" [(ngModel)]="element.allocConfig.min">
+            </mat-form-field>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="max">
+          <th mat-header-cell *matHeaderCellDef> Max </th>
+          <td mat-cell *matCellDef="let element">
+            <mat-form-field class="example-full-width" appearance="legacy">
+              <input matInput type="number" name="max" [(ngModel)]="element.allocConfig.max">
+            </mat-form-field>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="dailyLimit">
+          <th mat-header-cell *matHeaderCellDef> Daily Limit </th>
+          <td mat-cell *matCellDef="let element">
+            <mat-form-field class="example-full-width" appearance="legacy">
+              <input matInput name="dailyLimit" type="number" [(ngModel)]="element.allocConfig.dailyLimit">
+            </mat-form-field>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="supervisorName">
+          <th mat-header-cell *matHeaderCellDef>{{page.locales.keys.supervisor}}</th>
+          <td mat-cell *matCellDef="let element">
+            <mat-form-field class="example-full-width" appearance="legacy">
+              <mat-select name="roleName" [(ngModel)]="element.allocConfig.supervisor">
+                <mat-option *ngFor="let sv of page.superVisors" [value]="sv.jbpm">
+                  {{sv.jbpm}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef> Actions</th>
+          <td mat-cell *matCellDef="let element;let i = index;">
+            <div class="display-flex row-item primary-text-color justify-content-space-bw" style="width: unset">
+              <mat-icon class="cursor-pointer" style="margin-right: 1rem;" (click)="editUser(i)" matTooltip="{{page.locales.keys.editUsers}}">
+                edit
+              </mat-icon>
+              <!-- <mat-icon class="cursor-pointer" (click)="addRoles()"> add_circle</mat-icon> -->
+            </div>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="overrideAuthority">
+          <th mat-header-cell *matHeaderCellDef style="text-align: center"> Override Authority </th>
+          <td mat-cell *matCellDef="let element" style="text-align: center;">
+            <mat-slide-toggle [color]="red" name="overrideAuthority" [(ngModel)]="element.allocConfig.overrideAuthority"></mat-slide-toggle>
+          </td>
+        </ng-container>
+
+        <!-- <ng-container matColumnDef="act">
+		<th mat-header-cell *matHeaderCellDef> </th>
+		<td mat-cell *matCellDef="let element;let i = index;">
+			<mat-icon class="row-item primary-text-color" (click)="addRoles()"> add_circle</mat-icon>
+		</td>
+	</ng-container> -->
+        <tr mat-header-row *matHeaderRowDef="page.displayedColumns1"></tr>
+        <tr mat-row *matRowDef="let row; columns: page.displayedColumns1;"></tr>
+      </table>
+    </div>
+  </div>
+</div>

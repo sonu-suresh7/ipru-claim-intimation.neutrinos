@@ -1,0 +1,84 @@
+[
+    {
+        "id": "sd_x5DngSHo5CO0I8MJ",
+        "type": "tab",
+        "createdDate": "2022-04-07T07:52:47.837Z",
+        "label": "merge_requests",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "merge_requestsComponent"
+    },
+    {
+        "id": "sd_zBw2Bh7dZO20xWf7",
+        "type": "OnInit",
+        "z": "sd_x5DngSHo5CO0I8MJ",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "sd_zBw2Bh7dZO20xWf7",
+        "category": "Lifecycle Events",
+        "x": 65,
+        "y": 140,
+        "wires": [
+            [
+                "sd_18vorudaruoYaSfs"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "merge_requestsComponent"
+    },
+    {
+        "id": "sd_18vorudaruoYaSfs",
+        "type": "PageVariables",
+        "z": "sd_x5DngSHo5CO0I8MJ",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "mergeRequestsArray",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "[]"
+                }
+            }
+        ],
+        "functionName": "sd_18vorudaruoYaSfs",
+        "category": "Function",
+        "x": 185,
+        "y": 140,
+        "wires": [
+            [
+                "sd_HEoJ8820xUU9gF6n"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_HEoJ8820xUU9gF6n",
+        "type": "Script",
+        "z": "sd_x5DngSHo5CO0I8MJ",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.mergeRequestsArray = new MatTableDataSource([\n    // {\n    //     dateTime: new Date().toLocaleString(),\n    //     requester: \"Mira Curtis\",\n    //     lifeInsured: \"Livia Ekstrom Bothman\",\n    //     clientId: \"1231234,1231244\",\n    //     status: \"Pending\",\n    // },\n    // {\n    //     dateTime: new Date().toLocaleString(),\n    //     requester: \"Mira Curtis\",\n    //     lifeInsured: \"Livia Ekstrom Bothman\",\n    //     clientId: \"1231234\",\n    //     status: \"Pending\",\n    // },\n    // {\n    //     dateTime: new Date().toLocaleString(),\n    //     requester: \"Mira Curtis\",\n    //     lifeInsured: \"Livia Ekstrom Bothman\",\n    //     clientId: \"1231234,1231244,123123\",\n    //     status: \"Pending\",\n    // }\n]);\n// console.log('lengthh---', page.mergeRequestsArray);",
+        "functionName": "sd_HEoJ8820xUU9gF6n",
+        "category": "Function",
+        "x": 305,
+        "y": 140,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]
