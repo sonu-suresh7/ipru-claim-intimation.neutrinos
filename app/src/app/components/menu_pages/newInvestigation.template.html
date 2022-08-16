@@ -7,7 +7,7 @@
       <bh-lifeAssured_proposer [policy_details]="page.policy_details.proposer" fxFlex="49" [section]="&apos;Proposer&apos;"></bh-lifeAssured_proposer>
     </div>
     <div fxLayout="column wrap" class="light-gray-border" fxLayoutAlign="start stretch" [fxShow]="true">
-      <bh-investigation_request [investigation_types]="page.investigation_types" *ngIf="page.investigation_types" (onInvestigationDataChange)="onInvestigationDataChange($event)" (onInvestigatorSelectionChange)="onInvestigatorSelectionChange($event)"></bh-investigation_request>
+      <bh-investigation_request [investigation_types]="page.investigation_types" *ngIf="page.investigation_types" (onInvestigatorSelectionChange)="onInvestigatorSelectionChange($event)"></bh-investigation_request>
     </div>
     <div fxLayout="column wrap" class="light-gray-border" fxLayoutAlign="start stretch" [fxShow]="true">
       <bh-document_upload (onDocumentChange)="onDocumentChange($event)"></bh-document_upload>

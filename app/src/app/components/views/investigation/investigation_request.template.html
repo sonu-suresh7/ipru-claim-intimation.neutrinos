@@ -29,8 +29,8 @@
           </div>
           <div fxLayout="column wrap" fxLayoutAlign="center start" [fxShow]="true" *ngIf="page.documentList">
             <div>
-              <mat-list>
-                <mat-list-item class="section-content" *ngFor="let doc of page.documentList">
+              <mat-list style="padding-top: 0 !important;">
+                <mat-list-item style="font-size:12.5px" *ngFor="let doc of page.documentList">
                   {{doc}}
                 </mat-list-item>
               </mat-list>

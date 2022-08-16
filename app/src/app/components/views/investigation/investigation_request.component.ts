@@ -322,7 +322,7 @@ export class investigation_requestComponent {
   sd_XeOPxTcLUb4HD0nL(bh) {
     try {
       const page = this.page;
-      console.log(bh.input.event.value);
+      bh.local.investigator = bh.input.event.value;
       page.documentList = [];
       if (bh.input.event.value) {
         let list = page.documenttype.find(
@@ -331,10 +331,21 @@ export class investigation_requestComponent {
         page.documentList = list.docList;
       }
 
+      bh = this.sd_nGnSgyYPAg9pZfMa(bh);
       //appendnew_next_sd_XeOPxTcLUb4HD0nL
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_XeOPxTcLUb4HD0nL');
+    }
+  }
+
+  sd_nGnSgyYPAg9pZfMa(bh) {
+    try {
+      bh.pageOutput.onInvestigatorSelectionChange.emit(bh.local.investigator);
+      //appendnew_next_sd_nGnSgyYPAg9pZfMa
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_nGnSgyYPAg9pZfMa');
     }
   }
 

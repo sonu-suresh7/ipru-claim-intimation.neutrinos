@@ -434,7 +434,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "page.isValid  = page.investigation_types.some((el) =>\n    Array.isArray(el.value) ? el.value.some((obj) => Array.isArray(obj.value) ? obj.value.some(list => list.checked): false) : false\n) && page.document?.length;",
+        "script": "// page.isValid  = page.investigation_types.some((el) =>\n//           Array.isArray(el.value)\n//             ? el.value.some((obj) =>\n//                 Array.isArray(obj.value)\n//                   ? true\n//                   : false\n//               )\n//             : false\n//         ) && page.document?.length;\n\nif(page.document?.length && page.investigator){\n  page.isValid = true;\n}else {\n  page.isValid = false;\n}\n\nconsole.log('page.isValid', page.isValid)\n// el.value.some((obj) => Array.isArray(obj.value) ? obj.value.some(list => list.checked): false",
         "functionName": "sd_TGnSoYU6jkaI2GRj",
         "category": "Function",
         "x": 265,
@@ -474,7 +474,6 @@
         "serviceImportPath": "./newInvestigation",
         "startName": "validateform",
         "inputParams": [],
-        "accept_bh": false,
         "accept_csd": false,
         "functionName": "sd_L8uFOHtvaEQtNYa3",
         "category": "General",
@@ -523,7 +522,6 @@
         "serviceImportPath": "./newInvestigation",
         "startName": "validateform",
         "inputParams": [],
-        "accept_bh": false,
         "accept_csd": false,
         "functionName": "sd_mg42fG8KhMUCrxY2",
         "category": "General",
@@ -996,7 +994,9 @@
         "x": 260,
         "y": 1380,
         "wires": [
-            []
+            [
+                "sd_yENM7ssHs7S9jEjc"
+            ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
@@ -1438,6 +1438,47 @@
             [
                 "sd_AqZbw4iu5rxk1dG4"
             ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_yENM7ssHs7S9jEjc",
+        "type": "PageCallService",
+        "z": "sd_Fsy7ysii8TAjQy31",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_Fsy7ysii8TAjQy31",
+            "type": "tab",
+            "createdDate": "2022-07-18T19:24:37.989Z",
+            "label": "newInvestigation",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_8fjFfjjSBcUSq28L",
+            "flowName": "validateform"
+        },
+        "inputVariables": [],
+        "outputMapping": [],
+        "serviceImportPath": "./newInvestigation",
+        "startName": "validateform",
+        "inputParams": [],
+        "accept_bh": false,
+        "accept_csd": false,
+        "functionName": "sd_yENM7ssHs7S9jEjc",
+        "category": "General",
+        "x": 365,
+        "y": 1380,
+        "wires": [
+            []
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,

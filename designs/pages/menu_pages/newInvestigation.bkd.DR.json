@@ -500,22 +500,13 @@
                         },
                         {
                             "_key": "(onInvestigationDataChange)",
-                            "_value": "onInvestigationDataChange($event)",
+                            "_value": "",
                             "_type": "kv",
                             "_attrDef": "p",
                             "_complexity": "advanced",
                             "displayAs": "onInvestigationDataChange",
                             "attrType": "OUTPUT",
                             "_customAttributeFlag": "flowpicker",
-                            "objValue": {
-                                "nodeID": "sd_YnDWwGZnuC2xcENQ",
-                                "functionName": "onInvestigationDataChange",
-                                "activeTree": "pages",
-                                "z": "sd_Fsy7ysii8TAjQy31",
-                                "input": [
-                                    "$event"
-                                ]
-                            },
                             "inValid": false,
                             "message": ""
                         },
