@@ -329,6 +329,8 @@ export class investigation_requestComponent {
           (ele) => ele.claimtype == bh.input.event.value
         );
         page.documentList = list.docList;
+
+        sessionStorage.setItem('checklist', JSON.stringify(page.documentList));
       }
 
       bh = this.sd_nGnSgyYPAg9pZfMa(bh);

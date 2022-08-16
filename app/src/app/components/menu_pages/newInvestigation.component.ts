@@ -525,19 +525,26 @@ export class newInvestigationComponent {
       const page = this.page;
       bh.local.result = [];
 
-      page.investigation_types.forEach((el) => {
-        if (Array.isArray(el.value) && el.checked) {
-          el.value.forEach((obj) => {
-            if (Array.isArray(obj.value) && obj.checked) {
-              obj.value.forEach((list) => {
-                if (list.checked) {
-                  bh.local.result.push(list.value);
-                }
-              });
-            }
-          });
-        }
-      });
+      // page.investigation_types.forEach(el => {
+      //         if (Array.isArray(el.value) && el.checked) {
+      //             el.value.forEach(obj => {
+      //                 if(Array.isArray(obj.value) && obj.checked){
+      //                     obj.value.forEach(list=>{
+      //                         if(list.checked){
+      //                             bh.local.result.push(list.value)
+      //                         }
+      //                     })
+      //                 }
+      //             });
+      //         }
+      //     })
+
+      let checkList = sessionStorage.getItem('checklist');
+      if (checkList) {
+        checkList = JSON.parse(checkList);
+        bh.local.result = checkList;
+      }
+
       //appendnew_next_sd_6Z1yXAnaiFjC2Thw
       return bh;
     } catch (e) {
