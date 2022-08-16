@@ -496,9 +496,6 @@ export class newInvestigationComponent {
       } else {
         page.isValid = false;
       }
-
-      console.log('page.isValid', page.isValid);
-      // el.value.some((obj) => Array.isArray(obj.value) ? obj.value.some(list => list.checked): false
       //appendnew_next_sd_TGnSoYU6jkaI2GRj
       return bh;
     } catch (e) {

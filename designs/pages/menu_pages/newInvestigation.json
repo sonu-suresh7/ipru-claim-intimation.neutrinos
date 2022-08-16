@@ -434,7 +434,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "// page.isValid  = page.investigation_types.some((el) =>\n//           Array.isArray(el.value)\n//             ? el.value.some((obj) =>\n//                 Array.isArray(obj.value)\n//                   ? true\n//                   : false\n//               )\n//             : false\n//         ) && page.document?.length;\n\nif(page.document?.length && page.investigator){\n  page.isValid = true;\n}else {\n  page.isValid = false;\n}\n\nconsole.log('page.isValid', page.isValid)\n// el.value.some((obj) => Array.isArray(obj.value) ? obj.value.some(list => list.checked): false",
+        "script": "// page.isValid  = page.investigation_types.some((el) =>\n//           Array.isArray(el.value)\n//             ? el.value.some((obj) =>\n//                 Array.isArray(obj.value)\n//                   ? true\n//                   : false\n//               )\n//             : false\n//         ) && page.document?.length;\n\nif (page.document?.length && page.investigator) {\n          page.isValid = true;\n} else {\n          page.isValid = false;\n}",
         "functionName": "sd_TGnSoYU6jkaI2GRj",
         "category": "Function",
         "x": 265,
