@@ -45,8 +45,8 @@
         ],
         "functionName": "sd_xqepcU75RpoxqyVZ",
         "category": "Lifecycle Events",
-        "x": 30,
-        "y": 30,
+        "x": 65,
+        "y": 40,
         "wires": [
             [
                 "sd_0Cr4hbWvC1SCE1eW"
@@ -94,12 +94,26 @@
                     "type": "bh",
                     "value": ""
                 }
+            },
+            {
+                "textIp": "claimtype",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "['Medical','Natural','Accidental','Suicidal'] "
+                }
+            },
+            {
+                "textIp": "documentList",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
             }
         ],
         "functionName": "sd_0Cr4hbWvC1SCE1eW",
         "category": "Function",
-        "x": 180,
-        "y": 30,
+        "x": 185,
+        "y": 40,
         "wires": [
             [
                 "sd_Zr7vZ52qE3Bj625J"
@@ -324,10 +338,12 @@
         "accept_csd": true,
         "functionName": "sd_Zr7vZ52qE3Bj625J",
         "category": "General",
-        "x": 325,
+        "x": 305,
         "y": 40,
         "wires": [
-            []
+            [
+                "sd_IvESlKkJxLqsR2Wg"
+            ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
@@ -414,6 +430,77 @@
             [
                 "sd_Za8bdmOk9IHavRYk"
             ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_nWzOU2LY0lx5SPdq",
+        "type": "PageStart",
+        "z": "sd_SFLBWorT72n1eI6T",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "claimType",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "event",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "claimType",
+        "category": "General",
+        "x": 85,
+        "y": 660,
+        "wires": [
+            [
+                "sd_XeOPxTcLUb4HD0nL"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "investigation_requestComponent"
+    },
+    {
+        "id": "sd_XeOPxTcLUb4HD0nL",
+        "type": "Script",
+        "z": "sd_SFLBWorT72n1eI6T",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(bh.input.event.value);\npage.documentList = []\nif(bh.input.event.value){\n    let list = page.documenttype.find((ele) =>  ele.claimtype == bh.input.event.value);\n    page.documentList = list.docList\n}\n\n",
+        "functionName": "sd_XeOPxTcLUb4HD0nL",
+        "category": "Function",
+        "x": 205,
+        "y": 660,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_IvESlKkJxLqsR2Wg",
+        "type": "Script",
+        "z": "sd_SFLBWorT72n1eI6T",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.documenttype =[\n    {\n        claimtype: 'Medical',\n        docList: ['Claim Intimation Form', 'Policy Document', 'Death Certificate', 'ID Proof', 'Discharge Summary', 'Doctor’s certificate', 'Claimants Photo']\n    },\n    {\n        claimtype: 'Natural',\n        docList: ['Claim Intimation Form', 'Policy Document', 'Death Certificate', 'ID Proof', 'Discharge Summary', 'Doctor’s certificate', 'Claimants Photo']\n    }, \n    {\n        claimtype: 'Accidental',\n        docList: ['Claim Intimation Form', 'Policy Document', 'Death Certificate', 'ID Proof', 'FIR', 'Post mortem Report ', 'Claimants Photo']\n    },\n    {\n        claimtype: 'Suicidal',\n        docList: ['Claim Intimation Form', 'Policy Document', 'Death Certificate', 'ID Proof', 'FIR', 'Post mortem Report ', 'Claimants Photo']\n    },\n]",
+        "functionName": "sd_IvESlKkJxLqsR2Wg",
+        "category": "Function",
+        "x": 425,
+        "y": 40,
+        "wires": [
+            []
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,

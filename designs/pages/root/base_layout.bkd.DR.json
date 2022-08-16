@@ -210,7 +210,7 @@
                         },
                         {
                             "_key": "imgSrc",
-                            "_value": "",
+                            "_value": "/Web/iprulogo.png",
                             "_type": "kv",
                             "_attrDef": "p"
                         },
@@ -222,7 +222,7 @@
                         },
                         {
                             "_key": "[src]",
-                            "_value": "page.logoSrc",
+                            "_value": "",
                             "_type": "kv",
                             "_attrDef": "p"
                         },
