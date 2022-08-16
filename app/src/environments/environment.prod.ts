@@ -2,7 +2,7 @@ export const environment = {
     "name": "prod",
     "properties": {
         "production": true,
-        "ssdURL": "https://bs-5965299.el.r.appspot.com/api/",
+        "ssdURL": "https://bs-8887489.el.r.appspot.com/api/",
         "tenantName": "neutrinos",
         "appName": "ipru-portal-ui",
         "namespace": "com.neutrinos.ipru-portal-ui",
@@ -11,7 +11,7 @@ export const environment = {
         "isIDSEnabled": "true",
         "webAppMountpoint": "web",
         "NGFORAGE_MOBILE_DRIVER": "INDEXED_DB",
-        "ssdBaseUrl": "https://bs-5965299.el.r.appspot.com/api",
+        "ssdBaseUrl": "https://bs-8887489.el.r.appspot.com/api",
         "AGENT_UI_APP_URL": "https://bs-7180419.el.r.appspot.com"
     }
 }
