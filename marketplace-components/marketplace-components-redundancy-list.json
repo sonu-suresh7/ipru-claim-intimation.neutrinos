@@ -472,7 +472,7 @@
         "deps": {
             "neutrinosidpviewer": {
                 "name": "neutrinosidpviewer",
-                "version": "1.0.27",
+                "version": "1.0.28",
                 "packageType": "studio-package",
                 "nModule": {
                     "importStatement": "import { IdpDvModule } from 'idp-dv';",
@@ -483,7 +483,7 @@
             },
             "idp-dv": {
                 "name": "idp-dv",
-                "version": "1.0.27",
+                "version": "1.0.28",
                 "packageType": "angular-package"
             }
         },
@@ -495,7 +495,7 @@
         "packageType": "studio-package",
         "deps": {},
         "parentDeps": {
-            "624427b7121d3ae0ca9de503": "1.0.27"
+            "624427b7121d3ae0ca9de503": "1.0.28"
         },
         "nModule": {
             "importStatement": "import { IdpDvModule } from 'idp-dv';",
@@ -510,7 +510,7 @@
         "packageType": "angular-package",
         "deps": {},
         "parentDeps": {
-            "624427b7121d3ae0ca9de503": "1.0.27"
+            "624427b7121d3ae0ca9de503": "1.0.28"
         }
     },
     "6230bf8a121d3ae0ca21cb91": {
