@@ -75,7 +75,9 @@
         "x": 305,
         "y": 60,
         "wires": [
-            []
+            [
+                "sd_TpXYtsbukA9kL3ob"
+            ]
         ],
         "__ssdTypeInputs__": {
             "dialogDataMapping": {
@@ -143,6 +145,25 @@
                 "constant": false
             }
         },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_TpXYtsbukA9kL3ob",
+        "type": "Script",
+        "z": "sd_BOVQd6mx2TThVaS5",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "\nif(page.alertObject?.title == 'New Ticket Created'){\n    page.alertObject = {\n        'title': 'Claim Documents Submitted',\n        'message':'Documents submitted successfully with claim intimation id :' + page.alertObject?.message.slice(64),\n        'icon':'close'\n    }\n    console.log('alertObject', page.alertObject)\n} else {\n    page.alertObject\n}",
+        "functionName": "sd_TpXYtsbukA9kL3ob",
+        "category": "Function",
+        "x": 440,
+        "y": 60,
+        "wires": [
+            []
+        ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
         "generated": true
