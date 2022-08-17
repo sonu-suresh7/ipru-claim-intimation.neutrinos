@@ -440,6 +440,7 @@ export const appRoutes = [
           { path: '', redirectTo: 'workqueue', pathMatch: 'full' },
           { path: 'uwdashboard', component: uwdashboardComponent },
           { path: 'investigation', component: newInvestigationComponent },
+          { path: 'claimIntimation', component: newInvestigationComponent },
         ],
       },
       { path: 'editUser', component: editUserTaskAllocConfComponent },

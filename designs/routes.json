@@ -67,6 +67,10 @@
                         {
                             "path": "investigation",
                             "component": "newInvestigationComponent"
+                        },
+                        {
+                            "component": "newInvestigationComponent",
+                            "path": "claimIntimation"
                         }
                     ],
                     "resolve": "{ menu: configs_resolverService}"
