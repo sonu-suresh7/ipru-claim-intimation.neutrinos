@@ -468,7 +468,7 @@
                                 },
                                 {
                                     "_key": "html",
-                                    "_value": "Investigation Request",
+                                    "_value": "Death Claim Intimation",
                                     "_type": "a",
                                     "_attrDef": "p"
                                 }
@@ -868,7 +868,7 @@
                                         },
                                         {
                                             "_key": "html",
-                                            "_value": "Type of Claim :",
+                                            "_value": "Death Claim Type :",
                                             "_type": "a",
                                             "_attrDef": "p"
                                         }
