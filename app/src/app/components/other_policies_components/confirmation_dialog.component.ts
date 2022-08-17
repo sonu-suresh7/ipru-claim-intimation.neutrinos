@@ -92,10 +92,31 @@ export class confirmation_dialogComponent {
     try {
       this.page.alertObject = this.__page_injector__.get(MAT_DIALOG_DATA);
 
+      bh = this.sd_TpXYtsbukA9kL3ob(bh);
       //appendnew_next_sd_VrTOui6hu5IgMzmz
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_VrTOui6hu5IgMzmz');
+    }
+  }
+
+  sd_TpXYtsbukA9kL3ob(bh) {
+    try {
+      const page = this.page;
+      if (page.alertObject?.title == 'New Ticket Created') {
+        page.alertObject = {
+          title: 'Claim Documents Submitted',
+          message:
+            'Claim Intimation Ref No :' + page.alertObject?.message.slice(64),
+          icon: 'close',
+        };
+      } else {
+        page.alertObject;
+      }
+      //appendnew_next_sd_TpXYtsbukA9kL3ob
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_TpXYtsbukA9kL3ob');
     }
   }
 
