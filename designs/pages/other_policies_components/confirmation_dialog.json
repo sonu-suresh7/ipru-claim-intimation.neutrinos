@@ -156,7 +156,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "\nif(page.alertObject?.title == 'New Ticket Created'){\n    page.alertObject = {\n        'title': 'Claim Documents Submitted',\n        'message':'Documents submitted successfully with claim intimation id :' + page.alertObject?.message.slice(64),\n        'icon':'close'\n    }\n    console.log('alertObject', page.alertObject)\n} else {\n    page.alertObject\n}",
+        "script": "if(page.alertObject?.title == 'New Ticket Created'){\n    page.alertObject = {\n        'title': 'Claim Documents Submitted',\n        'message':'Claim Intimation Ref No :' + page.alertObject?.message.slice(64),\n        'icon':'close'\n    }\n} else {\n    page.alertObject\n}",
         "functionName": "sd_TpXYtsbukA9kL3ob",
         "category": "Function",
         "x": 440,

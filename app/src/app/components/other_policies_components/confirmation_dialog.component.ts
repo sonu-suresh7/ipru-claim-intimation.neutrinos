@@ -107,11 +107,9 @@ export class confirmation_dialogComponent {
         page.alertObject = {
           title: 'Claim Documents Submitted',
           message:
-            'Documents submitted successfully with claim intimation id :' +
-            page.alertObject?.message.slice(64),
+            'Claim Intimation Ref No :' + page.alertObject?.message.slice(64),
           icon: 'close',
         };
-        console.log('alertObject', page.alertObject);
       } else {
         page.alertObject;
       }
