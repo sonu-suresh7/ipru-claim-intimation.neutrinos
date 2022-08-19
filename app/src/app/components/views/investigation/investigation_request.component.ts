@@ -320,19 +320,35 @@ export class investigation_requestComponent {
   sd_XeOPxTcLUb4HD0nL(bh) {
     try {
       const page = this.page;
-      console.log(bh.input.event.value);
       page.documentList = [];
       if (bh.input.event.value) {
+        bh.local.investigator = bh.input.event.value;
         let list = page.documenttype.find(
           (ele) => ele.claimtype == bh.input.event.value
         );
         page.documentList = list.docList;
+        sessionStorage.setItem('checklist', JSON.stringify(page.documentList));
+        sessionStorage.setItem(
+          'sourceOfBusiness',
+          JSON.stringify(bh.input.event.value)
+        );
       }
 
+      bh = this.sd_v9KLyQYY8chBhVxl(bh);
       //appendnew_next_sd_XeOPxTcLUb4HD0nL
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_XeOPxTcLUb4HD0nL');
+    }
+  }
+
+  sd_v9KLyQYY8chBhVxl(bh) {
+    try {
+      bh.pageOutput.onInvestigatorSelectionChange.emit(bh.local.investigator);
+      //appendnew_next_sd_v9KLyQYY8chBhVxl
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_v9KLyQYY8chBhVxl');
     }
   }
 

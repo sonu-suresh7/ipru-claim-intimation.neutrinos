@@ -553,8 +553,6 @@ export class newInvestigationComponent {
     try {
       const page = this.page;
       page.investigator = bh.input.investigator;
-
-      console.log(page.investigator);
       bh = this.sd_yENM7ssHs7S9jEjc(bh);
       //appendnew_next_sd_A0ldDzh3RbsTOqOH
       return bh;
