@@ -8,8 +8,6 @@ import {
   Input,
   Output,
   EventEmitter,
-  AfterViewInit,
-  DoCheck,
 } from '@angular/core'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
@@ -199,30 +197,30 @@ export class recommendationComponent {
     try {
       const page = this.page;
       page.recommendation = [
-        {
-          get key() {
-            return page.locales.keys.auto;
-          },
-          value: 'autoRecommendation',
-        },
+        // {
+        //     get key() {
+        //         return page.locales.keys.auto
+        //     },
+        //     value: 'autoRecommendation'
+        // },
         {
           get key() {
             return page.locales.keys.finfo;
           },
           value: 'finfo',
         },
-        {
-          get key() {
-            return page.locales.keys.refer;
-          },
-          value: 'referrals',
-        },
-        {
-          get key() {
-            return page.locales.keys.myDecision;
-          },
-          value: 'decisions',
-        },
+        // {
+        //     get key() {
+        //         return page.locales.keys.refer
+        //     },
+        //     value: 'referrals'
+        // },
+        // {
+        //     get key() {
+        //         return page.locales.keys.myDecision
+        //     },
+        //     value: 'decisions'
+        // }
       ];
 
       let autoRecommendation = page.checkedOut.case['autoRecommendation'] || [];

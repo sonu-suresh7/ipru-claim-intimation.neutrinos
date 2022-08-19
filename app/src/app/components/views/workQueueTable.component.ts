@@ -440,7 +440,7 @@ export class workQueueTableComponent {
         page.colConf.hasOwnProperty(c)
       );
       for (const task of bh.local.reponsePayload.tasks) {
-        if (task['task-proc-def-id'] !== 'com.neutrinos.manulife.maxBusiness') {
+        if (task['task-proc-def-id'] !== 'com.casemanager.iciciprudential.iciciPrudentialbpd') {
           continue;
         }
         const obj = JSON.parse(JSON.stringify(task));

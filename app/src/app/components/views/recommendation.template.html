@@ -1,4 +1,35 @@
 <div fxLayout="column " style="height:100%;  " fxLayoutGap="20px" fxLayoutAlign="none stretch" [fxShow]="true">
+  <div fxLayout="row wrap" fxFlex="100" fxLayoutAlign="start stretch" [fxShow]="true">
+    <div style="width:100%">
+      <mat-button-toggle-group #group="matButtonToggleGroup" [multiple]="true" [appearance]="&apos;standard&apos;" [(ngModel)]="page.selectedRecommendation">
+        <!-- <mat-button-toggle style="min-width: 200px;" [value]="item.value" [disableRipple]="false" [disabled]="(page.selectedRecommendation.indexOf(item.value) > -1 && page.checkedOut.case[item.value] && page.checkedOut.case[item.value].length> 0) || (item.value == 'decisions' && page.clickedDecisions.indexOf('finfo') > -1 && page.checkedOut.case['finfo'] && page.checkedOut.case['finfo'].length > 0)"
+		*ngFor="let item of page.recommendation" (click)="changeButton(item.value)"> -->
+        <mat-button-toggle style="min-width: 200px;" [value]="item.value" [disableRipple]="false" [disabled]="(item.value != &apos;decisions&apos; &amp;&amp; page.selectedRecommendation.indexOf(item.value) &gt; -1 &amp;&amp; page.checkedOut.case[item.value] &amp;&amp; page.checkedOut.case[item.value].length&gt; 0)" *ngFor="let item of page.recommendation" (click)="changeButton(item.value)">
+          <span>{{item.key}}</span>
+          <mat-icon *ngIf="page.selectedRecommendation.indexOf(item.value) &gt; -1">done</mat-icon>
+        </mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+  </div>
+  <div fxLayout="column wrap" style="height:100%" fxFlex="100" fxLayoutAlign="center center" [fxShow]="true" *ngIf="!page.selectedRecommendation || page.selectedRecommendation.length &lt; 1"><img imgSrc="/Web/Group.png"><label>
+      Please select a recommendation.</label></div>
+  <mat-accordion hideToggle="true" *ngIf="page.selectedRecommendation.indexOf(&apos;finfo&apos;) &gt; -1" class="expansion-panel-styles">
+    <mat-expansion-panel hideToggle="false" [expanded]="true" [disabled]="true">
+      <mat-expansion-panel-header class="width-100">
+
+        <mat-panel-title style="flex:auto" class="width-100">
+
+          <div fxLayout="row " fxLayoutGap="1rem" fxLayoutAlign="start center" [fxShow]="true"><img imgSrc="/Web/CaseDetails/finfo.svg" alt="finfo"><label>
+              {{page.locales.keys.finfo}}</label></div>
+        </mat-panel-title>
+        <mat-panel-description>
+
+          <div fxLayout="row " class="padding-right-26" fxLayoutAlign="start stretch" [fxShow]="true"><button mat-raised-button color="primary" (click)="createFINFO()">{{page.locales.keys.create}}</button></div>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <bh-finfo></bh-finfo>
+    </mat-expansion-panel>
+  </mat-accordion>
   <mat-accordion hideToggle="true" class="expansion-panel-styles">
     <mat-expansion-panel hideToggle="false" [expanded]="true" [disabled]="true">
       <mat-expansion-panel-header>
