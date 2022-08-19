@@ -475,15 +475,13 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "bh.local.investigator = bh.input.event.value;\npage.documentList = []\nif(bh.input.event.value){\n    let list = page.documenttype.find((ele) =>  ele.claimtype == bh.input.event.value);\n    page.documentList = list.docList\n\n    sessionStorage.setItem('checklist',JSON.stringify(page.documentList))\n}\n\n",
+        "script": "console.log(bh.input.event.value);\npage.documentList = []\nif(bh.input.event.value){\n    let list = page.documenttype.find((ele) =>  ele.claimtype == bh.input.event.value);\n    page.documentList = list.docList\n}\n\n",
         "functionName": "sd_XeOPxTcLUb4HD0nL",
         "category": "Function",
-        "x": 225,
+        "x": 205,
         "y": 660,
         "wires": [
-            [
-                "sd_nGnSgyYPAg9pZfMa"
-            ]
+            []
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
@@ -496,7 +494,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "page.documenttype =[\n    {\n        claimtype: 'Medical',\n        docList: ['Claim Intimation Form', 'Policy Document', 'Death Certificate', 'ID Proof', 'Discharge Summary', 'Doctor’s certificate', 'Claimants Photo']\n    },\n    {\n        claimtype: 'Natural',\n        docList: ['Claim Intimation Form', 'Policy Document', 'Death Certificate', 'ID Proof', 'Discharge Summary', 'Doctor’s certificate', 'Claimants Photo']\n    }, \n    {\n        claimtype: 'Accidental',\n        docList: ['Claim Intimation Form', 'Policy Document', 'Death Certificate', 'ID Proof', 'FIR', 'Post mortem Report ', 'Claimants Photo']\n    },\n    {\n        claimtype: 'Suicidal',\n        docList: ['Claim Intimation Form', 'Policy Document', 'Death Certificate', 'ID Proof', 'FIR', 'Post mortem Report ', 'Claimants Photo']\n    },\n]",
+        "script": "page.documenttype =[\n    {\n        claimtype: 'Medical',\n        docList: ['Claim Intimation Form', 'Policy Document', 'Death Certificate', 'ID Proof', 'Discharge Summary', 'Doctor’s certificate', 'Claimants Photo']\n    },\n    {\n        claimtype: 'Natural',\n        docList: ['Claim Intimation Form', 'Policy Document', 'Death Certificate', 'ID Proof','Claimants Photo']\n    }, \n    {\n        claimtype: 'Accidental',\n        docList: ['Claim Intimation Form', 'Policy Document', 'Death Certificate', 'ID Proof', 'FIR', 'Post mortem Report ', 'Claimants Photo']\n    },\n    {\n        claimtype: 'Suicidal',\n        docList: ['Claim Intimation Form', 'Policy Document', 'Death Certificate', 'ID Proof', 'FIR', 'Post mortem Report ', 'Claimants Photo']\n    },\n]",
         "functionName": "sd_IvESlKkJxLqsR2Wg",
         "category": "Function",
         "x": 425,
@@ -504,38 +502,6 @@
         "wires": [
             []
         ],
-        "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "generated": true
-    },
-    {
-        "id": "sd_nGnSgyYPAg9pZfMa",
-        "type": "Output",
-        "z": "sd_SFLBWorT72n1eI6T",
-        "viewType": "pages",
-        "nodeType": "flow",
-        "name": "",
-        "eventName": "bh.pageOutput.onInvestigatorSelectionChange",
-        "data": "bh.local.investigator",
-        "functionName": "sd_nGnSgyYPAg9pZfMa",
-        "category": "Function",
-        "x": 325,
-        "y": 660,
-        "wires": [
-            []
-        ],
-        "__ssdTypeInputs__": {
-            "eventName": {
-                "type": "bh.pageOutput",
-                "value": "onInvestigatorSelectionChange",
-                "constant": false
-            },
-            "data": {
-                "type": "bh.local",
-                "value": "investigator",
-                "constant": false
-            }
-        },
         "__n_excludedFromValidation__": {},
         "generateNext": false,
         "generated": true
