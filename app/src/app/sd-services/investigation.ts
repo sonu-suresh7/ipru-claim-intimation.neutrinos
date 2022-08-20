@@ -369,7 +369,7 @@ export class investigation {
           type: 'Document Discrepancy',
           value: [
             {
-              sub_tupe: 'ID Proof',
+              sub_tupe: 'Id Proof',
               value: [
                 {
                   value: 'Signature Verification​',

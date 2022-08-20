@@ -20,7 +20,7 @@
         <mat-panel-title style="flex:auto" class="width-100">
 
           <div fxLayout="row " fxLayoutGap="1rem" fxLayoutAlign="start center" [fxShow]="true"><img imgSrc="/Web/CaseDetails/finfo.svg" alt="finfo"><label>
-              {{page.locales.keys.finfo}}</label></div>
+              {{page.dontShowMyDecision ? &apos;Add Info&apos; : page.locales.keys.finfo}}</label></div>
         </mat-panel-title>
         <mat-panel-description>
 
@@ -30,7 +30,7 @@
       <bh-finfo></bh-finfo>
     </mat-expansion-panel>
   </mat-accordion>
-  <mat-accordion hideToggle="true" class="expansion-panel-styles">
+  <mat-accordion hideToggle="true" *ngIf="!page.dontShowMyDecision" class="expansion-panel-styles">
     <mat-expansion-panel hideToggle="false" [expanded]="true" [disabled]="true">
       <mat-expansion-panel-header>
 

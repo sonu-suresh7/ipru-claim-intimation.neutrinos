@@ -110,7 +110,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "bh.url = bh.system.environment.properties.ssdBaseUrl + '/uiconfig/task-tabs/' \n+ bh.pageInput.task['task-name']",
+        "script": "bh.url = bh.system.environment.properties.ssdBaseUrl + '/uiconfig/task-tabs/' \n+ bh.pageInput.task['task-name']\n\n\n\nif(bh.pageInput.task['task-name'] == 'Manual Verification'){\n    sessionStorage.setItem('task-name',bh.pageInput.task['task-name'])\n}else{\n    sessionStorage.removeItem('task-name')\n}\n\n\n\n",
         "functionName": "sd_jM5N4ZbqebtNh55B",
         "category": "Function",
         "x": 185,

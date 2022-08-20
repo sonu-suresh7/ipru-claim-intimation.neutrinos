@@ -197,7 +197,7 @@
             "taskProcInstId": "Ticket No",
             "activityName": "Activity",
             "issueDate": "Issue Date",
-            "typeOfInvestigation": "Investigation type",
+            "typeOfInvestigation": "Claim type",
             "ticketNumber": "Ticket No",
             "policyOwner": "Policy owner",
             "investigationDetails": "Investigation Details",

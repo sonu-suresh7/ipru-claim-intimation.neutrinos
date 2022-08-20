@@ -166,6 +166,7 @@ export class trafficLightService {
   async sd_FMDxBg2OzCBySinr(bh) {
     try {
       bh.url = `${bh.system.environment.properties.ssdBaseUrl}/case/${bh.checkedOut.case._id}/traffic-light`;
+
       bh = await this.sd_oSNAF8UmB6rB2FXp(bh);
       //appendnew_next_sd_FMDxBg2OzCBySinr
       return bh;
@@ -305,6 +306,8 @@ export class trafficLightService {
 
       console.log('making call for stats');
       console.log(bh.url);
+
+      sessionStorage.setItem('case_id', bh.checkedOut.case._id);
       bh = await this.sd_Iije3NYs1lcwimDN(bh);
       //appendnew_next_sd_IEU6oQvqbqrhss7S
       return bh;

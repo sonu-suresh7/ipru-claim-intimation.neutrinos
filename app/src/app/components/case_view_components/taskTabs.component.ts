@@ -8,7 +8,6 @@ import {
   Input,
   Output,
   EventEmitter,
-  DoCheck,
 } from '@angular/core'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
@@ -74,6 +73,13 @@ export class taskTabsComponent {
         bh.system.environment.properties.ssdBaseUrl +
         '/uiconfig/task-tabs/' +
         bh.pageInput.task['task-name'];
+
+      if (bh.pageInput.task['task-name'] == 'Manual Verification') {
+        sessionStorage.setItem('task-name', bh.pageInput.task['task-name']);
+      } else {
+        sessionStorage.removeItem('task-name');
+      }
+
       bh = this.getTabsForTaskType(bh);
       //appendnew_next_sd_jM5N4ZbqebtNh55B
       return bh;

@@ -183,7 +183,7 @@
         "script": "console.log(bh.input.investigation_type, bh.input.event, bh.input.investigation_data);\nif (!bh.input.event.checked && Array.isArray(bh.input.investigation_data.value)) {\n    bh.input.investigation_data.value.forEach(el => {\n        el.checked = false;\n        if (Array.isArray(el.value)) {\n            el.value.forEach(obj => obj.checked = false);\n        }\n    })\n}\n\nthis.onInvestigationDataChange.emit(this.investigation_types)",
         "functionName": "sd_XXA8A0sBT6zfVfDW",
         "category": "Function",
-        "x": 200,
+        "x": 205,
         "y": 180,
         "wires": [
             []
@@ -475,7 +475,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "page.documentList = []\nif(bh.input.event.value){\n    bh.local.investigator = bh.input.event.value\n    let list = page.documenttype.find((ele) =>  ele.claimtype == bh.input.event.value);\n    page.documentList = list.docList;\n    sessionStorage.setItem('checklist', JSON.stringify(page.documentList));\n    sessionStorage.setItem('sourceOfBusiness', JSON.stringify(bh.input.event.value));\n}\n\n",
+        "script": "page.documentList = []\nif(bh.input.event.value){\n    bh.local.investigator = bh.input.event.value\n    let list = page.documenttype.find((ele) =>  ele.claimtype == bh.input.event.value);\n    page.documentList = list.docList;\n    sessionStorage.setItem('checklist', JSON.stringify(page.documentList));\n   \n    sessionStorage.setItem('sourceOfBusiness', bh.input.event.value);\n}\n\n",
         "functionName": "sd_XeOPxTcLUb4HD0nL",
         "category": "Function",
         "x": 205,
@@ -496,7 +496,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "page.documenttype =[\n    {\n        claimtype: 'Medical',\n        docList: ['Claim Intimation Form', 'Policy Document', 'Death Certificate', 'ID Proof', 'Discharge Summary', 'Doctor’s certificate', 'Claimants Photo']\n    },\n    {\n        claimtype: 'Natural',\n        docList: ['Claim Intimation Form', 'Policy Document', 'Death Certificate', 'ID Proof','Claimants Photo']\n    }, \n    {\n        claimtype: 'Accidental',\n        docList: ['Claim Intimation Form', 'Policy Document', 'Death Certificate', 'ID Proof', 'FIR', 'Post mortem Report ', 'Claimants Photo']\n    },\n    {\n        claimtype: 'Suicidal',\n        docList: ['Claim Intimation Form', 'Policy Document', 'Death Certificate', 'ID Proof', 'FIR', 'Post mortem Report ', 'Claimants Photo']\n    },\n]",
+        "script": "page.documenttype =[\n    {\n        claimtype: 'Medical',\n        docList: ['Claim Intimation Form', 'Policy Document', 'Death Certificate', 'Id Proof', 'Discharge Summary', 'Doctor’s certificate', 'Claimants Photo']\n    },\n    {\n        claimtype: 'Natural',\n        docList: ['Claim Intimation Form', 'Policy Document', 'Death Certificate', 'Id Proof','Claimants Photo']\n    }, \n    {\n        claimtype: 'Accidental',\n        docList: ['Claim Intimation Form', 'Policy Document', 'Death Certificate', 'Id Proof', 'FIR', 'Post mortem Report ', 'Claimants Photo']\n    },\n    {\n        claimtype: 'Suicidal',\n        docList: ['Claim Intimation Form', 'Policy Document', 'Death Certificate', 'Id Proof', 'FIR', 'Post mortem Report ', 'Claimants Photo']\n    },\n]",
         "functionName": "sd_IvESlKkJxLqsR2Wg",
         "category": "Function",
         "x": 425,

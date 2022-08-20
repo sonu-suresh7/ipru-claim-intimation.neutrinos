@@ -157,6 +157,14 @@ export class case_documentsComponent implements AfterViewInit {
       const page = this.page;
       bh.local.caseDocuments = bh.local.caseDocuments.documents || [];
 
+      sessionStorage.removeItem('class-docs');
+      let classDocs = [];
+      if (bh.local.caseDocuments && bh.local.caseDocuments.length > 0) {
+        bh.local.caseDocuments.forEach((el) => {
+          classDocs.push(el.metadata.labels.tag_name);
+        });
+      }
+      sessionStorage.setItem('class-docs', JSON.stringify(classDocs));
       // for (let i = 0; i < bh.local.caseDocuments.length; i++) {
       //     bh.local.caseDocuments[i]['redact'] = false;
       // }

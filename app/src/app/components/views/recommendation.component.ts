@@ -196,6 +196,7 @@ export class recommendationComponent {
   sd_oQRb7AMgrby0PPbt(bh) {
     try {
       const page = this.page;
+      page.dontShowMyDecision = false;
       page.recommendation = [
         // {
         //     get key() {
@@ -205,6 +206,12 @@ export class recommendationComponent {
         // },
         {
           get key() {
+            let taskNname = sessionStorage.getItem('task-name');
+
+            if (taskNname && taskNname == 'Manual Verification') {
+              return 'Add Info';
+            }
+
             return page.locales.keys.finfo;
           },
           value: 'finfo',
@@ -257,6 +264,13 @@ export class recommendationComponent {
       page.versionsList.push(page.autoRecommendationVersion);
 
       // page.selectedRecommendation = [ 'decisions']
+
+      let taskNname = sessionStorage.getItem('task-name');
+
+      if (taskNname && taskNname == 'Manual Verification') {
+        page.dontShowMyDecision = true;
+        page.selectedRecommendation.push('finfo');
+      }
       //appendnew_next_sd_oQRb7AMgrby0PPbt
       return bh;
     } catch (e) {

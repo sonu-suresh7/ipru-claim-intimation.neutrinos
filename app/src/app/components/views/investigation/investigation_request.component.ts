@@ -192,7 +192,7 @@ export class investigation_requestComponent {
             'Claim Intimation Form',
             'Policy Document',
             'Death Certificate',
-            'ID Proof',
+            'Id Proof',
             'Discharge Summary',
             'Doctor’s certificate',
             'Claimants Photo',
@@ -204,7 +204,7 @@ export class investigation_requestComponent {
             'Claim Intimation Form',
             'Policy Document',
             'Death Certificate',
-            'ID Proof',
+            'Id Proof',
             'Claimants Photo',
           ],
         },
@@ -214,7 +214,7 @@ export class investigation_requestComponent {
             'Claim Intimation Form',
             'Policy Document',
             'Death Certificate',
-            'ID Proof',
+            'Id Proof',
             'FIR',
             'Post mortem Report ',
             'Claimants Photo',
@@ -226,7 +226,7 @@ export class investigation_requestComponent {
             'Claim Intimation Form',
             'Policy Document',
             'Death Certificate',
-            'ID Proof',
+            'Id Proof',
             'FIR',
             'Post mortem Report ',
             'Claimants Photo',
@@ -328,10 +328,8 @@ export class investigation_requestComponent {
         );
         page.documentList = list.docList;
         sessionStorage.setItem('checklist', JSON.stringify(page.documentList));
-        sessionStorage.setItem(
-          'sourceOfBusiness',
-          JSON.stringify(bh.input.event.value)
-        );
+
+        sessionStorage.setItem('sourceOfBusiness', bh.input.event.value);
       }
 
       bh = this.sd_v9KLyQYY8chBhVxl(bh);

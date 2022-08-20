@@ -649,6 +649,12 @@ export class newInvestigationComponent {
           bh.local.investigation_types.push(el.type);
         }
       });
+
+      let sourceOfBusiness = sessionStorage.getItem('sourceOfBusiness');
+
+      if (sourceOfBusiness) {
+        bh.local.investigation_types.push(sourceOfBusiness);
+      }
       //appendnew_next_sd_K7JMPHDeIbgzJyqT
       return bh;
     } catch (e) {

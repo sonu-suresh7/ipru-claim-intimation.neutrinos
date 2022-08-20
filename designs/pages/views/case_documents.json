@@ -249,7 +249,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "asd",
-        "script": "bh.local.caseDocuments = bh.local.caseDocuments.documents || [];\n\n// for (let i = 0; i < bh.local.caseDocuments.length; i++) {\n//     bh.local.caseDocuments[i]['redact'] = false;\n// }\n\npage.documentsTable.data = bh.local.caseDocuments;\n",
+        "script": "bh.local.caseDocuments = bh.local.caseDocuments.documents || [];\n\nsessionStorage.removeItem('class-docs')\nlet classDocs = []\nif(bh.local.caseDocuments && bh.local.caseDocuments.length>0){\n    bh.local.caseDocuments.forEach(el=>{\n        classDocs.push(el.metadata.labels.tag_name)\n    })\n}\nsessionStorage.setItem('class-docs',JSON.stringify(classDocs))\n// for (let i = 0; i < bh.local.caseDocuments.length; i++) {\n//     bh.local.caseDocuments[i]['redact'] = false;\n// }\n\npage.documentsTable.data = bh.local.caseDocuments;\n",
         "functionName": "asd",
         "category": "Function",
         "x": 705,
@@ -518,7 +518,9 @@
             "value": ""
         },
         "horizontalPosition": "center",
+        "horizontalPositionMap": "",
         "verticalPosition": "bottom",
+        "verticalPositionMap": "",
         "panelClass": {
             "type": "str",
             "value": ""
