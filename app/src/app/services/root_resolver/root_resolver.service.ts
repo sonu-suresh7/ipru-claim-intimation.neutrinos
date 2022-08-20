@@ -39,6 +39,8 @@ export class root_resolverService {
             'productName',
             'sumInsured',
             'claimNo',
+            'idpCaseStatus',
+            'addInfoStatus'
         ].reduce((acc, curr) => {
             acc[curr] = {
                 val: task => task[curr],
@@ -62,6 +64,7 @@ export class root_resolverService {
                     return lInst.locale.applicationDate
                 }
             },
+
             sourceOfBusiness: {
                 val: task => task.sourceOfBusiness,
                 get label() {

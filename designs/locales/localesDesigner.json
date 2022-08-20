@@ -203,7 +203,9 @@
             "investigationDetails": "Claim Details",
             "positive": "Verified",
             "negative": "Not Received",
-            "inconclusive": "Discrepancy"
+            "inconclusive": "Discrepancy",
+            "idpCaseStatus": "IDP Status",
+            "addInfoStatus": "Add Info Status"
         }
     },
     "vi": {
@@ -806,6 +808,12 @@
             ],
             "inconclusive": [
                 "Không xác định"
+            ],
+            "idpCaseStatus": [
+                "Trạng thái IDP"
+            ],
+            "addInfoStatus": [
+                "Thêm trạng thái thông tin"
             ]
         }
     }

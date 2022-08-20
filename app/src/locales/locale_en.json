@@ -202,6 +202,8 @@
         "investigationDetails": "Claim Details",
         "positive": "Verified",
         "negative": "Not Received",
-        "inconclusive": "Discrepancy"
+        "inconclusive": "Discrepancy",
+        "idpCaseStatus": "IDP Status",
+        "addInfoStatus": "Add Info Status"
     }
 }

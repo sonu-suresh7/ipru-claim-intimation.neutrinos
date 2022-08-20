@@ -598,6 +598,12 @@
         ],
         "inconclusive": [
             "Không xác định"
+        ],
+        "idpCaseStatus": [
+            "Trạng thái IDP"
+        ],
+        "addInfoStatus": [
+            "Thêm trạng thái thông tin"
         ]
     }
 }
