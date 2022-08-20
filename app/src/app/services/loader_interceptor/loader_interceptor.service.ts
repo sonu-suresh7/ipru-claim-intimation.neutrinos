@@ -11,7 +11,10 @@ export class loader_interceptorService implements HttpInterceptor {
     constructor(public _loaderService: loaderService) { }
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        this._loaderService.show();
+        if(!req.headers.get('hide-spinner')){
+            this._loaderService.show();
+        }
+        
         return next.handle(req).pipe(
             finalize(() => this._loaderService.hide())
         );

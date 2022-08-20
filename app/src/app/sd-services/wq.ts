@@ -164,7 +164,7 @@ export class wq {
         url: bh.local.url,
         method: 'post',
         responseType: 'json',
-        headers: {},
+        headers: { 'hide-spinner': 'true' },
         params: {},
         body: bh.local.body,
       };

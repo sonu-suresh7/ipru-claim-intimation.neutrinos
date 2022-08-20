@@ -9,6 +9,8 @@ import {
   Output,
   EventEmitter,
   AfterViewInit,
+  ViewChild,
+  ViewChildren,
 } from '@angular/core'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
@@ -205,6 +207,30 @@ export class workQueueTableComponent {
     }
   }
 
+  sd_LhR6k7v7ZNMsTjSG(bh) {
+    try {
+      bh = this.clearinterval(bh);
+      //appendnew_next_sd_LhR6k7v7ZNMsTjSG
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_LhR6k7v7ZNMsTjSG');
+    }
+  }
+
+  showSnackbar(message: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { message: message };
+      bh.local = {};
+      bh = this.sd_7JXEE8VKaGRf1Mqg(bh);
+      //appendnew_next_showSnackbar
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_JckgEpnYZRfBRSyh');
+    }
+  }
+
   //appendnew_flow_workQueueTableComponent_start
 
   sd_Zgv6GexufrJPaHz3(bh) {
@@ -258,10 +284,44 @@ export class workQueueTableComponent {
 
       page.trackTask = (index, task) =>
         `${task['task-container-id']}#${task['task-id']}`;
+      bh = this.sd_sAIrwEPlhDxyoMsM(bh);
       //appendnew_next_sd_FStdBD2U0x0kBzrT
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_FStdBD2U0x0kBzrT');
+    }
+  }
+
+  async sd_sAIrwEPlhDxyoMsM(bh) {
+    try {
+      const page = this.page;
+      page.allStatuses = {};
+      page.myInterval = setInterval(async () => {
+        console.log('caaling');
+        await this.getTasks();
+        if (page.tasks) {
+          page.tasks.forEach((el) => {
+            if (page.allStatuses[el.pid]) {
+              if (page.allStatuses[el.pid] != el.addInfoStatus) {
+                //show notification
+                console.log('show notif', [el.pid]);
+                this.showSnackbar(
+                  'Case status has been updated for Ticket: ' + el.pid
+                );
+                page.allStatuses[el.pid] = el.addInfoStatus;
+              } else {
+                page.allStatuses[el.pid] = el.addInfoStatus;
+              }
+            } else {
+              page.allStatuses[el.pid] = el.addInfoStatus;
+            }
+          });
+        }
+      }, 10000);
+      //appendnew_next_sd_sAIrwEPlhDxyoMsM
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_sAIrwEPlhDxyoMsM');
     }
   }
 
@@ -434,13 +494,16 @@ export class workQueueTableComponent {
   assignWqTasks(bh) {
     try {
       const page = this.page;
-      const tasks = [];
+      let tasks = [];
       const wqconf = this.wq.conf;
       const validColumns = wqconf.selectedColumns.filter((c) =>
         page.colConf.hasOwnProperty(c)
       );
       for (const task of bh.local.reponsePayload.tasks) {
-        if (task['task-proc-def-id'] !== 'com.casemanager.iciciprudential.iciciPrudentialbpd') {
+        if (
+          task['task-proc-def-id'] !==
+          'com.casemanager.iciciprudential.iciciPrudentialbpd'
+        ) {
           continue;
         }
         const obj = JSON.parse(JSON.stringify(task));
@@ -453,6 +516,15 @@ export class workQueueTableComponent {
         );
         tasks.push(obj);
       }
+
+      tasks = [
+        ...tasks.filter((el) => {
+          return el.addInfoStatus === 'Requirement Received';
+        }),
+        ...tasks.filter((el) => {
+          return el.addInfoStatus != 'Requirement Received';
+        }),
+      ];
 
       page.tasks = tasks;
       // page.displayColumns = ['lock_unlock', ...validColumns, 'action'];
@@ -470,10 +542,26 @@ export class workQueueTableComponent {
       };
 
       setTimeout(() => {
-        this.sortChange({
-          active: 'task-created-on',
-          direction: 'asc',
-        });
+        // this.sortChange({
+        // 	active: 'task-created-on',
+        // 	direction: 'asc'
+        // })
+        // page.tasks = page.tasks.sort(function (a, b) {
+        // return a.addInfoStatus === 'Requirement Received' ? 1 : -1 ;
+        // })
+        page.tasks = [
+          ...page.tasks.filter((el) => {
+            return el.addInfoStatus === 'Requirement Received';
+          }),
+          ...page.tasks.filter((el) => {
+            return el.addInfoStatus != 'Requirement Received';
+          }),
+        ];
+
+        console.log(
+          '**************',
+          page.tasks.map((el) => el.addInfoStatus)
+        );
       });
       bh = this.sort(bh);
       //appendnew_next_assignWqTasks
@@ -772,6 +860,32 @@ export class workQueueTableComponent {
     }
   }
 
+  clearinterval(bh) {
+    try {
+      const page = this.page;
+      clearInterval(page.myInterval);
+      //appendnew_next_clearinterval
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_Pk83IGjD9INlyxoQ');
+    }
+  }
+
+  sd_7JXEE8VKaGRf1Mqg(bh) {
+    try {
+      this.__page_injector__.get(MatSnackBar).open(bh.input.message, '', {
+        duration: 3000,
+        direction: 'ltr',
+        horizontalPosition: 'center',
+        verticalPosition: 'bottom',
+      });
+      //appendnew_next_sd_7JXEE8VKaGRf1Mqg
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_7JXEE8VKaGRf1Mqg');
+    }
+  }
+
   //appendnew_node
 
   ngOnDestroy() {
@@ -789,6 +903,9 @@ export class workQueueTableComponent {
       if (sub && typeof sub.unsubscribe === 'function') {
         sub.unsubscribe();
       }
+    }
+    {
+      this.sd_LhR6k7v7ZNMsTjSG(bh);
     }
     this.__page_injector__.get(SDPageCommonService).deletePageFromMap(this);
   }
