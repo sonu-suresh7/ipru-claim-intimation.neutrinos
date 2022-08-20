@@ -12,6 +12,6 @@ export const environment = {
         "webAppMountpoint": "web",
         "NGFORAGE_MOBILE_DRIVER": "INDEXED_DB",
         "ssdBaseUrl": "https://bs-8887489.el.r.appspot.com/api",
-        "AGENT_UI_APP_URL": "https://bs-7180419.el.r.appspot.com"
+        "AGENT_UI_APP_URL": "https://bs-1964819.el.r.appspot.com"
     }
 }

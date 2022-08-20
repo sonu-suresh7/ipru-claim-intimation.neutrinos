@@ -9,6 +9,8 @@ import {
   Output,
   EventEmitter,
   AfterViewInit,
+  ViewChild,
+  ViewChildren,
 } from '@angular/core'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
@@ -210,10 +212,29 @@ export class tasksComponent implements AfterViewInit {
     try {
       const cacheInstance: cache = this.__page_injector__.get(cache);
       this.page.USER_ROLE = cacheInstance['loggedInRole'];
+      bh = this.sd_JfxmYjxLJBKYd7fx(bh);
       //appendnew_next_getUserRole
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_jxzlli0EWASpb7AD');
+    }
+  }
+
+  sd_JfxmYjxLJBKYd7fx(bh) {
+    try {
+      const page = this.page;
+      let taskName = sessionStorage.getItem('task-name');
+
+      if (taskName) {
+        if (taskName == 'Manual Verification') {
+          console.log('page.queues', this.page.queues);
+          //tab.conf.label
+        }
+      }
+      //appendnew_next_sd_JfxmYjxLJBKYd7fx
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_JfxmYjxLJBKYd7fx');
     }
   }
 
@@ -372,9 +393,16 @@ export class tasksComponent implements AfterViewInit {
         this.sdService.getPathAndQParamsObj('/web/caseview/:pid');
       await this.__page_injector__
         .get(Router)
-        .navigate([
-          this.sdService.formatPathWithParams(path, { pid: bh.input.task.pid }),
-        ]);
+        .navigate(
+          [
+            this.sdService.formatPathWithParams(path, {
+              pid: bh.input.task.pid,
+            }),
+          ],
+          {
+            queryParams: Object.assign(qprm, ''),
+          }
+        );
       //appendnew_next_navToCaseView
       return bh;
     } catch (e) {

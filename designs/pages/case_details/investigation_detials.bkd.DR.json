@@ -999,7 +999,6 @@
                         "f7791435-cbb4-6a1a-b1e8-0f89212929d4": {
                             "paletteKey": "FlexLayoutRow",
                             "parentEditorKey": "69e87b5d-b6eb-6b97-4fa9-69755114c82b",
-                            "isCommented": "false",
                             "commentid": null,
                             "designerReference": [
                                 {
@@ -1062,7 +1061,6 @@
                             "3b591a73-0a6d-76ed-faa3-bedfda9e9388": {
                                 "paletteKey": "FlexLayoutRow",
                                 "parentEditorKey": "f7791435-cbb4-6a1a-b1e8-0f89212929d4",
-                                "isCommented": "false",
                                 "commentid": null,
                                 "designerReference": [
                                     {
@@ -1127,7 +1125,6 @@
                                     "paletteKey": "NG-Input",
                                     "parentEditorKey": "3b591a73-0a6d-76ed-faa3-bedfda9e9388",
                                     "isAdvancedComponent": true,
-                                    "isCommented": "false",
                                     "commentid": null,
                                     "designerReference": [
                                         {
@@ -1146,7 +1143,7 @@
                                         },
                                         {
                                             "_key": "placeholder",
-                                            "_value": "Investigator",
+                                            "_value": "Death Claim",
                                             "_type": "kv",
                                             "_attrDef": "p",
                                             "_useAsLabel": true
@@ -1305,7 +1302,6 @@
                             "1ccae127-ac4e-dd59-bc68-ac391103a97b": {
                                 "paletteKey": "FlexLayoutRow",
                                 "parentEditorKey": "f7791435-cbb4-6a1a-b1e8-0f89212929d4",
-                                "isCommented": "false",
                                 "commentid": null,
                                 "designerReference": [
                                     {
@@ -1370,7 +1366,6 @@
                                     "paletteKey": "NG-Input",
                                     "parentEditorKey": "1ccae127-ac4e-dd59-bc68-ac391103a97b",
                                     "isAdvancedComponent": true,
-                                    "isCommented": "false",
                                     "commentid": null,
                                     "designerReference": [
                                         {
@@ -1389,7 +1384,7 @@
                                         },
                                         {
                                             "_key": "placeholder",
-                                            "_value": "Type Of Investigation",
+                                            "_value": "Claim Type",
                                             "_type": "kv",
                                             "_attrDef": "p",
                                             "_useAsLabel": true

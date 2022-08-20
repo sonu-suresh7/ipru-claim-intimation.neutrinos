@@ -645,6 +645,7 @@
         "nodeType": "flow",
         "name": "nav to case view",
         "path": "/web/caseview/:pid",
+        "pathMap": "",
         "pathparams": [
             {
                 "paramKey": "pid",
@@ -654,6 +655,11 @@
                 }
             }
         ],
+        "pathparamsMap": "",
+        "qparams": "",
+        "qparamsMap": "",
+        "qparamsArray": "",
+        "resultMapping": "",
         "functionName": "navToCaseView",
         "category": "Navigation",
         "x": 465,
@@ -988,6 +994,7 @@
         "inputParams": [
             "this.page.selectedIndex"
         ],
+        "accept_bh": false,
         "accept_csd": false,
         "functionName": "sd_dPNVrZIwvQwX0owT",
         "category": "General",
@@ -1217,6 +1224,27 @@
         "category": "Function",
         "x": 445,
         "y": 60,
+        "wires": [
+            [
+                "sd_JfxmYjxLJBKYd7fx"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_JfxmYjxLJBKYd7fx",
+        "type": "Script",
+        "z": "sd_ruCrGwNecen0Eaj9",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "let taskName = sessionStorage.getItem('task-name')\n\nif(taskName ){\n    if(taskName == 'Manual Verification'){\n        console.log('page.queues',this.page.queues)\n        //tab.conf.label\n    }\n}",
+        "functionName": "sd_JfxmYjxLJBKYd7fx",
+        "category": "Function",
+        "x": 500,
+        "y": 220,
         "wires": [
             []
         ],

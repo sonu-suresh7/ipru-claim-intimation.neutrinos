@@ -199,7 +199,7 @@
         "typeOfInvestigation": "Claim type",
         "ticketNumber": "Ticket No",
         "policyOwner": "Policy owner",
-        "investigationDetails": "Investigation Details",
+        "investigationDetails": "Claim Details",
         "positive": "Verified",
         "negative": "Not Received",
         "inconclusive": "Discrepancy"

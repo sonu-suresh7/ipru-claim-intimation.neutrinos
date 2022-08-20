@@ -9,7 +9,8 @@ import {
   Output,
   EventEmitter,
   AfterViewInit,
-  DoCheck,
+  ViewChild,
+  ViewChildren,
 } from '@angular/core'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
