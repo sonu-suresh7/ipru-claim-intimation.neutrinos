@@ -118,6 +118,29 @@ export class caseService {
     }
   }
 
+  async addnewpayload(payload: any = undefined, ...others) {
+    try {
+      var bh: any = {
+        input: {
+          payload: payload,
+        },
+        local: {},
+      };
+      bh = this.sdService.__constructDefault(bh);
+      bh = await this.sd_TzVHliGMvhQ6uDCA(bh);
+      //appendnew_next_addnewpayload
+      return (
+        // formatting output variables
+        {
+          input: {},
+          local: {},
+        }
+      );
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_AVPrg6ObblCqKj23');
+    }
+  }
+
   //appendnew_flow_caseService_start
 
   async templateUrl(bh) {
@@ -204,6 +227,42 @@ export class caseService {
       return bh;
     } catch (e) {
       return await this.errorHandler(bh, e, 'sd_Z4aVdQ7EWscvBALt');
+    }
+  }
+
+  async sd_TzVHliGMvhQ6uDCA(bh) {
+    try {
+      bh.url = `${bh.system.environment.properties.ssdBaseUrl}/wq/addAdditionalCaseFields`;
+
+      // bh.body = {
+      //     comment: bh.input.comment,
+      //     user: bh.system.currentUser.username
+      // }
+
+      bh.body = bh.input.payload;
+      bh = await this.sd_07rYo4tv0AiwnKlF(bh);
+      //appendnew_next_sd_TzVHliGMvhQ6uDCA
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_TzVHliGMvhQ6uDCA');
+    }
+  }
+
+  async sd_07rYo4tv0AiwnKlF(bh) {
+    try {
+      let requestOptions = {
+        url: bh.url,
+        method: 'post',
+        responseType: 'json',
+        headers: { 'hide-spinner': 'true' },
+        params: {},
+        body: bh.body,
+      };
+      bh.local.result = await this.sdService.nHttpRequest(requestOptions);
+      //appendnew_next_sd_07rYo4tv0AiwnKlF
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_07rYo4tv0AiwnKlF');
     }
   }
 

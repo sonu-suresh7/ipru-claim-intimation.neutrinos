@@ -1027,6 +1027,9 @@ bh-appdetailstepper {
 ManuLife
 Application details Page Styles 
 ******/
+.cdk-column-typeOfInvestigation{
+    max-width: 8em;
+}
 .text-ellipsis {
     overflow: hidden;
     text-overflow: ellipsis;

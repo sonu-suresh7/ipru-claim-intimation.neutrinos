@@ -117,6 +117,8 @@ export class caseViewBaseComponent {
     try {
       const page = this.page;
       bh.local.pid = Number(bh.local.pid);
+
+      sessionStorage.setItem('pid', bh.local.pid);
       bh = this.sd_RiOb5g2Tqtf27dzm(bh);
       //appendnew_next_convertPIDToNumber
       return bh;

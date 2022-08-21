@@ -24,6 +24,28 @@
               </mat-form-field>
             </div>
           </div>
+          <div fxLayout="row " fxFlex="100" fxLayoutAlign="start center">
+            <div fxLayout="row wrap" class="width-100" fxLayoutAlign="start stretch">
+              <mat-form-field class="width-100" [appearance]="&apos;legacy&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+                <input matInput [(ngModel)]="page.claimantsName" placeholder="Claimant&apos;s Name" [required]="false" (change)="claimantChanges()">
+
+              </mat-form-field>
+            </div>
+            <div fxLayout="row wrap" class="width-100" fxLayoutAlign="start stretch">
+              <mat-form-field class="width-100" [appearance]="&apos;legacy&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+                <input matInput [(ngModel)]="page.claimantsPhoneNumber" placeholder="Phone Number" [required]="false" (change)="claimantChanges()">
+
+              </mat-form-field>
+            </div>
+          </div>
+          <div fxLayout="row " fxFlex="100" fxLayoutAlign="start center">
+            <div fxLayout="row wrap" class="width-100" fxLayoutAlign="start stretch">
+              <mat-form-field class="width-100" [appearance]="&apos;legacy&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+                <input matInput [(ngModel)]="page.claimantsEmailId" placeholder="Claimant&apos;s Email id" [required]="true" (change)="claimantChanges()">
+
+              </mat-form-field>
+            </div>
+          </div>
         </mat-card-content>
       </mat-card>
     </mat-expansion-panel>

@@ -5,7 +5,7 @@
           {{page.locales.keys.lifeInsured}} - {{page.checkedOut.case.caseDetails.primaryLife.PersonalDetails.fullName}}</label>
         <div fxLayout="column " fxLayoutGap="1rem" fxLayoutAlign="start stretch" [fxShow]="true" *ngFor="let item of page.benefits;let i=index;"><label class="mat-expansion-panel-header-title">
             <!-- {{item.type === 'LIFE' ? page.locales.keys.life : item.type }} -->
-            Investigation Recommendation
+            Document Verification
           </label>
           <div fxLayout="row wrap" fxLayoutGap="1rem" fxLayoutAlign="start stretch" [fxShow]="true">
             <mat-button-toggle-group [name]="item.decision_i" [multiple]="false" [appearance]="&apos;standard&apos;" [(ngModel)]="item.decision">

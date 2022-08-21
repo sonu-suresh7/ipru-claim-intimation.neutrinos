@@ -675,7 +675,7 @@
                                     },
                                     {
                                         "_key": "html",
-                                        "_value": "<!-- {{item.type === 'LIFE' ? page.locales.keys.life : item.type }} -->\r\nInvestigation Recommendation",
+                                        "_value": "<!-- {{item.type === 'LIFE' ? page.locales.keys.life : item.type }} -->\r\nDocument Verification",
                                         "_type": "a",
                                         "_attrDef": "p"
                                     }

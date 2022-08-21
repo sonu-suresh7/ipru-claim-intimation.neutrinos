@@ -55,7 +55,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "",
+        "script": "\npage.claimantsEmailId = ''\npage.claimantsPhoneNumber = ''\npage.claimantsName = ''\n\n\nlet caseClaimantObj:any = sessionStorage.getItem('caseClaimantObj')\n\nif(caseClaimantObj){\n caseClaimantObj =    JSON.parse(caseClaimantObj)\n page.claimantsEmailId  = caseClaimantObj.claimantsEmailId\npage.claimantsPhoneNumber = caseClaimantObj.claimantsPhoneNumber\npage.claimantsName = caseClaimantObj.claimantsName\n}\n",
         "functionName": "sd_d8FQlex2QKSG6DpM",
         "category": "Function",
         "x": 200,
@@ -65,7 +65,8 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
-        "generated": true
+        "generated": true,
+        "serviceName": "investigation_detialsComponent"
     },
     {
         "id": "sd_5uus65ZsLjA0AFiL",
@@ -121,6 +122,101 @@
         "category": "Function",
         "x": 263,
         "y": 209.8000030517578,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_Ecp0u2AvM6PNIYGt",
+        "type": "PageStart",
+        "z": "sd_S9KP7NpB84cUrDLP",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "claimantChanges",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "claimantChanges",
+        "category": "General",
+        "x": 160,
+        "y": 320,
+        "wires": [
+            [
+                "sd_BfI863Vx0Dm6W2XE"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "investigation_detialsComponent"
+    },
+    {
+        "id": "sd_BfI863Vx0Dm6W2XE",
+        "type": "Script",
+        "z": "sd_S9KP7NpB84cUrDLP",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(this.page)\nlet claimantObj = {\n    \"claimantsEmailId\": this.page.claimantsEmailId,\n\"claimantsName\": this.page.claimantsName,\n\"claimantsPhoneNumber\": this.page.claimantsPhoneNumber\n}\nsessionStorage.setItem('claimantObj',JSON.stringify(claimantObj))\n\nbh.local.payload = {\n    'pid': sessionStorage.getItem('pid'),\n    'claimantObj' :claimantObj\n}\n",
+        "functionName": "sd_BfI863Vx0Dm6W2XE",
+        "category": "Function",
+        "x": 260,
+        "y": 320,
+        "wires": [
+            [
+                "sd_WQqDwGrIhgdjhb7c"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_WQqDwGrIhgdjhb7c",
+        "type": "PageCallService",
+        "z": "sd_S9KP7NpB84cUrDLP",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_jkXaNKtzX8iSR5cy",
+            "type": "tab",
+            "createdDate": "2022-03-25T10:09:01.250Z",
+            "label": "caseService",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_AVPrg6ObblCqKj23",
+            "flowName": "addnewpayload"
+        },
+        "inputVariables": [
+            {
+                "key": "payload",
+                "map": true,
+                "valueType": "bh.local",
+                "value": "payload"
+            }
+        ],
+        "outputMapping": [],
+        "serviceImportPath": "app/sd-services/caseService",
+        "startName": "addnewpayload",
+        "inputParams": [
+            "bh.local.payload"
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "sd_WQqDwGrIhgdjhb7c",
+        "category": "General",
+        "x": 400,
+        "y": 340,
         "wires": [
             []
         ],

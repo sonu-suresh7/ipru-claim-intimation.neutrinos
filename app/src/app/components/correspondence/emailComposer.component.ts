@@ -8,7 +8,6 @@ import {
   Input,
   Output,
   EventEmitter,
-  AfterViewInit,
 } from '@angular/core'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
@@ -244,7 +243,9 @@ export class emailComposerComponent {
       const page = this.page;
       const caseDetails = page.checkedOut.case.caseDetails;
       const owner = caseDetails.owner;
-      const email = owner.residentialAddress.email;
+      const email =
+        page.checkedOut.case.claimantObj?.claimantsEmailId ||
+        owner.residentialAddress.email;
       page.emailForm = page.fb.group({
         to: page.fb.control(email || '', [
           Validators.email,

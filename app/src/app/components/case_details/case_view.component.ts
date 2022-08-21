@@ -8,7 +8,6 @@ import {
   Input,
   Output,
   EventEmitter,
-  AfterViewInit,
 } from '@angular/core'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
@@ -81,6 +80,13 @@ export class case_viewComponent {
       const page = this.page;
       page.caseDetails = bh.co.case.caseDetails;
       page.task = bh.co.task;
+
+      console.log('page.caseDetails', page.caseDetails);
+      if (bh.co.case['claimantObj'])
+        sessionStorage.setItem(
+          'caseClaimantObj',
+          JSON.stringify(bh.co.case['claimantObj'])
+        );
       page.caseDetails.primaryLife.coverageDetails.forEach((ele, index) => {
         page.caseDetails.primaryLife.coverageDetails[index]['current_premium'] =
           page.caseDetails.metadata.current_premium;

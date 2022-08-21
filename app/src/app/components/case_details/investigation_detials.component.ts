@@ -8,13 +8,11 @@ import {
   Input,
   Output,
   EventEmitter,
-  AfterViewInit,
-  ViewChild,
-  ViewChildren,
 } from '@angular/core'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
 import { __NEU_ServiceInvokerService__ } from 'app/n-services/service-caller.service'; //_splitter_
+import { caseService } from 'app/sd-services/caseService'; //_splitter_
 import { FormControl, Validators, FormBuilder } from '@angular/forms'; //_splitter_
 //append_imports_end
 
@@ -84,10 +82,38 @@ export class investigation_detialsComponent {
     }
   }
 
+  claimantChanges(...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = {};
+      bh.local = {};
+      bh = this.sd_BfI863Vx0Dm6W2XE(bh);
+      //appendnew_next_claimantChanges
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_Ecp0u2AvM6PNIYGt');
+    }
+  }
+
   //appendnew_flow_investigation_detialsComponent_start
 
   sd_d8FQlex2QKSG6DpM(bh) {
     try {
+      const page = this.page;
+      page.claimantsEmailId = '';
+      page.claimantsPhoneNumber = '';
+      page.claimantsName = '';
+
+      let caseClaimantObj: any = sessionStorage.getItem('caseClaimantObj');
+
+      if (caseClaimantObj) {
+        caseClaimantObj = JSON.parse(caseClaimantObj);
+        page.claimantsEmailId = caseClaimantObj.claimantsEmailId;
+        page.claimantsPhoneNumber = caseClaimantObj.claimantsPhoneNumber;
+        page.claimantsName = caseClaimantObj.claimantsName;
+      }
+
       //appendnew_next_sd_d8FQlex2QKSG6DpM
       return bh;
     } catch (e) {
@@ -104,6 +130,46 @@ export class investigation_detialsComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_VIDY3b15lZokvIvs');
+    }
+  }
+
+  sd_BfI863Vx0Dm6W2XE(bh) {
+    try {
+      const page = this.page;
+      console.log(this.page);
+      let claimantObj = {
+        claimantsEmailId: this.page.claimantsEmailId,
+        claimantsName: this.page.claimantsName,
+        claimantsPhoneNumber: this.page.claimantsPhoneNumber,
+      };
+      sessionStorage.setItem('claimantObj', JSON.stringify(claimantObj));
+
+      bh.local.payload = {
+        pid: sessionStorage.getItem('pid'),
+        claimantObj: claimantObj,
+      };
+
+      bh = this.sd_WQqDwGrIhgdjhb7c(bh);
+      //appendnew_next_sd_BfI863Vx0Dm6W2XE
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_BfI863Vx0Dm6W2XE');
+    }
+  }
+
+  async sd_WQqDwGrIhgdjhb7c(bh) {
+    try {
+      const caseServiceInstance: caseService =
+        this.__page_injector__.get(caseService);
+
+      let outputVariables = await caseServiceInstance.addnewpayload(
+        bh.local.payload
+      );
+
+      //appendnew_next_sd_WQqDwGrIhgdjhb7c
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_WQqDwGrIhgdjhb7c');
     }
   }
 

@@ -37,7 +37,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "page.caseDetails = bh.co.case.caseDetails;\npage.task = bh.co.task;\npage.caseDetails.primaryLife.coverageDetails.forEach((ele, index) => {\n    page.caseDetails.primaryLife.coverageDetails[index]['current_premium'] = page.caseDetails.metadata.current_premium;\n});",
+        "script": "page.caseDetails = bh.co.case.caseDetails;\npage.task = bh.co.task;\n\nconsole.log('page.caseDetails',page.caseDetails)\nif(bh.co.case['claimantObj'])\nsessionStorage.setItem('caseClaimantObj',JSON.stringify(bh.co.case['claimantObj']))\npage.caseDetails.primaryLife.coverageDetails.forEach((ele, index) => {\n    page.caseDetails.primaryLife.coverageDetails[index]['current_premium'] = page.caseDetails.metadata.current_premium;\n});",
         "functionName": "sd_0l4oD3Q4SXp8FEQ6",
         "category": "Function",
         "x": 445,

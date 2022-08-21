@@ -508,7 +508,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "convert PID to Number",
-        "script": "bh.local.pid = Number(bh.local.pid);",
+        "script": "bh.local.pid = Number(bh.local.pid);\n\nsessionStorage.setItem('pid',bh.local.pid)",
         "functionName": "convertPIDToNumber",
         "category": "Function",
         "x": 405,
