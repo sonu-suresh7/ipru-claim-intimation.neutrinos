@@ -8,6 +8,7 @@ import {
   Input,
   Output,
   EventEmitter,
+  AfterViewInit,
 } from '@angular/core'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
@@ -125,10 +126,15 @@ export class traffic_lightsComponent {
       const page = this.page;
       console.log('trafficLights', page.trafficLights);
 
-      let classDocs = sessionStorage.getItem('class-docs');
+      let classDocs: any = sessionStorage.getItem('class-docs');
       let caseId = sessionStorage.getItem('case_id');
       if (classDocs) {
         classDocs = JSON.parse(classDocs);
+
+        classDocs = classDocs.map((element) => {
+          return element.toUpperCase();
+        });
+
         let alreadyDone = sessionStorage.getItem('done');
         // if(alreadyDone == caseId){
         //     return
@@ -137,7 +143,7 @@ export class traffic_lightsComponent {
           page.trafficLights.forEach((el) => {
             let name = el.name.replaceAll(' ', '_');
 
-            if (classDocs.indexOf(name) > -1) {
+            if (classDocs.indexOf(name.toUpperCase()) > -1) {
               el.status = 'done';
             }
             sessionStorage.setItem('done', caseId);

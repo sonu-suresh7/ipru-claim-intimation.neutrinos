@@ -969,7 +969,7 @@
                                     },
                                     {
                                         "_key": "[nFileUploadAcceptableFileTypes]",
-                                        "_value": "'application/zip'",
+                                        "_value": "",
                                         "_type": "kv",
                                         "_attrDef": "p"
                                     },

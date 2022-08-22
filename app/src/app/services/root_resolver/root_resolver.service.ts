@@ -101,12 +101,12 @@ export class root_resolverService {
                     return lInst.locale.taskContainerId
                 }
             },
-            'task-priority': {
-                val: task => task['task-priority'],
-                get label() {
-                    return lInst.locale.priority
-                }
-            },
+            // 'task-priority': {
+            //     val: task => task['task-priority'],
+            //     get label() {
+            //         return lInst.locale.priority
+            //     }
+            // },
             'task-id': {
                 val: task => task['task-id'],
                 get label() {

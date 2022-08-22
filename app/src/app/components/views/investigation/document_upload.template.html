@@ -12,7 +12,7 @@
               Attachment </div>
           </div>
           <div fxLayout="column wrap" fxLayoutAlign="center end" [fxShow]="true">
-            <lib-file-upload [nFileUploadColor]="&apos;primary&apos;" [nFileUploadLabel]="&apos;Select Document&apos;" [nFileUploadAcceptableFileTypes]="&apos;application/zip&apos;" [nFileUploadSelectMultiple]="false" [nFileUploadChangeLabelWithFileName]="false" [nFileUploadDisabled]="false" (nFileUploadOnChange)="fileChange($event)"></lib-file-upload>
+            <lib-file-upload [nFileUploadColor]="&apos;primary&apos;" [nFileUploadLabel]="&apos;Select Document&apos;" [nFileUploadSelectMultiple]="false" [nFileUploadChangeLabelWithFileName]="false" [nFileUploadDisabled]="false" (nFileUploadOnChange)="fileChange($event)"></lib-file-upload>
           </div>
         </div>
         <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="page.documents.length">
