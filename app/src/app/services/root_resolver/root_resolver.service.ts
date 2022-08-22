@@ -48,6 +48,7 @@ export class root_resolverService {
                     return lInst.locale[curr]
                 }
             }
+            console.log('##@#@@#@#@##@##@#',acc);
             return acc;
         }, {} as any)
         this._cache.columns = {
