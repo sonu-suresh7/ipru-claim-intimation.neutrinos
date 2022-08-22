@@ -13,6 +13,7 @@ import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
 import { __NEU_ServiceInvokerService__ } from 'app/n-services/service-caller.service'; //_splitter_
 import { investigation } from 'app/sd-services/investigation'; //_splitter_
+import { caseService } from 'app/sd-services/caseService'; //_splitter_
 import { MatDialog } from '@angular/material/dialog'; //_splitter_
 import { confirmation_dialogComponent } from '../other_policies_components/confirmation_dialog.component'; //_splitter_
 import { Router } from '@angular/router'; //_splitter_
@@ -437,11 +438,24 @@ export class newInvestigationComponent {
         body: bh.formdata,
       };
       bh.result = await this.sdService.nHttpRequest(requestOptions);
-      bh = this.showMessage(bh);
+      bh = this.callExtraVariablesApi(bh);
       //appendnew_next_triggerProcessStart
       return bh;
     } catch (e) {
       return await this.errorHandler(bh, e, 'sd_JCQfNqVTZuit8O0K');
+    }
+  }
+
+  callExtraVariablesApi(bh) {
+    try {
+      const page = this.page;
+      page.newPid = bh.result.payload;
+      bh = this.showMessage(bh);
+      bh = this.sd_UNL0IvQf4gXNFiog(bh);
+      //appendnew_next_callExtraVariablesApi
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_jG9PG7cIN0DTBjwa');
     }
   }
 
@@ -453,6 +467,43 @@ export class newInvestigationComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_MUlcTPary1rYNYDN');
+    }
+  }
+
+  sd_UNL0IvQf4gXNFiog(bh) {
+    try {
+      const page = this.page;
+      if (page.newPid) {
+        page.newPid = Number(page.newPid);
+      }
+      let claimantObj = sessionStorage.getItem('claimantObj');
+      claimantObj = JSON.parse(claimantObj);
+      bh.local.payload = {
+        pid: page.newPid,
+        claimantObj: claimantObj,
+      };
+
+      bh = this.sd_iM4IogpArsF0uSqm(bh);
+      //appendnew_next_sd_UNL0IvQf4gXNFiog
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_UNL0IvQf4gXNFiog');
+    }
+  }
+
+  async sd_iM4IogpArsF0uSqm(bh) {
+    try {
+      const caseServiceInstance: caseService =
+        this.__page_injector__.get(caseService);
+
+      let outputVariables = await caseServiceInstance.addnewpayload(
+        bh.local.payload
+      );
+
+      //appendnew_next_sd_iM4IogpArsF0uSqm
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_iM4IogpArsF0uSqm');
     }
   }
 

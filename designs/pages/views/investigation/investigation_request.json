@@ -243,7 +243,8 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
-        "generated": true
+        "generated": true,
+        "serviceName": "investigation_requestComponent"
     },
     {
         "id": "sd_rRb65OHLZGdSwU74",
@@ -502,7 +503,9 @@
         "x": 425,
         "y": 40,
         "wires": [
-            []
+            [
+                "sd_ghkL3zJ9QMRIbI3Z"
+            ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
@@ -539,5 +542,136 @@
         "__n_excludedFromValidation__": {},
         "generateNext": false,
         "generated": true
+    },
+    {
+        "id": "sd_sYAGTXtdOtoLFCPo",
+        "type": "Script",
+        "z": "sd_SFLBWorT72n1eI6T",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(this.page)\nlet claimantObj = {\n    \"claimantsEmailId\": this.page.claimantsEmailId,\n\"claimantsName\": this.page.claimantsName,\n\"claimantsPhoneNumber\": this.page.claimantsPhoneNumber\n}\nsessionStorage.setItem('claimantObj',JSON.stringify(claimantObj))\n\n",
+        "functionName": "sd_sYAGTXtdOtoLFCPo",
+        "category": "Function",
+        "x": 605,
+        "y": 360,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_8P4yaXh3s8pNIzUe",
+        "type": "PageStart",
+        "z": "sd_SFLBWorT72n1eI6T",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "claimantChanges",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "claimantChanges",
+        "category": "General",
+        "x": 505,
+        "y": 360,
+        "wires": [
+            [
+                "sd_sYAGTXtdOtoLFCPo"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "investigation_requestComponent"
+    },
+    {
+        "id": "sd_C7APeEkmidxunOc3",
+        "type": "PageCallService",
+        "z": "sd_SFLBWorT72n1eI6T",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_jkXaNKtzX8iSR5cy",
+            "type": "tab",
+            "createdDate": "2022-03-25T10:09:01.250Z",
+            "label": "caseService",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_AVPrg6ObblCqKj23",
+            "flowName": "addnewpayload"
+        },
+        "inputVariables": [
+            {
+                "key": "payload",
+                "map": true,
+                "valueType": "bh.local",
+                "value": "payload"
+            }
+        ],
+        "outputMapping": [],
+        "serviceImportPath": "app/sd-services/caseService",
+        "startName": "addnewpayload",
+        "inputParams": [
+            "bh.local.payload"
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "sd_C7APeEkmidxunOc3",
+        "category": "General",
+        "x": 845,
+        "y": 300,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
+    },
+    {
+        "id": "sd_ghkL3zJ9QMRIbI3Z",
+        "type": "Script",
+        "z": "sd_SFLBWorT72n1eI6T",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "\npage.claimantsEmailId = ''\npage.claimantsPhoneNumber = ''\npage.claimantsName = ''\n\n\nlet caseClaimantObj:any = sessionStorage.getItem('caseClaimantObj')\n\nif(caseClaimantObj){\n caseClaimantObj =    JSON.parse(caseClaimantObj)\n page.claimantsEmailId  = caseClaimantObj.claimantsEmailId\npage.claimantsPhoneNumber = caseClaimantObj.claimantsPhoneNumber\npage.claimantsName = caseClaimantObj.claimantsName\n}\n",
+        "functionName": "sd_ghkL3zJ9QMRIbI3Z",
+        "category": "Function",
+        "x": 525,
+        "y": 60,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_XhdjA4y1pk0E01R9",
+        "type": "Script",
+        "z": "sd_SFLBWorT72n1eI6T",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.payload = {\n    'pid': sessionStorage.getItem('pid'),\n    'claimantObj' :claimantObj\n}\n",
+        "functionName": "sd_XhdjA4y1pk0E01R9",
+        "category": "Function",
+        "x": 720,
+        "y": 340,
+        "wires": [
+            [
+                "sd_C7APeEkmidxunOc3"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
     }
 ]

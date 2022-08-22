@@ -122,7 +122,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "console.log('trafficLights', page.trafficLights);\n\nlet classDocs = sessionStorage.getItem('class-docs')\nlet caseId = sessionStorage.getItem('case_id')\nif(classDocs){\n    classDocs = JSON.parse(classDocs)\n    let alreadyDone =  sessionStorage.getItem('done');\n    if(alreadyDone == caseId){\n        return\n    }\n    if(classDocs && classDocs.length > 0){\n        page.trafficLights.forEach(el=>{\n            let name = el.name.replaceAll(' ', '_')\n            \n            if(classDocs.indexOf(name) > -1){\n                el.status = 'done'\n            }\n            sessionStorage.setItem('done',caseId)\n        })\n    }\n}",
+        "script": "console.log('trafficLights', page.trafficLights);\n\nlet classDocs = sessionStorage.getItem('class-docs')\nlet caseId = sessionStorage.getItem('case_id')\nif(classDocs){\n    classDocs = JSON.parse(classDocs)\n    let alreadyDone =  sessionStorage.getItem('done');\n    // if(alreadyDone == caseId){\n    //     return\n    // }\n    if(classDocs && classDocs.length > 0){\n        page.trafficLights.forEach(el=>{\n            let name = el.name.replaceAll(' ', '_')\n            \n            if(classDocs.indexOf(name) > -1){\n                el.status = 'done'\n            }\n            sessionStorage.setItem('done',caseId)\n        })\n    }\n}",
         "functionName": "sd_v1QlncYTtGg9uouu",
         "category": "Function",
         "x": 700,

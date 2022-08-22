@@ -37,6 +37,32 @@
             </div>
           </div>
         </div>
+        <div fxLayout="row " fxFlex="100" fxLayoutAlign="start center">
+          <div fxLayout="row wrap" class="width-100" fxLayoutAlign="start stretch">
+            <div fxLayout="column wrap" style="max-height: 30px ; min-height: 30px;" fxFlex="90" fxLayoutAlign="center start" [fxShow]="true">
+              <div class="section-content">
+                Claimants Details :</div>
+            </div>
+          </div>
+          <div fxLayout="row wrap" class="width-100" fxLayoutAlign="start stretch">
+            <mat-form-field class="width-100" [appearance]="&apos;legacy&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+              <input matInput [(ngModel)]="page.claimantsName" placeholder="Claimant&apos;s Name" [required]="false" (change)="claimantChanges()">
+
+            </mat-form-field>
+          </div>
+          <div fxLayout="row wrap" class="width-100" fxLayoutAlign="start stretch">
+            <mat-form-field class="width-100" [appearance]="&apos;legacy&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+              <input matInput [(ngModel)]="page.claimantsPhoneNumber" placeholder="Phone Number" [required]="false" (change)="claimantChanges()">
+
+            </mat-form-field>
+          </div>
+          <div fxLayout="row wrap" class="width-100" fxLayoutAlign="start stretch">
+            <mat-form-field class="width-100" [appearance]="&apos;legacy&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+              <input matInput [(ngModel)]="page.claimantsEmailId" placeholder="Claimant&apos;s Email ID" [required]="false" (change)="claimantChanges()">
+
+            </mat-form-field>
+          </div>
+        </div>
       </div>
     </div>
   </mat-card-content>

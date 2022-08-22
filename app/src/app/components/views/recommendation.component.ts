@@ -271,6 +271,10 @@ export class recommendationComponent {
         page.dontShowMyDecision = true;
         page.selectedRecommendation.push('finfo');
       }
+      // if(taskNname && taskNname == 'Adjudicator'){
+      //     page.locales.keys.finfo = 'Decision'
+      // }
+
       //appendnew_next_sd_oQRb7AMgrby0PPbt
       return bh;
     } catch (e) {

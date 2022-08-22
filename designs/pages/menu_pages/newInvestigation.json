@@ -839,7 +839,7 @@
         "y": 1000,
         "wires": [
             [
-                "sd_MUlcTPary1rYNYDN"
+                "sd_jG9PG7cIN0DTBjwa"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -1278,12 +1278,11 @@
         "inputParams": [
             "bh.result.payload"
         ],
-        "accept_bh": false,
         "accept_csd": false,
         "functionName": "showMessage",
         "category": "General",
-        "x": 780,
-        "y": 1100,
+        "x": 885,
+        "y": 1180,
         "wires": [
             []
         ],
@@ -1481,6 +1480,99 @@
         "y": 1380,
         "wires": [
             []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_jG9PG7cIN0DTBjwa",
+        "type": "Script",
+        "z": "sd_Fsy7ysii8TAjQy31",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "callExtraVariablesApi",
+        "script": "page.newPid = bh.result.payload",
+        "functionName": "callExtraVariablesApi",
+        "category": "Function",
+        "x": 785,
+        "y": 1040,
+        "wires": [
+            [
+                "sd_MUlcTPary1rYNYDN",
+                "sd_UNL0IvQf4gXNFiog"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_iM4IogpArsF0uSqm",
+        "type": "PageCallService",
+        "z": "sd_Fsy7ysii8TAjQy31",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_jkXaNKtzX8iSR5cy",
+            "type": "tab",
+            "createdDate": "2022-03-25T10:09:01.250Z",
+            "label": "caseService",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_AVPrg6ObblCqKj23",
+            "flowName": "addnewpayload"
+        },
+        "inputVariables": [
+            {
+                "key": "payload",
+                "map": true,
+                "valueType": "bh.local",
+                "value": "payload"
+            }
+        ],
+        "outputMapping": [],
+        "serviceImportPath": "app/sd-services/caseService",
+        "startName": "addnewpayload",
+        "inputParams": [
+            "bh.local.payload"
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "sd_iM4IogpArsF0uSqm",
+        "category": "General",
+        "x": 1065,
+        "y": 1020,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_UNL0IvQf4gXNFiog",
+        "type": "Script",
+        "z": "sd_Fsy7ysii8TAjQy31",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "if(page.newPid){\n    page.newPid = Number(page.newPid)\n}\nlet claimantObj = sessionStorage.getItem('claimantObj')\nclaimantObj = JSON.parse(claimantObj)\nbh.local.payload = {\n    'pid': page.newPid,\n    'claimantObj' :claimantObj\n}\n",
+        "functionName": "sd_UNL0IvQf4gXNFiog",
+        "category": "Function",
+        "x": 940,
+        "y": 1060,
+        "wires": [
+            [
+                "sd_iM4IogpArsF0uSqm"
+            ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,

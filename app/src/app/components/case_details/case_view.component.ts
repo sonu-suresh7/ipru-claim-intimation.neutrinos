@@ -82,11 +82,14 @@ export class case_viewComponent {
       page.task = bh.co.task;
 
       console.log('page.caseDetails', page.caseDetails);
-      if (bh.co.case['claimantObj'])
+      if (bh.co.case['claimantObj']) {
         sessionStorage.setItem(
           'caseClaimantObj',
           JSON.stringify(bh.co.case['claimantObj'])
         );
+      } else {
+        sessionStorage.removeItem('caseClaimantObj');
+      }
       page.caseDetails.primaryLife.coverageDetails.forEach((ele, index) => {
         page.caseDetails.primaryLife.coverageDetails[index]['current_premium'] =
           page.caseDetails.metadata.current_premium;

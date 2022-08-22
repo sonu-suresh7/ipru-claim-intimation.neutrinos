@@ -111,6 +111,19 @@ export class taskTabsComponent {
     try {
       const page = this.page;
       page.tabs = bh.res.tabs;
+
+      try {
+        let ind = page.tabs.findIndex((el) => el.id == 'recommendation');
+
+        if (bh.pageInput.task['task-name'] == 'Adjudicator') {
+          if (ind > -1) {
+            page.tabs[ind]['label'] = 'Decision';
+          }
+        }
+      } catch (error) {
+        console.log(error);
+      }
+
       if (bh.res.resourceLinks) {
         this.resourceLinkData.emit(bh.res.resourceLinks);
       }

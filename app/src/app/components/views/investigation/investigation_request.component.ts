@@ -13,6 +13,7 @@ import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
 import { __NEU_ServiceInvokerService__ } from 'app/n-services/service-caller.service'; //_splitter_
 import { investigation } from 'app/sd-services/investigation'; //_splitter_
+import { FormControl, Validators, FormBuilder } from '@angular/forms'; //_splitter_
 //append_imports_end
 
 @Component({
@@ -37,6 +38,7 @@ export class investigation_requestComponent {
   ) {
     this.__page_injector__.get(SDPageCommonService).addPageDefaults(this.page);
     this.registerListeners();
+    this.page.dep.FormBuilder = this.__page_injector__.get(FormBuilder); //FormBuilder
     //appendnew_element_inject
   }
 
@@ -148,6 +150,20 @@ export class investigation_requestComponent {
     }
   }
 
+  claimantChanges(...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = {};
+      bh.local = {};
+      bh = this.sd_sYAGTXtdOtoLFCPo(bh);
+      //appendnew_next_claimantChanges
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_8P4yaXh3s8pNIzUe');
+    }
+  }
+
   //appendnew_flow_investigation_requestComponent_start
 
   sd_0Cr4hbWvC1SCE1eW(bh) {
@@ -233,10 +249,34 @@ export class investigation_requestComponent {
           ],
         },
       ];
+      bh = this.sd_ghkL3zJ9QMRIbI3Z(bh);
       //appendnew_next_sd_IvESlKkJxLqsR2Wg
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_IvESlKkJxLqsR2Wg');
+    }
+  }
+
+  sd_ghkL3zJ9QMRIbI3Z(bh) {
+    try {
+      const page = this.page;
+      page.claimantsEmailId = '';
+      page.claimantsPhoneNumber = '';
+      page.claimantsName = '';
+
+      let caseClaimantObj: any = sessionStorage.getItem('caseClaimantObj');
+
+      if (caseClaimantObj) {
+        caseClaimantObj = JSON.parse(caseClaimantObj);
+        page.claimantsEmailId = caseClaimantObj.claimantsEmailId;
+        page.claimantsPhoneNumber = caseClaimantObj.claimantsPhoneNumber;
+        page.claimantsName = caseClaimantObj.claimantsName;
+      }
+
+      //appendnew_next_sd_ghkL3zJ9QMRIbI3Z
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_ghkL3zJ9QMRIbI3Z');
     }
   }
 
@@ -347,6 +387,24 @@ export class investigation_requestComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_v9KLyQYY8chBhVxl');
+    }
+  }
+
+  sd_sYAGTXtdOtoLFCPo(bh) {
+    try {
+      const page = this.page;
+      console.log(this.page);
+      let claimantObj = {
+        claimantsEmailId: this.page.claimantsEmailId,
+        claimantsName: this.page.claimantsName,
+        claimantsPhoneNumber: this.page.claimantsPhoneNumber,
+      };
+      sessionStorage.setItem('claimantObj', JSON.stringify(claimantObj));
+
+      //appendnew_next_sd_sYAGTXtdOtoLFCPo
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_sYAGTXtdOtoLFCPo');
     }
   }
 

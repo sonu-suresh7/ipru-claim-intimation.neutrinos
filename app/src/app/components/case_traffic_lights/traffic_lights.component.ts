@@ -8,9 +8,6 @@ import {
   Input,
   Output,
   EventEmitter,
-  AfterViewInit,
-  ViewChild,
-  ViewChildren,
 } from '@angular/core'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
@@ -133,9 +130,9 @@ export class traffic_lightsComponent {
       if (classDocs) {
         classDocs = JSON.parse(classDocs);
         let alreadyDone = sessionStorage.getItem('done');
-        if (alreadyDone == caseId) {
-          return;
-        }
+        // if(alreadyDone == caseId){
+        //     return
+        // }
         if (classDocs && classDocs.length > 0) {
           page.trafficLights.forEach((el) => {
             let name = el.name.replaceAll(' ', '_');
