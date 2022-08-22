@@ -245,6 +245,7 @@
                             {
                                 "_key": "class",
                                 "_value": [
+                                    "custom-tab1",
                                     "border-box",
                                     "height-100"
                                 ],

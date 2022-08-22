@@ -8,6 +8,7 @@ import {
   Input,
   Output,
   EventEmitter,
+  AfterViewInit,
 } from '@angular/core'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
@@ -96,6 +97,16 @@ export class investigation_detialsComponent {
     }
   }
 
+  sd_tw9QI2PM48wtrJ6C(bh) {
+    try {
+      bh = this.sd_lsV75gq1Pcz6OOCX(bh);
+      //appendnew_next_sd_tw9QI2PM48wtrJ6C
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_tw9QI2PM48wtrJ6C');
+    }
+  }
+
   //appendnew_flow_investigation_detialsComponent_start
 
   sd_d8FQlex2QKSG6DpM(bh) {
@@ -173,12 +184,26 @@ export class investigation_detialsComponent {
     }
   }
 
+  sd_lsV75gq1Pcz6OOCX(bh) {
+    try {
+      const page = this.page;
+      sessionStorage.removeItem('claimantObj');
+      //appendnew_next_sd_lsV75gq1Pcz6OOCX
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_lsV75gq1Pcz6OOCX');
+    }
+  }
+
   //appendnew_node
 
   ngOnDestroy() {
     const bh: any = this.__page_injector__
       .get(SDPageCommonService)
       .constructFlowObject(this);
+    {
+      this.sd_tw9QI2PM48wtrJ6C(bh);
+    }
     this.__page_injector__.get(SDPageCommonService).deletePageFromMap(this);
   }
 

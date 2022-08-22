@@ -198,7 +198,7 @@
             "activityName": "Activity",
             "issueDate": "Issue Date",
             "typeOfInvestigation": "Claim type",
-            "ticketNumber": "Ticket No",
+            "ticketNumber": "Claim Intimation No.",
             "policyOwner": "Policy owner",
             "investigationDetails": "Claim Details",
             "positive": "Verified",
@@ -792,7 +792,7 @@
                 "Loại điều tra"
             ],
             "ticketNumber": [
-                "Vé số"
+                "Xác nhận quyền sở hữu số"
             ],
             "policyOwner": [
                 "Chính sách sở hữu"

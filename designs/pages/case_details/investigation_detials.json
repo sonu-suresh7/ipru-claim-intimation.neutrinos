@@ -223,5 +223,44 @@
         "__n_excludedFromValidation__": {},
         "generateNext": false,
         "generated": true
+    },
+    {
+        "id": "sd_tw9QI2PM48wtrJ6C",
+        "type": "OnDestroy",
+        "z": "sd_S9KP7NpB84cUrDLP",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "sd_tw9QI2PM48wtrJ6C",
+        "category": "Lifecycle Events",
+        "x": 200,
+        "y": 500,
+        "wires": [
+            [
+                "sd_lsV75gq1Pcz6OOCX"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "investigation_detialsComponent"
+    },
+    {
+        "id": "sd_lsV75gq1Pcz6OOCX",
+        "type": "Script",
+        "z": "sd_S9KP7NpB84cUrDLP",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "sessionStorage.removeItem('claimantObj')",
+        "functionName": "sd_lsV75gq1Pcz6OOCX",
+        "category": "Function",
+        "x": 300,
+        "y": 500,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
     }
 ]

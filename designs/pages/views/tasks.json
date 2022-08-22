@@ -39,8 +39,7 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "tasksComponent",
-        "generated": false
+        "serviceName": "tasksComponent"
     },
     {
         "id": "sd_ADgJTlrtwIWcFeC3",
@@ -159,8 +158,7 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "tasksComponent",
-        "generated": false
+        "serviceName": "tasksComponent"
     },
     {
         "id": "sd_UIoFu3S1YlDsUSf3",
@@ -201,8 +199,7 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "tasksComponent",
-        "generated": false
+        "serviceName": "tasksComponent"
     },
     {
         "id": "sd_2AZeEezdk9yRJE3F",
@@ -465,8 +462,7 @@
         },
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "tasksComponent",
-        "generated": false
+        "serviceName": "tasksComponent"
     },
     {
         "id": "sd_QJbseJhs6PEXwcoc",
@@ -581,8 +577,7 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "tasksComponent",
-        "generated": false
+        "serviceName": "tasksComponent"
     },
     {
         "id": "sd_0qDzXSsHMSkXJRTt",
@@ -715,8 +710,7 @@
             ]
         ],
         "__n_excludedFromValidation__": {},
-        "generateNext": true,
-        "generated": false
+        "generateNext": true
     },
     {
         "id": "sd_Qdn9X5s22nkxFXMT",
@@ -768,8 +762,7 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "tasksComponent",
-        "generated": false
+        "serviceName": "tasksComponent"
     },
     {
         "id": "sd_y3ORfH2adYFSbnY9",
@@ -827,7 +820,6 @@
             []
         ],
         "__n_excludedFromValidation__": {},
-        "generated": false,
         "generateNext": true
     },
     {
@@ -862,8 +854,7 @@
             []
         ],
         "__n_excludedFromValidation__": {},
-        "generateNext": true,
-        "generated": false
+        "generateNext": true
     },
     {
         "id": "sd_MK2ljHaWvAsVUvAl",
@@ -883,8 +874,7 @@
             ]
         ],
         "__n_excludedFromValidation__": {},
-        "generateNext": true,
-        "generated": false
+        "generateNext": true
     },
     {
         "id": "sd_nFYV4Q0vqs0nZw8t",
@@ -922,8 +912,7 @@
             ]
         ],
         "__n_excludedFromValidation__": {},
-        "generateNext": true,
-        "generated": false
+        "generateNext": true
     },
     {
         "id": "sd_ys1BcQsrQkRDQSwP",
@@ -964,8 +953,7 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "tasksComponent",
-        "generated": false
+        "serviceName": "tasksComponent"
     },
     {
         "id": "sd_dPNVrZIwvQwX0owT",
@@ -1065,8 +1053,7 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "tasksComponent",
-        "generated": false
+        "serviceName": "tasksComponent"
     },
     {
         "id": "sd_TPeHLiMI9eqd0jeM",
@@ -1137,8 +1124,7 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "tasksComponent",
-        "generated": false
+        "serviceName": "tasksComponent"
     },
     {
         "id": "sd_QBORA0GdCvaQDHEw",
@@ -1252,7 +1238,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "let taskName = sessionStorage.getItem('task-name')\n\nif(taskName ){\n    if(taskName == 'Manual Verification'){\n        console.log('page.queues',this.page.queues)\n        //tab.conf.label\n    }\n}",
+        "script": "let taskName = sessionStorage.getItem('task-name')\n\nif(taskName ){\n    if(taskName == 'Manual Verification'){\n        console.log('page.queues',this.page.queues)\n        //tab.conf.label\n    }\n}\n\nconsole.log('9999999999',page.queues)",
         "functionName": "sd_JfxmYjxLJBKYd7fx",
         "category": "Function",
         "x": 500,

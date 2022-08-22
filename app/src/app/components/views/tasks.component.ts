@@ -9,8 +9,6 @@ import {
   Output,
   EventEmitter,
   AfterViewInit,
-  ViewChild,
-  ViewChildren,
 } from '@angular/core'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
@@ -231,6 +229,8 @@ export class tasksComponent implements AfterViewInit {
           //tab.conf.label
         }
       }
+
+      console.log('9999999999', page.queues);
       //appendnew_next_sd_JfxmYjxLJBKYd7fx
       return bh;
     } catch (e) {

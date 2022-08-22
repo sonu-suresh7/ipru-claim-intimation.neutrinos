@@ -3,7 +3,7 @@
     <div fxLayout="column " class="padding-1 height-100 width-100" fxLayoutAlign="start stretch">
       <mat-tab-group mat-align-tabs="start" class="height-100" animationDuration="0">
         <ng-template ngFor let-tab [ngForOf]="page.tabs || []" let-i="index">
-          <mat-tab label="{{tab.label | uppercase}}" class="border-box height-100" [label]="tab.label">
+          <mat-tab label="{{tab.label | uppercase}}" class="custom-tab1 border-box height-100" [label]="tab.label">
             <bh-case_view *ngIf="tab.id === &apos;caseDetails&apos;"></bh-case_view>
             <bh-case_documents class="height-100" *ngIf="tab.id === &apos;documents&apos;"></bh-case_documents>
             <bh-other_policies_base *ngIf="tab.id === &apos;otherPolicies&apos;"></bh-other_policies_base>

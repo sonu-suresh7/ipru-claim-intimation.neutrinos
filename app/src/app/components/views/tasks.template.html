@@ -5,7 +5,7 @@
       <mat-icon class="cursor-pointer" (click)="openRightSideBar()">filter_list</mat-icon><button mat-raised-button *ngIf="page.USER_ROLE === &apos;ADMIN&apos;" color="primary" (click)="reassignTasks()">{{page.locales.keys.reassign}}</button>
     </div>
   </div>
-  <mat-tab-group mat-align-tabs="start" [(selectedIndex)]="page.selectedIndex" animationDuration="0" (selectedIndexChange)="onTabIndexChange($event)">
+  <mat-tab-group mat-align-tabs="start" class="1changecustom1" [(selectedIndex)]="page.selectedIndex" animationDuration="0" (selectedIndexChange)="onTabIndexChange($event)">
     <ng-template ngFor let-tab [ngForOf]="page.queues || []" let-i="index">
       <mat-tab label="{{tab.conf.label}}" [label]>
 

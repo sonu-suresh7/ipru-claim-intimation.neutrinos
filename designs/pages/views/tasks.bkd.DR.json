@@ -584,7 +584,9 @@
                 },
                 {
                     "_key": "class",
-                    "_value": "",
+                    "_value": [
+                        "1changecustom1"
+                    ],
                     "_type": "dav",
                     "_attrDef": "p"
                 },
