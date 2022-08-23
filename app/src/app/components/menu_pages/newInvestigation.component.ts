@@ -482,7 +482,7 @@ export class newInvestigationComponent {
         pid: page.newPid,
         claimantObj: claimantObj,
       };
-      sessionStorage.removeItem('claimantObj')
+      
       bh = this.sd_iM4IogpArsF0uSqm(bh);
       //appendnew_next_sd_UNL0IvQf4gXNFiog
       return bh;
@@ -499,6 +499,8 @@ export class newInvestigationComponent {
       let outputVariables = await caseServiceInstance.addnewpayload(
         bh.local.payload
       );
+
+      sessionStorage.removeItem('claimantObj')
 
       //appendnew_next_sd_iM4IogpArsF0uSqm
       return bh;
