@@ -497,7 +497,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "page.documenttype =[\n    {\n        claimtype: 'Medical',\n        docList: ['Claim Intimation Form', 'Policy Document', 'Death Certificate', 'Id Proof', 'Discharge Summary', 'Doctor’s certificate', 'Claimants Photo']\n    },\n    {\n        claimtype: 'Natural',\n        docList: ['Claim Intimation Form', 'Policy Document', 'Death Certificate', 'Id Proof','Claimants Photo']\n    }, \n    {\n        claimtype: 'Accidental',\n        docList: ['Claim Intimation Form', 'Policy Document', 'Death Certificate', 'Id Proof', 'FIR', 'Post mortem Report ', 'Claimants Photo']\n    },\n    {\n        claimtype: 'Suicidal',\n        docList: ['Claim Intimation Form', 'Policy Document', 'Death Certificate', 'Id Proof', 'FIR', 'Post mortem Report ', 'Claimants Photo']\n    },\n]",
+        "script": "page.documenttype =[\n    {\n        claimtype: 'Medical',\n        docList: ['Claim Intimation Form', 'Policy Document', 'Death Certificate', 'Id Proof', 'Discharge Summary', 'Doctor’s certificate' ]\n    },\n    {\n        claimtype: 'Natural',\n        docList: ['Claim Intimation Form', 'Policy Document', 'Death Certificate', 'Id Proof']\n    }, \n    {\n        claimtype: 'Accidental',\n        docList: ['Claim Intimation Form', 'Policy Document', 'Death Certificate', 'Id Proof', 'FIR', 'Post mortem Report ' ]\n    },\n    {\n        claimtype: 'Suicidal',\n        docList: ['Claim Intimation Form', 'Policy Document', 'Death Certificate', 'Id Proof', 'FIR', 'Post mortem Report ' ]\n    },\n]",
         "functionName": "sd_IvESlKkJxLqsR2Wg",
         "category": "Function",
         "x": 425,
