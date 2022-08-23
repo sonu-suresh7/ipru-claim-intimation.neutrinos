@@ -210,8 +210,8 @@ export class investigation_requestComponent {
             'Death Certificate',
             'Id Proof',
             'Discharge Summary',
-            'Doctor’s certificate',
-            'Claimants Photo',
+            'Doctor’s certificate'
+            
           ],
         },
         {
@@ -220,8 +220,7 @@ export class investigation_requestComponent {
             'Claim Intimation Form',
             'Policy Document',
             'Death Certificate',
-            'Id Proof',
-            'Claimants Photo',
+            'Id Proof'
           ],
         },
         {
@@ -232,8 +231,7 @@ export class investigation_requestComponent {
             'Death Certificate',
             'Id Proof',
             'FIR',
-            'Post mortem Report ',
-            'Claimants Photo',
+            'Post mortem Report '
           ],
         },
         {
@@ -244,8 +242,7 @@ export class investigation_requestComponent {
             'Death Certificate',
             'Id Proof',
             'FIR',
-            'Post mortem Report ',
-            'Claimants Photo',
+            'Post mortem Report '
           ],
         },
       ];
