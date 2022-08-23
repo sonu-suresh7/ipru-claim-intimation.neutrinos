@@ -562,7 +562,7 @@ mat-icon[data-mat-icon-name='complete'] {
 .ss-logo-container {
     @extend .height-100;
     @extend .bg-white;
-    padding: 0.5rem;
+    // padding: 0.5rem;
 }
 
 .mat-horizontal-content-container {
@@ -1035,6 +1035,7 @@ Application details Page Styles
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
 
 .header-title {
     @extend .font-weight-semi-bold;
