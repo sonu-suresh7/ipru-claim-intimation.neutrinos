@@ -482,7 +482,7 @@ export class newInvestigationComponent {
         pid: page.newPid,
         claimantObj: claimantObj,
       };
-
+      sessionStorage.removeItem('claimantObj')
       bh = this.sd_iM4IogpArsF0uSqm(bh);
       //appendnew_next_sd_UNL0IvQf4gXNFiog
       return bh;
