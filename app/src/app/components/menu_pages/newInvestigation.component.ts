@@ -39,6 +39,8 @@ export class newInvestigationComponent {
   }
 
   ngOnInit() {
+    sessionStorage.removeItem('claimantObj')
+
     const bh: any = this.__page_injector__
       .get(SDPageCommonService)
       .constructFlowObject(this);
