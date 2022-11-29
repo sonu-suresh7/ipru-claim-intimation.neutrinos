@@ -256,7 +256,7 @@ export class investigation {
   async sd_1x82EylJ5SNUFzrY(bh) {
     try {
       bh.local.url =
-        bh.system.environment.properties.ssdBaseUrl +
+	  'https://ipru.onrender.com/api' +
         `/salesforce/policy/${bh.input.policy_number}`;
       bh = await this.sd_yPObHiYargaiDfn8(bh);
       //appendnew_next_sd_1x82EylJ5SNUFzrY
