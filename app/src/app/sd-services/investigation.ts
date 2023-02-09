@@ -4,11 +4,11 @@
 
 import { Injectable, Injector } from '@angular/core'; //_splitter_
 import {
-  Router,
-  NavigationEnd,
-  NavigationStart,
-  Resolve,
-  ActivatedRouteSnapshot,
+	Router,
+	NavigationEnd,
+	NavigationStart,
+	Resolve,
+	ActivatedRouteSnapshot,
 } from '@angular/router'; //_splitter_
 import { MatSnackBar } from '@angular/material/snack-bar'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
@@ -18,438 +18,438 @@ declare const window: any;
 declare const cordova: any;
 
 @Injectable({
-  providedIn: 'root',
+	providedIn: 'root',
 })
 export class investigation {
-  constructor(
-    private sdService: SDBaseService,
-    private router: Router,
-    private matSnackBar: MatSnackBar,
-    private __service_injector__: Injector
-  ) {
-    this.registerListeners();
-  }
-  private registerListeners() {
-    let bh = this.sdService.__constructDefault({});
+	constructor(
+		private sdService: SDBaseService,
+		private router: Router,
+		private matSnackBar: MatSnackBar,
+		private __service_injector__: Injector
+	) {
+		this.registerListeners();
+	}
+	private registerListeners() {
+		let bh = this.sdService.__constructDefault({});
 
-    //append_listeners
-  }
+		//append_listeners
+	}
 
-  //   service flows_investigation
+	//   service flows_investigation
 
-  async searchPolicy(policy_number: any = undefined, ...others) {
-    try {
-      var bh: any = {
-        input: {
-          policy_number: policy_number,
-        },
-        local: {
-          policy_details: undefined,
-          url: undefined,
-        },
-      };
-      bh = this.sdService.__constructDefault(bh);
-      bh = await this.sd_1x82EylJ5SNUFzrY(bh);
-      //appendnew_next_searchPolicy
-      return (
-        // formatting output variables
-        {
-          input: {},
-          local: {
-            policy_details: bh.local.policy_details,
-          },
-        }
-      );
-    } catch (e) {
-      return await this.errorHandler(bh, e, 'sd_UyDxFhC2nV5zmHnR');
-    }
-  }
+	async searchPolicy(policy_number: any = undefined, ...others) {
+		try {
+			var bh: any = {
+				input: {
+					policy_number: policy_number,
+				},
+				local: {
+					policy_details: undefined,
+					url: undefined,
+				},
+			};
+			bh = this.sdService.__constructDefault(bh);
+			bh = await this.sd_1x82EylJ5SNUFzrY(bh);
+			//appendnew_next_searchPolicy
+			return (
+				// formatting output variables
+				{
+					input: {},
+					local: {
+						policy_details: bh.local.policy_details,
+					},
+				}
+			);
+		} catch (e) {
+			return await this.errorHandler(bh, e, 'sd_UyDxFhC2nV5zmHnR');
+		}
+	}
 
-  async getInvestigationTypes(...others) {
-    try {
-      var bh: any = {
-        input: {},
-        local: {
-          investigation_types: undefined,
-        },
-      };
-      bh = this.sdService.__constructDefault(bh);
-      bh = await this.sd_VNsZ940dmueCMRlG(bh);
-      //appendnew_next_getInvestigationTypes
-      return (
-        // formatting output variables
-        {
-          input: {},
-          local: {
-            investigation_types: bh.local.investigation_types,
-          },
-        }
-      );
-    } catch (e) {
-      return await this.errorHandler(bh, e, 'sd_Op8aUtlSdLiWKNZe');
-    }
-  }
+	async getInvestigationTypes(...others) {
+		try {
+			var bh: any = {
+				input: {},
+				local: {
+					investigation_types: undefined,
+				},
+			};
+			bh = this.sdService.__constructDefault(bh);
+			bh = await this.sd_VNsZ940dmueCMRlG(bh);
+			//appendnew_next_getInvestigationTypes
+			return (
+				// formatting output variables
+				{
+					input: {},
+					local: {
+						investigation_types: bh.local.investigation_types,
+					},
+				}
+			);
+		} catch (e) {
+			return await this.errorHandler(bh, e, 'sd_Op8aUtlSdLiWKNZe');
+		}
+	}
 
-  async getXmlTemplate(
-    CASE_ID: any = undefined,
-    CLIENT_NUMBER: any = undefined,
-    DATE_OF_BIRTH: any = undefined,
-    PROPOSER_GENDER: any = undefined,
-    MAIN_BENEFIT_SUM_ASSURED: any = undefined,
-    POLICY_NUMBER: any = undefined,
-    PREMIUM: any = undefined,
-    PREMIUM_CURRENT_POLICY: any = undefined,
-    CHECKLIST: any = undefined,
-    INVESTIGATOR: any = undefined,
-    LIFE_AGE: any = undefined,
-    INVESTIGATION_TYPES: any = [],
-    ...others
-  ) {
-    try {
-      var bh: any = {
-        input: {
-          CASE_ID: CASE_ID,
-          CLIENT_NUMBER: CLIENT_NUMBER,
-          DATE_OF_BIRTH: DATE_OF_BIRTH,
-          PROPOSER_GENDER: PROPOSER_GENDER,
-          MAIN_BENEFIT_SUM_ASSURED: MAIN_BENEFIT_SUM_ASSURED,
-          POLICY_NUMBER: POLICY_NUMBER,
-          PREMIUM: PREMIUM,
-          PREMIUM_CURRENT_POLICY: PREMIUM_CURRENT_POLICY,
-          CHECKLIST: CHECKLIST,
-          INVESTIGATOR: INVESTIGATOR,
-          LIFE_AGE: LIFE_AGE,
-          INVESTIGATION_TYPES: INVESTIGATION_TYPES,
-        },
-        local: {
-          template: undefined,
-        },
-      };
-      bh = this.sdService.__constructDefault(bh);
-      bh = await this.calculateAgeCall(bh);
-      //appendnew_next_getXmlTemplate
-      return (
-        // formatting output variables
-        {
-          input: {},
-          local: {
-            template: bh.local.template,
-          },
-        }
-      );
-    } catch (e) {
-      return await this.errorHandler(bh, e, 'sd_dz8ucwhsjIEShvhQ');
-    }
-  }
+	async getXmlTemplate(
+		CASE_ID: any = undefined,
+		CLIENT_NUMBER: any = undefined,
+		DATE_OF_BIRTH: any = undefined,
+		PROPOSER_GENDER: any = undefined,
+		MAIN_BENEFIT_SUM_ASSURED: any = undefined,
+		POLICY_NUMBER: any = undefined,
+		PREMIUM: any = undefined,
+		PREMIUM_CURRENT_POLICY: any = undefined,
+		CHECKLIST: any = undefined,
+		INVESTIGATOR: any = undefined,
+		LIFE_AGE: any = undefined,
+		INVESTIGATION_TYPES: any = [],
+		...others
+	) {
+		try {
+			var bh: any = {
+				input: {
+					CASE_ID: CASE_ID,
+					CLIENT_NUMBER: CLIENT_NUMBER,
+					DATE_OF_BIRTH: DATE_OF_BIRTH,
+					PROPOSER_GENDER: PROPOSER_GENDER,
+					MAIN_BENEFIT_SUM_ASSURED: MAIN_BENEFIT_SUM_ASSURED,
+					POLICY_NUMBER: POLICY_NUMBER,
+					PREMIUM: PREMIUM,
+					PREMIUM_CURRENT_POLICY: PREMIUM_CURRENT_POLICY,
+					CHECKLIST: CHECKLIST,
+					INVESTIGATOR: INVESTIGATOR,
+					LIFE_AGE: LIFE_AGE,
+					INVESTIGATION_TYPES: INVESTIGATION_TYPES,
+				},
+				local: {
+					template: undefined,
+				},
+			};
+			bh = this.sdService.__constructDefault(bh);
+			bh = await this.calculateAgeCall(bh);
+			//appendnew_next_getXmlTemplate
+			return (
+				// formatting output variables
+				{
+					input: {},
+					local: {
+						template: bh.local.template,
+					},
+				}
+			);
+		} catch (e) {
+			return await this.errorHandler(bh, e, 'sd_dz8ucwhsjIEShvhQ');
+		}
+	}
 
-  async xmlAttributeFromChecklist(checklist: any = undefined, ...others) {
-    try {
-      var bh: any = {
-        input: {
-          checklist: checklist,
-        },
-        local: {
-          result: undefined,
-        },
-      };
-      bh = this.sdService.__constructDefault(bh);
-      bh = await this.sd_03m26RJq1KqOOy7y(bh);
-      //appendnew_next_xmlAttributeFromChecklist
-      return (
-        // formatting output variables
-        {
-          input: {},
-          local: {
-            result: bh.local.result,
-          },
-        }
-      );
-    } catch (e) {
-      return await this.errorHandler(bh, e, 'sd_2a4nuDa9Qhi5weqA');
-    }
-  }
+	async xmlAttributeFromChecklist(checklist: any = undefined, ...others) {
+		try {
+			var bh: any = {
+				input: {
+					checklist: checklist,
+				},
+				local: {
+					result: undefined,
+				},
+			};
+			bh = this.sdService.__constructDefault(bh);
+			bh = await this.sd_03m26RJq1KqOOy7y(bh);
+			//appendnew_next_xmlAttributeFromChecklist
+			return (
+				// formatting output variables
+				{
+					input: {},
+					local: {
+						result: bh.local.result,
+					},
+				}
+			);
+		} catch (e) {
+			return await this.errorHandler(bh, e, 'sd_2a4nuDa9Qhi5weqA');
+		}
+	}
 
-  async getInvestigators(...others) {
-    try {
-      var bh: any = {
-        input: {},
-        local: {
-          result: undefined,
-        },
-      };
-      bh = this.sdService.__constructDefault(bh);
-      bh = await this.sd_2rvBd90SKhVgfQjn(bh);
-      //appendnew_next_getInvestigators
-      return (
-        // formatting output variables
-        {
-          input: {},
-          local: {
-            result: bh.local.result,
-          },
-        }
-      );
-    } catch (e) {
-      return await this.errorHandler(bh, e, 'sd_3APjdFuejeEEayfl');
-    }
-  }
+	async getInvestigators(...others) {
+		try {
+			var bh: any = {
+				input: {},
+				local: {
+					result: undefined,
+				},
+			};
+			bh = this.sdService.__constructDefault(bh);
+			bh = await this.sd_2rvBd90SKhVgfQjn(bh);
+			//appendnew_next_getInvestigators
+			return (
+				// formatting output variables
+				{
+					input: {},
+					local: {
+						result: bh.local.result,
+					},
+				}
+			);
+		} catch (e) {
+			return await this.errorHandler(bh, e, 'sd_3APjdFuejeEEayfl');
+		}
+	}
 
-  async calculateAge(dob: any = undefined, ...others) {
-    try {
-      var bh: any = {
-        input: {
-          dob: dob,
-        },
-        local: {
-          age: undefined,
-        },
-      };
-      bh = this.sdService.__constructDefault(bh);
-      bh = await this.sd_aCiSJQ2S28tinnR8(bh);
-      //appendnew_next_calculateAge
-      return (
-        // formatting output variables
-        {
-          input: {},
-          local: {
-            age: bh.local.age,
-          },
-        }
-      );
-    } catch (e) {
-      return await this.errorHandler(bh, e, 'sd_ve2VNdWtgd629hIC');
-    }
-  }
+	async calculateAge(dob: any = undefined, ...others) {
+		try {
+			var bh: any = {
+				input: {
+					dob: dob,
+				},
+				local: {
+					age: undefined,
+				},
+			};
+			bh = this.sdService.__constructDefault(bh);
+			bh = await this.sd_aCiSJQ2S28tinnR8(bh);
+			//appendnew_next_calculateAge
+			return (
+				// formatting output variables
+				{
+					input: {},
+					local: {
+						age: bh.local.age,
+					},
+				}
+			);
+		} catch (e) {
+			return await this.errorHandler(bh, e, 'sd_ve2VNdWtgd629hIC');
+		}
+	}
 
-  async getInvestigationTypeSnippet(
-    investigation_types: any = undefined,
-    ...others
-  ) {
-    try {
-      var bh: any = {
-        input: {
-          investigation_types: investigation_types,
-        },
-        local: {
-          result: undefined,
-        },
-      };
-      bh = this.sdService.__constructDefault(bh);
-      bh = await this.sd_SYKRCBOJghzzhAci(bh);
-      //appendnew_next_getInvestigationTypeSnippet
-      return (
-        // formatting output variables
-        {
-          input: {},
-          local: {
-            result: bh.local.result,
-          },
-        }
-      );
-    } catch (e) {
-      return await this.errorHandler(bh, e, 'sd_FLbVaCsVDT3AFlHU');
-    }
-  }
+	async getInvestigationTypeSnippet(
+		investigation_types: any = undefined,
+		...others
+	) {
+		try {
+			var bh: any = {
+				input: {
+					investigation_types: investigation_types,
+				},
+				local: {
+					result: undefined,
+				},
+			};
+			bh = this.sdService.__constructDefault(bh);
+			bh = await this.sd_SYKRCBOJghzzhAci(bh);
+			//appendnew_next_getInvestigationTypeSnippet
+			return (
+				// formatting output variables
+				{
+					input: {},
+					local: {
+						result: bh.local.result,
+					},
+				}
+			);
+		} catch (e) {
+			return await this.errorHandler(bh, e, 'sd_FLbVaCsVDT3AFlHU');
+		}
+	}
 
-  //appendnew_flow_investigation_start
+	//appendnew_flow_investigation_start
 
-  async sd_1x82EylJ5SNUFzrY(bh) {
-    try {
-      bh.local.url =
-	  'https://ipru.onrender.com/api' +
-        `/salesforce/policy/${bh.input.policy_number}`;
-      bh = await this.sd_yPObHiYargaiDfn8(bh);
-      //appendnew_next_sd_1x82EylJ5SNUFzrY
-      return bh;
-    } catch (e) {
-      return await this.errorHandler(bh, e, 'sd_1x82EylJ5SNUFzrY');
-    }
-  }
+	async sd_1x82EylJ5SNUFzrY(bh) {
+		try {
+			bh.local.url =
+				bh.system.environment.properties.ssdBaseUrl +
+				`/salesforce/policy/${bh.input.policy_number}`;
+			bh = await this.sd_yPObHiYargaiDfn8(bh);
+			//appendnew_next_sd_1x82EylJ5SNUFzrY
+			return bh;
+		} catch (e) {
+			return await this.errorHandler(bh, e, 'sd_1x82EylJ5SNUFzrY');
+		}
+	}
 
-  async sd_yPObHiYargaiDfn8(bh) {
-    try {
-      let requestOptions = {
-        url: bh.local.url,
-        method: 'get',
-        responseType: 'json',
-        headers: {},
-        params: {},
-        body: undefined,
-      };
-      bh.local.policy_details = await this.sdService.nHttpRequest(
-        requestOptions
-      );
-      //appendnew_next_sd_yPObHiYargaiDfn8
-      return bh;
-    } catch (e) {
-      return await this.errorHandler(bh, e, 'sd_yPObHiYargaiDfn8');
-    }
-  }
+	async sd_yPObHiYargaiDfn8(bh) {
+		try {
+			let requestOptions = {
+				url: bh.local.url,
+				method: 'get',
+				responseType: 'json',
+				headers: {},
+				params: {},
+				body: undefined,
+			};
+			bh.local.policy_details = await this.sdService.nHttpRequest(
+				requestOptions
+			);
+			//appendnew_next_sd_yPObHiYargaiDfn8
+			return bh;
+		} catch (e) {
+			return await this.errorHandler(bh, e, 'sd_yPObHiYargaiDfn8');
+		}
+	}
 
-  async sd_VNsZ940dmueCMRlG(bh) {
-    try {
-      bh.local.investigation_types = [
-        {
-          type: 'Non-Disclosure',
-          value: [
-            {
-              sub_tupe: 'Personal Medical History​',
-              value: [
-                {
-                  value:
-                    'Collect statement from treating doctor regarding p/h​',
-                },
-                {
-                  value: 'Hospital registration certificate',
-                },
-                {
-                  value: 'Treating Dr Registration Certificate',
-                },
-              ],
-            },
-            {
-              sub_tupe: 'Financial Facts',
-              value: [
-                {
-                  value:
-                    'Statement from neighbors in form of written/AVR of at least​',
-                },
-                {
-                  value: 'Source of Income  and Income amount​',
-                },
-                {
-                  value: 'Occupation​',
-                },
-              ],
-            },
-            {
-              sub_tupe: 'Employment Check',
-              value: [
-                {
-                  value:
-                    'Confirm whether the person is employee or not in that company​',
-                },
-                {
-                  value:
-                    'Attendance record of the period of unavailability if person is working in some company​',
-                },
-                {
-                  value: 'Declaration from HR in case of Death/accident​',
-                },
-                {
-                  value: 'Statement from Colleagues',
-                },
-              ],
-            },
-          ],
-        },
-        {
-          type: 'Mis-Selling',
-          value: [
-            {
-              sub_tupe: 'Customer Discussion',
-              value: [
-                {
-                  value: 'Verify Mobile​',
-                },
-                {
-                  value: 'Verify Annual Income',
-                },
-                {
-                  value: 'Check Benefit Understanding​',
-                },
-                {
-                  value: 'Premium Amount  and Premium Paying Term​',
-                },
-              ],
-            },
-          ],
-        },
-        {
-          type: 'Document Discrepancy',
-          value: [
-            {
-              sub_tupe: 'Id Proof',
-              value: [
-                {
-                  value: 'Signature Verification​',
-                },
-                {
-                  value: 'Spot Check with AVR​',
-                },
-              ],
-            },
-            {
-              sub_tupe: 'Medical Reports​',
-              value: [
-                {
-                  value: 'Lab register check',
-                },
-                {
-                  value: 'Verify Report with lab Records',
-                },
-                {
-                  value:
-                    'Pathologist availability, statement from him confirming he is attached with lab',
-                },
-              ],
-            },
-          ],
-        },
-      ];
-      //appendnew_next_sd_VNsZ940dmueCMRlG
-      return bh;
-    } catch (e) {
-      return await this.errorHandler(bh, e, 'sd_VNsZ940dmueCMRlG');
-    }
-  }
+	async sd_VNsZ940dmueCMRlG(bh) {
+		try {
+			bh.local.investigation_types = [
+				{
+					type: 'Non-Disclosure',
+					value: [
+						{
+							sub_tupe: 'Personal Medical History​',
+							value: [
+								{
+									value:
+										'Collect statement from treating doctor regarding p/h​',
+								},
+								{
+									value: 'Hospital registration certificate',
+								},
+								{
+									value: 'Treating Dr Registration Certificate',
+								},
+							],
+						},
+						{
+							sub_tupe: 'Financial Facts',
+							value: [
+								{
+									value:
+										'Statement from neighbors in form of written/AVR of at least​',
+								},
+								{
+									value: 'Source of Income  and Income amount​',
+								},
+								{
+									value: 'Occupation​',
+								},
+							],
+						},
+						{
+							sub_tupe: 'Employment Check',
+							value: [
+								{
+									value:
+										'Confirm whether the person is employee or not in that company​',
+								},
+								{
+									value:
+										'Attendance record of the period of unavailability if person is working in some company​',
+								},
+								{
+									value: 'Declaration from HR in case of Death/accident​',
+								},
+								{
+									value: 'Statement from Colleagues',
+								},
+							],
+						},
+					],
+				},
+				{
+					type: 'Mis-Selling',
+					value: [
+						{
+							sub_tupe: 'Customer Discussion',
+							value: [
+								{
+									value: 'Verify Mobile​',
+								},
+								{
+									value: 'Verify Annual Income',
+								},
+								{
+									value: 'Check Benefit Understanding​',
+								},
+								{
+									value: 'Premium Amount  and Premium Paying Term​',
+								},
+							],
+						},
+					],
+				},
+				{
+					type: 'Document Discrepancy',
+					value: [
+						{
+							sub_tupe: 'Id Proof',
+							value: [
+								{
+									value: 'Signature Verification​',
+								},
+								{
+									value: 'Spot Check with AVR​',
+								},
+							],
+						},
+						{
+							sub_tupe: 'Medical Reports​',
+							value: [
+								{
+									value: 'Lab register check',
+								},
+								{
+									value: 'Verify Report with lab Records',
+								},
+								{
+									value:
+										'Pathologist availability, statement from him confirming he is attached with lab',
+								},
+							],
+						},
+					],
+				},
+			];
+			//appendnew_next_sd_VNsZ940dmueCMRlG
+			return bh;
+		} catch (e) {
+			return await this.errorHandler(bh, e, 'sd_VNsZ940dmueCMRlG');
+		}
+	}
 
-  async calculateAgeCall(bh) {
-    try {
-      let outputVariables = await this.calculateAge(bh.input.LIFE_AGE);
-      bh.local.age = outputVariables.local.age;
+	async calculateAgeCall(bh) {
+		try {
+			let outputVariables = await this.calculateAge(bh.input.LIFE_AGE);
+			bh.local.age = outputVariables.local.age;
 
-      bh = await this.generateInvestigationTypeSnippet(bh);
-      //appendnew_next_calculateAgeCall
-      return bh;
-    } catch (e) {
-      return await this.errorHandler(bh, e, 'sd_97j6SVjQvmyHyFEu');
-    }
-  }
+			bh = await this.generateInvestigationTypeSnippet(bh);
+			//appendnew_next_calculateAgeCall
+			return bh;
+		} catch (e) {
+			return await this.errorHandler(bh, e, 'sd_97j6SVjQvmyHyFEu');
+		}
+	}
 
-  async generateInvestigationTypeSnippet(bh) {
-    try {
-      let outputVariables = await this.getInvestigationTypeSnippet(
-        bh.input.INVESTIGATION_TYPES
-      );
-      bh.local.investigation_type_snippet = outputVariables.local.result;
+	async generateInvestigationTypeSnippet(bh) {
+		try {
+			let outputVariables = await this.getInvestigationTypeSnippet(
+				bh.input.INVESTIGATION_TYPES
+			);
+			bh.local.investigation_type_snippet = outputVariables.local.result;
 
-      bh = await this.getChecklistAttributes(bh);
-      //appendnew_next_generateInvestigationTypeSnippet
-      return bh;
-    } catch (e) {
-      return await this.errorHandler(bh, e, 'sd_wEWVz7NUMBbTRjoo');
-    }
-  }
+			bh = await this.getChecklistAttributes(bh);
+			//appendnew_next_generateInvestigationTypeSnippet
+			return bh;
+		} catch (e) {
+			return await this.errorHandler(bh, e, 'sd_wEWVz7NUMBbTRjoo');
+		}
+	}
 
-  async getChecklistAttributes(bh) {
-    try {
-      let outputVariables = await this.xmlAttributeFromChecklist(
-        bh.input.CHECKLIST
-      );
-      bh.CHECKLIST_ATTRIBUTES = outputVariables.local.result;
+	async getChecklistAttributes(bh) {
+		try {
+			let outputVariables = await this.xmlAttributeFromChecklist(
+				bh.input.CHECKLIST
+			);
+			bh.CHECKLIST_ATTRIBUTES = outputVariables.local.result;
 
-      bh = await this.sd_JzeDWWgrquyTZ5IN(bh);
-      //appendnew_next_getChecklistAttributes
-      return bh;
-    } catch (e) {
-      return await this.errorHandler(bh, e, 'sd_ig12eT1USbQLQpgC');
-    }
-  }
+			bh = await this.sd_JzeDWWgrquyTZ5IN(bh);
+			//appendnew_next_getChecklistAttributes
+			return bh;
+		} catch (e) {
+			return await this.errorHandler(bh, e, 'sd_ig12eT1USbQLQpgC');
+		}
+	}
 
-  async sd_JzeDWWgrquyTZ5IN(bh) {
-    try {
-      bh.local.template = `
+	async sd_JzeDWWgrquyTZ5IN(bh) {
+		try {
+			bh.local.template = `
 <case caseId="${bh.input.CASE_ID}">
 	<caseStatus code="CLOSED" />
 	<caseStatusReason tc="1" code="AUTO">Automatically Closed</caseStatusReason>
@@ -506,9 +506,8 @@ export class investigation {
 			<attribute name="HEALTHCARE_RIDER_EXISTING_FLAG" value="false" />
 			<attribute name="HEIGHT" value="1.60" />
 			<attribute name="LINK_TYP" value="I" />
-			<attribute name="MAIN_BENEFIT_SUM_ASSURED" value="${
-        bh.input.MAIN_BENEFIT_SUM_ASSURED
-      }" />
+			<attribute name="MAIN_BENEFIT_SUM_ASSURED" value="${bh.input.MAIN_BENEFIT_SUM_ASSURED
+				}" />
 			<attribute name="MAX_ADB_VS_LIFE_REACHED" value="false" />
 			<attribute name="MED_DOC_SUBMITTED" />
 			<attribute name="MONTHLY_INCOME" value="50000" />
@@ -561,12 +560,10 @@ export class investigation {
 		</entity>
 		<entity type="case" name="1">
 			<attribute name="AGENCY" value="${bh.input.INVESTIGATOR?.investigator || ''}" />
-			<attribute name="AGENT_CATEGORY" value="${
-        bh.input.INVESTIGATOR?.agent_category || 'NA'
-      }" />
-			<attribute name="AGENT_CODE" value="${
-        bh.input.INVESTIGATOR?.agent_code || ''
-      }" />
+			<attribute name="AGENT_CATEGORY" value="${bh.input.INVESTIGATOR?.agent_category || 'NA'
+				}" />
+			<attribute name="AGENT_CODE" value="${bh.input.INVESTIGATOR?.agent_code || ''
+				}" />
 			<attribute name="AGENT_NAME" value="" />
 			<attribute name="AGENT2_CODE" value="" />
 			<attribute name="AGENT2_NAME" value="" />
@@ -581,9 +578,8 @@ export class investigation {
 			<attribute name="PAPER_APPLICATION_FLAG" value="false" />
 			<attribute name="POLICY_NUMBER" value="${bh.input.POLICY_NUMBER}" />
 			<attribute name="PREMIUM" value="${bh.input.PREMIUM}" />
-			<attribute name="PREMIUM_CURRENT_POLICY" value="${
-        bh.input.PREMIUM_CURRENT_POLICY
-      }" />
+			<attribute name="PREMIUM_CURRENT_POLICY" value="${bh.input.PREMIUM_CURRENT_POLICY
+				}" />
 			<attribute name="PRODUCT_TYPE" value="RPVL,MC_RIDER" />
 			<attribute name="UL2019_PLAN2_FLAG" value="false" />
 			<attribute name="UNIT_LINKED_PRODUCT_FLAG" value="true" />
@@ -3836,110 +3832,110 @@ export class investigation {
 		</caseDecision>
 	</underwriting>
 </case>`;
-      //appendnew_next_sd_JzeDWWgrquyTZ5IN
-      return bh;
-    } catch (e) {
-      return await this.errorHandler(bh, e, 'sd_JzeDWWgrquyTZ5IN');
-    }
-  }
+			//appendnew_next_sd_JzeDWWgrquyTZ5IN
+			return bh;
+		} catch (e) {
+			return await this.errorHandler(bh, e, 'sd_JzeDWWgrquyTZ5IN');
+		}
+	}
 
-  async sd_03m26RJq1KqOOy7y(bh) {
-    try {
-      bh.local.result = '';
-      bh.input.checklist.forEach((list) => {
-        bh.local.result += `
+	async sd_03m26RJq1KqOOy7y(bh) {
+		try {
+			bh.local.result = '';
+			bh.input.checklist.forEach((list) => {
+				bh.local.result += `
     <attribute name="${list}" value="true" investigation_checklist="true" />`;
-      });
-      //appendnew_next_sd_03m26RJq1KqOOy7y
-      return bh;
-    } catch (e) {
-      return await this.errorHandler(bh, e, 'sd_03m26RJq1KqOOy7y');
-    }
-  }
+			});
+			//appendnew_next_sd_03m26RJq1KqOOy7y
+			return bh;
+		} catch (e) {
+			return await this.errorHandler(bh, e, 'sd_03m26RJq1KqOOy7y');
+		}
+	}
 
-  async sd_2rvBd90SKhVgfQjn(bh) {
-    try {
-      bh.local.result = [
-        {
-          investigator: 'CONFIDENTIAL INVESTIGATIVE SERVICES PVT. LTD.',
-          agent_category: 'UW1',
-          agent_code: 'uw1a',
-        },
-        {
-          investigator: 'FALCON BUSINESS SOLUTION PVT.LTD.',
-          agent_category: 'UW1',
-          agent_code: 'uw1b',
-        },
-        {
-          investigator: 'VETERAN INVESTIGATION SERVICES',
-          agent_category: 'UW2',
-          agent_code: 'uw2a',
-        },
-        {
-          investigator: 'STRIKING VISION INTELLIGENCE NETWORK (P) LTD.',
-          agent_category: 'UW2',
-          agent_code: 'uw2b',
-        },
-        {
-          investigator: 'SHARP DETECTIVE PRIVATE LIMITED',
-          agent_category: 'UW3',
-          agent_code: 'uw3a',
-        },
-        {
-          investigator: 'G.S. DETECTIVES AND INVESTIGATORS',
-          agent_category: 'UW3',
-          agent_code: 'uw3b',
-        },
-      ];
-      //appendnew_next_sd_2rvBd90SKhVgfQjn
-      return bh;
-    } catch (e) {
-      return await this.errorHandler(bh, e, 'sd_2rvBd90SKhVgfQjn');
-    }
-  }
+	async sd_2rvBd90SKhVgfQjn(bh) {
+		try {
+			bh.local.result = [
+				{
+					investigator: 'CONFIDENTIAL INVESTIGATIVE SERVICES PVT. LTD.',
+					agent_category: 'UW1',
+					agent_code: 'uw1a',
+				},
+				{
+					investigator: 'FALCON BUSINESS SOLUTION PVT.LTD.',
+					agent_category: 'UW1',
+					agent_code: 'uw1b',
+				},
+				{
+					investigator: 'VETERAN INVESTIGATION SERVICES',
+					agent_category: 'UW2',
+					agent_code: 'uw2a',
+				},
+				{
+					investigator: 'STRIKING VISION INTELLIGENCE NETWORK (P) LTD.',
+					agent_category: 'UW2',
+					agent_code: 'uw2b',
+				},
+				{
+					investigator: 'SHARP DETECTIVE PRIVATE LIMITED',
+					agent_category: 'UW3',
+					agent_code: 'uw3a',
+				},
+				{
+					investigator: 'G.S. DETECTIVES AND INVESTIGATORS',
+					agent_category: 'UW3',
+					agent_code: 'uw3b',
+				},
+			];
+			//appendnew_next_sd_2rvBd90SKhVgfQjn
+			return bh;
+		} catch (e) {
+			return await this.errorHandler(bh, e, 'sd_2rvBd90SKhVgfQjn');
+		}
+	}
 
-  async sd_aCiSJQ2S28tinnR8(bh) {
-    try {
-      const today = new Date();
-      const birthDate = new Date(bh.input.dob);
-      let age = today.getFullYear() - birthDate.getFullYear();
-      const m = today.getMonth() - birthDate.getMonth();
-      if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-        age--;
-      }
-      bh.local.age = age;
-      //appendnew_next_sd_aCiSJQ2S28tinnR8
-      return bh;
-    } catch (e) {
-      return await this.errorHandler(bh, e, 'sd_aCiSJQ2S28tinnR8');
-    }
-  }
+	async sd_aCiSJQ2S28tinnR8(bh) {
+		try {
+			const today = new Date();
+			const birthDate = new Date(bh.input.dob);
+			let age = today.getFullYear() - birthDate.getFullYear();
+			const m = today.getMonth() - birthDate.getMonth();
+			if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+				age--;
+			}
+			bh.local.age = age;
+			//appendnew_next_sd_aCiSJQ2S28tinnR8
+			return bh;
+		} catch (e) {
+			return await this.errorHandler(bh, e, 'sd_aCiSJQ2S28tinnR8');
+		}
+	}
 
-  async sd_SYKRCBOJghzzhAci(bh) {
-    try {
-      bh.local.result = bh.input.investigation_types.join(', ');
-      //appendnew_next_sd_SYKRCBOJghzzhAci
-      return bh;
-    } catch (e) {
-      return await this.errorHandler(bh, e, 'sd_SYKRCBOJghzzhAci');
-    }
-  }
+	async sd_SYKRCBOJghzzhAci(bh) {
+		try {
+			bh.local.result = bh.input.investigation_types.join(', ');
+			//appendnew_next_sd_SYKRCBOJghzzhAci
+			return bh;
+		} catch (e) {
+			return await this.errorHandler(bh, e, 'sd_SYKRCBOJghzzhAci');
+		}
+	}
 
-  //appendnew_node
+	//appendnew_node
 
-  private async errorHandler(bh, e, src) {
-    console.error(e);
-    bh.error = e;
-    bh.errorSource = src;
+	private async errorHandler(bh, e, src) {
+		console.error(e);
+		bh.error = e;
+		bh.errorSource = src;
 
-    if (
-      false
-      /*appendnew_next_Catch*/
-    ) {
-      return bh;
-    } else {
-      throw e;
-    }
-  }
-  //appendnew_flow_investigation_Catch
+		if (
+			false
+			/*appendnew_next_Catch*/
+		) {
+			return bh;
+		} else {
+			throw e;
+		}
+	}
+	//appendnew_flow_investigation_Catch
 }
